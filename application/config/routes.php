@@ -60,3 +60,9 @@ $route['admin/dashboard'] = 'admin/dashboard';
 
 // Visi misi
 $route['admin/visimisi'] = 'admin/visimisi';
+
+// Pimpinan
+$route['admin/pimpinan'] = 'admin/pimpinan';
+
+// Imam
+$route['admin/imam'] = 'admin/imam';

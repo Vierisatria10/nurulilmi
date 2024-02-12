@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Feb 2024 pada 13.58
+-- Waktu pembuatan: 12 Feb 2024 pada 16.32
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -37,6 +37,13 @@ CREATE TABLE `tbl_imam` (
   `link3` text NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_imam`
+--
+
+INSERT INTO `tbl_imam` (`id_imam`, `nama`, `jabatan`, `foto`, `link1`, `link2`, `link3`, `tanggal`) VALUES
+(1, 'Aldo Alfayyad S.Pd', 'Imam Masjid', '31.jpg', '-', '-', '-', '2024-02-12 15:30:38');
 
 -- --------------------------------------------------------
 
@@ -142,7 +149,7 @@ ALTER TABLE `tbl_visimisi`
 -- AUTO_INCREMENT untuk tabel `tbl_imam`
 --
 ALTER TABLE `tbl_imam`
-  MODIFY `id_imam` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_imam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_pimpinan`
