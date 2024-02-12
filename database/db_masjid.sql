@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Feb 2024 pada 17.46
+-- Waktu pembuatan: 12 Feb 2024 pada 13.58
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -24,16 +24,67 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tbl_imam`
+--
+
+CREATE TABLE `tbl_imam` (
+  `id_imam` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `jabatan` varchar(100) NOT NULL,
+  `foto` text NOT NULL,
+  `link1` text NOT NULL,
+  `link2` text NOT NULL,
+  `link3` text NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_pimpinan`
+--
+
+CREATE TABLE `tbl_pimpinan` (
+  `id_pimpinan` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `jabatan` varchar(100) NOT NULL,
+  `foto` text NOT NULL,
+  `link1` text NOT NULL,
+  `link2` text NOT NULL,
+  `link3` text NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_pimpinan`
+--
+
+INSERT INTO `tbl_pimpinan` (`id_pimpinan`, `nama`, `jabatan`, `foto`, `link1`, `link2`, `link3`, `tanggal`) VALUES
+(1, 'Vieri Satria Ardiansyah S.Kom', 'Ketua Bidang IT', '1.jpg', '-', '-', '-', '2024-02-12 12:31:55');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
   `id_user` int(11) NOT NULL,
-  `nama_user` varchar(100) NOT NULL,
-  `email` varchar(50) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `level` int(11) NOT NULL
+  `level` varchar(100) NOT NULL,
+  `foto` text NOT NULL,
+  `no_hp` varchar(14) NOT NULL,
+  `created_update` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`id_user`, `nama`, `username`, `password`, `level`, `foto`, `no_hp`, `created_update`) VALUES
+(1, 'Admin', 'admin', 'f865b53623b121fd34ee5426c792e5c33af8c227', 'Administrator', 'default.jpg', '085711067008', '2024-02-12 12:13:52');
 
 -- --------------------------------------------------------
 
@@ -60,6 +111,18 @@ INSERT INTO `tbl_visimisi` (`id_visi`, `visi`, `misi`, `tanggal`) VALUES
 --
 
 --
+-- Indeks untuk tabel `tbl_imam`
+--
+ALTER TABLE `tbl_imam`
+  ADD PRIMARY KEY (`id_imam`);
+
+--
+-- Indeks untuk tabel `tbl_pimpinan`
+--
+ALTER TABLE `tbl_pimpinan`
+  ADD PRIMARY KEY (`id_pimpinan`);
+
+--
 -- Indeks untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
@@ -76,10 +139,22 @@ ALTER TABLE `tbl_visimisi`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `tbl_imam`
+--
+ALTER TABLE `tbl_imam`
+  MODIFY `id_imam` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_pimpinan`
+--
+ALTER TABLE `tbl_pimpinan`
+  MODIFY `id_pimpinan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_visimisi`

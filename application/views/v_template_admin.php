@@ -32,10 +32,11 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <style>
-    .date{
-        color: #fff;
-    }
+.date {
+    color: #fff;
+}
 </style>
+
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
@@ -51,21 +52,24 @@
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-               
+
                 <!-- Notifications Dropdown Menu -->
                 <div class="date mr-3 mt-2">
-					<script type="text/javascript">
-						var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-						var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
-						var date = new Date();
-						var day = date.getDate();
-						var month = date.getMonth();
-						var thisDay = date.getDay(), thisDay = myDays[thisDay];
-						var yy = date.getYear();
-						var year = (yy < 1000) ? yy + 1900 : yy;
-						document.write(day + ' ' + months[month] + ' ' + year);	
-					</script>
-				</div>
+                    <script type="text/javascript">
+                    var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus',
+                        'September', 'Oktober', 'November', 'Desember'
+                    ];
+                    var myDays = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+                    var date = new Date();
+                    var day = date.getDate();
+                    var month = date.getMonth();
+                    var thisDay = date.getDay(),
+                        thisDay = myDays[thisDay];
+                    var yy = date.getYear();
+                    var year = (yy < 1000) ? yy + 1900 : yy;
+                    document.write(day + ' ' + months[month] + ' ' + year);
+                    </script>
+                </div>
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="far fa-bell"></i>
@@ -133,7 +137,6 @@
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
-                                    <span class="right badge badge-danger">New</span>
                                 </p>
                             </a>
                         </li>
@@ -162,13 +165,14 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('admin/pimpinan') ?>" class="nav-link <?= $menu == 'pimpinan' ? 'active' : '' ?>">
+                                    <a href="<?= base_url('admin/pimpinan') ?>"
+                                        class="nav-link <?= $menu == 'pimpinan' ? 'active' : '' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Pimpinan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/UI/sliders.html" class="nav-link">
+                                    <a href="<?= base_url('admin/imam') ?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Imam & Muazin</p>
                                     </a>
@@ -651,35 +655,35 @@
         .catch(error => {
             console.error(error);
         });
-    
-        $('#logout').click(function() {
-				Swal.fire({
-                    icon: 'warning',
-                    title: 'Logout',
-                    text: "Apakah anda ingin keluar dari halaman ini, Yakin?",
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Keluar',
-                    cancelButtonText: 'Batalkan',
-                    showLoaderOnConfirm: true,
-                    reverseButtons: true,
-                    preConfirm: function() {
-                        return new Promise(function(resolve) {
-                            Swal.fire({
-                                icon: 'success',
-                                type: 'success',
-                                title: 'Berhasil!',
-                                text: 'Anda Berhasil Logout, Terimakasih...',
-                                showConfirmButton: true,
-                                
-                            });
-                            window.location = '<?php echo base_url('Login/logout') ?>';
-                        });
-                    },
-                    allowOutsideClick: false
+
+    $('#logout').click(function() {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Logout',
+            text: "Apakah anda ingin keluar dari halaman ini, Yakin?",
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Keluar',
+            cancelButtonText: 'Batalkan',
+            showLoaderOnConfirm: true,
+            reverseButtons: true,
+            preConfirm: function() {
+                return new Promise(function(resolve) {
+                    Swal.fire({
+                        icon: 'success',
+                        type: 'success',
+                        title: 'Berhasil!',
+                        text: 'Anda Berhasil Logout, Terimakasih...',
+                        showConfirmButton: true,
+
+                    });
+                    window.location = '<?php echo base_url('Login/logout') ?>';
                 });
-			});
+            },
+            allowOutsideClick: false
+        });
+    });
     </script>
 
 </body>
