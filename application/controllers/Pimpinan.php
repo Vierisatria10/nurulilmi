@@ -17,6 +17,6 @@ class Pimpinan extends CI_Controller {
             'menu'  => 'pimpinan',
             'data_pimpinan' => $this->pimpinan->getDataPimpinan()
         ];
-		$this->load->view('v_pimpinan', $data);
+		$this->load->view('webpage/v_pimpinan', $data);
 	}
 }

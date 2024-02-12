@@ -17,6 +17,6 @@ class VisiMisi extends CI_Controller {
             'menu'  => 'visimisi',
             'data_visi' => $this->visi->getDataVisi()
         ];
-		$this->load->view('v_visi', $data);
+		$this->load->view('webpage/v_visi', $data);
 	}
 }

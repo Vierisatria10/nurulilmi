@@ -36,76 +36,54 @@
     </div>
     <!-- Header -->
     <header class="header-area">
-        <div class="header-top bg-light bg-image-pattern px-xl-8 py-2">
-            <div class="container">
-                <div class="header-top-wrapper">
-                    <ul class="navbar-address list-inline m-0">
-                        <li class="list-inline-item"><span class="icon"><img src="assets/images/location-icon.svg"
-                                    alt="title"></span>South St. New York, USA</li>
-                        <li class="list-inline-item"><span class="icon"><img src="assets/images/phone-icon.svg"
-                                    alt="title"></span>Toll Free : (+1) 123 1234 568
-                        </li>
-                    </ul>
-                    <ul class="navbar-social list-inline m-0">
-                        <li class="list-inline-item"><a href="https://facebook.com"><i
-                                    class="fab fa-facebook-f"></i></a></li>
-                        <li class="list-inline-item"><a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
-                        </li>
-                        <li class="list-inline-item"><a href="https://linkedin.com"><i
-                                    class="fab fa-linkedin-in"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
         <?php $this->load->view('layout/header.php') ?>
     </header>
     <!--  ====================== Page Title Area =============================  -->
     <div class="page-title-area py-lg-6 py-5 bg-image-pattern">
         <div class="container">
             <div class="page-title-wrapper text-center">
-                <h1 class="text-white mb-2">Visi & Misi</h1>
+                <h1 class="text-white mb-2">Imam dan Muadzin</h1>
                 <nav class="page-breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href='<?= base_url('home') ?>'>Home</a></li>
-                        <li class="breadcrumb-item active">Visi & Misi</li>
+                        <li class="breadcrumb-item active">Imam Dan Muadzin</li>
                     </ol>
                 </nav>
             </div>
         </div>
     </div>
-    <!--  ====================== About Area =============================  -->
-    <div id="about" class="about-area pt-lg-10 pt-8">
+    <!--  ====================== Team Area =============================  -->
+    <div class="team-area py-lg-10 py-8">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="text-center text-md-start col-md-12">
-                    <div class="section-title mb-4">
-                        <h2 class="text-primary">Visi Nurul Ilmi : </h2>
-                    </div>
-                    <?php foreach($data_visi as $vm) : ?>
-                    <p>
-                        <?= $vm['visi']; ?>
-                    </p>
-                    <?php endforeach; ?>
+            <div class="section-title text-center mb-4">
 
-                </div>
-                <div class="text-center text-md-start col-md-12 pt-3">
-                    <div class="section-title mb-4">
-                        <h2 class="text-primary">Misi Nurul Ilmi</h2>
-                    </div>
-                    <?php foreach($data_visi as $vm) : ?>
-                    <p>
-                        <?= $vm['misi']; ?>
-                    </p>
-                    <?php endforeach; ?>
-
-
-
-                </div>
-
+                <h2 class="h1">Imam Dan Muadzin</h2>
             </div>
+            <?php if(!empty($data_imam)) : ?>
+            <div class="row">
+                <?php foreach($data_imam as $imam) : ?>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="team-item mt-4">
+                        <div class="team-image">
+                            <ul class="team-social list-inline">
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            </ul><img src="<?= base_url('upload/imam/'.$imam['foto']) ?>" alt="title">
+                        </div>
+                        <div class="team-content">
+                            <h5><?= $imam['nama'] ?></h5>
+                            <span class="text-primary"><?= $imam['jabatan'] ?></span>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+            <?php else: ?>
+            <h3 class="text-center text-danger">"Data Imam Dan Muadzin Belum Ada"</h3>
+            <?php endif; ?>
         </div>
     </div>
-
     <!--  ====================== Footer Area =============================  -->
     <?php $this->load->view('layout/footer') ?>
     <!-- gulp:js -->

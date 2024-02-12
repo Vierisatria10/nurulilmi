@@ -10,6 +10,6 @@ class Home extends CI_Controller {
             'title' => 'Home - Masjid Nurul Ilmi',
             'menu'  => 'home',
         ];
-		$this->load->view('v_home', $data);
+		$this->load->view('webpage/v_home', $data);
 	}
 }

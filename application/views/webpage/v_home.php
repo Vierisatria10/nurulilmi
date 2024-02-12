@@ -36,27 +36,6 @@
     </div>
     <!-- Header -->
     <header class="header-area">
-        <div class="header-top bg-light bg-image-pattern px-xl-8 py-2">
-            <div class="container">
-                <div class="header-top-wrapper">
-                    <ul class="navbar-address list-inline m-0">
-                        <li class="list-inline-item"><span class="icon"><img src="assets/images/location-icon.svg"
-                                    alt="title"></span>South St. New York, USA</li>
-                        <li class="list-inline-item"><span class="icon"><img src="assets/images/phone-icon.svg"
-                                    alt="title"></span>Toll Free : (+1) 123 1234 568
-                        </li>
-                    </ul>
-                    <ul class="navbar-social list-inline m-0">
-                        <li class="list-inline-item"><a href="https://facebook.com"><i
-                                    class="fab fa-facebook-f"></i></a></li>
-                        <li class="list-inline-item"><a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
-                        </li>
-                        <li class="list-inline-item"><a href="https://linkedin.com"><i
-                                    class="fab fa-linkedin-in"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
         <?php $this->load->view('layout/header.php') ?>
     </header>
     <!--  ====================== Header Area =============================  -->
