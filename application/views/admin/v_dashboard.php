@@ -15,7 +15,7 @@
     </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
-
+<?php echo $this->session->flashdata('pesan');?>
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">

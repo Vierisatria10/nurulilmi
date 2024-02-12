@@ -34,28 +34,34 @@
             <!-- /.card -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Edit Visi Misi</h3>
+                    <h3 class="card-title">Add Pimpinan</h3>
                     <div class="d-flex justify-content-end">
-                        <a href="<?= base_url('admin/visimisi') ?>" class="btn btn-info btn-sm"><i
+                        <a href="<?= base_url('admin/pimpinan') ?>" class="btn btn-info btn-sm"><i
                                 class="fas fa-backward"></i> Kembali</a>
                     </div>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form action="<?= base_url('admin/visimisi/update/' . $visi['id_visi']) ?>" method="post">
+                    <form action="<?= base_url('admin/pimpinan/tambah') ?>" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="">Visi</label>
-                            <input type="hidden" name="id_visi" value="<?= $visi['id_visi'] ?>">
-                            <input type="text" name="visi" id="visi" value="<?= $visi['visi'] ?>" class="form-control">
-                            <?= form_error('visi', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <label for="">Nama</label>
+                            <input type="text" name="nama" id="nama" value="<?= set_value('nama') ?>"
+                                class="form-control">
+                            <?= form_error('nama', '<small class="text-danger ">', '</small>'); ?>
                         </div>
                         <div class="form-group">
-                            <label for="">Misi</label>
-                            <textarea name="misi" id="editor"
-                                class="form-control editor_misi"><?= $visi['misi'] ?></textarea>
-                            <?= form_error('misi', '<small class="text-danger pl-3">', '</small>'); ?>
+                            <label for="">Jabatan</label>
+                            <input name="jabatan" type="text" id="jabatan" value="<?= set_value('jabatan') ?>"
+                                class="form-control">
+                            <?= form_error('jabatan', '<small class="text-danger ">', '</small>'); ?>
                         </div>
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Update</button>
+                        <div class="form-group">
+                            <label for="">Upload Foto</label>
+                            <input name="foto" id="foto" type="file" value="<?= set_value('foto') ?>"
+                                class="form-control">
+                            <?= form_error('foto', '<small class="text-danger">', '</small>'); ?>
+                        </div>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
                         <button type="reset" class="btn btn-danger">Reset</button>
                     </form>
 

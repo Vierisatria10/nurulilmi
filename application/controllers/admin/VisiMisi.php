@@ -44,21 +44,36 @@ class VisiMisi extends CI_Controller {
         }
     }
 
-    public function edit()
+    public function edit($id_visi) {
+        $data = [
+            'judul' => 'Edit Visi Misi',
+            'title' => 'Visi & Misi - Masjid Nurul Ilmi',
+            'visi'  =>  $this->visi->get_visi_detail($id_visi),
+            'menu'  => 'editvisi',
+        ];
+        $this->template->load('v_template_admin', 'admin/visi/v_edit', $data);
+    }
+
+    public function update($id_visi)
     {
         $this->form_validation->set_rules('visi', 'Visi', 'trim|required');
         $this->form_validation->set_rules('misi', 'Misi', 'trim|required');
         if ($this->form_validation->run() == FALSE) {
-            $id_visi = $this->input->get('id_visi');
             $data = [
-                'judul' => 'Visi Misi',
+                'judul' => 'Edit Visi Misi',
                 'title' => 'Visi & Misi - Masjid Nurul Ilmi',
                 'visi'  =>  $this->visi->get_visi_detail($id_visi),
                 'menu'  => 'editvisi',
             ];
 		    $this->template->load('v_template_admin', 'admin/visi/v_edit', $data);
         } else {
-            $this->visi->edit_visi();
+            $visi = $this->input->post('visi');
+            $misi = $this->input->post('misi');
+            $data = [
+                'visi' => $visi,
+                'misi' => $misi
+            ];
+            $this->visi->update_Visi($id_visi, $data);
             $this->session->set_flashdata('update', 'Visi Misi Berhasil di Update');
             redirect('admin/visimisi');
         }

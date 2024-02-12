@@ -20,16 +20,10 @@ class VisiMisi_model extends CI_Model {
 		return $this->db->get_where('tbl_visimisi', ['id_visi' => $id_visi])->row_array();
 	}
 
-	public function edit_visi()
+	public function update_visi($id_visi, $data)
 	{
-		$visi = $this->input->post('visi');
-        $misi = $this->input->post('misi');
-        $edit = [
-            'visi' => $visi,
-            'misi' => $misi
-        ];
-		$this->db->where('id_visi', $this->input->get('id_visi'));
-		$this->db->update('tbl_visimisi', $edit);
+		$this->db->where('id_visi', $id_visi);
+		$this->db->update('tbl_visimisi', $data);
 	}
 
 	public function delete_visi($id_del, $data)
