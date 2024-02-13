@@ -42,34 +42,69 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form action="<?= base_url('admin/pimpinan/update/' . $pimpinan['id_pimpinan']) ?>" method="POST" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="">Nama</label>
-                            <input type="hidden" name="id_pimpinan" value="<?= $pimpinan['id_pimpinan'] ?>">
-                            <input type="text" name="nama" id="nama" value="<?= $pimpinan['nama'] ?>"
-                                class="form-control">
-                            <?= form_error('nama', '<small class="text-danger ">', '</small>'); ?>
+                    <form action="<?= base_url('admin/pimpinan/update/' . $pimpinan->id_pimpinan) ?>" method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Nama</label>
+                                    <input type="hidden" name="id_pimpinan" value="<?= $pimpinan->id_pimpinan ?>">
+                                    <input type="text" name="nama" id="nama" value="<?= $pimpinan->nama ?>"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Link Facebook</label>
+                                    <input type="text" name="link1" id="link1" placeholder="https://facebook.com"
+                                    value="<?= $pimpinan->link1 ?>" class="form-control">
+                                    <small class="text-danger">*Tidak Wajib Diisi</small>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="">Jabatan</label>
-                            <input name="jabatan" type="text" id="jabatan" value="<?= $pimpinan['jabatan'] ?>"
-                                class="form-control">
-                            <?= form_error('jabatan', '<small class="text-danger ">', '</small>'); ?>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Jabatan</label>
+                                    <input name="jabatan" type="text" id="jabatan" value="<?= $pimpinan->jabatan ?>"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Link Twitter</label>
+                                    <input type="text" name="link2" id="link2" placeholder="https://twitter.com"
+                                    value="<?= $pimpinan->link2 ?>" class="form-control">
+                                    <small class="text-danger">*Tidak Wajib Diisi</small>
+                                </div>
+                            </div>
                         </div>
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Gambar Sebelumnya</label>
                                     <br>
-                                    <img src="<?= base_url('upload/pimpinan/'. $pimpinan['foto']) ?>" width="100" alt="">
+                                    <?php if(!empty($pimpinan->foto)) : ?>
+                                        <img src="<?= base_url('upload/pimpinan/'. $pimpinan->foto) ?>" width="100" alt="">
+                                    <?php else: ?>
+                                        <img src="<?= base_url('upload/default.png') ?>" alt="">
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Upload Foto</label>
-                                    <input name="foto" id="foto" type="file" value="<?= set_value('foto') ?>"
-                                        class="form-control">
-                                    <?= form_error('foto', '<small class="text-danger">', '</small>'); ?>
+                                    <input type="hidden" name="old_foto" value="<?= $pimpinan->foto ?>">
+                                    <input name="foto" id="foto" type="file" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Link Instagram</label>
+                                    <input name="link3" id="link3" type="text" placeholder="https://instagram.com"
+                                    value="<?= $pimpinan->link3 ?>" class="form-control">
+                                    <small class="text-danger">*Tidak Wajib Diisi</small>
                                 </div>
                             </div>
                         </div>

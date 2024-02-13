@@ -56,7 +56,7 @@
                                 <div class="form-group">
                                     <label for="">Link Facebook</label>
                                     <input type="text" name="link1" id="link1" placeholder="https://facebook.com"
-                                        value="<?= set_value('link1') ?>" class="form-control">
+                                        value="-" class="form-control">
                                     <small class="text-danger">*Tidak Wajib Diisi</small>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                 <div class="form-group">
                                     <label for="">Link Twitter</label>
                                     <input type="text" name="link2" id="link2" placeholder="https://twitter.com"
-                                        value="<?= set_value('link2') ?>" class="form-control">
+                                        value="-" class="form-control">
                                     <small class="text-danger">*Tidak Wajib Diisi</small>
                                 </div>
                             </div>
@@ -88,13 +88,14 @@
                                     <input name="foto" id="foto" type="file" value="<?= set_value('foto') ?>"
                                         class="form-control">
                                     <?= form_error('foto', '<small class="text-danger">', '</small>'); ?>
+                                    <small></small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Link Instagram</label>
                                     <input name="link3" id="link3" type="text" placeholder="https://instagram.com"
-                                        value="<?= set_value('link3') ?>" class="form-control">
+                                        value="-" class="form-control">
                                     <small class="text-danger">*Tidak Wajib Diisi</small>
                                 </div>
                             </div>

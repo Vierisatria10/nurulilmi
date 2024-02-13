@@ -34,30 +34,31 @@
             <!-- /.card -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Add Pimpinan</h3>
+                    <h3 class="card-title">Add Agenda</h3>
                     <div class="d-flex justify-content-end">
-                        <a href="<?= base_url('admin/pimpinan') ?>" class="btn btn-info btn-sm"><i
+                        <a href="<?= base_url('admin/agenda') ?>" class="btn btn-info btn-sm"><i
                                 class="fas fa-backward"></i> Kembali</a>
                     </div>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form action="<?= base_url('admin/pimpinan/tambah') ?>" method="POST" enctype="multipart/form-data">
-                    <div class="row">
+                    <form action="<?= base_url('admin/agenda/tambah') ?>" method="POST" enctype="multipart/form-data">
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Nama</label>
-                                    <input type="text" name="nama" id="nama" value="<?= set_value('nama') ?>"
+                                    <label for="">Judul</label>
+                                    <input type="hidden" name="user" id="user" value="<?= $this->session->userdata('nama') ?>">
+                                    <input type="text" name="judul" id="judul" value="<?= set_value('judul') ?>"
                                         class="form-control">
-                                    <?= form_error('nama', '<small class="text-danger ">', '</small>'); ?>
+                                    <?= form_error('judul', '<small class="text-danger ">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Link Facebook</label>
-                                    <input type="text" name="link1" id="link1" placeholder="https://facebook.com"
-                                        value="-" class="form-control">
-                                    <small class="text-danger">*Tidak Wajib Diisi</small>
+                                    <label for="">Lokasi</label>
+                                    <input type="text" name="lokasi" id="lokasi" placeholder="https://facebook.com"
+                                        value="<?= set_value('judul') ?>" class="form-control">
+                                    <?= form_error('lokasi', '<small class="text-danger ">', '</small>'); ?>
                                 </div>
                             </div>
                         </div>
@@ -65,18 +66,18 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Jabatan</label>
-                                    <input name="jabatan" type="text" id="jabatan" value="<?= set_value('jabatan') ?>"
+                                    <label for="">Jam Awal</label>
+                                    <input name="jam_awal" type="datetime-local" id="jam_awal" value="<?= set_value('jam_awal') ?>"
                                         class="form-control">
-                                    <?= form_error('jabatan', '<small class="text-danger ">', '</small>'); ?>
+                                    <?= form_error('jam_awal', '<small class="text-danger ">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Link Twitter</label>
-                                    <input type="text" name="link2" id="link2" placeholder="https://twitter.com"
-                                        value="-" class="form-control">
-                                    <small class="text-danger">*Tidak Wajib Diisi</small>
+                                    <label for="">Jam Akhir</label>
+                                    <input type="datetime-local" name="jam_akhir" id="jam_akhir" placeholder="https://twitter.com"
+                                        value="<?= set_value('jam_akhir') ?>" class="form-control">
+                                    <?= form_error('jam_akhir', '<small class="text-danger ">', '</small>'); ?>
                                 </div>
                             </div>
                         </div>
@@ -85,21 +86,20 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Upload Foto</label>
-                                    <input name="foto" id="foto" type="file" value="<?= set_value('foto') ?>"
+                                    <input name="gambar" id="gambar" type="file" value="<?= set_value('gambar') ?>"
                                         class="form-control">
-                                    <?= form_error('foto', '<small class="text-danger">', '</small>'); ?>
-                                    <small class="text-danger">*Ekstensi Foto harus jpg,png,jpeg</small>
+                                    <?= form_error('gambar', '<small class="text-danger">', '</small>'); ?>
+                                    <small></small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Link Instagram</label>
-                                    <input name="link3" id="link3" type="text" placeholder="https://instagram.com"
-                                        value="-" class="form-control">
-                                    <small class="text-danger">*Tidak Wajib Diisi</small>
+                                    <label for="">Deskripsi</label>
+                                    <textarea name="deskripsi" id="editor" type="text" class="form-control"></textarea>
                                 </div>
                             </div>
                         </div>
+
                         <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
                         <button type="reset" class="btn btn-danger">Reset</button>
                     </form>

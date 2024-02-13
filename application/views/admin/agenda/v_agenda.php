@@ -4,6 +4,7 @@
     background-color: #0F7571;
     color: #fff;
 }
+
 .btn-green:hover {
     background-color: #0F7571;
     color: #fff;
@@ -34,51 +35,57 @@
             <!-- /.card -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Data Pimpinan</h3>
+                    <h3 class="card-title">Data Agenda</h3>
                     <?= $this->session->flashdata('message') ?>
                     <div class="d-flex justify-content-end">
-                        <a href="<?= base_url('admin/pimpinan/tambah') ?>" class="btn btn-green btn-sm"><i
-                                class="fas fa-plus"></i> Tambah Pimpinan</a>
+                        <a href="<?= base_url('admin/agenda/tambah') ?>" class="btn btn-green btn-sm"><i
+                                class="fas fa-plus"></i> Tambah Agenda</a>
                     </div>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <table id="pimpinan" class="table table-bordered table-striped">
+                    <table id="imam" class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>Jabatan</th>
+                                <th>Judul</th>
+                                <th>Jam Awal</th>
+                                <th>Jam Akhir</th>
+                                <th>Lokasi</th>
+                                <th>Deskripsi</th>
                                 <th>Foto</th>
-                                <th>Tanggal Update</th>
+                                <th>Pembuat</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 1; ?>
-                            <?php foreach ($data_pimpinan as $pimpinan) : ?>
+                            <?php foreach ($data_agenda as $agenda) : ?>
                             <tr>
                                 <td><?= $no++; ?></td>
-                                <td><?= $pimpinan->nama ?></td>
-                                <td><?= $pimpinan->jabatan ?></td>
+                                <td><?= $agenda->judul ?></td>
+                                <td><?= $agenda->jam_awal ?></td>
+                                <td><?= $agenda->jam_akhir ?></td>
+                                <td><?= $agenda->lokasi ?></td>
+                                <td><?= strip_tags(character_limiter($agenda->deskripsi, 100)) ?></td>
                                 <td>
-                                <?php if(!empty($pimpinan->foto)) : ?>
-                                    <a href="<?= base_url('upload/pimpinan/' . $pimpinan->foto) ?>" target="_blank">
-                                        <img src="<?= base_url('upload/pimpinan/' . $pimpinan->foto) ?>" width="100" alt="">
-                                    </a>
-                                <?php else: ?>
-                                    <img src="<?= base_url('upload/default.png') ?>" width="100" alt="">
-                                <?php endif; ?>
-                                    
+                                    <?php if(!empty($agenda->gambar)) : ?>
+                                        <a href="<?= base_url('upload/agenda/' . $agenda->gambar) ?>" target="_blank">
+                                            <img src="<?= base_url('upload/agenda/' . $agenda->gambar) ?>" width="100"
+                                            alt="">
+                                        </a>
+                                    <?php else: ?>
+                                        <img src="<?= base_url('upload/default.png') ?>" width="100" alt="">
+                                    <?php endif; ?>
                                 </td>
-                                <td><?= $pimpinan->tanggal ?></td>
+                                <td><?= $agenda->user; ?></td>
                                 <td>
-                                    <a href="<?= base_url('admin/pimpinan/edit/'). $pimpinan->id_pimpinan ?>"
+                                    <a href="<?= base_url('admin/agenda/edit/'). $agenda->id_agenda ?>"
                                         class="m-1 btn btn-info btn-sm"><i class="fas fa-fw fa-edit"></i>
                                         Ubah</a>
-                                    <a href="" data-toggle="modal" data-target="#hapus_pimpinan<?= $pimpinan->id_pimpinan ?>"
-                                        class="btn-delete m-1 btn btn-danger btn-sm" data-text="<?= $pimpinan->nama; ?>"><i
-                                            class="fas fa-fw fa-trash"></i>
+                                    <a href="" data-toggle="modal" data-target="#hapus_agenda<?= $agenda->id_agenda ?>"
+                                        class="btn-delete m-1 btn btn-danger btn-sm"
+                                        data-text="<?= $agenda->user; ?>"><i class="fas fa-fw fa-trash"></i>
                                         Hapus</a>
                                 </td>
                             </tr>
@@ -95,23 +102,24 @@
 </section>
 
 <!-- Modal Delete -->
-<?php foreach($data_pimpinan as $pimpinan) : ?>
-<div class="modal fade" id="hapus_pimpinan<?= $pimpinan->id_pimpinan ?>" tabindex="-1" role="dialog"
-    aria-labelledby="hapus_pimpinan<?= $pimpinan->id_pimpinan ?>" aria-hidden="true">
+<?php foreach($data_agenda as $agenda) : ?>
+<div class="modal fade" id="hapus_agenda<?= $agenda->id_agenda ?>" tabindex="-1" role="dialog"
+    aria-labelledby="hapus_agenda<?= $agenda->id_agenda ?>" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="hapus_pimpinan<?= $pimpinan->id_pimpinan ?>">Apakah kamu ingin menghapus data ini?
+                <h5 class="modal-title" id="hapus_agenda<?= $agenda->id_agenda ?>">Apakah kamu ingin menghapus
+                    data ini?
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/pimpinan/delete/'.$pimpinan->id_pimpinan) ?>" method="POST" enctype="multipart/form-data"> 
-                    <input type="hidden" id="id_pimpinan" name="id_pimpinan" value="<?= $pimpinan->id_pimpinan ?>">
-                    <p class="text-danger">Menghapus Data Pimpinan yang bernama :
-                        <b><?= $pimpinan->nama; ?></b>
+                <form action="<?= base_url('admin/agenda/delete/'.$agenda->id_agenda) ?>" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" id="id_agenda" name="id_agenda" value="<?= $agenda->id_agenda ?>">
+                    <p class="text-danger">Menghapus Data Agenda dengan judul :
+                        <b><?= $agenda->judul; ?></b>
                     </p>
             </div>
             <div class="modal-footer">

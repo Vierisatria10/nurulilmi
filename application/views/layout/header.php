@@ -30,8 +30,8 @@
                         <nav class="navbar-meanmenu">
                             <ul class="navbar-nav">
                                 <li class="nav-item"> <a class='nav-link' href='<?= base_url('home') ?>'>Home</a></li>
-                                <li class="nav-item"> <a class='nav-link' href='/about'>About</a></li>
-                                <li class="nav-item"> <a class='nav-link' href='/service'>Services</a></li>
+                                <li class="nav-item"> <a class='nav-link' href='/about'>Artikel</a></li>
+                                <li class="nav-item"> <a class='nav-link' href='<?= base_url('agenda') ?>'>Agenda</a></li>
                                 <li class="nav-item">
                                     <a class='nav-link toogler' href='/blog'> Profil </a>
                                     <ul class="dropdown-menu">

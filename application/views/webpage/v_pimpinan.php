@@ -69,11 +69,16 @@
                                 <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                 <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
                                 <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            </ul><img src="<?= base_url('upload/pimpinan/'.$pimpinan['foto']) ?>" alt="title">
+                            </ul>
+                            <?php if(!empty($pimpinan->foto)) : ?>
+                                <img src="<?= base_url('upload/pimpinan/'.$pimpinan->foto) ?>" alt="title">
+                            <?php else: ?>
+                                <img src="<?= base_url('upload/default.png') ?>" alt="">
+                            <?php endif; ?>
                         </div>
                         <div class="team-content">
-                            <h5><?= $pimpinan['nama'] ?></h5>
-                            <span class="text-primary"><?= $pimpinan['jabatan'] ?></span>
+                            <h5><?= $pimpinan->nama ?></h5>
+                            <span class="text-primary"><?= $pimpinan->jabatan ?></span>
                         </div>
                     </div>
                 </div>

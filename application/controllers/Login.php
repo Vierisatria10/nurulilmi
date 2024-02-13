@@ -42,12 +42,14 @@ class Login extends CI_Controller {
 
             if ($validate->num_rows() > 0) {
                 $data = $validate->row_array();
+                $id_user = $data['id_user'];
                 $nama = $data['nama'];
                 $username = $data['username'];
                 $level = $data['level'];
                 $password = $data['password'];
 
                 $session_data = array(
+                    'id_user' => $id_user,
                     'nama' => $nama,
                     'username' => $username,
                     'level' => $level,

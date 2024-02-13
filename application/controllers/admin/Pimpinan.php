@@ -6,6 +6,9 @@ class Pimpinan extends CI_Controller {
     public function __construct()
 	{
 		parent::__construct();
+        if($this->session->userdata('logged_in') !== TRUE){
+            redirect('login');
+          }
 		$this->load->model('Pimpinan_model', 'pimpinan');
 	}
 
@@ -45,20 +48,23 @@ class Pimpinan extends CI_Controller {
             $this->load->library('upload', $config);
             // $this->upload->initialize($config);
 
-            if (!$this->upload->do_upload('foto')) {
-                $error =$this->upload->display_errors();
-                $this->session->set_flashdata('error', $error);
-                redirect('admin/pimpinan/tambah');
-            } else {
+            // if (!$this->upload->do_upload('foto')) {
+            //     $error =$this->upload->display_errors();
+            //     $this->session->set_flashdata('error', $error);
+            //     redirect('admin/pimpinan/tambah');
+            // } else {
                 $save = [
                     'nama' => $this->input->post('nama'),
                     'jabatan' => $this->input->post('jabatan'),
+                    'link1' => $this->input->post('link1'),
+                    'link2' => $this->input->post('link2'),
+                    'link3' => $this->input->post('link3'),
                     'foto' => $this->upload->data('file_name')
                 ];
                 $this->pimpinan->add_pimpinan($save);
                 $this->session->set_flashdata('success', 'Data Pimpinan Berhasil di Simpan');
                 redirect('admin/pimpinan');
-            }
+            // }
             
         }
     }
@@ -75,50 +81,66 @@ class Pimpinan extends CI_Controller {
 
     public function update($id_pimpinan)
     {
-        $config['upload_path']          = './upload/pimpinan/';
-        $config['allowed_types']        = 'gif|jpg|png|jpeg|JPG|JPEG';
-        $config['max_size']             = 10048; // 10MB
-        $config['encrypt_name']         = False;
+        $this->form_validation->set_rules('nama', 'Nama', 'trim|required',
+            ['required' => 'Nama Wajib diisi']
+        );
+        $this->form_validation->set_rules('jabatan', 'Jabatan', 'trim|required',
+            ['required' => 'Jabatan Wajib diisi']
+        );
+        if ($this->form_validation->run()) {
+           $old_filename = $this->input->post('old_foto');
+           $new_filename = $_FILES['foto']['name'];
 
-        // $this->upload->initialize($config);
-        $this->load->library('upload', $config);
+           if ($new_filename == TRUE) 
+           {
+                $update_filename = str_replace(' ', '-', $_FILES['foto']['name']);
+                $config['upload_path']          = './upload/pimpinan/';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|JPG|JPEG';
+                // $config['max_size']             = 10048; // 10MB
+                $config['file_name']            = $update_filename;
+                $config['encrypt_name']         = False;
+                $this->load->library('upload', $config);
 
-        if (!$this->upload->do_upload('foto')) {
-            $error = $this->upload->display_errors();
-            $this->session->set_flashdata('error', $error);
-            redirect('admin/pimpinan/edit/'.$id_pimpinan);
-        } else {
-            $pimpinan = $this->pimpinan->get_pimpinan($id_pimpinan);
-            $old_image_path = './upload/pimpinan/'.$pimpinan['foto'];
-            if(file_exists($old_image_path)) {
-                unlink($old_image_path); // Delete old image
-            }
-
-            $data = array(
+                if ($this->upload->do_upload('foto')) {
+                    if (file_exists("./upload/pimpinan/".$old_filename)) {
+                        unlink("./upload/pimpinan/".$old_filename);
+                    }
+                }
+           }else{
+                $update_filename = $old_filename;
+           }
+           
+           $data = array(
                 'nama' => $this->input->post('nama'),
                 'jabatan' => $this->input->post('jabatan'),
-                'foto' => $this->upload->data('file_name')
+                'link1' => $this->input->post('link1'),
+                'link2' => $this->input->post('link2'),
+                'link3' => $this->input->post('link3'),
+                'foto' => $update_filename
             );
-            $this->pimpinan->update_pimpinan($id_pimpinan, $data);
-            $this->session->set_flashdata('update', 'Data Pimpinan Berhasil di Update');
-            redirect('admin/pimpinan');
+                $this->pimpinan->update_pimpinan($id_pimpinan, $data);
+                $this->session->set_flashdata('update', 'Data Pimpinan Berhasil di Update');
+                redirect('admin/pimpinan');
+        }else{
+            return $this->edit($id_pimpinan);
         }
     }
 
-    public function delete()
+    public function delete($id_pimpinan)
     {
-        $id_del = $this->input->post('id_del');
-        $pimpinan = $this->pimpinan->get_pimpinan($id_del);
-        $image_path = './upload/pimpinan/'.$pimpinan['foto'];
-        if(file_exists($image_path)) {
-            unlink($image_path); // Delete image
-            $data = array('foto' => NULL);
-            $this->pimpinan->delete_pimpinan($id_del, $data); // Update database to remove image reference
+        $id_pimpinan = $this->input->post('id_pimpinan');
+        // $imam = new Imam_model;
+        if ($this->pimpinan->checkPimpinanImage($id_pimpinan)) {
+            $data = $this->pimpinan->checkPimpinanImage($id_pimpinan);
+            if (file_exists("./upload/pimpinan/".$data->foto)) {
+                unlink("./upload/pimpinan/".$data->foto);
+            }
+            $del = [
+                'id_pimpinan' => $id_pimpinan
+            ];
+            $this->pimpinan->deletePimpinan($id_pimpinan, $del);
             $this->session->set_flashdata('success', 'Data Pimpinan Berhasil di Hapus');
             redirect('admin/pimpinan');
-        } else {
-            // Image not found
-            redirect('admin/pimpinan/edit/'.$id_del);
         }
     }
 }

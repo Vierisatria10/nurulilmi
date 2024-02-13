@@ -60,21 +60,26 @@
                             <?php foreach ($data_imam as $imam) : ?>
                             <tr>
                                 <td><?= $no++; ?></td>
-                                <td><?= $imam['nama'] ?></td>
-                                <td><?= $imam['jabatan'] ?></td>
+                                <td><?= $imam->nama ?></td>
+                                <td><?= $imam->jabatan ?></td>
                                 <td>
-                                    <a href="<?= base_url('upload/imam/' . $imam['foto']) ?>" target="_blank">
-                                        <img src="<?= base_url('upload/imam/' . $imam['foto']) ?>" width="100"
-                                            alt=""></a>
+                                    <?php if(!empty($imam->foto)) : ?>
+                                        <a href="<?= base_url('upload/imam/' . $imam->foto) ?>" target="_blank">
+                                            <img src="<?= base_url('upload/imam/' . $imam->foto) ?>" width="100"
+                                            alt="">
+                                        </a>
+                                    <?php else: ?>
+                                        <img src="<?= base_url('upload/default.png') ?>" width="100" alt="">
+                                    <?php endif; ?>
                                 </td>
-                                <td><?= $imam['tanggal'] ?></td>
+                                <td><?= $imam->tanggal; ?></td>
                                 <td>
-                                    <a href="<?= base_url('admin/imam/edit/'). $imam['id_imam'] ?>"
+                                    <a href="<?= base_url('admin/imam/edit/'). $imam->id_imam ?>"
                                         class="m-1 btn btn-info btn-sm"><i class="fas fa-fw fa-edit"></i>
                                         Ubah</a>
-                                    <a href="" data-toggle="modal" data-target="#hapus_imam<?= $imam['id_imam'] ?>"
+                                    <a href="" data-toggle="modal" data-target="#hapus_imam<?= $imam->id_imam ?>"
                                         class="btn-delete m-1 btn btn-danger btn-sm"
-                                        data-text="<?= $imam['nama']; ?>"><i class="fas fa-fw fa-trash"></i>
+                                        data-text="<?= $imam->nama; ?>"><i class="fas fa-fw fa-trash"></i>
                                         Hapus</a>
                                 </td>
                             </tr>
@@ -92,12 +97,12 @@
 
 <!-- Modal Delete -->
 <?php foreach($data_imam as $imam) : ?>
-<div class="modal fade" id="hapus_imam<?= $imam['id_imam'] ?>" tabindex="-1" role="dialog"
-    aria-labelledby="hapus_imam<?= $imam['id_imam'] ?>" aria-hidden="true">
+<div class="modal fade" id="hapus_imam<?= $imam->id_imam ?>" tabindex="-1" role="dialog"
+    aria-labelledby="hapus_imam<?= $imam->id_imam ?>" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="hapus_imam<?= $imam['id_imam'] ?>">Apakah kamu ingin menghapus
+                <h5 class="modal-title" id="hapus_imam<?= $imam->id_imam ?>">Apakah kamu ingin menghapus
                     data ini?
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -105,10 +110,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/imam/delete') ?>" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" id="id_del" name="id_del" value="<?= $imam['id_imam'] ?>">
+                <form action="<?= base_url('admin/imam/delete/'.$imam->id_imam) ?>" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" id="id_imam" name="id_imam" value="<?= $imam->id_imam ?>">
                     <p class="text-danger">Menghapus Data Imam & Muadzin yang bernama :
-                        <b><?= $imam['nama']; ?></b>
+                        <b><?= $imam->nama; ?></b>
                     </p>
             </div>
             <div class="modal-footer">

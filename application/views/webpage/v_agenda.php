@@ -42,51 +42,60 @@
     <div class="page-title-area py-lg-6 py-5 bg-image-pattern">
         <div class="container">
             <div class="page-title-wrapper text-center">
-                <h1 class="text-white mb-2">Imam dan Muadzin</h1>
+                <h1 class="text-white mb-2">Agenda</h1>
                 <nav class="page-breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href='<?= base_url('home') ?>'>Home</a></li>
-                        <li class="breadcrumb-item active">Imam Dan Muadzin</li>
+                        <li class="breadcrumb-item active">Agenda Masjid Nurul Ilmi</li>
                     </ol>
                 </nav>
             </div>
         </div>
     </div>
-    <!--  ====================== Team Area =============================  -->
-    <div class="team-area py-lg-10 py-8">
+      <!--  ====================== About Area =============================  -->
+   <div class="about-area py-lg-10 py-8">
         <div class="container">
-            <div class="section-title text-center mb-4">
-
-                <h2 class="h1">Imam Dan Muadzin</h2>
-            </div>
-            <?php if(!empty($data_imam)) : ?>
-            <div class="row">
-                <?php foreach($data_imam as $imam) : ?>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="team-item mt-4">
-                        <div class="team-image">
-                            <ul class="team-social list-inline">
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            </ul>
-                            <?php if(!empty($imam->foto)) : ?>
-                                <img src="<?= base_url('upload/imam/'.$imam->foto) ?>" alt="title">
-                            <?php else: ?>
-                                <img src="<?= base_url('upload/default.png') ?>" alt="">
-                            <?php endif; ?>
-                        </div>
-                        <div class="team-content">
-                            <h5><?= $imam->nama ?></h5>
-                            <span class="text-primary"><?= $imam->jabatan ?></span>
-                        </div>
+        <div class="row align-items-center">
+            <div class="col-md-6 col-lg-5 offset-lg-1 order-md-1">
+            <div class="donation-details mb-4 mb-md-0">
+                <div class="donation-wrapper text-center">
+                <i class="fas fa-search fa-2x"></i>
+                <h3 class="text-primary pb-2 text-center">Cari Agenda</h3>
+                <form action="" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="cari" class="form-control" placeholder="JUDUL">
                     </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">CARI</button>
+                </form>
+                <!-- <ul class="donation-list list-inline">
+                    <li><span class="me-2 text-primary"><i class="fas fa-user"></i></span>
+                    </li>
+                    <li><span class="me-2 text-primary"><i class="fas fa-calendar-plus"></i></span> Start At  WIB
+                    </li>
+                    <li><span class="me-2 text-primary"><i class="fas fa-clock"></i></span> End At WIB
+                    </li>
+                    <li><span class="me-2 text-primary"><i class="fas fa-map-marker"></i></span></li>
+                  
+                    </li>
+                </ul> -->
+                
                 </div>
-                <?php endforeach; ?>
             </div>
-            <?php else: ?>
-            <h3 class="text-center text-danger">"Data Imam Dan Muadzin Belum Ada"</h3>
-            <?php endif; ?>
+            </div>
+            <?php foreach($data_agenda as $agenda) : ?>
+            <div class="col-md-6 order-md-0">
+                <h3 class="text-primary mb-3">About This Event</h3>
+                <img src="<?= base_url('upload/agenda/'.$agenda->gambar) ?>" style="height: auto; width: 100%;" alt="<?= $agenda->judul; ?>">
+
+                <p>
+                    To know the where blind they they'd self-interest, surprise insurance western then didn't and was of stiff legs sign king's know on from client yet office yet nations apparent as cover that she gradually late for that yes, of as of change. Tone occupied so were ambushed inn monitor expenses.
+                </p>
+                <p>The to of the there coordinates and tall the cache front they explain least, than tried purpose the he the remodelling effects, to half the diet, it hired and of in drunk with</p>
+        
+            </div>
+            <?php endforeach; ?>
+        </div>
         </div>
     </div>
     <!--  ====================== Footer Area =============================  -->

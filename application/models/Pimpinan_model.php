@@ -7,7 +7,7 @@ class Pimpinan_model extends CI_Model {
 
     public function getDataPimpinan()
 	{
-		return $this->db->get($this->table)->result_array();
+		return $this->db->get($this->table)->result();
 	}
 
     public function add_pimpinan($save) {
@@ -17,12 +17,12 @@ class Pimpinan_model extends CI_Model {
 
     public function get_pimpinan($id_pimpinan)
     {
-		return $this->db->get_where($this->table, ['id_pimpinan' => $id_pimpinan])->row_array();
+		return $this->db->get_where($this->table, ['id_pimpinan' => $id_pimpinan])->row();
     }
 
     public function get_pimpinan_detail($id_pimpinan)
 	{
-		return $this->db->get_where($this->table, ['id_pimpinan' => $id_pimpinan])->row_array();
+		return $this->db->get_where($this->table, ['id_pimpinan' => $id_pimpinan])->row();
 	}
 
     public function update_pimpinan($id_pimpinan, $data)
@@ -31,9 +31,15 @@ class Pimpinan_model extends CI_Model {
 		$this->db->update($this->table, $data);
     }
 
-    public function delete_pimpinan($id_del, $data)
+    public function checkPimpinanImage($id_pimpinan)
+    {
+        $query = $this->db->get_where($this->table, ['id_pimpinan' => $id_pimpinan]);
+        return $query->row();
+    }
+
+    public function deletePimpinan($id_pimpinan, $del)
 	{
-		$this->db->where('id_pimpinan', $id_del);
-		return $this->db->delete($this->table, $data);
+		$this->db->where('id_pimpinan', $id_pimpinan);
+		return $this->db->delete($this->table, $del);
 	}
 }

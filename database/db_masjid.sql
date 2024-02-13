@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Feb 2024 pada 16.32
--- Versi server: 10.4.24-MariaDB
--- Versi PHP: 7.4.28
+-- Waktu pembuatan: 13 Feb 2024 pada 10.12
+-- Versi server: 10.4.28-MariaDB
+-- Versi PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,6 +24,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tbl_agenda`
+--
+
+CREATE TABLE `tbl_agenda` (
+  `id_agenda` int(11) NOT NULL,
+  `judul` varchar(200) NOT NULL,
+  `jam_awal` datetime NOT NULL,
+  `jam_akhir` datetime NOT NULL,
+  `lokasi` text NOT NULL,
+  `deskripsi` text NOT NULL,
+  `gambar` text NOT NULL,
+  `user` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tbl_agenda`
+--
+
+INSERT INTO `tbl_agenda` (`id_agenda`, `judul`, `jam_awal`, `jam_akhir`, `lokasi`, `deskripsi`, `gambar`, `user`) VALUES
+(2, 'KAJIAN DHUHA (Kitab Tauhid Tijan Addarori)', '2024-02-17 04:50:00', '2024-02-17 05:30:00', 'Masjid Nurul Ilmi', '<p>Ba\'da Subuh....&nbsp;<br>Kajian Dhuha bersama Ust. M. Bisri</p><p>Bab : Hari Kiamat</p><p>Terjadinya kiamat besar ditandai dengan tiupan terompet atau sangkakala oleh Malaikat Isrofil. Tiupan terompet atau sangkakala oleh Malaikat Isrofil yang pertama akan membuat kematian pada seluruh makhluk hidup kecuali mereka yang dikehendaki Allah SWT.</p><p>Hal ini ditegaskan dalam firmanNya surah Az Zumar ayat 68,</p><p>وَنُفِخَ فِى الصُّوْرِ فَصَعِقَ مَنْ فِى السَّمٰوٰتِ وَمَنْ فِى الْاَرْضِ اِلَّا مَنْ شَاۤءَ اللّٰهُ ۗ ثُمَّ نُفِخَ فِيْهِ اُخْرٰى فَاِذَا هُمْ قِيَامٌ يَّنْظُرُوْنَ</p><p>Artinya: \"Sangkakala pun ditiup sehingga matilah semua (makhluk) yang (ada) di langit dan di bumi, kecuali mereka yang dikehendaki Allah. Kemudian, ia ditiup sekali lagi. Seketika itu, mereka bangun (dari kuburnya dan) menunggu (keputusan Allah).\"</p><p>#IbdakMNI</p>', 'kajian1.jpg', 'Admin');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tbl_imam`
 --
 
@@ -36,14 +60,16 @@ CREATE TABLE `tbl_imam` (
   `link2` text NOT NULL,
   `link3` text NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tbl_imam`
 --
 
 INSERT INTO `tbl_imam` (`id_imam`, `nama`, `jabatan`, `foto`, `link1`, `link2`, `link3`, `tanggal`) VALUES
-(1, 'Aldo Alfayyad S.Pd', 'Imam Masjid', '31.jpg', '-', '-', '-', '2024-02-12 15:30:38');
+(1, 'Vieri Satria Ardiansyah S.Kom 2', 'Ketua Bidang IT', '1.jpg', '', '', '', '2024-02-13 03:44:27'),
+(3, 'Aldo Alfayyad S.Pd', 'Imam Masjid', '5.jpg', '-', '-', '-', '2024-02-13 04:01:59'),
+(4, 'test', 'IT', '', '-', '-', '-', '2024-02-13 04:05:59');
 
 -- --------------------------------------------------------
 
@@ -60,14 +86,15 @@ CREATE TABLE `tbl_pimpinan` (
   `link2` text NOT NULL,
   `link3` text NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tbl_pimpinan`
 --
 
 INSERT INTO `tbl_pimpinan` (`id_pimpinan`, `nama`, `jabatan`, `foto`, `link1`, `link2`, `link3`, `tanggal`) VALUES
-(1, 'Vieri Satria Ardiansyah S.Kom', 'Ketua Bidang IT', '1.jpg', '-', '-', '-', '2024-02-12 12:31:55');
+(1, 'Gahry Rafi 1', 'Mahasiswa', '4.jpg', 'https://facebook.com/', '-', '-', '2024-02-13 03:50:42'),
+(3, 'test', 'Ketua Bidang IT 2', '', '-', '-', '-', '2024-02-13 04:12:45');
 
 -- --------------------------------------------------------
 
@@ -84,7 +111,7 @@ CREATE TABLE `tbl_user` (
   `foto` text NOT NULL,
   `no_hp` varchar(14) NOT NULL,
   `created_update` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tbl_user`
@@ -104,7 +131,7 @@ CREATE TABLE `tbl_visimisi` (
   `visi` text NOT NULL,
   `misi` text NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tbl_visimisi`
@@ -116,6 +143,12 @@ INSERT INTO `tbl_visimisi` (`id_visi`, `visi`, `misi`, `tanggal`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indeks untuk tabel `tbl_agenda`
+--
+ALTER TABLE `tbl_agenda`
+  ADD PRIMARY KEY (`id_agenda`);
 
 --
 -- Indeks untuk tabel `tbl_imam`
@@ -146,16 +179,22 @@ ALTER TABLE `tbl_visimisi`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `tbl_agenda`
+--
+ALTER TABLE `tbl_agenda`
+  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT untuk tabel `tbl_imam`
 --
 ALTER TABLE `tbl_imam`
-  MODIFY `id_imam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_imam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_pimpinan`
 --
 ALTER TABLE `tbl_pimpinan`
-  MODIFY `id_pimpinan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pimpinan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_user`
