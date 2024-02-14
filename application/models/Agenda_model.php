@@ -15,7 +15,24 @@ class Agenda_model extends CI_Model {
         // return $this->db->insert_id();
     }
 
+    public function search($keyword)
+    {
+        if(!$keyword){
+		    return null;
+	    }
+        $this->db->select('*');
+        $this->db->from('tbl_agenda');
+        $this->db->like('judul', $keyword);
+        $this->db->or_like('lokasi', $keyword);
+        return $this->db->get()->result();
+    }
+
     public function get_agenda_detail($id_agenda)
+	{
+		return $this->db->get_where($this->table, ['id_agenda' => $id_agenda])->row();
+	}
+
+    public function get_detail_agenda($id_agenda)
 	{
 		return $this->db->get_where($this->table, ['id_agenda' => $id_agenda])->row();
 	}

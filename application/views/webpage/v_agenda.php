@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="<?= base_url('frontend/') ?>assets/js/OwlCarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?= base_url('frontend/') ?>assets/js/OwlCarousel/owl.theme.default.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Philosopher:wght@700&display=swap"
         rel="stylesheet">
@@ -23,6 +25,12 @@
     <link rel="stylesheet" href="<?= base_url('frontend/') ?>assets/css/app.min.css">
     <!-- endgulp -->
 </head>
+
+<style>
+.widget {
+    position: relative;
+}
+</style>
 
 <body>
     <!--  ====================== Header Area =============================  -->
@@ -52,50 +60,122 @@
             </div>
         </div>
     </div>
-      <!--  ====================== About Area =============================  -->
-   <div class="about-area py-lg-10 py-8">
+    <!--  ====================== About Area =============================  -->
+    <div class="about-area py-lg-10 py-8">
         <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 col-lg-5 offset-lg-1 order-md-1">
-            <div class="donation-details mb-4 mb-md-0">
-                <div class="donation-wrapper text-center">
-                <i class="fas fa-search fa-2x"></i>
-                <h3 class="text-primary pb-2 text-center">Cari Agenda</h3>
-                <form action="" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="cari" class="form-control" placeholder="JUDUL">
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">CARI</button>
-                </form>
-                <!-- <ul class="donation-list list-inline">
-                    <li><span class="me-2 text-primary"><i class="fas fa-user"></i></span>
-                    </li>
-                    <li><span class="me-2 text-primary"><i class="fas fa-calendar-plus"></i></span> Start At  WIB
-                    </li>
-                    <li><span class="me-2 text-primary"><i class="fas fa-clock"></i></span> End At WIB
-                    </li>
-                    <li><span class="me-2 text-primary"><i class="fas fa-map-marker"></i></span></li>
-                  
-                    </li>
-                </ul> -->
-                
-                </div>
-            </div>
-            </div>
-            <?php foreach($data_agenda as $agenda) : ?>
-            <div class="col-md-6 order-md-0">
-                <h3 class="text-primary mb-3">About This Event</h3>
-                <img src="<?= base_url('upload/agenda/'.$agenda->gambar) ?>" style="height: auto; width: 100%;" alt="<?= $agenda->judul; ?>">
+            <div class="row">
+                <h3 class="mb-3 text-primary">Agenda</h3>
+                <div class="col-lg-8">
+                    <?php if(!empty($pesan)) : ?>
+                    <p class="text-center"><?= $pesan ?></p>
+                    <?php else: ?>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <?php foreach($data_agenda as $agenda) : ?>
+                                    <div class="grid-inner row g-0 p-4">
+                                        <div class="col-md-5 mb-md-0">
+                                            <a href="#" class="entry-image">
+                                                <img src="<?= base_url('upload/agenda/'.$agenda->gambar) ?>"
+                                                    alt="Lifesaver- Community Education and Training"
+                                                    style="height: auto; width: 100%;">
+                                                <!-- <div class="entry-date">10<span>Apr</span></div> -->
+                                            </a>
+                                        </div>
+                                        <div class="col-md-7 ps-md-4">
+                                            <div class="entry-title title-sm">
+                                                <h2><a
+                                                        href="<?= base_url('agenda/detailAgenda/'.$agenda->id_agenda) ?>"><?= html_escape($agenda->judul); ?></a>
+                                                </h2>
+                                            </div>
+                                            <div class="entry-meta">
 
-                <p>
-                    To know the where blind they they'd self-interest, surprise insurance western then didn't and was of stiff legs sign king's know on from client yet office yet nations apparent as cover that she gradually late for that yes, of as of change. Tone occupied so were ambushed inn monitor expenses.
-                </p>
-                <p>The to of the there coordinates and tall the cache front they explain least, than tried purpose the he the remodelling effects, to half the diet, it hired and of in drunk with</p>
-        
+                                                <a href="#"><i class="fas fa-calendar-alt"></i>
+                                                    <?= $agenda->jam_awal; ?> WIB
+                                                    - <?= $agenda->jam_akhir; ?> WIB</a>
+                                                <br>
+                                                <a href="#"><i class="fas fa-map-marker-alt"></i>
+                                                    <?= $agenda->lokasi; ?></a>
+
+                                            </div>
+                                            <div class="entry-content">
+                                                <p>
+                                                <p><strong><?= $agenda->judul; ?></strong></p>
+                                                <p><?= strip_tags(character_limiter($agenda->deskripsi, 150)) ?></p>
+                                                <a href="<?= base_url('agenda/detailAgenda/'.$agenda->id_agenda); ?>"
+                                                    class="btn btn-primary">Read More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php endforeach; ?>
+                                </div>
+
+                                <div class="justify-content-center">
+                                    <div id="msg_loader" style="display:none;"><img
+                                            src="<?= base_url('assets/dists/img/loader.gif') ?>" height="100px"
+                                            width="auto" class="aligncenter"></div>
+                                </div>
+                            </div>
+
+                            <!-- Infinity Scroll Loader
+                            ============================================= -->
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <div class="page-load-status hovering-load-status">
+                                        <div class="css3-spinner infinite-scroll-request">
+                                            <div class="css3-spinner-ball-pulse-sync">
+                                                <div></div>
+                                                <div></div>
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button
+                                        class="mt-4 button text-center button-darnebutton-rounded ls1 text-uppercase load-next-portfolio"
+                                        id="btn-load">Load More</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                </div>
+
+                <div class="sidebar col-lg-4">
+                    <div class="donation-details mb-4 mb-md-0">
+                        <div class="donation-wrapper text-center">
+                            <i class="fas fa-search fa-2x"></i>
+                            <h3 class="text-primary pb-2 text-center">Cari Agenda</h3>
+                            <form action="<?= base_url('agenda/cari_agenda') ?>" method="POST">
+                                <div class="form-group">
+                                    <input type="text" name="keyword" id="keyword" class="form-control"
+                                        placeholder="JUDUL">
+                                </div>
+                                <br>
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">CARI</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Sidebar Widget 2
+                        ============================================= -->
+                    <div class="widget">
+                        <div class="owl-carousel carousel-widget" data-margin="0" data-items="1" data-pagi="false"
+                            data-loop="true" data-speed="1000" data-autoplay="5000">
+                            <a href="https://istiqlal.or.id/virtualtour/"><img
+                                    src="https://istiqlal.or.id/assets/img/informasi/zwv7jcnx3a.jpg"
+                                    class="img-responsive aligncenter" target="_blank"></a>
+                            <a
+                                href="https://docs.google.com/forms/d/e/1FAIpQLSftLB133mq71JmbrviugP_--vKArqYupbiYY4Ov2Rog__7uyA/viewform"><img
+                                    src="https://istiqlal.or.id/assets/img/informasi/jjspsr995w.jpeg"
+                                    class="img-responsive aligncenter" target="_blank"></a>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
-            <?php endforeach; ?>
-        </div>
         </div>
     </div>
     <!--  ====================== Footer Area =============================  -->

@@ -19,4 +19,30 @@ class Agenda extends CI_Controller {
         ];
 		$this->load->view('webpage/v_agenda', $data);
 	}
+
+    public function cari_agenda()
+    {
+        $keyword = $this->input->post('keyword');
+        $data = [
+            'judul' => 'Agenda',
+            'title' => 'Agenda - Masjid Nurul Ilmi',
+            'menu'  => 'agenda',
+        ];
+        $data['data_agenda'] = $this->agenda->search($keyword);
+        if (empty($data['data_agenda'])) {
+            $data['pesan'] = 'Data yang Anda Cari tidak ditemukan.';
+        }
+		$this->load->view('webpage/v_agenda', $data);
+    }
+
+    public function detailAgenda($id_agenda)
+    {
+        $data = [
+            'judul' => 'Detail Agenda',
+            'title' => 'Detail Agenda - Masjid Nurul Ilmi',
+            'agenda' => $this->agenda->get_detail_agenda($id_agenda),
+            'menu'  => 'agenda',
+        ];
+		$this->load->view('webpage/v_detailagenda', $data);
+    }
 }

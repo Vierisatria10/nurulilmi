@@ -47,7 +47,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Judul</label>
-                                    <input type="hidden" name="user" id="user" value="<?= $this->session->userdata('nama') ?>">
+                                    <input type="hidden" name="user" id="user"
+                                        value="<?= $this->session->userdata('nama') ?>">
                                     <input type="text" name="judul" id="judul" value="<?= set_value('judul') ?>"
                                         class="form-control">
                                     <?= form_error('judul', '<small class="text-danger ">', '</small>'); ?>
@@ -66,16 +67,35 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="">Tanggal Awal</label>
+                                    <input name="tgl_awal" type="date" id="tgl_awal"
+                                        value="<?= set_value('tgl_awal') ?>" class="form-control">
+                                    <?= form_error('tgl_awal', '<small class="text-danger ">', '</small>'); ?>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Tanggal Akhir</label>
+                                    <input type="date" name="tgl_akhir" id="tgl_akhir" placeholder="https://twitter.com"
+                                        value="<?= set_value('tgl_akhir') ?>" class="form-control">
+                                    <?= form_error('tgl_akhir', '<small class="text-danger ">', '</small>'); ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
                                     <label for="">Jam Awal</label>
-                                    <input name="jam_awal" type="datetime-local" id="jam_awal" value="<?= set_value('jam_awal') ?>"
-                                        class="form-control">
+                                    <input name="jam_awal" type="time" id="jam_awal"
+                                        value="<?= set_value('jam_awal') ?>" class="form-control">
                                     <?= form_error('jam_awal', '<small class="text-danger ">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Jam Akhir</label>
-                                    <input type="datetime-local" name="jam_akhir" id="jam_akhir" placeholder="https://twitter.com"
+                                    <input type="time" name="jam_akhir" id="jam_akhir" placeholder="https://twitter.com"
                                         value="<?= set_value('jam_akhir') ?>" class="form-control">
                                     <?= form_error('jam_akhir', '<small class="text-danger ">', '</small>'); ?>
                                 </div>

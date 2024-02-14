@@ -42,12 +42,14 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form action="<?= base_url('admin/agenda/update/' .$agenda->id_agenda) ?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?= base_url('admin/agenda/update/' .$agenda->id_agenda) ?>" method="POST"
+                        enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Judul</label>
-                                    <input type="hidden" name="user" id="user" value="<?= $this->session->userdata('nama') ?>">
+                                    <input type="hidden" name="user" id="user"
+                                        value="<?= $this->session->userdata('nama') ?>">
                                     <input type="text" name="judul" id="judul" value="<?= $agenda->judul ?>"
                                         class="form-control">
                                 </div>
@@ -60,19 +62,34 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Tanggal Awal</label>
+                                    <input name="tgl_awal" type="date" id="tgl_awal" value="<?= $agenda->tgl_awal ?>"
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Tanggal Akhir</label>
+                                    <input type="date" name="tgl_akhir" id="tgl_akhir" placeholder="https://twitter.com"
+                                        value="<?= $agenda->tgl_akhir ?>" class="form-control">
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Jam Awal</label>
-                                    <input name="jam_awal" type="datetime-local" id="jam_awal" value="<?= $agenda->jam_awal ?>"
+                                    <input name="jam_awal" type="time" id="jam_awal" value="<?= $agenda->jam_awal ?>"
                                         class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Jam Akhir</label>
-                                    <input type="datetime-local" name="jam_akhir" id="jam_akhir" placeholder="https://twitter.com"
+                                    <input type="time" name="jam_akhir" id="jam_akhir" placeholder="https://twitter.com"
                                         value="<?= $agenda->jam_akhir ?>" class="form-control">
                                 </div>
                             </div>
@@ -84,9 +101,9 @@
                                     <label for="">Gambar Sebelumnya</label>
                                     <br>
                                     <?php if(!empty($agenda->gambar)) : ?>
-                                        <img src="<?= base_url('upload/agenda/'. $agenda->gambar) ?>" width="100" alt="">
+                                    <img src="<?= base_url('upload/agenda/'. $agenda->gambar) ?>" width="100" alt="">
                                     <?php else: ?>
-                                        <img src="<?= base_url('upload/default.png') ?>" alt="">
+                                    <img src="<?= base_url('upload/default.png') ?>" alt="">
                                     <?php endif; ?>
                                 </div>
                             </div>

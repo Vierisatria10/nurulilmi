@@ -60,6 +60,8 @@ class Agenda extends CI_Controller {
             } else {
                 $save = [
                     'judul' => $this->input->post('judul'),
+                    'tgl_awal' => $this->input->post('tgl_awal'),
+                    'tgl_akhir' => $this->input->post('tgl_akhir'),
                     'jam_awal' => $this->input->post('jam_awal'),
                     'jam_akhir' => $this->input->post('jam_akhir'),
                     'lokasi' => $this->input->post('lokasi'),
@@ -124,6 +126,8 @@ class Agenda extends CI_Controller {
            
            $data = array(
                 'judul' => $this->input->post('judul'),
+                'tgl_awal' => $this->input->post('tgl_awal'),
+                'tgl_akhir' => $this->input->post('tgl_akhir'),
                 'jam_awal' => $this->input->post('jam_awal'),
                 'jam_akhir' => $this->input->post('jam_akhir'),
                 'lokasi' => $this->input->post('lokasi'),
@@ -137,6 +141,16 @@ class Agenda extends CI_Controller {
         }else{
             return $this->edit($id_agenda);
         }
+    }
+
+    public function detail($id_agenda) {
+        $data = [
+            'judul' => 'Detail Agenda',
+            'title' => 'Detail Agenda - Masjid Nurul Ilmi',
+            'agenda' => $this->agenda->get_agenda_detail($id_agenda),
+            'menu'  => 'agenda',
+        ];
+        $this->template->load('v_template_admin', 'admin/agenda/v_detail', $data);
     }
 
     public function delete($id_agenda)

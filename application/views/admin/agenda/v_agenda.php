@@ -49,8 +49,8 @@
                             <tr>
                                 <th>No</th>
                                 <th>Judul</th>
-                                <th>Jam Awal</th>
-                                <th>Jam Akhir</th>
+                                <th>Tanggal Awal</th>
+                                <th>Tanggal Akhir</th>
                                 <th>Lokasi</th>
                                 <th>Deskripsi</th>
                                 <th>Foto</th>
@@ -63,30 +63,37 @@
                             <?php foreach ($data_agenda as $agenda) : ?>
                             <tr>
                                 <td><?= $no++; ?></td>
-                                <td><?= $agenda->judul ?></td>
-                                <td><?= $agenda->jam_awal ?></td>
-                                <td><?= $agenda->jam_akhir ?></td>
+                                <td>
+                                    <a
+                                        href="<?= base_url('agenda/detailAgenda/'.$agenda->id_agenda) ?>"><?= $agenda->judul ?></a>
+                                </td>
+                                <td><?= $agenda->tgl_awal ?> <?= $agenda->jam_awal; ?></td>
+                                <td><?= $agenda->tgl_akhir ?> <?= $agenda->jam_akhir ?></td>
                                 <td><?= $agenda->lokasi ?></td>
                                 <td><?= strip_tags(character_limiter($agenda->deskripsi, 100)) ?></td>
                                 <td>
                                     <?php if(!empty($agenda->gambar)) : ?>
-                                        <a href="<?= base_url('upload/agenda/' . $agenda->gambar) ?>" target="_blank">
-                                            <img src="<?= base_url('upload/agenda/' . $agenda->gambar) ?>" width="100"
+                                    <a href=" <?= base_url('upload/agenda/' . $agenda->gambar) ?>" target="_blank">
+                                        <img src="<?= base_url('upload/agenda/' . $agenda->gambar) ?>" width="100"
                                             alt="">
-                                        </a>
+                                    </a>
                                     <?php else: ?>
-                                        <img src="<?= base_url('upload/default.png') ?>" width="100" alt="">
+                                    <img src="<?= base_url('upload/default.png') ?>" width="100" alt="">
                                     <?php endif; ?>
                                 </td>
                                 <td><?= $agenda->user; ?></td>
                                 <td>
                                     <a href="<?= base_url('admin/agenda/edit/'). $agenda->id_agenda ?>"
-                                        class="m-1 btn btn-info btn-sm"><i class="fas fa-fw fa-edit"></i>
-                                        Ubah</a>
+                                        class="btn btn-warning btn-sm" title="Ubah"><i class="fas fa-fw fa-edit"></i>
+                                    </a>
+                                    <a href="<?= base_url('admin/agenda/detail/'). $agenda->id_agenda ?>"
+                                        class="btn btn-primary btn-sm mt-1" title="Detail"><i
+                                            class="fas fa-fw fa-eye"></i>
+                                    </a>
                                     <a href="" data-toggle="modal" data-target="#hapus_agenda<?= $agenda->id_agenda ?>"
-                                        class="btn-delete m-1 btn btn-danger btn-sm"
+                                        class="btn-delete mt-1 btn btn-danger btn-sm" title="Hapus"
                                         data-text="<?= $agenda->user; ?>"><i class="fas fa-fw fa-trash"></i>
-                                        Hapus</a>
+                                    </a>
                                 </td>
                             </tr>
                             <?php endforeach ?>
@@ -116,7 +123,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/agenda/delete/'.$agenda->id_agenda) ?>" method="POST" enctype="multipart/form-data">
+                <form action="<?= base_url('admin/agenda/delete/'.$agenda->id_agenda) ?>" method="POST"
+                    enctype="multipart/form-data">
                     <input type="hidden" id="id_agenda" name="id_agenda" value="<?= $agenda->id_agenda ?>">
                     <p class="text-danger">Menghapus Data Agenda dengan judul :
                         <b><?= $agenda->judul; ?></b>
