@@ -65,7 +65,7 @@
                                 <td><?= $no++; ?></td>
                                 <td>
                                     <a
-                                        href="<?= base_url('agenda/detailAgenda/'.$agenda->id_agenda) ?>"><?= $agenda->judul ?></a>
+                                        href="<?= base_url('agenda') ?>"><?= $agenda->judul ?></a>
                                 </td>
                                 <td><?= $agenda->tgl_awal ?> <?= $agenda->jam_awal; ?></td>
                                 <td><?= $agenda->tgl_akhir ?> <?= $agenda->jam_akhir ?></td>
@@ -86,6 +86,15 @@
                                     <a href="<?= base_url('admin/agenda/edit/'). $agenda->id_agenda ?>"
                                         class="btn btn-warning btn-sm" title="Ubah"><i class="fas fa-fw fa-edit"></i>
                                     </a>
+                                    <?php if($agenda->status == 1) : ?>
+                                        <a href="<?= base_url('admin/agenda/change_status/'. $agenda->id_agenda . '/0') ?>"
+                                            class="btn btn-danger btn-sm mt-1" title="Nonaktif">Nonaktif
+                                        </a>
+                                    <?php else: ?>
+                                        <a href="<?= base_url('admin/agenda/change_status/'. $agenda->id_agenda . '/1') ?>"
+                                            class="btn btn-success btn-sm mt-1" title="Aktifkan">Aktifkan
+                                        </a>
+                                    <?php endif; ?>
                                     <a href="<?= base_url('admin/agenda/detail/'). $agenda->id_agenda ?>"
                                         class="btn btn-primary btn-sm mt-1" title="Detail"><i
                                             class="fas fa-fw fa-eye"></i>

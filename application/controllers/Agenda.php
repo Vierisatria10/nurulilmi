@@ -15,7 +15,7 @@ class Agenda extends CI_Controller {
             'judul' => 'Agenda',
             'title' => 'Agenda - Masjid Nurul Ilmi',
             'menu'  => 'agenda',
-            'data_agenda' => $this->agenda->getDataAgenda()
+            'data_agenda' => $this->agenda->getDataAgendaDetail()
         ];
 		$this->load->view('webpage/v_agenda', $data);
 	}

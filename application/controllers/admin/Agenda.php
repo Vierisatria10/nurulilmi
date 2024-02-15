@@ -153,6 +153,12 @@ class Agenda extends CI_Controller {
         $this->template->load('v_template_admin', 'admin/agenda/v_detail', $data);
     }
 
+    public function change_status($id_agenda, $status) {
+        $this->agenda->updateStatus($id_agenda, $status);
+        $this->session->set_flashdata('success', 'Agenda Berhasil di Publish');
+        redirect('admin/agenda');
+    }
+
     public function delete($id_agenda)
     {
         $id_agenda = $this->input->post('id_agenda');
