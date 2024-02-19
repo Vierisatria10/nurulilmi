@@ -192,6 +192,24 @@
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/artikel') ?>" class="nav-link <?= $menu == 'artikel' ? 'active' : '' ?>">
+                                <i class="nav-icon fas fa-file-alt"></i>
+                                <p>
+                                    Artikel
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/jadwal') ?>" class="nav-link <?= $menu == 'jadwal' ? 'active' : '' ?>">
+                                <i class="nav-icon fas fa-mosque"></i>
+                                <p>
+                                    Jadwal Shalat
+                                </p>
+                            </a>
+                        </li>
+
                         <li class="nav-header">Keuangan</li>
                         <li class="nav-item <?= $menu == 'uang-kas' ? 'has-treeview' : '' ?>">
                             <a href="#" class="nav-link <?= $menu == 'uang-kas' ? 'active' : '' ?>">

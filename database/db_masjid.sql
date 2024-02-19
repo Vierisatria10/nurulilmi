@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Feb 2024 pada 05.59
+-- Waktu pembuatan: 19 Feb 2024 pada 10.39
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -79,6 +79,30 @@ INSERT INTO `tbl_imam` (`id_imam`, `nama`, `jabatan`, `foto`, `link1`, `link2`, 
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tbl_jadwal`
+--
+
+CREATE TABLE `tbl_jadwal` (
+  `id_jadwal` int(11) NOT NULL,
+  `waktu_ashar` time NOT NULL,
+  `waktu_dzuhur` time NOT NULL,
+  `waktu_maghrib` time NOT NULL,
+  `waktu_isya` time NOT NULL,
+  `waktu_subuh` time NOT NULL,
+  `waktu_imsak` time NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `tbl_jadwal`
+--
+
+INSERT INTO `tbl_jadwal` (`id_jadwal`, `waktu_ashar`, `waktu_dzuhur`, `waktu_maghrib`, `waktu_isya`, `waktu_subuh`, `waktu_imsak`, `status`) VALUES
+(1, '15:30:00', '12:10:00', '18:25:00', '19:30:00', '04:40:00', '04:20:00', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tbl_pimpinan`
 --
 
@@ -100,6 +124,28 @@ CREATE TABLE `tbl_pimpinan` (
 INSERT INTO `tbl_pimpinan` (`id_pimpinan`, `nama`, `jabatan`, `foto`, `link1`, `link2`, `link3`, `tanggal`) VALUES
 (1, 'Gahry Rafi 1', 'Mahasiswa', '4.jpg', 'https://facebook.com/', '-', '-', '2024-02-13 03:50:42'),
 (3, 'test', 'Ketua Bidang IT 2', '', '-', '-', '-', '2024-02-13 04:12:45');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_setting`
+--
+
+CREATE TABLE `tbl_setting` (
+  `id_setting` int(11) NOT NULL,
+  `nama_masjid` varchar(100) NOT NULL,
+  `alamat` text NOT NULL,
+  `no_hp` varchar(14) NOT NULL,
+  `banner1` text NOT NULL,
+  `banner2` text NOT NULL,
+  `banner3` text NOT NULL,
+  `judul1` varchar(100) NOT NULL,
+  `judul2` varchar(100) NOT NULL,
+  `judul3` varchar(100) NOT NULL,
+  `sosmed1` text NOT NULL,
+  `sosmed2` text NOT NULL,
+  `sosmed3` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -163,10 +209,22 @@ ALTER TABLE `tbl_imam`
   ADD PRIMARY KEY (`id_imam`);
 
 --
+-- Indeks untuk tabel `tbl_jadwal`
+--
+ALTER TABLE `tbl_jadwal`
+  ADD PRIMARY KEY (`id_jadwal`);
+
+--
 -- Indeks untuk tabel `tbl_pimpinan`
 --
 ALTER TABLE `tbl_pimpinan`
   ADD PRIMARY KEY (`id_pimpinan`);
+
+--
+-- Indeks untuk tabel `tbl_setting`
+--
+ALTER TABLE `tbl_setting`
+  ADD PRIMARY KEY (`id_setting`);
 
 --
 -- Indeks untuk tabel `tbl_user`
@@ -197,10 +255,22 @@ ALTER TABLE `tbl_imam`
   MODIFY `id_imam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT untuk tabel `tbl_jadwal`
+--
+ALTER TABLE `tbl_jadwal`
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `tbl_pimpinan`
 --
 ALTER TABLE `tbl_pimpinan`
   MODIFY `id_pimpinan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_setting`
+--
+ALTER TABLE `tbl_setting`
+  MODIFY `id_setting` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_user`

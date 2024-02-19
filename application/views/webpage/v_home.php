@@ -110,21 +110,64 @@
         <div class="container">
             <div class="prayer-timeline-container">
                 <div class="prayer-slider">
-
+                    <?php date_default_timezone_set('Asia/Jakarta'); ?>
+                    <?php foreach($data_jadwal as $jadwal) : ?>
                     <div class="item">
                         <div class="prayer-timeline">
                             <div class="prayer-wrapper">
-                                <h6 class="text-primary mb-3">MORNING PRAYER</h6>
-                                <h2 class="mb-4">Fajr</h2>
-                                <span data-aos="fade-up" class="p-2 px-3 text-primary rounded  bg-light"><span
-                                        class="me-1"><i class="far fa-clock"></i></span> 4 : 28 AM </span>
+                                <h6 class="text-primary mb-3">Waktu Siang</h6>
+                                <h2 class="mb-4">Dzuhur</h2>
+                                <span data-aos="fade-up" class="p-2 px-3 text-primary rounded bg-light"><span
+                                    class="me-1"><i class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_dzuhur)) ?> PM </span>
                             </div>
                         </div>
                     </div>
                     <div class="item">
                         <div class="prayer-timeline">
+                            <div class="prayer-wrapper">
+                                <h6 class="text-primary mb-3">Waktu Sore</h6>
+                                <h2 class="mb-4">Ashar</h2>
+                                <span data-aos="fade-up" class="p-2 px-3 text-primary rounded bg-light"><span
+                                    class="me-1"><i class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_ashar)); ?> </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="prayer-timeline">
+                            <div class="prayer-wrapper">
+                                <h6 class="text-primary mb-3">Waktu Malem</h6>
+                                <h2 class="mb-4">Maghrib</h2>
+                                <span data-aos="fade-up" class="p-2 px-3 text-primary rounded bg-light"><span
+                                    class="me-1"><i class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_maghrib)); ?> </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="prayer-timeline">
+                            <div class="prayer-wrapper">
+                                <h6 class="text-primary mb-3">Waktu Pagi</h6>
+                                <h2 class="mb-4">Subuh</h2>
+                                <span data-aos="fade-up" class="p-2 px-3 text-primary rounded bg-light"><span
+                                    class="me-1"><i class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_subuh)); ?> </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="prayer-timeline">
+                            <div class="prayer-wrapper">
+                                <h6 class="text-primary mb-3">Waktu Imsak</h6>
+                                <h2 class="mb-4">Imsak</h2>
+                                <span data-aos="fade-up" class="p-2 px-3 text-primary rounded bg-light"><span
+                                    class="me-1"><i class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_imsak)); ?> </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <?php endforeach; ?>
+                    <!-- <div class="item">
+                        <div class="prayer-timeline">
                             <h6 class="text-primary mb-3">NOON PRAYER</h6>
-                            <h2 class="mb-4">Dhuhr</h2>
+                            <h2 class="mb-4">Dzuhur</h2>
                             <span data-aos="fade-up" class="p-2 px-3 text-primary rounded  bg-light"><span
                                     class="me-1"><i class="far fa-clock"></i></span>12:01 PM </span>
                         </div>
@@ -188,7 +231,7 @@
                                         class="me-1"><i class="far fa-clock"></i></span> 6 : 17 PM </span>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
