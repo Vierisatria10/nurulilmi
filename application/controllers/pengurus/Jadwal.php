@@ -21,7 +21,7 @@ class Jadwal extends CI_Controller {
             'menu'  => 'jadwal',
             'data_jadwal' => $this->jadwal->getDataJadwal()
         ];
-		$this->template->load('v_template_admin', 'admin/jadwal/v_jadwal', $data);
+		$this->template->load('v_template_admin', 'pengurus/jadwal/v_jadwal', $data);
 	}
 
     public function simpan()
@@ -44,7 +44,7 @@ class Jadwal extends CI_Controller {
 
         $this->jadwal->insert_jadwal($data);
         $this->session->set_flashdata('success', 'Data Jadwal Shalat di Simpan');
-        redirect('admin/jadwal');
+        redirect('pengurus/jadwal');
     }
 
     public function update()
@@ -67,7 +67,7 @@ class Jadwal extends CI_Controller {
         ];
         $this->jadwal->edit_jadwal($id_jadwal, $data);
         $this->session->set_flashdata('success', 'Data Jadwal Shalat Berhasil di Update');
-        redirect('admin/jadwal');
+        redirect('pengurus/jadwal');
     }
 
     public function delete()
@@ -75,12 +75,12 @@ class Jadwal extends CI_Controller {
         $id_del = $this->input->post('id_del');
         $this->jadwal->delete_jadwal($id_del);
         $this->session->set_flashdata('success', 'Data Jadwal Shalat Berhasil di Hapus');
-        redirect('admin/jadwal');
+        redirect('pengurus/jadwal');
     }
 
     public function change_status($id_jadwal, $status) {
         $this->jadwal->updateStatus($id_jadwal, $status);
         $this->session->set_flashdata('success', 'Jadwal Shalat Berhasil di Publish');
-        redirect('admin/jadwal');
+        redirect('pengurus/jadwal');
     }
 }

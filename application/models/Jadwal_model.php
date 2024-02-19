@@ -20,6 +20,18 @@ class Jadwal_model extends CI_Model {
         return $this->db->get()->result();
     }
 
+    public function edit_jadwal($id_jadwal, $data) 
+    {
+        $this->db->where('id_jadwal', $id_jadwal);
+        $this->db->update($this->table, $data);
+    }
+
+    public function delete_jadwal($id_del) 
+    {
+        $this->db->where('id_jadwal', $id_del);
+        $this->db->delete($this->table);
+    }
+
     public function insert_jadwal($data)
     {
         return $this->db->insert($this->table, $data);

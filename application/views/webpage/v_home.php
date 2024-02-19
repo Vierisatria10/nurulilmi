@@ -42,7 +42,8 @@
     <div class="banner-area position-relative overflow-hidden">
         <div class="banner-slider">
             <div class="banner-item">
-                <div class="banner-bg-image"><img src="<?= base_url('frontend/assets/images/banner/1.jpg') ?>" alt="image"></div>
+                <div class="banner-bg-image"><img src="<?= base_url('frontend/assets/images/banner/1.jpg') ?>"
+                        alt="image"></div>
                 <div class="container">
                     <div class="banner-wrapper">
                         <div class="banner-content ms-0">
@@ -62,7 +63,8 @@
                 </div>
             </div>
             <div class="banner-item">
-                <div class="banner-bg-image"><img src="<?= base_url('frontend/assets/images/banner/2.jpg') ?>" alt="image"></div>
+                <div class="banner-bg-image"><img src="<?= base_url('frontend/assets/images/banner/2.jpg') ?>"
+                        alt="image"></div>
                 <div class="container">
                     <div class="banner-wrapper">
                         <div class="banner-content text-center">
@@ -80,7 +82,8 @@
                 </div>
             </div>
             <div class="banner-item">
-                <div class="banner-bg-image"><img src="<?= base_url('frontend/assets/images/banner/3.jpg') ?>" alt="image"></div>
+                <div class="banner-bg-image"><img src="<?= base_url('frontend/assets/images/banner/3.jpg') ?>"
+                        alt="image"></div>
                 <div class="container">
                     <div class="banner-wrapper">
                         <div class="banner-content ms-0">
@@ -118,7 +121,9 @@
                                 <h6 class="text-primary mb-3">Waktu Siang</h6>
                                 <h2 class="mb-4">Dzuhur</h2>
                                 <span data-aos="fade-up" class="p-2 px-3 text-primary rounded bg-light"><span
-                                    class="me-1"><i class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_dzuhur)) ?> PM </span>
+                                        class="me-1"><i
+                                            class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_dzuhur)) ?>
+                                    PM </span>
                             </div>
                         </div>
                     </div>
@@ -128,7 +133,9 @@
                                 <h6 class="text-primary mb-3">Waktu Sore</h6>
                                 <h2 class="mb-4">Ashar</h2>
                                 <span data-aos="fade-up" class="p-2 px-3 text-primary rounded bg-light"><span
-                                    class="me-1"><i class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_ashar)); ?> </span>
+                                        class="me-1"><i
+                                            class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_ashar)); ?>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -138,7 +145,9 @@
                                 <h6 class="text-primary mb-3">Waktu Malem</h6>
                                 <h2 class="mb-4">Maghrib</h2>
                                 <span data-aos="fade-up" class="p-2 px-3 text-primary rounded bg-light"><span
-                                    class="me-1"><i class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_maghrib)); ?> </span>
+                                        class="me-1"><i
+                                            class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_maghrib)); ?>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -148,7 +157,9 @@
                                 <h6 class="text-primary mb-3">Waktu Pagi</h6>
                                 <h2 class="mb-4">Subuh</h2>
                                 <span data-aos="fade-up" class="p-2 px-3 text-primary rounded bg-light"><span
-                                    class="me-1"><i class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_subuh)); ?> </span>
+                                        class="me-1"><i
+                                            class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_subuh)); ?>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -158,11 +169,13 @@
                                 <h6 class="text-primary mb-3">Waktu Imsak</h6>
                                 <h2 class="mb-4">Imsak</h2>
                                 <span data-aos="fade-up" class="p-2 px-3 text-primary rounded bg-light"><span
-                                    class="me-1"><i class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_imsak)); ?> </span>
+                                        class="me-1"><i
+                                            class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_imsak)); ?>
+                                </span>
                             </div>
                         </div>
                     </div>
-                    
+
                     <?php endforeach; ?>
                     <!-- <div class="item">
                         <div class="prayer-timeline">
@@ -1121,6 +1134,12 @@
     <?php $this->load->view('layout/footer') ?>
     <!-- gulp:js -->
     <script src="<?= base_url('frontend/') ?>assets/js/build.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#donate').click();
+
+    });
+    </script>
     <!-- endgulp -->
     <script type="text/javascript">
     window.$crisp = [];

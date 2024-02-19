@@ -117,8 +117,8 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url('upload/user/'. $this->session->userdata('foto')) ?>" class="img-circle elevation-2"
-                            alt="User Image">
+                        <img src="<?= base_url('upload/user/'. $this->session->userdata('foto')) ?>"
+                            class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block"><?= $this->session->userdata('nama') ?></a>
@@ -175,16 +175,18 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('admin/imam') ?>" class="nav-link <?= $menu == 'imam' ? 'active' : '' ?>"">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <a href="<?= base_url('admin/imam') ?>"
+                                        class="nav-link <?= $menu == 'imam' ? 'active' : '' ?>"">
+                                        <i class=" far fa-circle nav-icon"></i>
                                         <p>Imam & Muazin</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        
+
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/agenda') ?>" class="nav-link <?= $menu == 'agenda' ? 'active' : '' ?>">
+                            <a href="<?= base_url('admin/agenda') ?>"
+                                class="nav-link <?= $menu == 'agenda' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-file"></i>
                                 <p>
                                     Agenda
@@ -193,7 +195,8 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/artikel') ?>" class="nav-link <?= $menu == 'artikel' ? 'active' : '' ?>">
+                            <a href="<?= base_url('admin/artikel') ?>"
+                                class="nav-link <?= $menu == 'artikel' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-file-alt"></i>
                                 <p>
                                     Artikel
@@ -202,7 +205,8 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/jadwal') ?>" class="nav-link <?= $menu == 'jadwal' ? 'active' : '' ?>">
+                            <a href="<?= base_url('admin/jadwal') ?>"
+                                class="nav-link <?= $menu == 'jadwal' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-mosque"></i>
                                 <p>
                                     Jadwal Shalat
@@ -261,7 +265,8 @@
 
                         <li class="nav-header">Setting</li>
                         <li class="nav-item">
-                            <a href="<?= base_url('admin/user') ?>" class="nav-link <?= $menu == 'user' ? 'active' : '' ?>">
+                            <a href="<?= base_url('admin/user') ?>"
+                                class="nav-link <?= $menu == 'user' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>User</p>
                             </a>
@@ -314,19 +319,41 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('admin/imam') ?>" class="nav-link <?= $menu == 'imam' ? 'active' : '' ?>"">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <a href="<?= base_url('admin/imam') ?>"
+                                        class="nav-link <?= $menu == 'imam' ? 'active' : '' ?>"">
+                                        <i class=" far fa-circle nav-icon"></i>
                                         <p>Imam & Muazin</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        
+
                         <li class="nav-item">
-                            <a href="<?= base_url('pengurus/agenda') ?>" class="nav-link <?= $menu == 'agenda' ? 'active' : '' ?>">
+                            <a href="<?= base_url('pengurus/agenda') ?>"
+                                class="nav-link <?= $menu == 'agenda' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-file"></i>
                                 <p>
                                     Agenda
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?= base_url('pengurus/artikel') ?>"
+                                class="nav-link <?= $menu == 'artikel' ? 'active' : '' ?>">
+                                <i class="nav-icon fas fa-file-alt"></i>
+                                <p>
+                                    Artikel
+                                </p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?= base_url('pengurus/jadwal') ?>"
+                                class="nav-link <?= $menu == 'jadwal' ? 'active' : '' ?>">
+                                <i class="nav-icon fas fa-mosque"></i>
+                                <p>
+                                    Jadwal Shalat
                                 </p>
                             </a>
                         </li>

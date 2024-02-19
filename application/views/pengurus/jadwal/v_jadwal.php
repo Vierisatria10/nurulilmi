@@ -75,11 +75,11 @@
                                         class="btn btn-warning btn-sm" title="Ubah"><i class="fas fa-fw fa-edit"></i>
                                     </a>
                                     <?php if($jadwal->status == 1) : ?>
-                                    <a href="<?= base_url('admin/jadwal/change_status/'. $jadwal->id_jadwal . '/0') ?>"
+                                    <a href="<?= base_url('pengurus/jadwal/change_status/'. $jadwal->id_jadwal . '/0') ?>"
                                         class="btn btn-danger btn-sm mt-1" title="Nonaktif">Nonaktif
                                     </a>
                                     <?php else: ?>
-                                    <a href="<?= base_url('admin/jadwal/change_status/'. $jadwal->id_jadwal . '/1') ?>"
+                                    <a href="<?= base_url('pengurus/jadwal/change_status/'. $jadwal->id_jadwal . '/1') ?>"
                                         class="btn btn-success btn-sm mt-1" title="Aktifkan">Aktifkan
                                     </a>
                                     <?php endif; ?>
@@ -113,7 +113,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/jadwal/simpan') ?>" method="post">
+                <form action="<?= base_url('pengurus/jadwal/simpan') ?>" method="post">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -176,7 +176,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/jadwal/update/'.$jadwal->id_jadwal) ?>" method="post">
+                <form action="<?= base_url('pengurus/jadwal/update/'.$jadwal->id_jadwal) ?>" method="post">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
