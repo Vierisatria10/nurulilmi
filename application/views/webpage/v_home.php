@@ -42,7 +42,7 @@
     <div class="banner-area position-relative overflow-hidden">
         <div class="banner-slider">
             <div class="banner-item">
-                <div class="banner-bg-image"><img src="assets/images/banner/1.jpg" alt="image"></div>
+                <div class="banner-bg-image"><img src="<?= base_url('frontend/assets/images/banner/1.jpg') ?>" alt="image"></div>
                 <div class="container">
                     <div class="banner-wrapper">
                         <div class="banner-content ms-0">
@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="banner-item">
-                <div class="banner-bg-image"><img src="assets/images/banner/2.jpg" alt="image"></div>
+                <div class="banner-bg-image"><img src="<?= base_url('frontend/assets/images/banner/2.jpg') ?>" alt="image"></div>
                 <div class="container">
                     <div class="banner-wrapper">
                         <div class="banner-content text-center">
@@ -80,7 +80,7 @@
                 </div>
             </div>
             <div class="banner-item">
-                <div class="banner-bg-image"><img src="assets/images/banner/3.jpg" alt="image"></div>
+                <div class="banner-bg-image"><img src="<?= base_url('frontend/assets/images/banner/3.jpg') ?>" alt="image"></div>
                 <div class="container">
                     <div class="banner-wrapper">
                         <div class="banner-content ms-0">

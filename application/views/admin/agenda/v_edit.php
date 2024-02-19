@@ -56,6 +56,13 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="">Slug</label>
+                                    <input type="text" name="slug" id="slug" placeholder="Contoh: kajian-slug-"
+                                        value="<?= $agenda->slug ?>" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
                                     <label for="">Lokasi</label>
                                     <input type="text" name="lokasi" id="lokasi" placeholder="https://facebook.com"
                                         value="<?= $agenda->lokasi ?>" class="form-control">

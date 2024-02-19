@@ -75,6 +75,7 @@ class Agenda extends CI_Controller {
                     'lokasi' => $this->input->post('lokasi'),
                     'deskripsi' => $this->input->post('deskripsi'),
                     'user'   => $this->session->userdata('nama'),
+                    'slug'   => $this->input->post('slug'),
                     'gambar' => $this->upload->data('file_name')
                 ];
                 $this->agenda->add_agenda($save);
@@ -89,7 +90,7 @@ class Agenda extends CI_Controller {
         $data = [
             'judul' => 'Agenda',
             'title' => 'Agenda - Masjid Nurul Ilmi',
-            'agenda' => $this->agenda->get_agenda_detail($id_agenda),
+            'agenda' => $this->agenda->get_agenda_edit($id_agenda),
             'menu'  => 'agenda',
         ];
         $this->template->load('v_template_admin', 'admin/agenda/v_edit', $data);
@@ -147,6 +148,7 @@ class Agenda extends CI_Controller {
                 'lokasi' => $this->input->post('lokasi'),
                 'deskripsi' => $this->input->post('deskripsi'),
                 'user'   => $this->session->userdata('nama'),
+                'slug'   => $this->input->post('slug'),
                 'gambar' => $update_filename
             );
                 $this->agenda->update_agenda($id_agenda, $data);

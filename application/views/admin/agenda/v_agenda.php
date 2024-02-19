@@ -66,6 +66,7 @@
                                 <td>
                                     <a
                                         href="<?= base_url('agenda') ?>"><?= $agenda->judul ?></a>
+                                    <br> <?= $agenda->slug ?>
                                 </td>
                                 <td><?= $agenda->tgl_awal ?> <?= $agenda->jam_awal; ?></td>
                                 <td><?= $agenda->tgl_akhir ?> <?= $agenda->jam_akhir ?></td>

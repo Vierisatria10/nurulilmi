@@ -121,24 +121,42 @@
                     </form>
                 </div>
 
-                <div class="col-md-4 col-lg-4">
-                    <div class="donation-details mb-4 mb-md-0">
-                        <div class="donation-wrapper">
-                            <h3 class="text-primary pb-2">Informasi Agenda :</h3>
-                            <ul class="donation-list list-inline">
-                                <li><span class="me-2 text-primary"><i class="fas fa-user"></i></span>
-                                    <?= $agenda->user; ?>
-                                </li>
-                                <li><span class="me-2 text-primary"><i class="fas fa-calendar-plus"></i></span>
-                                    <?= format_indo($agenda->tgl_awal); ?> <?= $agenda->jam_awal; ?> WIB
-                                </li>
-                                <li><span class="me-2 text-primary"><i class="fas fa-clock"></i></span>
-                                    <?= format_indo($agenda->tgl_akhir); ?> <?= $agenda->jam_akhir; ?> WIB
-                                </li>
-                                <li><span class="me-2 text-primary"><i
-                                            class="fas fa-map-marker-alt"></i></span><?= $agenda->lokasi; ?></li>
-                            </ul>
+                <div class="col-md-5 col-lg-4">
+                    <div class="course-feature mb-4 bg-white rounded">
+                        <h4 class="text-primary pb-2">Informasi Agenda :</h4>
+                        <ul class="list-inline">
+                            <li><span class="me-2 text-primary"><i class="fas fa-calendar-plus"></i></span>
+                                <?= format_indo($agenda->tgl_awal); ?> <?= $agenda->jam_awal; ?> WIB</li>
+                            <li class="mt-1">
+                                <span class="me-2 text-primary">
+                                    <i class="fas fa-clock"></i>
+                                </span><?= format_indo($agenda->tgl_akhir); ?> <?= $agenda->jam_akhir; ?> WIB
+                            </li>
+                            <li class="mt-1">
+                                <span class="me-2 text-primary">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </span><?= $agenda->lokasi; ?>
+                            </li>
+                            <li class="mt-1">
+                                <span class="me-2 text-primary">
+                                    <i class="fas fa-user"></i>
+                                </span><?= $agenda->user; ?>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="course-feature bg-white rounded">
+                        <h4 class="mb-4 text-primary">Agenda Terbaru</h4>
+                        <?php foreach($data_agenda as $agd) : ?>
+                        <div class="course-block-author mt-3">          
+                            <img src="<?= base_url('upload/agenda/'.$agd->gambar) ?>" alt="title">
+                            <div class="info">
+                                <p class="m-0"><a href='<?= base_url('agenda') ?>'><?= $agd->judul ?></a>
+                                    <br> <?= format_indo($agd->tgl_awal); ?> WIB
+                                </p>
+                            </div>
                         </div>
+                        <?php endforeach; ?>                  
                     </div>
                 </div>
             </div>

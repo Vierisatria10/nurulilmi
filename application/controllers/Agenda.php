@@ -17,7 +17,7 @@ class Agenda extends CI_Controller {
             'menu'  => 'agenda',
             'data_agenda' => $this->agenda->getDataAgendaDetail()
         ];
-		$this->load->view('webpage/v_agenda', $data);
+        $this->load->view('webpage/v_agenda', $data);
 	}
 
     public function cari_agenda()
@@ -35,12 +35,13 @@ class Agenda extends CI_Controller {
 		$this->load->view('webpage/v_agenda', $data);
     }
 
-    public function detailAgenda($id_agenda)
+    public function detailAgenda($slug)
     {
         $data = [
             'judul' => 'Detail Agenda',
             'title' => 'Detail Agenda - Masjid Nurul Ilmi',
-            'agenda' => $this->agenda->get_detail_agenda($id_agenda),
+            'data_agenda' => $this->agenda->getDataAgendaDetail(),
+            'agenda' => $this->agenda->get_detail_agenda($slug),
             'menu'  => 'agenda',
         ];
 		$this->load->view('webpage/v_detailagenda', $data);

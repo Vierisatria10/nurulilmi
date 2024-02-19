@@ -13,14 +13,30 @@ class Agenda_model extends CI_Model {
 
     public function getDataAgendaDetail()
     {
+        $this->db->select('*');
+        $this->db->from($this->table);
         $this->db->where('status', '1');
-        return $this->db->get($this->table)->result();
+        $this->db->order_by('judul', 'ASC');
+        return $this->db->get()->result();
     }
 
     public function add_agenda($save) {
         return $this->db->insert($this->table, $save);
         // return $this->db->insert_id();
     }
+
+    public function count_agenda() {
+        return $this->db->count_all('tbl_agenda');
+    }
+
+    function get_agenda($page)
+    {
+        $offset = 8 * $page;
+        $limit  = 8;
+        $query  = "SELECT * FROM tbl_agenda WHERE status = '1' ORDER BY id_agenda DESC limit $offset ,$limit";
+        $result = $this->db->query($query)->result();
+        return $result;
+    }  
 
     public function updateStatus($id_agenda, $status) {
         $data = array('status' => $status);
@@ -45,11 +61,16 @@ class Agenda_model extends CI_Model {
 		return $this->db->get_where($this->table, ['id_agenda' => $id_agenda])->row();
 	}
 
-    public function get_detail_agenda($id_agenda)
+    public function get_agenda_edit($id_agenda)
+	{
+		return $this->db->get_where($this->table, ['id_agenda' => $id_agenda])->row();
+	}
+
+    public function get_detail_agenda($slug)
 	{
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where('id_agenda', $id_agenda);
+        $this->db->where('slug', $slug);
         return $this->db->get()->row();
 		// return $this->db->get_where($this->table, ['id_agenda' => $id_agenda])->row();
 	}

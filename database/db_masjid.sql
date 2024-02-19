@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Feb 2024 pada 10.51
--- Versi server: 10.4.24-MariaDB
--- Versi PHP: 7.4.28
+-- Waktu pembuatan: 19 Feb 2024 pada 05.59
+-- Versi server: 10.4.28-MariaDB
+-- Versi PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,15 +37,18 @@ CREATE TABLE `tbl_agenda` (
   `lokasi` text NOT NULL,
   `deskripsi` text NOT NULL,
   `gambar` text NOT NULL,
-  `user` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `user` varchar(100) NOT NULL,
+  `status` int(11) NOT NULL,
+  `slug` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tbl_agenda`
 --
 
-INSERT INTO `tbl_agenda` (`id_agenda`, `judul`, `tgl_awal`, `tgl_akhir`, `jam_awal`, `jam_akhir`, `lokasi`, `deskripsi`, `gambar`, `user`) VALUES
-(1, 'KAJIAN DHUHA (Kitab Tauhid Tijan Addarori)', '2024-02-17', '2024-02-17', '04:50:00', '05:30:00', 'Masjid Nurul Ilmi', '<p>Ba\'da Subuh....&nbsp;<br>Kajian Dhuha bersama Ust. M. Bisri</p><p>Bab : Hari Kiamat</p><p>Terjadinya kiamat besar ditandai dengan tiupan terompet atau sangkakala oleh Malaikat Isrofil. Tiupan terompet atau sangkakala oleh Malaikat Isrofil yang pertama akan membuat kematian pada seluruh makhluk hidup kecuali mereka yang dikehendaki Allah SWT.</p><p>Hal ini ditegaskan dalam firmanNya surah Az Zumar ayat 68,</p><p>وَنُفِخَ فِى الصُّوْرِ فَصَعِقَ مَنْ فِى السَّمٰوٰتِ وَمَنْ فِى الْاَرْضِ اِلَّا مَنْ شَاۤءَ اللّٰهُ ۗ ثُمَّ نُفِخَ فِيْهِ اُخْرٰى فَاِذَا هُمْ قِيَامٌ يَّنْظُرُوْنَ</p><p>Artinya: \"Sangkakala pun ditiup sehingga matilah semua (makhluk) yang (ada) di langit dan di bumi, kecuali mereka yang dikehendaki Allah. Kemudian, ia ditiup sekali lagi. Seketika itu, mereka bangun (dari kuburnya dan) menunggu (keputusan Allah).\"</p><p>#IbdakMNI</p>', 'kajian1.jpeg', 'Admin');
+INSERT INTO `tbl_agenda` (`id_agenda`, `judul`, `tgl_awal`, `tgl_akhir`, `jam_awal`, `jam_akhir`, `lokasi`, `deskripsi`, `gambar`, `user`, `status`, `slug`) VALUES
+(1, 'KAJIAN DHUHA (Kitab Tauhid Tijan Addarori)', '2024-02-17', '2024-02-17', '04:50:00', '05:30:00', 'Masjid Nurul Ilmi', '<p>Ba\'da Subuh....&nbsp;<br>Kajian Dhuha bersama Ust. M. Bisri</p><p>Bab : Hari Kiamat</p><p>Terjadinya kiamat besar ditandai dengan tiupan terompet atau sangkakala oleh Malaikat Isrofil. Tiupan terompet atau sangkakala oleh Malaikat Isrofil yang pertama akan membuat kematian pada seluruh makhluk hidup kecuali mereka yang dikehendaki Allah SWT.</p><p>Hal ini ditegaskan dalam firmanNya surah Az Zumar ayat 68,</p><p>وَنُفِخَ فِى الصُّوْرِ فَصَعِقَ مَنْ فِى السَّمٰوٰتِ وَمَنْ فِى الْاَرْضِ اِلَّا مَنْ شَاۤءَ اللّٰهُ ۗ ثُمَّ نُفِخَ فِيْهِ اُخْرٰى فَاِذَا هُمْ قِيَامٌ يَّنْظُرُوْنَ</p><p>Artinya: \"Sangkakala pun ditiup sehingga matilah semua (makhluk) yang (ada) di langit dan di bumi, kecuali mereka yang dikehendaki Allah. Kemudian, ia ditiup sekali lagi. Seketika itu, mereka bangun (dari kuburnya dan) menunggu (keputusan Allah).\"</p><p>#IbdakMNI</p>', 'kajian1.jpeg', 'Admin', 1, 'KAJIAN-DHUHA-(Kitab-tauhid-tijan-addarori)'),
+(2, 'test agenda', '2024-02-19', '2024-02-20', '10:23:00', '11:23:00', 'Masjid Nurul Ilmi', '<p>testing</p>', 'kajian1.jpg', 'Admin', 0, '');
 
 -- --------------------------------------------------------
 
@@ -62,7 +65,7 @@ CREATE TABLE `tbl_imam` (
   `link2` text NOT NULL,
   `link3` text NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tbl_imam`
@@ -88,7 +91,7 @@ CREATE TABLE `tbl_pimpinan` (
   `link2` text NOT NULL,
   `link3` text NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tbl_pimpinan`
@@ -113,14 +116,15 @@ CREATE TABLE `tbl_user` (
   `foto` text NOT NULL,
   `no_hp` varchar(14) NOT NULL,
   `created_update` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id_user`, `nama`, `username`, `password`, `level`, `foto`, `no_hp`, `created_update`) VALUES
-(1, 'Admin', 'admin', 'f865b53623b121fd34ee5426c792e5c33af8c227', 'Administrator', 'default.jpg', '085711067008', '2024-02-12 12:13:52');
+(1, 'Admin', 'admin', 'f865b53623b121fd34ee5426c792e5c33af8c227', 'Administrator', '1.jpg', '085711067008', '2024-02-12 12:13:52'),
+(2, 'Aldo', 'aldo', '9e7700bc021f4c124e9ab35258f13795c20af96d', 'Pengurus', '2.jpg', '081232718945', '2024-02-16 01:49:28');
 
 -- --------------------------------------------------------
 
@@ -133,7 +137,7 @@ CREATE TABLE `tbl_visimisi` (
   `visi` text NOT NULL,
   `misi` text NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tbl_visimisi`
@@ -184,7 +188,7 @@ ALTER TABLE `tbl_visimisi`
 -- AUTO_INCREMENT untuk tabel `tbl_agenda`
 --
 ALTER TABLE `tbl_agenda`
-  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_imam`
@@ -202,7 +206,7 @@ ALTER TABLE `tbl_pimpinan`
 -- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_visimisi`

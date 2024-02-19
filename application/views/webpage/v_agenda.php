@@ -72,7 +72,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card shadow-sm">
-                                <div class="card-body">
+                                <div class="card-body" id="agnda-container">
                                     <?php foreach($data_agenda as $agenda) : ?>
                                     <div class="grid-inner row g-0 p-4">
                                         <div class="col-md-5 mb-md-0">
@@ -86,7 +86,7 @@
                                         <div class="col-md-7 ps-md-4">
                                             <div class="entry-title title-sm">
                                                 <h2><a
-                                                        href="<?= base_url('agenda/detailAgenda/'.$agenda->id_agenda) ?>"><?= html_escape($agenda->judul); ?></a>
+                                                        href="<?= base_url('agenda/detailAgenda/'.$agenda->slug) ?>"><?= html_escape($agenda->judul); ?></a>
                                                 </h2>
                                             </div>
                                             <div class="entry-meta">
@@ -102,8 +102,8 @@
                                             <div class="entry-content">
                                                 <p>
                                                 <p><strong><?= $agenda->judul; ?></strong></p>
-                                                <p><?= strip_tags(character_limiter($agenda->deskripsi, 150)) ?></p>
-                                                <a href="<?= base_url('agenda/detailAgenda/'.$agenda->id_agenda); ?>"
+                                                <p><?= strip_tags(character_limiter($agenda->deskripsi, 200)) ?></p>
+                                                <a href="<?= base_url('agenda/detailAgenda/'.$agenda->slug); ?>"
                                                     class="btn btn-primary">Read More</a>
                                             </div>
                                         </div>
@@ -131,9 +131,8 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <button
-                                        class="mt-4 button text-center button-darnebutton-rounded ls1 text-uppercase load-next-portfolio"
+                                        class="mt-4 btn text-center btn-dark ls1 text-uppercase load-next-portfolio"
                                         id="btn-load">Load More</button>
                                 </div>
                             </div>
@@ -143,20 +142,17 @@
                     <?php endif; ?>
                 </div>
 
-                <div class="sidebar col-lg-4">
-                    <div class="donation-details mb-4 mb-md-0">
-                        <div class="donation-wrapper text-center">
-                            <i class="fas fa-search fa-2x"></i>
-                            <h3 class="text-primary pb-2 text-center">Cari Agenda</h3>
-                            <form action="<?= base_url('agenda/cari_agenda') ?>" method="POST">
-                                <div class="form-group">
-                                    <input type="text" name="keyword" id="keyword" class="form-control"
-                                        placeholder="JUDUL">
-                                </div>
-                                <br>
-                                <button type="submit" class="btn btn-primary" style="width: 100%;">CARI</button>
-                            </form>
-                        </div>
+                <div class="col-lg-4 col-md-5">
+                    <div class="course-feature mb-4 bg-white text-center rounded">
+                        <i class="fas fa-search fa-2x"></i>
+                        <h3 class="text-primary pb-2 text-center">Cari Agenda</h3>
+                        <form action="<?= base_url('agenda/cari_agenda') ?>" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="keyword" id="keyword" class="form-control" placeholder="JUDUL">
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">CARI</button>
+                        </form>
                     </div>
                     <!-- Sidebar Widget 2
                         ============================================= -->
@@ -182,6 +178,8 @@
     <?php $this->load->view('layout/footer') ?>
     <!-- gulp:js -->
     <script src="<?= base_url('frontend/') ?>assets/js/build.min.js"></script>
+    <script>
+    </script>
     <!-- endgulp -->
     <script type="text/javascript">
     window.$crisp = [];
