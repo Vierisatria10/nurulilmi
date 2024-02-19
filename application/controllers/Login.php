@@ -46,16 +46,18 @@ class Login extends CI_Controller {
                 $nama = $data['nama'];
                 $username = $data['username'];
                 $level = $data['level'];
+                $foto = $data['foto'];
                 $password = $data['password'];
 
                 $session_data = array(
                     'id_user' => $id_user,
                     'nama' => $nama,
                     'username' => $username,
+                    'foto'  => $foto,
                     'level' => $level,
                     'logged_in' => TRUE
                 );
-                $this->session->set_userdata($session_data);
+                $this->session->set_userdata('user_data',$session_data);
                 // acces login for admin
                 if ($level === 'Administrator') {
                     echo $this->session->set_flashdata('pesan', '

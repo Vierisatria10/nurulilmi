@@ -9,8 +9,6 @@ class Agenda extends CI_Controller {
             redirect('login');
           }
         $this->load->model('Agenda_model', 'agenda');
-        $this->load->model('User_model', 'user');
-
     }
 	public function index()
 	{
@@ -20,7 +18,7 @@ class Agenda extends CI_Controller {
             'menu'  => 'agenda',
             'data_agenda' => $this->agenda->getDataAgenda()
         ];
-		$this->template->load('v_template_admin', 'admin/agenda/v_agenda', $data);
+		$this->template->load('v_template_admin', 'pengurus/agenda/v_agenda', $data);
 	}
 
     public function tambah()
@@ -64,7 +62,7 @@ class Agenda extends CI_Controller {
             if (!$this->upload->do_upload('gambar')) {
                 $error =$this->upload->display_errors();
                 $this->session->set_flashdata('error', $error);
-                redirect('admin/agenda/tambah');
+                redirect('pengurus/agenda/tambah');
             } else {
                 $save = [
                     'judul' => $this->input->post('judul'),
@@ -79,7 +77,7 @@ class Agenda extends CI_Controller {
                 ];
                 $this->agenda->add_agenda($save);
                 $this->session->set_flashdata('success', 'Data Agenda di Simpan');
-                redirect('admin/agenda');
+                redirect('pengurus/agenda');
             }
             
         }
@@ -92,7 +90,7 @@ class Agenda extends CI_Controller {
             'agenda' => $this->agenda->get_agenda_detail($id_agenda),
             'menu'  => 'agenda',
         ];
-        $this->template->load('v_template_admin', 'admin/agenda/v_edit', $data);
+        $this->template->load('v_template_admin', 'pengurus/agenda/v_edit', $data);
     }
 
     public function update($id_agenda)
@@ -151,7 +149,7 @@ class Agenda extends CI_Controller {
             );
                 $this->agenda->update_agenda($id_agenda, $data);
                 $this->session->set_flashdata('update', 'Data Agenda Berhasil di Update');
-                redirect('admin/agenda');
+                redirect('pengurus/agenda');
         }else{
             return $this->edit($id_agenda);
         }
@@ -164,13 +162,13 @@ class Agenda extends CI_Controller {
             'agenda' => $this->agenda->get_agenda_detail($id_agenda),
             'menu'  => 'agenda',
         ];
-        $this->template->load('v_template_admin', 'admin/agenda/v_detail', $data);
+        $this->template->load('v_template_admin', 'pengurus/agenda/v_detail', $data);
     }
 
     public function change_status($id_agenda, $status) {
         $this->agenda->updateStatus($id_agenda, $status);
         $this->session->set_flashdata('success', 'Agenda Berhasil di Publish');
-        redirect('admin/agenda');
+        redirect('pengurus/agenda');
     }
 
     public function delete($id_agenda)
@@ -187,7 +185,7 @@ class Agenda extends CI_Controller {
             ];
             $this->agenda->deleteAgenda($id_agenda, $del);
             $this->session->set_flashdata('success', 'Data Imam & Muadzin Berhasil di Hapus');
-            redirect('admin/agenda');
+            redirect('pengurus/agenda');
         }
     }
 
