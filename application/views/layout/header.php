@@ -59,6 +59,8 @@
                                         <li><a class='dropdown-item' href='/404'>404 </a></li>
                                     </ul>
                                 </li>
+                                <li class="nav-item"> <a class='nav-link' href='<?= base_url('video') ?>'>Nurul Ilmi
+                                        TV</a></li>
                                 <li class="nav-item"> <a class='nav-link' href='/contact'>Contact</a></li>
                             </ul>
                         </nav>

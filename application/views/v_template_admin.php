@@ -145,8 +145,8 @@
                         </li>
 
 
-                        <li class="nav-item <?= $menu == 'profil' ? 'has-treeview' : '' ?>">
-                            <a href="#" class="nav-link <?= $menu == 'profil' ? 'active' : '' ?>">
+                        <li class="nav-item <?= $menu == 'visimisi' ? 'has-treeview' : '' ?>">
+                            <a href="#" class="nav-link <?= $menu == 'visimisi' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Profil
@@ -179,6 +179,32 @@
                                         class="nav-link <?= $menu == 'imam' ? 'active' : '' ?>"">
                                         <i class=" far fa-circle nav-icon"></i>
                                         <p>Imam & Muazin</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item <?= $menu == 'video' ? 'has-treeview' : '' ?>">
+                            <a href="#" class="nav-link <?= $menu == 'video' ? 'active' : '' ?>">
+                                <i class="nav-icon fas fa-video"></i>
+                                <p>
+                                    Nurul Ilmi Tv
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= base_url('admin/video/kategori') ?>"
+                                        class="nav-link <?= $menu == 'kategori' ? 'active' : '' ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Kategori Video</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('admin/video') ?>"
+                                        class="nav-link <?= $menu == 'video' ? 'active' : '' ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data Video</p>
                                     </a>
                                 </li>
                             </ul>
@@ -272,7 +298,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="https://adminlte.io/docs/3.0" class="nav-link">
+                            <a href="<?= base_url('admin/setting') ?>"
+                                class="nav-link <?= $menu == 'setting' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-cogs"></i>
                                 <p>Setting Web</p>
                             </a>

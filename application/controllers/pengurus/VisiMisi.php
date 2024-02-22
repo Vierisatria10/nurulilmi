@@ -20,7 +20,7 @@ class VisiMisi extends CI_Controller {
             'menu'  => 'visimisi',
             'data_visi' => $this->visi->getDataVisi()
         ];
-		$this->template->load('v_template_admin', 'admin/visi/v_visi', $data);
+		$this->template->load('v_template_admin', 'pengurus/visi/v_visi', $data);
 	}
 
     public function tambah()
@@ -33,7 +33,7 @@ class VisiMisi extends CI_Controller {
                 'title' => 'Visi & Misi - Masjid Nurul Ilmi',
                 'menu'  => 'visimisi',
             ];
-		    $this->template->load('v_template_admin', 'admin/visi/v_tambah', $data);
+		    $this->template->load('v_template_admin', 'pengurus/visi/v_tambah', $data);
         } else {
             $visi = $this->input->post('visi');
             $misi = $this->input->post('misi');
@@ -43,7 +43,7 @@ class VisiMisi extends CI_Controller {
             ];
             $this->visi->add_visi($save);
             $this->session->set_flashdata('success', 'Visi Misi Berhasil di Simpan');
-            redirect('admin/visimisi');
+            redirect('pengurus/visimisi');
         }
     }
 
@@ -54,7 +54,7 @@ class VisiMisi extends CI_Controller {
             'visi'  =>  $this->visi->get_visi_detail($id_visi),
             'menu'  => 'visimisi',
         ];
-        $this->template->load('v_template_admin', 'admin/visi/v_edit', $data);
+        $this->template->load('v_template_admin', 'pengurus/visi/v_edit', $data);
     }
 
     public function update($id_visi)
@@ -68,7 +68,7 @@ class VisiMisi extends CI_Controller {
                 'visi'  =>  $this->visi->get_visi_detail($id_visi),
                 'menu'  => 'visimisi',
             ];
-		    $this->template->load('v_template_admin', 'admin/visi/v_edit', $data);
+		    $this->template->load('v_template_admin', 'pengurus/visi/v_edit', $data);
         } else {
             $visi = $this->input->post('visi');
             $misi = $this->input->post('misi');
@@ -78,7 +78,7 @@ class VisiMisi extends CI_Controller {
             ];
             $this->visi->update_Visi($id_visi, $data);
             $this->session->set_flashdata('update', 'Visi Misi Berhasil di Update');
-            redirect('admin/visimisi');
+            redirect('pengurus/visimisi');
         }
     }
 
@@ -90,6 +90,6 @@ class VisiMisi extends CI_Controller {
         ];
         $this->visi->delete_visi($id_del, $data);
         $this->session->set_flashdata('success', 'Data Visi Misi berhasil dihapus');
-        redirect('admin/visimisi');
+        redirect('pengurus/visimisi');
     }
 }

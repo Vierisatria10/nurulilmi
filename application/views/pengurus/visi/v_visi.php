@@ -38,7 +38,7 @@
                     <h3 class="card-title">Data Visi Misi</h3>
                     <?= $this->session->flashdata('message') ?>
                     <div class="d-flex justify-content-end">
-                        <a href="<?= base_url('admin/visimisi/tambah') ?>" class="btn btn-green btn-sm"><i
+                        <a href="<?= base_url('pengurus/visimisi/tambah') ?>" class="btn btn-green btn-sm"><i
                                 class="fas fa-plus"></i> Tambah Visi</a>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                                 <td><?= $vm['misi'] ?></td>
                                 <td><?= $vm['tanggal'] ?></td>
                                 <td>
-                                    <a href="<?= base_url('admin/visimisi/edit/'). $vm['id_visi'] ?>"
+                                    <a href="<?= base_url('pengurus/visimisi/edit/'). $vm['id_visi'] ?>"
                                         class="m-1 btn btn-info btn-sm"><i class="fas fa-fw fa-edit"></i>
                                         Ubah</a>
                                     <a href="" data-toggle="modal" data-target="#hapus_visi<?= $vm['id_visi'] ?>"
@@ -98,7 +98,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/visimisi/delete') ?>" method="POST">
+                <form action="<?= base_url('pengurus/visimisi/delete') ?>" method="POST">
                     <input type="hidden" id="id_del" name="id_del" value="<?= $vm['id_visi'] ?>">
                     <p class="text-danger">Menghapus Data Visi Misi yang dibuat pada tanggal :
                         <b><?= $vm['tanggal']; ?></b>

@@ -35,40 +35,52 @@
             <!-- /.card -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Data Visi Misi</h3>
+                    <h3 class="card-title">Setting Web</h3>
                     <?= $this->session->flashdata('message') ?>
                     <div class="d-flex justify-content-end">
-                        <a href="<?= base_url('admin/visimisi/tambah') ?>" class="btn btn-green btn-sm"><i
-                                class="fas fa-plus"></i> Tambah Visi</a>
+                        <a href="<?= base_url('admin/setting/tambah') ?>" class="btn btn-green btn-sm"><i
+                                class="fas fa-plus"></i> Tambah Setting</a>
                     </div>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <table id="visi_misi" class="table table-bordered table-striped">
+                    <table id="tbl_setting" class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Visi</th>
-                                <th>Misi</th>
-                                <th>Tanggal Update</th>
+                                <th>Nama Masjid</th>
+                                <th>Alamat</th>
+                                <th>No Hp</th>
+                                <th>Logo</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 1; ?>
-                            <?php foreach ($data_visi as $vm) : ?>
+                            <?php foreach ($data_setting as $setting) : ?>
                             <tr>
                                 <td><?= $no++; ?></td>
-                                <td><?= $vm['visi'] ?></td>
-                                <td><?= $vm['misi'] ?></td>
-                                <td><?= $vm['tanggal'] ?></td>
+                                <td><?= $setting->nama_masjid ?></td>
+                                <td><?= $setting->alamat ?></td>
+                                <td><?= $setting->no_hp; ?></td>
                                 <td>
-                                    <a href="<?= base_url('admin/visimisi/edit/'). $vm['id_visi'] ?>"
+                                    <?php if(!empty($setting->logo)) : ?>
+                                    <a href="<?= base_url('upload/setting/' . $setting->logo) ?>" target="_blank">
+                                        <img src="<?= base_url('upload/setting/' . $setting->logo) ?>" width="100"
+                                            alt="">
+                                    </a>
+                                    <?php else: ?>
+                                    <img src="<?= base_url('upload/default.png') ?>" width="100" alt="">
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <a href="<?= base_url('admin/setting/edit/'). $setting->id_setting ?>"
                                         class="m-1 btn btn-info btn-sm"><i class="fas fa-fw fa-edit"></i>
                                         Ubah</a>
-                                    <a href="" data-toggle="modal" data-target="#hapus_visi<?= $vm['id_visi'] ?>"
-                                        class="btn-delete m-1 btn btn-danger btn-sm" data-text="<?= $vm['visi']; ?>"><i
-                                            class="fas fa-fw fa-trash"></i>
+                                    <a href="" data-toggle="modal"
+                                        data-target="#hapus_setting<?= $setting->id_setting ?>"
+                                        class="btn-delete m-1 btn btn-danger btn-sm"
+                                        data-text="<?= $setting->nama_masjid; ?>"><i class="fas fa-fw fa-trash"></i>
                                         Hapus</a>
                                 </td>
                             </tr>
@@ -85,23 +97,25 @@
 </section>
 
 <!-- Modal Delete -->
-<?php foreach($data_visi as $vm) : ?>
-<div class="modal fade" id="hapus_visi<?= $vm['id_visi'] ?>" tabindex="-1" role="dialog"
-    aria-labelledby="hapus_visi<?= $vm['id_visi'] ?>" aria-hidden="true">
+<?php foreach($data_setting as $setting) : ?>
+<div class="modal fade" id="hapus_setting<?= $setting->id_setting ?>" tabindex="-1" role="dialog"
+    aria-labelledby="hapus_setting<?= $setting->id_setting ?>" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="hapus_visi<?= $vm['id_visi'] ?>">Apakah kamu ingin menghapus data ini?
+                <h5 class="modal-title" id="hapus_setting<?= $setting->id_setting ?>">Apakah kamu ingin menghapus
+                    data ini?
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/visimisi/delete') ?>" method="POST">
-                    <input type="hidden" id="id_del" name="id_del" value="<?= $vm['id_visi'] ?>">
-                    <p class="text-danger">Menghapus Data Visi Misi yang dibuat pada tanggal :
-                        <b><?= $vm['tanggal']; ?></b>
+                <form action="<?= base_url('admin/setting/delete/'.$setting->id_setting) ?>" method="POST"
+                    enctype="multipart/form-data">
+                    <input type="hidden" id="id_setting" name="id_setting" value="<?= $setting->id_setting ?>">
+                    <p class="text-danger">Menghapus Data Setting Web yang bernama :
+                        <b><?= $setting->nama_masjid; ?></b>
                     </p>
             </div>
             <div class="modal-footer">

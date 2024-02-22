@@ -690,21 +690,7 @@
         </div>
     </div>
     <!--  ====================== Call To Action Area =============================  -->
-    <div class="call-to-action-area py-lg-8 py-5 bg-image-pattern bg-primary">
-        <div class="container">
-            <div class="mb-4 text-center">
-                <h2 class="h1 text-white">Get Hadith Everyday</h2>
-                <p class="text-white">Sign up bellow to get hidth everyday in your inbox</p>
-            </div>
-            <form class="call-to-action-form m-auto" action="#">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Your Name">
-                    <input type="text" class="form-control" placeholder="Your Email">
-                    <button class="btn btn-light" type="submit">Get Started</button>
-                </div>
-            </form>
-        </div>
-    </div>
+
     <!--  ====================== Course Area =============================  -->
     <div class="course-area py-lg-10 py-8">
         <div class="container">
@@ -1082,54 +1068,6 @@
         </div>
     </div>
     <!--  ====================== Contact Area =============================  -->
-    <div id="contact" class="contact-area py-lg-10 py-8">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="text-center text-md-start col-md-5">
-                    <div class="section-title mb-4">
-                        <span class="text-primary">Contact Us</span>
-                        <h2 class="h1">Dont be a stranger just say hello.
-                        </h2>
-
-                    </div>
-                    <p>We will connect back to you in next few moments. Our team of professional alims and scholars are
-                        always there to help and guide you.
-                    </p>
-                    <h4 class="mb-4">Follow Us On Social Media</h4>
-                    <ul class="contact-share-social list-inline mb-5">
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 offset-md-1">
-                    <form class="contact-form">
-                        <div class="row mb-3">
-                            <div class="col-md-12">
-                                <div class="mb-4">
-                                    <input type="email" class="form-control" placeholder="Your Name">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="mb-4">
-                                    <input type="email" class="form-control" placeholder="Your Email">
-                                </div>
-                            </div>
-                            <div class="mb-4">
-                                <textarea class="form-control" rows="7" placeholder="Your Message"></textarea>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
     <!--  ====================== Footer Area =============================  -->
     <?php $this->load->view('layout/footer') ?>
     <!-- gulp:js -->
