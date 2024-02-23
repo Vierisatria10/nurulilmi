@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Feb 2024 pada 10.39
--- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.2.4
+-- Waktu pembuatan: 23 Feb 2024 pada 02.01
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,7 +40,7 @@ CREATE TABLE `tbl_agenda` (
   `user` varchar(100) NOT NULL,
   `status` int(11) NOT NULL,
   `slug` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_agenda`
@@ -65,7 +65,7 @@ CREATE TABLE `tbl_imam` (
   `link2` text NOT NULL,
   `link3` text NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_imam`
@@ -91,14 +91,36 @@ CREATE TABLE `tbl_jadwal` (
   `waktu_subuh` time NOT NULL,
   `waktu_imsak` time NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_jadwal`
 --
 
 INSERT INTO `tbl_jadwal` (`id_jadwal`, `waktu_ashar`, `waktu_dzuhur`, `waktu_maghrib`, `waktu_isya`, `waktu_subuh`, `waktu_imsak`, `status`) VALUES
-(1, '15:30:00', '12:10:00', '18:25:00', '19:30:00', '04:40:00', '04:20:00', 0);
+(1, '15:30:00', '12:10:00', '18:30:00', '19:30:00', '04:40:00', '04:20:00', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_kategori_video`
+--
+
+CREATE TABLE `tbl_kategori_video` (
+  `id_kat_video` int(11) NOT NULL,
+  `nama_video` varchar(100) NOT NULL,
+  `slug` text NOT NULL,
+  `tanggal` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_kategori_video`
+--
+
+INSERT INTO `tbl_kategori_video` (`id_kat_video`, `nama_video`, `slug`, `tanggal`) VALUES
+(1, 'Kajian Ba\'da Jumat', 'kajian-ba-da-jumat', '2024-02-22 23:06:34'),
+(2, 'Webinar', 'webinar', '2024-02-22 23:07:53'),
+(4, 'Kajian Ihyan Ulumuddin', 'kajian-ihyan-ulumuddin', '2024-02-23 00:31:39');
 
 -- --------------------------------------------------------
 
@@ -115,7 +137,7 @@ CREATE TABLE `tbl_pimpinan` (
   `link2` text NOT NULL,
   `link3` text NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_pimpinan`
@@ -136,6 +158,7 @@ CREATE TABLE `tbl_setting` (
   `nama_masjid` varchar(100) NOT NULL,
   `alamat` text NOT NULL,
   `no_hp` varchar(14) NOT NULL,
+  `logo` text NOT NULL,
   `banner1` text NOT NULL,
   `banner2` text NOT NULL,
   `banner3` text NOT NULL,
@@ -145,7 +168,14 @@ CREATE TABLE `tbl_setting` (
   `sosmed1` text NOT NULL,
   `sosmed2` text NOT NULL,
   `sosmed3` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_setting`
+--
+
+INSERT INTO `tbl_setting` (`id_setting`, `nama_masjid`, `alamat`, `no_hp`, `logo`, `banner1`, `banner2`, `banner3`, `judul1`, `judul2`, `judul3`, `sosmed1`, `sosmed2`, `sosmed3`) VALUES
+(1, 'Nurul Ilmi', 'Perumahan Talaga Bestari Blok G110 Rt003003,', '087781581583', 'header-logo.png', '1.jpg', '2.jpg', '3.jpg', 'Judul 1', 'judul 2', 'judul 3', 'Sosmed 1', 'sosmed 2', 'sosmed 3');
 
 -- --------------------------------------------------------
 
@@ -162,7 +192,7 @@ CREATE TABLE `tbl_user` (
   `foto` text NOT NULL,
   `no_hp` varchar(14) NOT NULL,
   `created_update` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_user`
@@ -175,6 +205,26 @@ INSERT INTO `tbl_user` (`id_user`, `nama`, `username`, `password`, `level`, `fot
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tbl_video`
+--
+
+CREATE TABLE `tbl_video` (
+  `id_video` int(11) NOT NULL,
+  `id_kat_video` int(11) NOT NULL,
+  `judul` varchar(100) NOT NULL,
+  `link` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_video`
+--
+
+INSERT INTO `tbl_video` (`id_video`, `id_kat_video`, `judul`, `link`) VALUES
+(1, 1, 'Hakekat Muraqabah', 'https://www.youtube.com/live/Qp9D6LgLbSI?si=BXgOj3gTMYsiHDVR');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tbl_visimisi`
 --
 
@@ -183,7 +233,7 @@ CREATE TABLE `tbl_visimisi` (
   `visi` text NOT NULL,
   `misi` text NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_visimisi`
@@ -215,6 +265,12 @@ ALTER TABLE `tbl_jadwal`
   ADD PRIMARY KEY (`id_jadwal`);
 
 --
+-- Indeks untuk tabel `tbl_kategori_video`
+--
+ALTER TABLE `tbl_kategori_video`
+  ADD PRIMARY KEY (`id_kat_video`);
+
+--
 -- Indeks untuk tabel `tbl_pimpinan`
 --
 ALTER TABLE `tbl_pimpinan`
@@ -231,6 +287,13 @@ ALTER TABLE `tbl_setting`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id_user`);
+
+--
+-- Indeks untuk tabel `tbl_video`
+--
+ALTER TABLE `tbl_video`
+  ADD PRIMARY KEY (`id_video`),
+  ADD KEY `id_kat_video` (`id_kat_video`);
 
 --
 -- Indeks untuk tabel `tbl_visimisi`
@@ -261,6 +324,12 @@ ALTER TABLE `tbl_jadwal`
   MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT untuk tabel `tbl_kategori_video`
+--
+ALTER TABLE `tbl_kategori_video`
+  MODIFY `id_kat_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT untuk tabel `tbl_pimpinan`
 --
 ALTER TABLE `tbl_pimpinan`
@@ -270,13 +339,19 @@ ALTER TABLE `tbl_pimpinan`
 -- AUTO_INCREMENT untuk tabel `tbl_setting`
 --
 ALTER TABLE `tbl_setting`
-  MODIFY `id_setting` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_setting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_video`
+--
+ALTER TABLE `tbl_video`
+  MODIFY `id_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_visimisi`
