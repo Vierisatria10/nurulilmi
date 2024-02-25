@@ -7,15 +7,19 @@ class Pimpinan extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Pimpinan_model', 'pimpinan');
+		$this->load->model('Setting_model', 'setting');
+
 	}
 
 	public function index()
 	{
         $data = [
-            'judul' => 'Pimpinan',
-            'title' => 'Pimpinan - Masjid Nurul Ilmi',
+            'judul' => 'Pengurus',
+            'title' => 'Pengurus - Masjid Nurul Ilmi',
             'menu'  => 'pimpinan',
-            'data_pimpinan' => $this->pimpinan->getDataPimpinan()
+            'data_pimpinan' => $this->pimpinan->getDataPimpinan(),
+			'data_setting' => $this->setting->getDataSetting()
+
         ];
 		$this->load->view('webpage/v_pimpinan', $data);
 	}

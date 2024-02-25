@@ -56,13 +56,24 @@ $route['translate_uri_dashes'] = FALSE;
 // login
 $route['login'] = 'login';
 // dashboard
-$route['admin/dashboard'] = 'admin/dashboard';
+$route['admin/Dashboard'] = 'admin/dashboard';
 
 // Visi misi
-$route['admin/visimisi'] = 'admin/visimisi';
+$route['admin/visimisi'] = 'admin/VisiMisi';
+$route['admin/visimisi/tambah'] = 'admin/VisiMisi/tambah';
+$route['admin/visimisi/edit/(:any)'] = 'admin/VisiMisi/edit/$1';
 
 // Pimpinan
-$route['admin/pimpinan'] = 'admin/pimpinan';
+$route['admin/pimpinan'] = 'admin/Pimpinan';
+$route['admin/pimpinan/tambah'] = 'admin/Pimpinan/tambah';
+$route['admin/pimpinan/edit/(:any)'] = 'admin/Pimpinan/edit/$1';
 
 // Imam
-$route['admin/imam'] = 'admin/imam';
+$route['admin/imam'] = 'admin/Imam';
+$route['admin/imam/tambah'] = 'admin/Imam/tambah';
+$route['admin/imam/edit/(:any)'] = 'admin/Imam/edit/$1';
+
+// Agenda
+$route['admin/agenda'] = 'admin/Agenda';
+$route['admin/agenda/tambah'] = 'admin/Agenda/tambah';
+$route['admin/agenda/edit/(:any)'] = 'admin/Agenda/edit/$1';

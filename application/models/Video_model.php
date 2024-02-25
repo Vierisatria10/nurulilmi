@@ -19,11 +19,35 @@ class Video_model extends CI_Model {
         return $this->db->insert($this->table, $data);
     }
 
+    public function update_video($id_video, $data)
+    {
+        $this->db->where('id_video', $id_video);
+        $this->db->update($this->table, $data);
+    }
+
+    public function delete_video($id_del) 
+    {
+        $this->db->where('id_video', $id_del);
+        $this->db->delete($this->table);
+    }
+
     public function getDataKategori()
 	{
         // $this->db->where('status', '1');
         return $this->db->get($this->table_kategori)->result();
 	}
+
+    public function search($keyword)
+    {
+        if(!$keyword){
+		    return null;
+	    }
+        $this->db->select('*');
+        $this->db->from('tbl_video');
+        $this->db->like('judul', $keyword);
+        $this->db->or_like('link', $keyword);
+        return $this->db->get()->result();
+    }
 
     public function insert_kategori($data)
     {

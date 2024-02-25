@@ -35,53 +35,43 @@
             <!-- /.card -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Data Pengurus</h3>
+                    <h3 class="card-title">Data Masukan</h3>
                     <?= $this->session->flashdata('message') ?>
                     <div class="d-flex justify-content-end">
-                        <a href="<?= base_url('admin/pimpinan/tambah') ?>" class="btn btn-green btn-sm"><i
-                                class="fas fa-plus"></i> Tambah Pengurus</a>
+
                     </div>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <table id="pimpinan" class="table table-bordered table-striped">
+                    <table id="imam" class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>Jabatan</th>
-                                <th>Foto</th>
-                                <th>Tanggal Update</th>
+                                <th>No Hp</th>
+                                <th>Subject</th>
+                                <th>Pesan</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 1; ?>
-                            <?php foreach ($data_pimpinan as $pimpinan) : ?>
+                            <?php foreach ($data_kontak as $kontak) : ?>
                             <tr>
                                 <td><?= $no++; ?></td>
-                                <td><?= $pimpinan->nama ?></td>
-                                <td><?= $pimpinan->jabatan ?></td>
+                                <td><?= $kontak->nama ?></td>
+                                <td><?= $kontak->no_hp ?></td>
                                 <td>
-                                    <?php if(!empty($pimpinan->foto)) : ?>
-                                    <a href="<?= base_url('upload/pimpinan/' . $pimpinan->foto) ?>" target="_blank">
-                                        <img src="<?= base_url('upload/pimpinan/' . $pimpinan->foto) ?>" width="100"
-                                            alt="">
-                                    </a>
-                                    <?php else: ?>
-                                    <img src="<?= base_url('upload/default.png') ?>" width="100" alt="">
-                                    <?php endif; ?>
-
+                                    <?= $kontak->subject ?>
                                 </td>
-                                <td><?= $pimpinan->tanggal ?></td>
+                                <td><?= $kontak->pesan; ?></td>
                                 <td>
-                                    <a href="<?= base_url('admin/pimpinan/edit/'). $pimpinan->id_pimpinan ?>"
-                                        class="m-1 btn btn-info btn-sm"><i class="fas fa-fw fa-edit"></i>
-                                        Ubah</a>
-                                    <a href="" data-toggle="modal"
-                                        data-target="#hapus_pimpinan<?= $pimpinan->id_pimpinan ?>"
+                                    <a href="<?= base_url('admin/kontak/kirim_wa') ?>"
+                                        class="m-1 btn btn-green btn-sm"><i class="fas fa-fw fa-envelope"></i>
+                                        Kirim Wa</a>
+                                    <a href="" data-toggle="modal" data-target="#hapus_kontak<?= $kontak->id ?>"
                                         class="btn-delete m-1 btn btn-danger btn-sm"
-                                        data-text="<?= $pimpinan->nama; ?>"><i class="fas fa-fw fa-trash"></i>
+                                        data-text="<?= $kontak->nama; ?>"><i class="fas fa-fw fa-trash"></i>
                                         Hapus</a>
                                 </td>
                             </tr>
@@ -98,13 +88,13 @@
 </section>
 
 <!-- Modal Delete -->
-<?php foreach($data_pimpinan as $pimpinan) : ?>
-<div class="modal fade" id="hapus_pimpinan<?= $pimpinan->id_pimpinan ?>" tabindex="-1" role="dialog"
-    aria-labelledby="hapus_pimpinan<?= $pimpinan->id_pimpinan ?>" aria-hidden="true">
+<?php foreach($data_kontak as $kontak) : ?>
+<div class="modal fade" id="hapus_kontak<?= $kontak->id ?>" tabindex="-1" role="dialog"
+    aria-labelledby="hapus_kontak<?= $kontak->id ?>" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="hapus_pimpinan<?= $pimpinan->id_pimpinan ?>">Apakah kamu ingin menghapus
+                <h5 class="modal-title" id="hapus_kontak<?= $kontak->id ?>">Apakah kamu ingin menghapus
                     data ini?
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -112,11 +102,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/pimpinan/delete/'.$pimpinan->id_pimpinan) ?>" method="POST"
+                <form action="<?= base_url('admin/kontak/delete/'.$kontak->id) ?>" method="POST"
                     enctype="multipart/form-data">
-                    <input type="hidden" id="id_pimpinan" name="id_pimpinan" value="<?= $pimpinan->id_pimpinan ?>">
-                    <p class="text-danger">Menghapus Data Pimpinan yang bernama :
-                        <b><?= $pimpinan->nama; ?></b>
+                    <input type="hidden" id="id_del" name="id_del" value="<?= $kontak->id ?>">
+                    <p class="text-danger">Menghapus Data Kontak Masukan yang bernama :
+                        <b><?= $kontak->nama; ?></b>
                     </p>
             </div>
             <div class="modal-footer">

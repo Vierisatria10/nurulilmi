@@ -7,6 +7,8 @@ class Imam extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Imam_model', 'imam');
+		$this->load->model('Setting_model', 'setting');
+
 	}
 
 	public function index()
@@ -15,7 +17,9 @@ class Imam extends CI_Controller {
             'judul' => 'Imam & Muadzin',
             'title' => 'Imam & Muadzin - Masjid Nurul Ilmi',
             'menu'  => 'imam',
-            'data_imam' => $this->imam->getDataImam()
+            'data_imam' => $this->imam->getDataImam(),
+			'data_setting' => $this->setting->getDataSetting()
+
         ];
 		$this->load->view('webpage/v_imam', $data);
 	}

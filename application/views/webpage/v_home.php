@@ -254,10 +254,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="text-center text-md-start col-md-6">
+                    <?php foreach($data_setting as $setting) : ?>
                     <div class="section-title mb-4">
-                        <span data-aos="fade-in" class="text-secondary ">Mosque Intro</span>
-                        <h2 class="h1 text-primary">Welcome to the Grand Mosque</h2>
+                        <span data-aos="fade-in" class="text-secondary ">Intro Masjid</span>
+                        <h2 class="h1 text-primary">Selamat Datang di Masjid <?= $setting->nama_masjid ?></h2>
                     </div>
+                    <?php endforeach; ?>
                     <p>
                         Mountains, their a that of nation and english the to desk out alphabet would written career
                         times to and term absolutely feedback of a the of has have distant step if semantics, had
@@ -269,7 +271,7 @@
                         could are quite business he be, who proper.
                     </p>
                     <div data-aos="fade-up" class="btn-container">
-                        <a class='btn btn-primary text-white mt-4 mb-4 mb-md-0' href='/about'>More Information <i
+                        <a class='btn btn-primary text-white mt-4 mb-4 mb-md-0' href='/about'>Informasi Sejarah <i
                                 class="fas fa-angle-right ms-1"></i></a>
                     </div>
                 </div>
@@ -823,79 +825,7 @@
 
 
     <!--  ====================== Testimonial Area =============================  -->
-    <div class="testimonial-area bg-light bg-image-pattern py-lg-10 py-8">
-        <div class="container">
-            <div class="section-title text-center mb-4">
-                <span data-aos="fade-in" class="text-primary">Testimonial</span>
-                <h2 class="h1">Your's Feedback</h2>
-            </div>
-            <div class="testimonial-slider">
-                <div class="item">
-                    <div class="testimonial-item bg-white">
-                        <div class="content">
-                            <h4 class="mb-3">"Excellent Code"</h4>
-                            <p class="mb-3">I am a developer But themeix really nailed it. They knows
-                                the code and i am really satisfied for their service. </p>
-                        </div>
-                        <div class="author-info">
-                            <img src="assets/images/author/3.jpg" class="author-image rounded-circle" alt="title">
 
-                            <h6 class="m-0">Robert M.</h6>
-                            <p class="small m-0">Web Developer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testimonial-item  bg-white">
-                        <div class="content">
-                            <h4 class="mb-3">"Back over the men go"</h4>
-                            <p class="mb-3">They knows
-                                the code and i am really satisfied for their service occupied world can thousand. </p>
-                        </div>
-                        <div class="author-info">
-                            <img src="assets/images/author/2.jpg" class="author-image rounded-circle" alt="title">
-
-                            <h6 class="m-0">Abigail Holmes
-                            </h6>
-                            <p class="small m-0">Web Developer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testimonial-item  bg-white">
-                        <div class="content">
-                            <h4 class="mb-3">"Excellent Code"</h4>
-                            <p class="mb-3">Leave close essay not be derivative occupied world can thousand little
-                                complicated enjoying life studies irregular nonsense</p>
-                        </div>
-                        <div class="author-info">
-                            <img src="assets/images/author/3.jpg" class="author-image rounded-circle" alt="title">
-
-                            <h6 class="m-0">Maliyah Pratt
-                            </h6>
-                            <p class="small m-0">Web Developer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testimonial-item  bg-white">
-                        <div class="content">
-                            <h4 class="mb-3">"By mice then to of"</h4>
-                            <p class="mb-3">I am a developer But themeix really nailed it. They knows
-                                the code and i am really satisfied for their service. </p>
-                        </div>
-                        <div class="author-info">
-                            <img src="assets/images/author/1.jpg" class="author-image rounded-circle" alt="title">
-
-                            <h6 class="m-0">Owen Bain
-                            </h6>
-                            <p class="small m-0">Web Developer</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!--  ====================== Counter Area =============================  -->
     <div class="counter-area py-lg-8 py-5 bg-image-pattern bg-primary">
         <div class="container">
@@ -920,10 +850,11 @@
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="counter-item my-3">
-                        <div class="counter-icon"> <img src="assets/images/service-icon3.png" alt="title"></div>
+                        <div class="counter-icon"> <img
+                                src="<?= base_url('frontend/assets/images/service-icon3.png') ?>" alt="title"></div>
                         <div class="counter-content">
                             <h2 data-aos="fade-up" class="h1 text-white"><span class="counter-number">83</span></h2>
-                            <h5 class="m-0 text-white">Islamic Events</h5>
+                            <h5 class="m-0 text-white">Agenda Acara</h5>
                         </div>
                     </div>
                 </div>
@@ -1019,13 +950,13 @@
         <div class="container">
             <div class="section-title text-center mb-4">
                 <span class="text-primary">Blog</span>
-                <h2 class="h1">Latest News</h2>
+                <h2 class="h1">Artikel Terbaru</h2>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="blog-style mt-4">
                         <div class="blog-image">
-                            <img src="assets/images/news/1.jpg" alt="title">
+                            <img src="<?= base_url('frontend/') ?>assets/images/news/1.jpg" alt="title">
                         </div>
                         <div class="blog-content">
                             <span class="blog-meta"><i class="fas fa-tag me-2"></i><a
@@ -1038,7 +969,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="blog-style mt-4">
                         <div class="blog-image">
-                            <img src="assets/images/news/2.jpg" alt="title">
+                            <img src="<?= base_url('frontend/') ?>assets/images/news/2.jpg" alt="title">
                         </div>
                         <div class="blog-content">
                             <span class="blog-meta"><i class="fas fa-tag me-2"></i><a href='/category'>News</a></span>
@@ -1051,7 +982,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="blog-style mt-4">
                         <div class="blog-image">
-                            <img src="assets/images/news/3.jpg" alt="title">
+                            <img src="<?= base_url('frontend/') ?>assets/images/news/3.jpg" alt="title">
                         </div>
                         <div class="blog-content">
                             <span class="blog-meta"><i class="fas fa-tag me-2"></i> <a href='/category'>Event</a></span>

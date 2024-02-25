@@ -35,11 +35,11 @@
             <!-- /.card -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Data Video</h3>
+                    <h3 class="card-title">Data Kategori</h3>
                     <?= $this->session->flashdata('message') ?>
                     <div class="d-flex justify-content-end">
-                        <a href="" data-toggle="modal" data-target="#add_video" class="btn btn-green btn-sm"><i
-                                class="fas fa-plus"></i> Tambah Video</a>
+                        <a href="" data-toggle="modal" data-target="#add_kategori" class="btn btn-green btn-sm"><i
+                                class="fas fa-plus"></i> Tambah Kategori</a>
                     </div>
                 </div>
                 <!-- /.card-header -->
@@ -48,29 +48,27 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Judul Video</th>
                                 <th>Nama Kategori</th>
-                                <th>Link Video</th>
                                 <th>Tanggal Update</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no = 1; ?>
-                            <?php foreach ($data_video as $video) : ?>
+                            <?php foreach ($data_kategori as $kategori) : ?>
                             <tr>
                                 <td><?= $no++; ?></td>
-                                <td><?= $video->judul ?></td>
-                                <td><?= $video->nama_video ?></td>
-                                <td><?= $video->link ?></td>
-                                <td><?= $video->tanggal ?></td>
+                                <td><?= $kategori->nama_kategori ?></td>
+                                <td><?= $kategori->tanggal ?></td>
                                 <td>
-                                    <a href="" data-toggle="modal" data-target="#edit_video<?= $video->id_video ?>"
+                                    <a href="" data-toggle="modal"
+                                        data-target="#edit_kategori<?= $kategori->id_kategori ?>"
                                         class="m-1 btn btn-info btn-sm"><i class="fas fa-fw fa-edit"></i>
                                         Ubah</a>
-                                    <a href="" data-toggle="modal" data-target="#hapus_video<?= $video->id_video ?>"
+                                    <a href="" data-toggle="modal"
+                                        data-target="#hapus_kategori<?= $kategori->id_kategori ?>"
                                         class="btn-delete m-1 btn btn-danger btn-sm"
-                                        data-text="<?= $video->nama_video; ?>"><i class="fas fa-fw fa-trash"></i>
+                                        data-text="<?= $kategori->nama_kategori; ?>"><i class="fas fa-fw fa-trash"></i>
                                         Hapus</a>
                                 </td>
                             </tr>
@@ -87,41 +85,23 @@
 </section>
 
 <!-- Modal add -->
-<div class="modal fade" id="add_video" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="add_kategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Video</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Kategori Artikel</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/video/tambah_video') ?>" method="post">
+                <form action="<?= base_url('admin/artikel/tambah_kategori') ?>" method="post">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="">Judul Video</label>
-                                <input type="text" class="form-control" name="judul">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
                                 <label for="">Nama Kategori</label>
-                                <select name="id_kat_video" class="form-control" id="id_kat_video">
-                                    <option value="">Pilih Kategori</option>
-                                    <?php foreach($data_kategori as $kategori) : ?>
-                                    <option value="<?= $kategori->id_kat_video ?>"><?= $kategori->nama_video ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="">Link Video</label>
-                                <input type="text" class="form-control" placeholder="http//youtube.com/" name="link"
-                                    id="link">
+                                <input type="text" class="form-control" name="nama_kategori">
                             </div>
                         </div>
                     </div>
@@ -136,47 +116,27 @@
 </div>
 
 <!-- Modal edit -->
-<?php foreach($data_video as $video) : ?>
-<div class="modal fade" id="edit_video<?= $video->id_video ?>" tabindex="-1" role="dialog"
+<?php foreach($data_kategori as $kategori) : ?>
+<div class="modal fade" id="edit_kategori<?= $kategori->id_kategori ?>" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Video</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Edit Kategori Artikel</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/video/edit_video/'.$video->id_video) ?>" method="post">
+                <form action="<?= base_url('admin/video/edit_kategori/'.$kategori->id_kategori) ?>" method="post">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="">Judul Video</label>
-                                <input type="hidden" name="id_video" value="<?= $video->id_video ?>"
+                                <label for="">Nama Video</label>
+                                <input type="hidden" name="id_kategori" value="<?= $kategori->id_kategori ?>"
                                     class="form-control">
-                                <input type="text" class="form-control" value="<?= $video->judul ?>" name="judul">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="">Nama Kategori</label>
-                                <select name="id_kat_video" class="form-control" id="id_kat_video">
-                                    <option value="">Pilih Kategori</option>
-                                    <?php foreach($data_kategori as $kategori) : ?>
-                                    <option value="<?= $kategori->id_kat_video ?>"
-                                        <?= ($kategori->id_kat_video == $video->id_kat_video) ? 'selected' : '' ?>>
-                                        <?= $kategori->nama_video ?></option>
-
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="">Link Video</label>
-                                <input type="text" class="form-control" value="<?= $video->link ?>"
-                                    placeholder="http//youtube.com/" name="link" id="link">
+                                <input type="text" class="form-control" value="<?= $kategori->nama_kategori ?>"
+                                    name="nama_kategori">
                             </div>
                         </div>
                     </div>
@@ -192,23 +152,23 @@
 <?php endforeach; ?>
 
 <!-- Modal delete -->
-<?php foreach($data_video as $video) : ?>
-<div class="modal fade" id="hapus_video<?= $video->id_video ?>" tabindex="-1" role="dialog"
-    aria-labelledby="hapus_video<?= $video->id_video ?>" aria-hidden="true">
+<?php foreach($data_kategori as $kategori) : ?>
+<div class="modal fade" id="hapus_kategori<?= $kategori->id_kategori ?>" tabindex="-1" role="dialog"
+    aria-labelledby="hapus_kategori<?= $kategori->id_kategori ?>" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="hapus_video<?= $video->id_video ?>">Hapus Data Video
+                <h5 class="modal-title" id="hapus_kategori<?= $kategori->id_kategori ?>">Hapus Data Kategori Video
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/video/delete_video/'.$video->id_video) ?>" method="POST">
-                    <input type="hidden" id="id_del" name="id_del" value="<?= $video->id_video ?>">
-                    <p class="text-danger">Apakah anda ingin Menghapus Data Video
-                        <b><?= $video->judul; ?></b> ini ?
+                <form action="<?= base_url('admin/artikel/delete_kategori/'.$kategori->id_kategori) ?>" method="POST">
+                    <input type="hidden" id="id_del" name="id_del" value="<?= $kategori->id_kategori ?>">
+                    <p class="text-danger">Apakah anda ingin Menghapus Data Kategori Artikel
+                        <b><?= $kategori->nama_artikel; ?></b> ini ?
                     </p>
             </div>
             <div class="modal-footer">

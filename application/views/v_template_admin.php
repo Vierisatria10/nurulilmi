@@ -171,7 +171,7 @@
                                     <a href="<?= base_url('admin/pimpinan') ?>"
                                         class="nav-link <?= $menu == 'pimpinan' ? 'active' : '' ?>">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Pimpinan</p>
+                                        <p>Pengurus</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -210,22 +210,38 @@
                             </ul>
                         </li>
 
+                        <li class="nav-item <?= $menu == 'artikel' ? 'has-treeview' : '' ?>">
+                            <a href="#" class="nav-link <?= $menu == 'artikel' ? 'active' : '' ?>">
+                                <i class="nav-icon fas fa-file-alt"></i>
+                                <p>
+                                    Artikel
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= base_url('admin/artikel/kategori') ?>"
+                                        class="nav-link <?= $menu == 'kategori' ? 'active' : '' ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Kategori Artikel</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('admin/artikel') ?>"
+                                        class="nav-link <?= $menu == 'artikel' ? 'active' : '' ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data Artikel</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
                         <li class="nav-item">
                             <a href="<?= base_url('admin/agenda') ?>"
                                 class="nav-link <?= $menu == 'agenda' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-file"></i>
                                 <p>
                                     Agenda
-                                </p>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="<?= base_url('admin/artikel') ?>"
-                                class="nav-link <?= $menu == 'artikel' ? 'active' : '' ?>">
-                                <i class="nav-icon fas fa-file-alt"></i>
-                                <p>
-                                    Artikel
                                 </p>
                             </a>
                         </li>
@@ -291,6 +307,13 @@
 
                         <li class="nav-header">Setting</li>
                         <li class="nav-item">
+                            <a href="<?= base_url('admin/kontak') ?>"
+                                class="nav-link <?= $menu == 'kontak' ? 'active' : '' ?>">
+                                <i class="nav-icon fas fa-envelope"></i>
+                                <p>Masukan</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?= base_url('admin/user') ?>"
                                 class="nav-link <?= $menu == 'user' ? 'active' : '' ?>">
                                 <i class="nav-icon fas fa-user"></i>
@@ -326,7 +349,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('admin/visimisi') ?>"
+                                    <a href="<?= base_url('pengurus/visimisi') ?>"
                                         class="nav-link <?= $menu == 'visimisi' ? 'active' : '' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Visi & Misi</p>
@@ -339,10 +362,10 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('admin/pimpinan') ?>"
+                                    <a href="<?= base_url('pengurus/pimpinan') ?>"
                                         class="nav-link <?= $menu == 'pimpinan' ? 'active' : '' ?>">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Pimpinan</p>
+                                        <p>Pengurus</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">

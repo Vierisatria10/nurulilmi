@@ -46,6 +46,32 @@ class Video extends CI_Controller {
         }
     }
 
+    public function edit_video()
+    {
+        $id_video     = $this->input->post('id_video');
+        $judul        = $this->input->post('judul');
+        $link         = $this->input->post('link');
+        $id_kat_video = $this->input->post('id_kat_video');
+
+        $data = [
+            'judul' => $judul,
+            'link' => $link,
+            'id_kat_video' => $id_kat_video
+        ];
+
+        $this->video->update_video($id_video, $data);
+        $this->session->set_flashdata('success', 'Data Video Berhasil di Ubah');
+        redirect('admin/video');
+    }
+
+    public function delete_video()
+    {
+        $id_del = $this->input->post('id_del');
+        $this->video->delete_video($id_del);
+        $this->session->set_flashdata('success', 'Data Video Berhasil di Hapus');
+        redirect('admin/video');
+    }
+
 
 	public function kategori()
 	{

@@ -24,6 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/nurulilmi/';
+// $config['base_url'] = 'http://nurulilmi.kesug.com/';
+
 
 /*
 |--------------------------------------------------------------------------

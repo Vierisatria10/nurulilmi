@@ -7,6 +7,7 @@ class Agenda extends CI_Controller {
 	{
 		parent::__construct();
         $this->load->model('Agenda_model', 'agenda');	
+        $this->load->model('Setting_model', 'setting');
     }
 
 	public function index()
@@ -15,7 +16,8 @@ class Agenda extends CI_Controller {
             'judul' => 'Agenda',
             'title' => 'Agenda - Masjid Nurul Ilmi',
             'menu'  => 'agenda',
-            'data_agenda' => $this->agenda->getDataAgendaDetail()
+            'data_agenda' => $this->agenda->getDataAgendaDetail(),
+            'data_setting' => $this->setting->getDataSetting()
         ];
         $this->load->view('webpage/v_agenda', $data);
 	}
@@ -27,7 +29,9 @@ class Agenda extends CI_Controller {
             'judul' => 'Agenda',
             'title' => 'Agenda - Masjid Nurul Ilmi',
             'menu'  => 'agenda',
+            'data_setting' => $this->setting->getDataSetting()
         ];
+        
         $data['data_agenda'] = $this->agenda->search($keyword);
         if (empty($data['data_agenda'])) {
             $data['pesan'] = 'Data yang Anda Cari tidak ditemukan.';
@@ -41,6 +45,7 @@ class Agenda extends CI_Controller {
             'judul' => 'Detail Agenda',
             'title' => 'Detail Agenda - Masjid Nurul Ilmi',
             'data_agenda' => $this->agenda->getDataAgendaDetail(),
+            'data_setting' => $this->setting->getDataSetting(),
             'agenda' => $this->agenda->get_detail_agenda($slug),
             'menu'  => 'agenda',
         ];

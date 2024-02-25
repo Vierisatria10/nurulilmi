@@ -15,8 +15,8 @@ class Pimpinan extends CI_Controller {
 	public function index()
 	{
         $data = [
-            'judul' => 'Pimpinan',
-            'title' => 'Pimpinan - Masjid Nurul Ilmi',
+            'judul' => 'Pengurus',
+            'title' => 'Pengurus - Masjid Nurul Ilmi',
             'menu'  => 'pimpinan',
             'data_pimpinan' => $this->pimpinan->getDataPimpinan()
         ];
@@ -33,9 +33,9 @@ class Pimpinan extends CI_Controller {
         );
         if ($this->form_validation->run() == FALSE) {
              $data = [
-                'judul' => 'Pimpinan',
-                'title' => 'Pimpinan - Masjid Nurul Ilmi',
-                'menu'  => 'tambahpimpinan',
+                'judul' => 'Pengurus',
+                'title' => 'Pengurus - Masjid Nurul Ilmi',
+                'menu'  => 'pimpinan',
             ];
 		    $this->template->load('v_template_admin', 'admin/pimpinan/v_tambah', $data);
         } else {
@@ -71,10 +71,10 @@ class Pimpinan extends CI_Controller {
 
     public function edit($id_pimpinan) {
         $data = [
-            'judul' => 'Edit Pimpinan',
-            'title' => 'Pimpinan - Masjid Nurul Ilmi',
+            'judul' => 'Edit Pengurus',
+            'title' => 'Pengurus - Masjid Nurul Ilmi',
             'pimpinan' => $this->pimpinan->get_pimpinan_detail($id_pimpinan),
-            'menu'  => 'editpimpinan',
+            'menu'  => 'pimpinan',
         ];
         $this->template->load('v_template_admin', 'admin/pimpinan/v_edit', $data);
     }

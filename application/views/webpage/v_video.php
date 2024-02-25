@@ -112,8 +112,8 @@
                         <div class="col-lg-4 col-md-5 mt-4">
                             <div class="course-feature mb-4 bg-white text-center rounded">
                                 <i class="fas fa-search fa-2x"></i>
-                                <h3 class="text-primary pb-2 text-center">Cari Agenda</h3>
-                                <form action="<?= base_url('agenda/cari_agenda') ?>" method="POST">
+                                <h3 class="text-primary pb-2 text-center">Cari Video</h3>
+                                <form action="<?= base_url('video/cari_video') ?>" method="POST">
                                     <div class="form-group">
                                         <input type="text" name="keyword" id="keyword" class="form-control"
                                             placeholder="JUDUL">
