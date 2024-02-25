@@ -6,6 +6,19 @@ class Artikel_model extends CI_Model {
 	var $table = 'tbl_artikel';
     var $table_kategori = 'tbl_kategori_artikel';
 
+    public function getDataArtikel()
+	{
+        $this->db->select('a.*, b.*');
+        $this->db->from('tbl_artikel a');
+        $this->db->join('tbl_kategori_artikel b', 'b.id_kategori = a.id_kategori', 'left');
+        return $this->db->get()->result(); 
+	}
+
+    public function insert_artikel($data)
+    {
+        return $this->db->insert($this->table, $data);
+    }
+
     public function getDataKategori()
 	{
         // $this->db->where('status', '1');
