@@ -953,47 +953,23 @@
                 <h2 class="h1">Artikel Terbaru</h2>
             </div>
             <div class="row">
+                <?php foreach($artikel as $data) : ?>
                 <div class="col-lg-4 col-md-6">
                     <div class="blog-style mt-4">
                         <div class="blog-image">
-                            <img src="<?= base_url('frontend/') ?>assets/images/news/1.jpg" alt="title">
+                            <img src="<?= base_url('upload/artikel/'.$data->gambar) ?>" alt="title">
                         </div>
                         <div class="blog-content">
                             <span class="blog-meta"><i class="fas fa-tag me-2"></i><a
-                                    href='/category'>Sermons</a></span>
-                            <h4><a href='/single'> Our Home Entertainment has Evolved Significantly</a></h4>
-                            <a href='/single'>Read More</a>
+                                    href='<?= base_url('blog/kategori/'.$data->nama_kategori) ?>'><?= $data->nama_kategori ?></a></span>
+                            <h4><a href='<?= base_url('blog/detail/'.$data->slug) ?>'> <?= $data->judul ?></a></h4>
+                            <a href='<?= base_url('blog') ?>'>Read More</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-style mt-4">
-                        <div class="blog-image">
-                            <img src="<?= base_url('frontend/') ?>assets/images/news/2.jpg" alt="title">
-                        </div>
-                        <div class="blog-content">
-                            <span class="blog-meta"><i class="fas fa-tag me-2"></i><a href='/category'>News</a></span>
-                            <h4><a href='/single'> His their his up had quietly the evening cache way distribution</a>
-                            </h4>
-                            <a href='/single'>Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-style mt-4">
-                        <div class="blog-image">
-                            <img src="<?= base_url('frontend/') ?>assets/images/news/3.jpg" alt="title">
-                        </div>
-                        <div class="blog-content">
-                            <span class="blog-meta"><i class="fas fa-tag me-2"></i> <a href='/category'>Event</a></span>
-                            <h4><a href='/single'> Wild in is at hills phase Sisters times my for influenced</a></h4>
-                            <a href='/single'>Read More</a>
-                        </div>
-                    </div>
-                </div>
-
+                <?php endforeach; ?>
                 <div class="text-center mt-5" data-aos="slide-up"><a class='btn btn-primary text-white'
-                        href='/blog'>View All News</a></div>
+                        href='<?= base_url('blog') ?>'>View All News</a></div>
 
             </div>
         </div>
@@ -1003,12 +979,7 @@
     <?php $this->load->view('layout/footer') ?>
     <!-- gulp:js -->
     <script src="<?= base_url('frontend/') ?>assets/js/build.min.js"></script>
-    <script>
-    $(document).ready(function() {
-        $('#donate').click();
 
-    });
-    </script>
     <!-- endgulp -->
     <script type="text/javascript">
     window.$crisp = [];

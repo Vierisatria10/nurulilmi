@@ -53,6 +53,17 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// Agenda
+$route['agenda'] = 'agenda/index';
+$route['agenda/loadMore/(:num)'] = 'agenda/loadMore/$1';
+$route['agenda/search'] = 'agenda/search';
+$route['agenda/detailAgenda/(:any)'] = 'agenda/detailAgenda/$1';
+
+// Blog
+$route['blog'] = 'blog/index';
+$route['blog/detail/(:any)'] = 'blog/detail/$1';
+$route['blog/loadMore/(:num)'] = 'blog/loadMore/$1';
+
 // login
 $route['login'] = 'login';
 // dashboard

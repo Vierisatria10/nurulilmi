@@ -15,9 +15,20 @@ class Agenda_model extends CI_Model {
     {
         $this->db->select('*');
         $this->db->from($this->table);
+        $this->db->limit(5);
         $this->db->where('status', '1');
         $this->db->order_by('judul', 'ASC');
-        return $this->db->get()->result();
+        return $this->db->get()->result_array();
+    }
+
+    public function getDataAgendaLoad($limit, $offset)
+    {
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->limit($limit, $offset);
+        $this->db->where('status', '1');
+        $this->db->order_by('judul', 'ASC');
+        return $this->db->get()->result_array();
     }
 
     public function add_agenda($save) {
@@ -68,11 +79,11 @@ class Agenda_model extends CI_Model {
 
     public function get_detail_agenda($slug)
 	{
-        $this->db->select('*');
-        $this->db->from($this->table);
-        $this->db->where('slug', $slug);
-        return $this->db->get()->row();
-		// return $this->db->get_where($this->table, ['id_agenda' => $id_agenda])->row();
+        // $this->db->select('*');
+        // $this->db->from($this->table);
+        // $this->db->where('slug', $slug);
+        // return $this->db->get()->row();
+		return $this->db->get_where($this->table, ['slug' => $slug])->row_array();
 	}
 
     public function checkAgendaImage($id_agenda)

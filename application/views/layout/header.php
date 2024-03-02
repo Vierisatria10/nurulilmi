@@ -45,7 +45,8 @@
                                     </ul>
                                 </li>
                                 <li class="nav-item"> <a class='nav-link' href='/about'>Berita</a></li>
-                                <li class="nav-item"> <a class='nav-link' href='/about'>Artikel</a></li>
+                                <li class="nav-item"> <a class='nav-link' href='<?= base_url('blog') ?>'>Artikel</a>
+                                </li>
                                 <li class="nav-item"> <a class='nav-link' href='<?= base_url('agenda') ?>'>Agenda</a>
                                 </li>
 
@@ -58,7 +59,7 @@
                         </nav>
                         <ul class="navbar-nav align-items-center ms-auto">
                             <li class="nav-item">
-                                <a class='nav-link me-4' href='' id="donate">Donate Now</a>
+                                <a class='nav-link me-4' href='#' id="donate">Donate Now</a>
                             </li>
                         </ul>
                     </div>

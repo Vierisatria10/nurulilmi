@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><?= $agenda['judul']; ?></title>
+    <title><?= $detail_artikel['judul']; ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="<?= base_url('frontend/') ?>assets/images/favicon.png" type="images/x-icon" />
@@ -42,7 +42,7 @@
     <div class="page-title-area py-lg-6 py-5 bg-image-pattern">
         <div class="container">
             <div class="page-title-wrapper text-center">
-                <h1 class="text-white mb-2"><?= $agenda['judul']; ?></h1>
+                <h1 class="text-white mb-2"><?= $detail_artikel['judul']; ?></h1>
                 <nav class="page-breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href='<?= base_url('home') ?>'>Home</a></li>
@@ -56,12 +56,12 @@
     <div class="about-area py-lg-10 py-8">
         <div class="container">
             <div class="row">
-                <h3 class="mb-3 text-primary"><?= $agenda['judul']; ?></h3>
+                <h3 class="mb-3 text-primary"><?= $detail_artikel['judul']; ?></h3>
                 <div class="col-md-8">
-                    <img src="<?= base_url('upload/agenda/'.$agenda['gambar']) ?>" style="height: auto; width: 100%;"
-                        alt="">
+                    <img src="<?= base_url('upload/artikel/'.$detail_artikel['gambar']) ?>"
+                        style="height: auto; width: 100%;" alt="">
                     <p>
-                        <?= $agenda['deskripsi']; ?>
+                        <?= $detail_artikel['deskripsi']; ?>
                     </p>
                     <br><br>
                     <span>Bagikan :</span>
@@ -100,7 +100,7 @@
 
                         </ul>
                     </div>
-                    <h2 class="my-4">Tulis Komentar Anda Terkait <?= $agenda['judul'] ?></h2>
+                    <h2 class="my-4">Tulis Komentar Anda Terkait <?= $detail_artikel['judul'] ?></h2>
                     <form class="contact-form">
                         <div class="row mb-4">
                             <div class="col-md-6">
@@ -122,7 +122,7 @@
                 </div>
 
                 <div class="col-md-5 col-lg-4">
-                    <div class="course-feature mb-4 bg-white rounded">
+                    <!-- <div class="course-feature mb-4 bg-white rounded">
                         <h4 class="text-primary pb-2">Informasi Agenda :</h4>
                         <ul class="list-inline">
                             <li><span class="me-2 text-primary"><i class="fas fa-calendar-plus"></i></span>
@@ -143,16 +143,16 @@
                                 </span><?= $agenda['user']; ?>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
 
                     <div class="course-feature bg-white rounded">
-                        <h4 class="mb-4 text-primary">Agenda Terbaru</h4>
-                        <?php foreach($data_agenda as $agd) : ?>
+                        <h4 class="mb-4 text-primary">Artikel Terbaru</h4>
+                        <?php foreach($data_artikel as $art) : ?>
                         <div class="course-block-author mt-3">
-                            <img src="<?= base_url('upload/agenda/'.$agd['gambar']) ?>" alt="title">
+                            <img src="<?= base_url('upload/artikel/'.$art['gambar']) ?>" alt="title">
                             <div class="info">
-                                <p class="m-0"><a href='<?= base_url('agenda') ?>'><?= $agd['judul'] ?></a>
-                                    <br> <?= format_indo($agd['tgl_awal']); ?> WIB
+                                <p class="m-0"><a href='<?= base_url('blog') ?>'><?= $art['judul'] ?></a>
+                                    <br> <?= format_indo($art['tanggal_dibuat']); ?> WIB
                                 </p>
                             </div>
                         </div>

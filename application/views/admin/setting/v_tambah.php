@@ -73,6 +73,17 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="">Kab/Kota</label>
+                                    <select name="kota" id="kota" class="form-control mb-3">
+                                        <option value="">Pilih Kota</option>
+                                        <?php foreach ($kota as $kota): ?>
+                                        <option value="<?= $kota['id'] ?>"><?= $kota['lokasi'] ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
                                     <label for="">Logo</label>
                                     <input type="file" name="userfile[]" id="logo" value="<?= set_value('logo') ?>"
                                         class="form-control">

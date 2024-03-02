@@ -1,3 +1,5 @@
+<!-- application/views/agenda/index.php -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,7 +62,8 @@
             </div>
         </div>
     </div>
-    <!--  ====================== About Area =============================  -->
+
+
     <div class="about-area py-lg-10 py-8">
         <div class="container">
             <div class="row">
@@ -69,15 +72,16 @@
                     <?php if(!empty($pesan)) : ?>
                     <p class="text-center"><?= $pesan ?></p>
                     <?php else: ?>
+                    <?php foreach($data_agenda as $agenda) : ?>
                     <div class="row">
-                        <div class="col-12">
-                            <div class="card shadow-sm">
-                                <div class="card-body" id="agnda-container">
-                                    <?php foreach($data_agenda as $agenda) : ?>
+
+                        <div class="col-12" id="agenda-container">
+                            <div class="card mt-4 shadow-sm">
+                                <div class="card-body">
                                     <div class="grid-inner row g-0 p-4">
                                         <div class="col-md-5 mb-md-0">
                                             <a href="#" class="entry-image">
-                                                <img src="<?= base_url('upload/agenda/'.$agenda->gambar) ?>"
+                                                <img src="<?= base_url('upload/agenda/'.$agenda['gambar']) ?>"
                                                     alt="Lifesaver- Community Education and Training"
                                                     style="height: auto; width: 100%;">
                                                 <!-- <div class="entry-date">10<span>Apr</span></div> -->
@@ -86,30 +90,32 @@
                                         <div class="col-md-7 ps-md-4">
                                             <div class="entry-title title-sm">
                                                 <h2><a
-                                                        href="<?= base_url('agenda/detailAgenda/'.$agenda->slug) ?>"><?= html_escape($agenda->judul); ?></a>
+                                                        href="<?= base_url('agenda/detailAgenda/'.$agenda['slug']) ?>"><?= html_escape($agenda['judul']); ?></a>
                                                 </h2>
                                             </div>
                                             <div class="entry-meta">
 
                                                 <a href="#"><i class="fas fa-calendar-alt"></i>
-                                                    <?= $agenda->jam_awal; ?> WIB
-                                                    - <?= $agenda->jam_akhir; ?> WIB</a>
+                                                    <?= $agenda['jam_awal']; ?> WIB
+                                                    - <?= $agenda['jam_akhir']; ?> WIB</a>
                                                 <br>
                                                 <a href="#"><i class="fas fa-map-marker-alt"></i>
-                                                    <?= $agenda->lokasi; ?></a>
+                                                    <?= $agenda['lokasi']; ?></a>
 
                                             </div>
                                             <div class="entry-content">
                                                 <p>
-                                                <p><strong><?= $agenda->judul; ?></strong></p>
-                                                <p><?= strip_tags(character_limiter($agenda->deskripsi, 200)) ?></p>
-                                                <a href="<?= base_url('agenda/detailAgenda/'.$agenda->slug); ?>"
+                                                <p><strong><?= $agenda['judul']; ?></strong></p>
+                                                <p><?= strip_tags(character_limiter($agenda['deskripsi'], 200)) ?>
+                                                </p>
+                                                <a href="<?= base_url('agenda/detailAgenda/'.$agenda['slug']); ?>"
                                                     class="btn btn-primary">Read More</a>
                                             </div>
                                         </div>
                                     </div>
-                                    <?php endforeach; ?>
+
                                 </div>
+
 
                                 <div class="justify-content-center">
                                     <div id="msg_loader" style="display:none;"><img
@@ -117,32 +123,33 @@
                                             width="auto" class="aligncenter"></div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- Infinity Scroll Loader
+                    </div>
+                    <?php endforeach; ?>
+
+                    <?php endif; ?>
+                    <!-- Infinity Scroll Loader
                             ============================================= -->
-                            <div class="row">
-                                <div class="col-md-12 text-center">
-                                    <div class="page-load-status hovering-load-status">
-                                        <div class="css3-spinner infinite-scroll-request">
-                                            <div class="css3-spinner-ball-pulse-sync">
-                                                <div></div>
-                                                <div></div>
-                                                <div></div>
-                                            </div>
-                                        </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="page-load-status hovering-load-status">
+                                <div class="css3-spinner infinite-scroll-request">
+                                    <div class="css3-spinner-ball-pulse-sync">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
                                     </div>
-                                    <button
-                                        class="mt-4 btn text-center btn-dark ls1 text-uppercase load-next-portfolio"
-                                        id="btn-load">Load More</button>
                                 </div>
                             </div>
-
+                            <button class="mt-4 btn text-center btn-dark ls1 text-uppercase load-next-portfolio"
+                                id="load-more-btn">Load More</button>
                         </div>
                     </div>
-                    <?php endif; ?>
+
                 </div>
 
-                <div class="col-lg-4 col-md-5">
+                <div class="col-lg-4 mt-4 col-md-5">
                     <div class="course-feature mb-4 bg-white text-center rounded">
                         <i class="fas fa-search fa-2x"></i>
                         <h3 class="text-primary pb-2 text-center">Cari Agenda</h3>
@@ -174,23 +181,106 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Tombol Load More -->
+    <!-- <button id="load-more-btn">Load More</button> -->
+
+    <!-- Form Pencarian -->
+    <!-- <input type="text" id="search-keyword" placeholder="Search...">
+    <button id="search-btn">Search</button> -->
+
     <!--  ====================== Footer Area =============================  -->
     <?php $this->load->view('layout/footer') ?>
     <!-- gulp:js -->
     <script src="<?= base_url('frontend/') ?>assets/js/build.min.js"></script>
     <script>
-    </script>
-    <!-- endgulp -->
-    <script type="text/javascript">
-    window.$crisp = [];
-    window.CRISP_WEBSITE_ID = "0fb3e5b5-1038-45e7-a153-173d144eee90";
-    (function() {
-        d = document;
-        s = d.createElement("script");
-        s.src = "https://client.crisp.chat/l.js";
-        s.async = 1;
-        d.getElementsByTagName("head")[0].appendChild(s);
-    })();
+    $(document).ready(function() {
+        // Memuat data pertama kali ketika halaman dimuat
+        // loadMoreData();
+        var offset = 1;
+        // Fungsi untuk memuat data saat tombol "Load More" diklik
+        function loadMoreData() {
+            $.ajax({
+                url: "<?= base_url('agenda/loadMore/') ?>" + offset,
+                type: 'GET',
+                beforeSend: function() {
+                    // Tampilkan SweetAlert2 ketika permintaan AJAX dikirim
+                    Swal.fire({
+                        title: 'Loading Data',
+                        timer: 3000,
+                        allowOutsideClick: false,
+                        showConfirmButton: false,
+                        onBeforeOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+                },
+                success: function(response) {
+                    // Tutup SweetAlert2 setelah menerima respons dari server
+                    Swal.close();
+                    var agendaData = JSON.parse(response);
+                    if (agendaData.length > 0) {
+                        for (var i = 0; i < agendaData.length; i++) {
+                            // Memanggil fungsi strip_tags untuk membersihkan teks dari HTML
+                            var deskripsi = strip_tags(agendaData[i].deskripsi);
+                            // Memanggil fungsi character_limiter untuk membatasi teks menjadi 200 karakter
+                            deskripsi = character_limiter(deskripsi, 200);
+
+                            $('#agenda-container').append(
+                                '<div class="card shadow-sm mt-4"><div class="card-body"><div class="grid-inner row g-0 p-4"><div class="col-md-5 mb-md-0"><a href="#" class="entry-image"><img src="<?= base_url("upload/agenda/") ?>' +
+                                agendaData[i].gambar +
+                                '" alt = "Lifesaver- Community Education and Training" style = "height: auto; width: 100%;"></a></div><div class="col-md-7 ps-md-4"><div class="entry-title title-sm"><h2><a href="<?= base_url('agenda/detailAgenda/') ?>' +
+                                agendaData[i].slug + '">' +
+                                agendaData[i].judul +
+                                '</a></h2></div><div class="entry-meta"><a href="#"><i class="fas fa-calendar-alt"></i> ' +
+                                agendaData[i].jam_awal + ' WIB - ' + agendaData[i]
+                                .jam_akhir +
+                                ' WIB</a><br><a href="#"><i class="fas fa-map-marker-alt"></i> ' +
+                                agendaData[i].lokasi +
+                                '</a></div><div class="entry-content"><p><p><strong>' +
+                                agendaData[i].judul + '</strong></p><p>' +
+                                deskripsi +
+                                '</p><a href="<?= base_url('agenda/detailAgenda/') ?>' +
+                                agendaData[i].slug +
+                                '" class="btn btn-primary">Read More</a></div></div></div></div><div class="justify-content-center"><div id="msg_loader" style="display:none;"><img src="<?= base_url('assets/dists/img/loader.gif') ?>" height="100px" width="auto" class="aligncenter"></div></div></div>'
+                            );
+                        }
+                        offset += agendaData.length;
+                    } else {
+                        $('#load-more-btn').text('No More Data');
+                        $('#load-more-btn').prop('disabled', true);
+                    }
+                }
+            });
+        }
+
+
+        // Fungsi untuk pencarian data
+        $('#search-btn').click(function() {
+            var keyword = $('#search-keyword').val();
+            $.post("<?= base_url('agenda/search/') ?>", {
+                keyword: keyword
+            }, function(data) {
+                $('#agenda-container').html(data);
+            });
+        });
+
+        // Memuat data lebih lanjut saat tombol "Load More" diklik
+        $('#load-more-btn').click(function() {
+            loadMoreData();
+        });
+    });
+
+    function strip_tags(html) {
+        var doc = new DOMParser().parseFromString(html, 'text/html');
+        return doc.body.textContent || "";
+    }
+
+    // Fungsi character_limiter untuk membatasi teks menjadi sejumlah karakter tertentu
+    function character_limiter(text, limit) {
+        return text.length > limit ? text.substring(0, limit) + '...' : text;
+    }
     </script>
 </body>
 

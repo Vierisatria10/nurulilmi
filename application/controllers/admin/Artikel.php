@@ -92,6 +92,98 @@ class Artikel extends CI_Controller {
         }
     }
 
+    public function edit_artikel($id_artikel) {
+        $data = [
+            'judul' => 'Artikel',
+            'title' => 'Artikel - Masjid Nurul Ilmi',
+            'artikel' => $this->artikel->get_artikel_edit($id_artikel),
+            'data_kategori' => $this->artikel->getDataKategori(),
+            'menu'  => 'artikel',
+        ];
+        $this->template->load('v_template_admin', 'admin/artikel/v_edit', $data);
+    }
+
+    public function update_artikel($id_artikel) {
+        $this->form_validation->set_rules('judul', 'Judul', 'trim|required',
+            ['required' => '%s Wajib diisi']
+        );
+        $this->form_validation->set_rules('id_kategori', 'Nama Kategori', 'trim|required',
+            ['required' => '%s Wajib diisi']
+        );
+        $this->form_validation->set_rules('slug', 'Slug', 'trim|required',
+            ['required' => '%s Wajib diisi']
+        );
+        $this->form_validation->set_rules('tanggal_dibuat', 'Tanggal Dibuat', 'trim|required',
+            ['required' => '%s Wajib diisi']
+        );
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'trim|required',
+            ['required' => '%s Wajib diisi']
+        );
+
+        if ($this->form_validation->run()) {
+           $old_filename = $this->input->post('old_gambar');
+           $new_filename = $_FILES['gambar']['name'];
+
+           if ($new_filename == TRUE) 
+           {
+                $update_filename = str_replace(' ', '-', $_FILES['gambar']['name']);
+                $config['upload_path']          = './upload/artikel/';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|JPG|JPEG';
+                // $config['max_size']             = 10048; // 10MB
+                $config['file_name']            = $update_filename;
+                $config['encrypt_name']         = False;
+                $this->load->library('upload', $config);
+
+                if ($this->upload->do_upload('gambar')) {
+                    if (file_exists("./upload/artikel/".$old_filename)) {
+                        unlink("./upload/artikel/".$old_filename);
+                    }
+                }
+           }else{
+                $update_filename = $old_filename;
+           }
+           
+           $data = array(
+                'judul' => $this->input->post('judul'),
+                'id_kategori' => $this->input->post('id_kategori'),
+                'deskripsi' => $this->input->post('deskripsi'),
+                'tanggal_dibuat' => $this->input->post('tanggal_dibuat'),
+                'user'   => $this->session->userdata('nama'),
+                'slug'   => $this->input->post('slug'),
+                'gambar' => $update_filename
+            );
+                $this->artikel->update_artikel($id_artikel, $data);
+                $this->session->set_flashdata('update', 'Data Artikel Berhasil di Update');
+                redirect('admin/artikel');
+        }else{
+            return $this->edit_artikel($id_artikel);
+        }
+    }
+
+    public function change_status($id_artikel, $status) {
+        $this->artikel->updateStatus($id_artikel, $status);
+        $this->session->set_flashdata('success', 'Artikel Berhasil di Publish');
+        redirect('admin/artikel');
+    }
+
+    public function delete_artikel($id_artikel)
+    {
+        $id_artikel = $this->input->post('id_artikel');
+        // $imam = new Imam_model;
+        if ($this->artikel->checkArtikelImage($id_artikel)) {
+            $data = $this->artikel->checkArtikelImage($id_artikel);
+            if (file_exists("./upload/artikel/".$data->gambar)) {
+                unlink("./upload/artikel/".$data->gambar);
+            }
+            $del = [
+                'id_artikel' => $id_artikel
+            ];
+            $this->artikel->deleteArtikel($id_artikel, $del);
+            $this->session->set_flashdata('success', 'Data Artikel Berhasil di Hapus');
+            redirect('admin/artikel');
+        }
+    }
+
     public function kategori()
 	{
         $data = [
@@ -106,9 +198,12 @@ class Artikel extends CI_Controller {
     public function tambah_kategori()
     {
         $nama_kategori = $this->input->post('nama_kategori');
+        $slug_kategori = $this->input->post('slug_kategori');
+
 
         $data = [
-            'nama_kategori' => $nama_kategori        
+            'nama_kategori' => $nama_kategori,
+            'slug_kategori'          => $slug_kategori     
         ];
         
         if ($this->artikel->insert_kategori($data)) {
@@ -124,9 +219,12 @@ class Artikel extends CI_Controller {
     {
         $id_kategori = $this->input->post('id_kategori');
         $nama_kategori = $this->input->post('nama_kategori');
+        $slug_kategori = $this->input->post('slug_kategori');
+
 
         $data = [
-            'nama_kategori' => $nama_kategori
+            'nama_kategori' => $nama_kategori,
+            'slug_kategori'          => $slug_kategori
         ];
         $this->artikel->update_kategori($id_kategori, $data);
         $this->session->set_flashdata('success', 'Data Kategori Artikel Berhasil di Ubah');

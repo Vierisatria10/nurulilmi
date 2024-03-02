@@ -75,3 +75,24 @@
         </div>
     </div>
 </footer>
+<!-- jQuery -->
+<script src="<?= base_url('assets/') ?>plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="<?= base_url('assets/') ?>plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+$(document).ready(function() {
+    $('#donate').click(function() {
+        Swal.fire({
+            icon: 'warning',
+            type: 'warning',
+            title: 'Pemberitahuan!',
+            text: 'Fitur ini belum ada sedang dikembangkan...',
+            showConfirmButton: true,
+
+        });
+    });
+
+});
+</script>

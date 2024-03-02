@@ -78,15 +78,23 @@
                                 </td>
                                 <td><?= $artikel->tanggal_dibuat ?></td>
                                 <td>
-                                    <a href="" data-toggle="modal"
-                                        data-target="#edit_artikel<?= $artikel->id_artikel ?>"
+                                    <a href="<?= base_url('admin/artikel/edit_artikel/'.$artikel->id_artikel) ?>"
                                         class="m-1 btn btn-info btn-sm"><i class="fas fa-fw fa-edit"></i>
-                                        Ubah</a>
+                                    </a>
+                                    <?php if($artikel->status == 1) : ?>
+                                    <a href="<?= base_url('admin/artikel/change_status/'. $artikel->id_artikel . '/0') ?>"
+                                        class="btn btn-danger btn-sm mt-1" title="Nonaktif">Nonaktif
+                                    </a>
+                                    <?php else: ?>
+                                    <a href="<?= base_url('admin/artikel/change_status/'. $artikel->id_artikel . '/1') ?>"
+                                        class="btn btn-success btn-sm mt-1" title="Aktifkan">Aktifkan
+                                    </a>
+                                    <?php endif; ?>
                                     <a href="" data-toggle="modal"
                                         data-target="#hapus_artikel<?= $artikel->id_artikel ?>"
                                         class="btn-delete m-1 btn btn-danger btn-sm"
                                         data-text="<?= $artikel->judul; ?>"><i class="fas fa-fw fa-trash"></i>
-                                        Hapus</a>
+                                    </a>
                                 </td>
                             </tr>
                             <?php endforeach ?>
@@ -100,3 +108,35 @@
         <!-- /.row (main row) -->
     </div><!-- /.container-fluid -->
 </section>
+
+<!-- Modal delete -->
+<?php foreach($data_artikel as $artikel) : ?>
+<div class="modal fade" id="hapus_artikel<?= $artikel->id_artikel ?>" tabindex="-1" role="dialog"
+    aria-labelledby="hapus_artikel<?= $artikel->id_artikel ?>" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="hapus_artikel<?= $artikel->id_artikel ?>">Apakah kamu ingin menghapus
+                    data ini?
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="<?= base_url('admin/artikel/delete_artikel/'.$artikel->id_artikel) ?>" method="POST"
+                    enctype="multipart/form-data">
+                    <input type="hidden" id="id_artikel" name="id_artikel" value="<?= $artikel->id_artikel ?>">
+                    <p class="text-danger">Menghapus Data Artikel dengan judul :
+                        <b><?= $artikel->judul; ?></b>
+                    </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<?php endforeach; ?>

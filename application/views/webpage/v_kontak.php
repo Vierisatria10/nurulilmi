@@ -110,6 +110,7 @@
     <div class="contact-area pb-8">
         <div class="container">
             <div class="row">
+                <?php foreach($data_setting as $setting) : ?>
                 <div class="col-md-4">
                     <div class="contact-info-item mb-3">
                         <div class="contact-wrapper bg-light ">
@@ -117,14 +118,15 @@
                                 <img src="<?= base_url('frontend/assets/images/contact-icon.png') ?>" alt="title">
                             </div>
                             <div class="contact-content mt-4">
-                                <h4 class="mb-3">Address
+                                <h4 class="mb-3">Alamat
                                 </h4>
-                                <p class="m-0">South St. New York, USA <br> United States
+                                <p class="m-0"><?= $setting->alamat ?>
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php endforeach; ?>
                 <div class="col-md-4">
                     <div class="contact-info-item mb-3">
                         <div class="contact-wrapper bg-light">
@@ -132,10 +134,9 @@
                                 <img src="<?= base_url('frontend/assets/images/contact-icon3.png') ?>" alt="title">
                             </div>
                             <div class="contact-content mt-4">
-                                <h4 class="mb-3">Phone
+                                <h4 class="mb-3">Telepon
                                 </h4>
-                                <p class="m-0">+123 123 1234 <br>
-                                    +123 123 1235
+                                <p class="m-0"><?= $setting->no_hp ?>
                                 </p>
                             </div>
                         </div>
@@ -150,8 +151,7 @@
                             <div class="contact-content mt-4">
                                 <h4 class="mb-3">Email
                                 </h4>
-                                <p class="m-0">support@themeix.com <br>
-                                    themeix@gmail.com
+                                <p class="m-0"><?= $setting->email ?>
                                 </p>
                             </div>
                         </div>

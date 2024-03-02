@@ -65,81 +65,111 @@
         <div class="container">
             <div class="row">
                 <h3 class="mb-3 text-primary">Nurul Ilmi TV</h3>
-                <div class="col-lg-9">
-                    <?php if(!empty($pesan)) : ?>
-                    <p class="text-center"><?= $pesan ?></p>
-                    <?php else: ?>
-                    <div class="row">
-                        <div class="col-sm-6 col-md-6 col-lg-4 mb-2">
-
-                            <?php foreach($data_video as $video) : ?>
-                            <div class="blog-style mt-4">
-                                <div class="blog-image">
-                                    <iframe src="//www.youtube.com/embed/RtC-HZkhtq0" frameborder="0"
-                                        allowfullscreen></iframe>
-                                </div>
-                                <div class="blog-content">
-                                    <h4 class="mb-0"><a href='<?= base_url($video->link ) ?>'><?= $video->judul ?></a>
-                                    </h4>
-                                    <h4><a href='<?= base_url($video->link ) ?>'></a>
-                                    </h4>
-                                    <a
-                                        href='<?= base_url("video/kategori_video/".$video->slug) ?>'><?= $video->nama_video ?></a>
-                                </div>
+                <!-- <div class="col-lg-9"> -->
+                <?php if(!empty($pesan)) : ?>
+                <p class="text-center"><?= $pesan ?></p>
+                <a href="<?= base_url('video') ?>" class="btn btn-primary">Kembali</a>
+                <?php else: ?>
+                <div class="row">
+                    <?php foreach($data_video as $video) : ?>
+                    <div class="col-md-3 col-lg-3 mb-2">
+                        <div class="blog-style mt-4">
+                            <div class="blog-image">
+                                <iframe src="//www.youtube.com/embed/RtC-HZkhtq0" width="100%" height="auto"
+                                    frameborder="0" allowfullscreen></iframe>
                             </div>
-                            <?php endforeach; ?>
-
-
-                            <!-- Infinity Scroll Loader
-                            ============================================= -->
-                            <!-- <div class="row">
-                                <div class="col-md-12 text-center">
-                                    <div class="page-load-status hovering-load-status">
-                                        <div class="css3-spinner infinite-scroll-request">
-                                            <div class="css3-spinner-ball-pulse-sync">
-                                                <div></div>
-                                                <div></div>
-                                                <div></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button class="mt-4 btn text-center btn-dark ls1 text-uppercase load-next-portfolio"
-                                        id="btn-load">Load More</button>
-                                </div>
-                            </div> -->
-
-                        </div>
-                        <div class="col-lg-4 col-md-5 mt-4">
-                            <div class="course-feature mb-4 bg-white text-center rounded">
-                                <i class="fas fa-search fa-2x"></i>
-                                <h3 class="text-primary pb-2 text-center">Cari Video</h3>
-                                <form action="<?= base_url('video/cari_video') ?>" method="POST">
-                                    <div class="form-group">
-                                        <input type="text" name="keyword" id="keyword" class="form-control"
-                                            placeholder="JUDUL">
-                                    </div>
-                                    <br>
-                                    <button type="submit" class="btn btn-primary" style="width: 100%;">CARI</button>
-                                </form>
-                            </div>
-                            <!-- Sidebar Widget 2
-                        ============================================= -->
-                            <div class="widget">
-                                <div class="owl-carousel carousel-widget" data-margin="0" data-items="1"
-                                    data-pagi="false" data-loop="true" data-speed="1000" data-autoplay="5000">
-                                    <a href="https://istiqlal.or.id/virtualtour/"><img
-                                            src="https://istiqlal.or.id/assets/img/informasi/zwv7jcnx3a.jpg"
-                                            class="img-responsive aligncenter" target="_blank"></a>
-                                    <a
-                                        href="https://docs.google.com/forms/d/e/1FAIpQLSftLB133mq71JmbrviugP_--vKArqYupbiYY4Ov2Rog__7uyA/viewform"><img
-                                            src="https://istiqlal.or.id/assets/img/informasi/jjspsr995w.jpeg"
-                                            class="img-responsive aligncenter" target="_blank"></a>
-                                </div>
+                            <div class="blog-content">
+                                <h5 class="mb-0"><a href='<?= base_url($video->link ) ?>'><?= $video->judul ?></a>
+                                </h5>
+                                <h5><a href='<?= base_url($video->link ) ?>'></a>
+                                </h5>
+                                <a
+                                    href='<?= base_url("video/kategori_video/".$video->slug) ?>'><?= $video->nama_video ?></a>
                             </div>
                         </div>
                     </div>
-                    <?php endif; ?>
+                    <?php endforeach; ?>
+                    <div class="col-lg-3 col-md-3 mt-4">
+                        <div class="course-feature mb-4 bg-white text-center rounded">
+                            <i class="fas fa-search fa-2x"></i>
+                            <h3 class="text-primary pb-2 text-center">Cari Video</h3>
+                            <form action="<?= base_url('video/cari_video') ?>" method="POST">
+                                <div class="form-group">
+                                    <input type="text" name="keyword" id="keyword" class="form-control"
+                                        placeholder="JUDUL">
+                                </div>
+                                <br>
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">CARI</button>
+                            </form>
+                        </div>
+                        <div class="course-feature mb-4 bg-white rounded">
+                            <h5 class="text-primary pb-2">Kategori Video</h5>
+                            <hr style="border: 2px solid #DC3545 !important; 
+                            margin-top: -10px;">
+                            <?php foreach($data_kategori as $vid) : ?>
+                            <p class="d-flex align-items-center"><a
+                                    href="<?= base_url('video/kategori_video/'.$vid->slug) ?>" class="flex-fill">-
+                                    <?= $vid->nama_video; ?></a></p>
+                            <?php endforeach; ?>
+                            <!-- <p class="d-flex align-items-center" style="margin-top: -15px;"><a
+                                    href="https://istiqlal.or.id/webpage/kategori_video/kajian-ihya-ulumuddin"
+                                    class="flex-fill">- Kajian Ihya Ulumuddin</a></p>
+                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
+                                    href="https://istiqlal.or.id/webpage/kategori_video/webinar" class="flex-fill">-
+                                    Webinar</a></p>
+                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
+                                    href="https://istiqlal.or.id/webpage/kategori_video/kegiatan-masjid-istiqlal"
+                                    class="flex-fill">- Kegiatan Masjid Istiqlal</a></p>
+                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
+                                    href="https://istiqlal.or.id/webpage/kategori_video/umum" class="flex-fill">-
+                                    Umum</a>
+                            </p>
+                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
+                                    href="https://istiqlal.or.id/webpage/kategori_video/kultum-ramadan"
+                                    class="flex-fill">- Kultum Ramadan</a></p>
+                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
+                                    href="https://istiqlal.or.id/webpage/kategori_video/kegiatan-tarawih-masjid-istiqlal"
+                                    class="flex-fill">- Kegiatan Tarawih Masjid Istiqlal</a></p>
+                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
+                                    href="https://istiqlal.or.id/webpage/kategori_video/kajian-zuhur"
+                                    class="flex-fill">- Kajian Zuhur</a></p>
+                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
+                                    href="https://istiqlal.or.id/webpage/kategori_video/ceramah-subuh"
+                                    class="flex-fill">- Ceramah Subuh</a></p>
+                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
+                                    href="https://istiqlal.or.id/webpage/kategori_video/info-istiqlal"
+                                    class="flex-fill">- Info Istiqlal</a></p>
+                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
+                                    href="https://istiqlal.or.id/webpage/kategori_video/shalat-jumat"
+                                    class="flex-fill">- Shalat Jumat</a></p>
+                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
+                                    href="https://istiqlal.or.id/webpage/kategori_video/mihrab-ramadhan"
+                                    class="flex-fill">- Mihrab Ramadhan</a></p> -->
+
+                        </div>
+                    </div>
+                    <!-- Infinity Scroll Loader
+                            ============================================= -->
+                    <div class="row">
+                        <div class="col-md-9 text-center">
+                            <div class="page-load-status hovering-load-status">
+                                <div class="css3-spinner infinite-scroll-request">
+                                    <div class="css3-spinner-ball-pulse-sync">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="mt-4 btn text-center btn-dark ls1 text-uppercase load-next-portfolio"
+                                id="btn-load">Load More</button>
+                        </div>
+                    </div>
                 </div>
+                <?php endif; ?>
+
+
+                <!-- </div> -->
 
 
 

@@ -17,10 +17,17 @@ class Agenda extends CI_Controller {
             'title' => 'Agenda - Masjid Nurul Ilmi',
             'menu'  => 'agenda',
             'data_agenda' => $this->agenda->getDataAgendaDetail(),
+            // // 'next_offset' => $offset + $limit,
             'data_setting' => $this->setting->getDataSetting()
         ];
         $this->load->view('webpage/v_agenda', $data);
 	}
+
+    public function loadMore($offset) {
+        $limit = 5;
+        $data =  $this->agenda->getDataAgendaLoad($limit, $offset);
+        echo json_encode($data);
+    }
 
     public function cari_agenda()
     {

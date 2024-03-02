@@ -14,6 +14,7 @@ class Setting extends CI_Controller {
 
     public function index()
 	{
+       
         $data = [
             'judul' => 'Setting Web',
             'title' => 'Setting Web - Masjid Nurul Ilmi',
@@ -38,9 +39,12 @@ class Setting extends CI_Controller {
             ['required' => 'Judul 1 Wajib diisi']
         );
         if ($this->form_validation->run() == FALSE) {
+             $url_kota = "https://api.myquran.com/v2/sholat/kota/semua";
+            $kota = json_decode(file_get_contents($url_kota), true);
              $data = [
                 'judul' => 'Setting Web',
                 'title' => 'Setting Web - Masjid Nurul Ilmi',
+                 'kota'  => $kota,
                 'menu'  => 'setting',
             ];
 		    $this->template->load('v_template_admin', 'admin/setting/v_tambah', $data);

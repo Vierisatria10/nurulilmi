@@ -49,6 +49,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Kategori</th>
+                                <th>Slug</th>
                                 <th>Tanggal Update</th>
                                 <th>Aksi</th>
                             </tr>
@@ -59,6 +60,7 @@
                             <tr>
                                 <td><?= $no++; ?></td>
                                 <td><?= $kategori->nama_kategori ?></td>
+                                <td><?= $kategori->slug_kategori ?></td>
                                 <td><?= $kategori->tanggal ?></td>
                                 <td>
                                     <a href="" data-toggle="modal"
@@ -104,6 +106,12 @@
                                 <input type="text" class="form-control" name="nama_kategori">
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">Slug</label>
+                                <input type="text" class="form-control" name="slug_kategori">
+                            </div>
+                        </div>
                     </div>
             </div>
             <div class="modal-footer">
@@ -137,6 +145,13 @@
                                     class="form-control">
                                 <input type="text" class="form-control" value="<?= $kategori->nama_kategori ?>"
                                     name="nama_kategori">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">Slug</label>
+                                <input type="text" class="form-control" value="<?= $kategori->slug_kategori ?>"
+                                    name="slug_kategori">
                             </div>
                         </div>
                     </div>
