@@ -9,7 +9,7 @@
     </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="<?= base_url('frontend/') ?>assets/images/favicon.png" type="images/x-icon" />
+    <link rel="shortcut icon" href="<?= base_url('frontend/') ?>assets/images/logo.jpeg" type="images/x-icon" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,6 +23,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Philosopher:wght@700&display=swap"
         rel="stylesheet">
+    <!-- Sertakan file CSS Select2 dari CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
     <!-- gulp:css -->
     <link rel="stylesheet" href="<?= base_url('frontend/') ?>assets/css/app.min.css">
     <!-- endgulp -->
@@ -182,9 +185,10 @@
                         <h5 class="text-primary pb-2" id="text_shalat">Jadwal Shalat</h5>
                         <p><?= $waktu['data']['jadwal']['tanggal'] ?></p>
                         <hr style="border: 2px solid #DC3545 !important; margin-top: -10px;">
-                        <select name="kota" id="city-selector" class="form-select mb-3">
+                        <select name="kota" id="city-selector" class="form-select select2 mb-3">
                             <option value="">Pilih Kota</option>
                         </select>
+                        <br><br>
                         <div id="schedule-table"></div>
                         <table id="salat-table" class="table table-bordered table-striped text-center">
                             <thead>
@@ -235,12 +239,20 @@
     <?php $this->load->view('layout/footer') ?>
     <!-- gulp:js -->
     <script src="<?= base_url('frontend/') ?>assets/js/build.min.js"></script>
+    <!-- Sertakan file JavaScript Select2 dari CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <!-- Moment.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.36/moment-timezone.min.js"></script>
 
     <script>
     $(document).ready(function() {
+        // Inisialisasi Select2
+        $('.select2').select2({
+            placeholder: 'Pilih Kota',
+            width: '100%',
+            allowClear: false // Opsional, untuk menambahkan tombol clear
+        });
         $.ajax({
             url: "<?php echo base_url('Blog/getCityData'); ?>",
             type: 'GET',

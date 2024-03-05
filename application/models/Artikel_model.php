@@ -20,6 +20,7 @@ class Artikel_model extends CI_Model {
         $this->db->from('tbl_artikel a');
         $this->db->join('tbl_kategori_artikel b', 'b.id_kategori = a.id_kategori', 'left');
         $this->db->limit(3);
+        $this->db->where('a.status', '1');
         $this->db->order_by('a.judul', 'DESC');
         return $this->db->get()->result(); 
     }

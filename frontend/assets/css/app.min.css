@@ -27149,9 +27149,9 @@ keyframes zoomSlow 100% {
 }
 
 .course-block-author img {
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
+    width: 60px;
+    height: auto;
+    /* border-radius: 100%; */
     margin-right: 10px
 }
 

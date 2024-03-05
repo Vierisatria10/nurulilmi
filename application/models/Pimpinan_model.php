@@ -15,6 +15,10 @@ class Pimpinan_model extends CI_Model {
         // return $this->db->insert_id();
     }
 
+    public function count_pengurus() {
+        return $this->db->count_all($this->table);
+    }
+
     public function get_pimpinan($id_pimpinan)
     {
 		return $this->db->get_where($this->table, ['id_pimpinan' => $id_pimpinan])->row();

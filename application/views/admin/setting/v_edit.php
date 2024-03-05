@@ -42,8 +42,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <form action="<?= base_url('admin/setting/update/' . $setting->id_setting) ?>" method="POST"
-                        enctype="multipart/form-data">
+                    <form action="<?= base_url('admin/setting/update') ?>" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -150,7 +149,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Sosmed 1</label>
+                                    <label for="">Link Facebook</label>
                                     <input name="sosmed1" id="sosmed1" type="text" value="<?= $setting->sosmed1 ?>"
                                         class="form-control">
                                 </div>
@@ -160,21 +159,33 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Sosmed 2</label>
+                                    <label for="">Link Instagram</label>
                                     <input name="sosmed2" id="sosmed2" type="text" value="<?= $setting->sosmed2 ?>"
                                         class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Sosmed 3</label>
+                                    <label for="">Link Youtube</label>
                                     <input name="sosmed3" id="sosmed3" type="text" value="<?= $setting->sosmed3 ?>"
                                         class="form-control">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Jadwal Shalat</label>
+                                    <select name="id_jadwal" id="id_jadwal" class="form-control" id="">
+                                        <?php foreach($data_jadwal as $jadwal) : ?>
+                                        <option value="<?= $jadwal->id_jadwal ?>"
+                                            <?= ($jadwal->id_jadwal == $setting->id_jadwal) ? 'selected' : '' ?>>
+                                            <?= $jadwal->waktu_shalat ?> - <?= $jadwal->jam ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Alamat</label>
                                     <textarea name="alamat" id="editor" class="form-control" cols="30">

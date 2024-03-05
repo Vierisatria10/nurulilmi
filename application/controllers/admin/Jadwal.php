@@ -26,20 +26,12 @@ class Jadwal extends CI_Controller {
 
     public function simpan()
     {
-        $waktu_dzuhur = $this->input->post('waktu_dzuhur');
-        $waktu_ashar = $this->input->post('waktu_ashar');
-        $waktu_maghrib = $this->input->post('waktu_maghrib');
-        $waktu_isya = $this->input->post('waktu_isya');
-        $waktu_subuh = $this->input->post('waktu_subuh');
-        $waktu_imsak = $this->input->post('waktu_imsak');
+        $waktu_shalat = $this->input->post('waktu_shalat');
+        $jam = $this->input->post('jam');
 
         $data = [
-            'waktu_dzuhur' => $waktu_dzuhur,
-            'waktu_ashar'  => $waktu_ashar,
-            'waktu_maghrib' => $waktu_maghrib,
-            'waktu_isya'    => $waktu_isya,
-            'waktu_subuh'   => $waktu_subuh,
-            'waktu_imsak'   => $waktu_imsak
+            'waktu_shalat' => $waktu_shalat,
+            'jam'  => $jam
         ];
 
         $this->jadwal->insert_jadwal($data);
@@ -50,20 +42,12 @@ class Jadwal extends CI_Controller {
     public function update()
     {
         $id_jadwal = $this->input->post('id_jadwal');
-        $waktu_dzuhur = $this->input->post('waktu_dzuhur');
-        $waktu_ashar = $this->input->post('waktu_ashar');
-        $waktu_maghrib = $this->input->post('waktu_maghrib');
-        $waktu_isya = $this->input->post('waktu_isya');
-        $waktu_subuh = $this->input->post('waktu_subuh');
-        $waktu_imsak = $this->input->post('waktu_imsak');
+        $waktu_shalat = $this->input->post('waktu_shalat');
+        $jam = $this->input->post('jam');
 
         $data = [
-            'waktu_dzuhur' => $waktu_dzuhur,
-            'waktu_ashar'  => $waktu_ashar,
-            'waktu_maghrib' => $waktu_maghrib,
-            'waktu_isya'    => $waktu_isya,
-            'waktu_subuh'   => $waktu_subuh,
-            'waktu_imsak'   => $waktu_imsak
+            'waktu_shalat' => $waktu_shalat,
+            'jam'  => $jam
         ];
         $this->jadwal->edit_jadwal($id_jadwal, $data);
         $this->session->set_flashdata('success', 'Data Jadwal Shalat Berhasil di Update');

@@ -7,7 +7,7 @@
     <title><?= $detail_artikel['judul']; ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="<?= base_url('frontend/') ?>assets/images/favicon.png" type="images/x-icon" />
+    <link rel="shortcut icon" href="<?= base_url('frontend/') ?>assets/images/logo.jpeg" type="images/x-icon" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -22,6 +22,20 @@
     <!-- gulp:css -->
     <link rel="stylesheet" href="<?= base_url('frontend/') ?>assets/css/app.min.css">
     <!-- endgulp -->
+    <style>
+    .grid-inner {
+        width: 100%;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .grid-container,
+    .grid-inner {
+        position: relative;
+        overflow: hidden;
+    }
+    </style>
 </head>
 
 <body>
@@ -100,25 +114,35 @@
 
                         </ul>
                     </div>
-                    <h2 class="my-4">Tulis Komentar Anda Terkait <?= $detail_artikel['judul'] ?></h2>
-                    <form class="contact-form">
-                        <div class="row mb-4">
-                            <div class="col-md-6">
-                                <div class="mb-4">
-                                    <input type="email" class="form-control" placeholder="Your Name">
+                    <h4>Related Posts:</h4>
+                    <div class="posts-sm row col-mb-30 related-posts">
+                        <div class="entry col-md-6">
+                            <!-- Post Article -->
+                            <div class="grid-inner row align-items-center no-gutter">
+                                <div class="col-auto">
+                                    <div class="entry-image">
+                                        <a
+                                            href="https://istiqlal.or.id/blog/detail/adab--kunci-bahagia-dan-kesuksesan-hidup.html"><img
+                                                src="https://istiqlal.or.id/assets/img/artikel/Screenshot_2024-01-31_140042.png"
+                                                alt="Adab: Kunci Bahagia dan Kesuksesan Hidup"></a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-4">
-                                    <input type="email" class="form-control" placeholder="Your Email">
+                                <div class="col ps-3">
+                                    <div class="entry-title">
+                                        <h4 class="fw-medium"><a
+                                                href="https://istiqlal.or.id/blog/detail/adab--kunci-bahagia-dan-kesuksesan-hidup.html">Adab:
+                                                Kunci Bahagia dan Kesuksesan Hidup</a></h4>
+                                    </div>
+                                    <div class="entry-meta">
+                                        <ul>
+                                            <li><span>by</span> <a href="#">admin</a></li>
+                                            <li><i class="icon-time"></i><a href="#">31 Jan 2024</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="mb-4">
-                                <textarea class="form-control" rows="7" placeholder="Your Comment"></textarea>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Add Comment</button>
-                    </form>
+                    </div>
                 </div>
 
                 <div class="col-md-5 col-lg-4">

@@ -65,34 +65,12 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Alamat</label>
-                                    <input name="alamat" type="text" id="alamat" value="<?= set_value('alamat') ?>"
-                                        class="form-control">
-                                    <?= form_error('alamat', '<small class="text-danger ">', '</small>'); ?>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="">Kab/Kota</label>
-                                    <select name="kota" id="kota" class="form-control mb-3">
-                                        <option value="">Pilih Kota</option>
-                                        <?php foreach ($kota as $kota): ?>
-                                        <option value="<?= $kota['id'] ?>"><?= $kota['lokasi'] ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
                                     <label for="">Logo</label>
                                     <input type="file" name="userfile[]" id="logo" value="<?= set_value('logo') ?>"
                                         class="form-control">
                                     <small class="text-danger">*Tidak Wajib Diisi</small>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Upload Banner 1</label>
@@ -101,6 +79,9 @@
                                     <small class="text-danger">*File Upload wajib jpg,jpeg,png,JPEG,JPG !!</small>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Upload Banner 2</label>
@@ -109,9 +90,6 @@
                                     <small class="text-danger">*File Upload wajib jpg,jpeg,png,JPEG,JPG !!</small>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Upload Banner 3</label>
@@ -120,6 +98,9 @@
                                     <small class="text-danger">*File Upload wajib jpg,jpeg,png,JPEG,JPG !!</small>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Judul 1</label>
@@ -138,6 +119,9 @@
                                     <small></small>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Judul 3</label>
@@ -147,21 +131,20 @@
                                     <small></small>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Sosmed 1</label>
+                                    <label for="">Link Facebook</label>
                                     <input name="sosmed1" id="sosmed1" type="text" value="<?= set_value('sosmed1') ?>"
                                         class="form-control">
                                     <?= form_error('sosmed1', '<small class="text-danger">', '</small>'); ?>
                                     <small></small>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Sosmed 2</label>
+                                    <label for="">Link Instagram</label>
                                     <input name="sosmed2" id="sosmed2" type="text" value="<?= set_value('sosmed2') ?>"
                                         class="form-control">
                                     <?= form_error('sosmed2', '<small class="text-danger">', '</small>'); ?>
@@ -170,11 +153,32 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="">Sosmed 3</label>
+                                    <label for="">Link Youtube</label>
                                     <input name="sosmed3" id="sosmed3" type="text" value="<?= set_value('sosmed3') ?>"
                                         class="form-control">
                                     <?= form_error('sosmed3', '<small class="text-danger">', '</small>'); ?>
                                     <small></small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Jadwal Shalat</label>
+                                    <select name="id_jadwal" class="form-control" id="id_jadwal">
+                                        <option value="">Pilih Jadwal Shalat</option>
+                                        <?php foreach($data_jadwal as $jadwal) : ?>
+                                        <option value="<?= $jadwal->id_jadwal ?>"><?= $jadwal->waktu_shalat ?> -
+                                            <?= $jadwal->jam ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Alamat</label>
+                                    <textarea name="alamat" id="editor" cols="30" class="form-control"></textarea>
+                                    <?= form_error('alamat', '<small class="text-danger ">', '</small>'); ?>
                                 </div>
                             </div>
                         </div>

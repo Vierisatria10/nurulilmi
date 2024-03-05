@@ -21,6 +21,16 @@ class Agenda_model extends CI_Model {
         return $this->db->get()->result_array();
     }
 
+    public function getAgenda()
+    {
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->limit(3);
+        $this->db->where('status', '1');
+        $this->db->order_by('judul', 'DESC');
+        return $this->db->get()->result(); 
+    }
+
     public function getDataAgendaLoad($limit, $offset)
     {
         $this->db->select('*');

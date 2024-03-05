@@ -50,11 +50,8 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Imsak</th>
-                                <th>Subuh</th>
-                                <th>Dzuhur</th>
-                                <th>Ashar</th>
-                                <th>Maghrib</th>
+                                <th>Waktu Shalat</th>
+                                <th>Jam</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -64,12 +61,9 @@
                             <tr>
                                 <td><?= $no++; ?></td>
                                 <td>
-                                    <?= $jadwal->waktu_imsak ?>
+                                    <?= $jadwal->waktu_shalat ?>
                                 </td>
-                                <td><?= $jadwal->waktu_subuh ?></td>
-                                <td><?= $jadwal->waktu_dzuhur ?></td>
-                                <td><?= $jadwal->waktu_ashar ?></td>
-                                <td><?= $jadwal->waktu_maghrib ?></td>
+                                <td><?= $jadwal->jam ?></td>
                                 <td>
                                     <a href="" data-toggle="modal" data-target="#edit_jadwal<?= $jadwal->id_jadwal ?>"
                                         class="btn btn-warning btn-sm" title="Ubah"><i class="fas fa-fw fa-edit"></i>
@@ -117,38 +111,14 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Dzuhur</label>
-                                <input type="time" class="form-control" name="waktu_dzuhur">
+                                <label for="">Waktu Shalat</label>
+                                <input type="text" class="form-control" name="waktu_shalat">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Ashar</label>
-                                <input type="time" class="form-control" name="waktu_ashar">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Maghrib</label>
-                                <input type="time" class="form-control" name="waktu_maghrib">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Isya</label>
-                                <input type="time" class="form-control" name="waktu_isya">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Subuh</label>
-                                <input type="time" class="form-control" name="waktu_subuh">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Imsak</label>
-                                <input type="time" class="form-control" name="waktu_imsak">
+                                <label for="">Jam</label>
+                                <input type="time" class="form-control" name="jam">
                             </div>
                         </div>
                     </div>
@@ -180,45 +150,16 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Dzuhur</label>
+                                <label for="">Waktu Shalat</label>
                                 <input type="hidden" name="id_jadwal" value="<?= $jadwal->id_jadwal ?>">
-                                <input type="time" value="<?= $jadwal->waktu_dzuhur ?>" class="form-control"
-                                    name="waktu_dzuhur">
+                                <input type="text" value="<?= $jadwal->waktu_shalat ?>" class="form-control"
+                                    name="waktu_shalat">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Ashar</label>
-                                <input type="time" value="<?= $jadwal->waktu_ashar ?>" class="form-control"
-                                    name="waktu_ashar">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Maghrib</label>
-                                <input type="time" value="<?= $jadwal->waktu_maghrib ?>" class="form-control"
-                                    name="waktu_maghrib">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Isya</label>
-                                <input type="time" value="<?= $jadwal->waktu_isya ?>" class="form-control"
-                                    name="waktu_isya">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Subuh</label>
-                                <input type="time" value="<?= $jadwal->waktu_subuh ?>" class="form-control"
-                                    name="waktu_subuh">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Imsak</label>
-                                <input type="time" value="<?= $jadwal->waktu_imsak ?>" class="form-control"
-                                    name="waktu_imsak">
+                                <label for="">Jam</label>
+                                <input type="time" value="<?= $jadwal->jam ?>" class="form-control" name="jam">
                             </div>
                         </div>
                     </div>

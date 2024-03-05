@@ -7,7 +7,7 @@
     <title><?= $title; ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="<?= base_url('frontend/') ?>assets/images/favicon.png" type="images/x-icon" />
+    <link rel="shortcut icon" href="<?= base_url('frontend/') ?>assets/images/logo.jpeg" type="images/x-icon" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -118,133 +118,16 @@
                     <div class="item">
                         <div class="prayer-timeline">
                             <div class="prayer-wrapper">
-                                <h6 class="text-primary mb-3">Waktu Siang</h6>
-                                <h2 class="mb-4">Dzuhur</h2>
+                                <h6 class="text-primary mb-3">Waktu <?= $jadwal->waktu_shalat ?></h6>
+                                <h2 class="mb-4"><?= $jadwal->waktu_shalat ?></h2>
                                 <span data-aos="fade-up" class="p-2 px-3 text-primary rounded bg-light"><span
                                         class="me-1"><i
-                                            class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_dzuhur)) ?>
-                                    PM </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="prayer-timeline">
-                            <div class="prayer-wrapper">
-                                <h6 class="text-primary mb-3">Waktu Sore</h6>
-                                <h2 class="mb-4">Ashar</h2>
-                                <span data-aos="fade-up" class="p-2 px-3 text-primary rounded bg-light"><span
-                                        class="me-1"><i
-                                            class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_ashar)); ?>
+                                            class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->jam)) ?>
                                 </span>
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="prayer-timeline">
-                            <div class="prayer-wrapper">
-                                <h6 class="text-primary mb-3">Waktu Malem</h6>
-                                <h2 class="mb-4">Maghrib</h2>
-                                <span data-aos="fade-up" class="p-2 px-3 text-primary rounded bg-light"><span
-                                        class="me-1"><i
-                                            class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_maghrib)); ?>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="prayer-timeline">
-                            <div class="prayer-wrapper">
-                                <h6 class="text-primary mb-3">Waktu Pagi</h6>
-                                <h2 class="mb-4">Subuh</h2>
-                                <span data-aos="fade-up" class="p-2 px-3 text-primary rounded bg-light"><span
-                                        class="me-1"><i
-                                            class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_subuh)); ?>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="prayer-timeline">
-                            <div class="prayer-wrapper">
-                                <h6 class="text-primary mb-3">Waktu Imsak</h6>
-                                <h2 class="mb-4">Imsak</h2>
-                                <span data-aos="fade-up" class="p-2 px-3 text-primary rounded bg-light"><span
-                                        class="me-1"><i
-                                            class="far fa-clock"></i></span><?= date('H:i', strtotime($jadwal->waktu_imsak)); ?>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-
                     <?php endforeach; ?>
-                    <!-- <div class="item">
-                        <div class="prayer-timeline">
-                            <h6 class="text-primary mb-3">NOON PRAYER</h6>
-                            <h2 class="mb-4">Dzuhur</h2>
-                            <span data-aos="fade-up" class="p-2 px-3 text-primary rounded  bg-light"><span
-                                    class="me-1"><i class="far fa-clock"></i></span>12:01 PM </span>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="prayer-timeline">
-                            <div class="prayer-wrapper">
-                                <h6 class="text-primary mb-3">AFTERNOON PRAYER</h6>
-                                <h2 class="mb-4">Asr</h2>
-                                <span data-aos="fade-up" class="p-2 px-3 text-primary rounded  bg-light"><span
-                                        class="me-1"><i class="far fa-clock"></i></span> 4:30 PM </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="prayer-timeline">
-                            <div class="prayer-wrapper">
-                                <h6 class="text-primary mb-3">EVENING PRAYER</h6>
-                                <h2 class="mb-4">Maghrib</h2>
-                                <span data-aos="fade-up" class="p-2 px-3 text-primary rounded  bg-light"><span
-                                        class="me-1"><i class="far fa-clock"></i></span> 6:17 PM </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="prayer-timeline">
-                            <div class="prayer-wrapper">
-                                <h6 class="text-primary mb-3">NIGHT PRAYER</h6>
-                                <h2 class="mb-4">Isha'a</h2>
-                                <span data-aos="fade-up" class="p-2 px-3 text-primary rounded  bg-light"><span
-                                        class="me-1"><i class="far fa-clock"></i></span> 7:34 PM </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="prayer-timeline">
-                            <div class="prayer-wrapper">
-                                <h6 class="text-primary mb-3">WEEKLY PRAYER</h6>
-                                <h2 class="mb-4">Jumah</h2>
-                                <span data-aos="fade-up" class="p-2 px-3 text-primary rounded  bg-light"><span
-                                        class="me-1"><i class="far fa-clock"></i></span> 1:30 PM </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="prayer-timeline">
-                            <div class="prayer-wrapper">
-                                <h6 class="text-primary mb-3">SUNRISE TIME</h6>
-                                <h2 class="mb-4">Sunrise</h2>
-                                <span data-aos="fade-up" class="p-2 px-3 text-primary rounded  bg-light"><span
-                                        class="me-1"><i class="far fa-clock"></i></span> 5 : 44 AM </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="prayer-timeline">
-                            <div class="prayer-wrapper">
-                                <h6 class="text-primary mb-3">SUNSET TIME</h6>
-                                <h2 class="mb-4">Sunset</h2>
-                                <span data-aos="fade-up" class="p-2 px-3 text-primary rounded  bg-light"><span
-                                        class="me-1"><i class="far fa-clock"></i></span> 6 : 17 PM </span>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -278,25 +161,28 @@
                 <div class="col-md-6 col-lg-5 offset-lg-1">
                     <div class="upcoming-prayer bg-light bg-image-pattern">
                         <div class="upcoming-prayer-wrapper ">
-                            <h3 class="text-primary">Upcomimg Player Time</h3>
-
-                            <ul class="prayer-meta list-inline   mt-4 ">
+                            <h3 class="text-primary">Upcomimg Prayer Time</h3>
+                            <?php foreach($data_setting as $setting) : ?>
+                            <ul class="prayer-meta list-inline mt-4 ">
                                 <li class="list-inline-item"><small><i
-                                            class="fas fa-mosque text-primary"></i>Asr</small></li>
-                                <li class="list-inline-item"><small><i class="far fa-clock text-primary"></i> 4 : 30
-                                        PM</small></li>
+                                            class="fas fa-mosque text-primary"></i><?= $setting->waktu_shalat ?></small>
+                                </li>
+                                <li class="list-inline-item"><small><i class="far fa-clock text-primary"></i>
+                                        <?= date('H:i', strtotime($setting->jam)) ?>
+                                    </small></li>
                             </ul>
+                            <?php endforeach; ?>
                             <ul class="prayer-countdown my-4 list-inline">
                                 <li>
-                                    <h3 id="hours" class="display-4 text-primary">0</h3><span
+                                    <h3 id="jam" class="display-4 text-primary"></h3><span
                                         class="text-secondary">Hours</span>
                                 </li>
                                 <li>
-                                    <h3 id="minutes" class="display-4  text-primary">0</h3><span
+                                    <h3 id="menit" class="display-4  text-primary"></h3><span
                                         class="text-secondary">Minutes</span>
                                 </li>
                                 <li>
-                                    <h3 id="seconds" class="display-4  text-primary">0</h3><span
+                                    <h3 id="detik" class="display-4  text-primary"></h3><span
                                         class="text-secondary">Seconds</span>
                                 </li>
                             </ul>
@@ -574,119 +460,42 @@
     <div class="event-area py-lg-10 py-8">
         <div class="container">
             <div class="section-title text-center mb-4">
-                <span data-aos="fade-in" class="text-primary">Ethical & Moral Beliefs</span>
-                <h2 class="h1">Upcoming Events</h2>
+                <span data-aos="fade-in" class="text-primary">Agenda</span>
+                <h2 class="h1">Kegiatan Acara</h2>
             </div>
             <div class="row d-flex align-items-stretch">
-
+                <?php foreach($agenda as $data) : ?>
                 <div class="col-md-6 col-lg-4">
                     <div class="event-item mt-4">
                         <div class="event-image">
-                            <img src="assets/images/event/1.jpg" alt="image">
+                            <img src="<?= base_url('frontend/assets/images/event/1.jpg') ?>" alt="image">
                             <span class="event-btn badge bg-primary text-white"><i class="far fa-calendar-alt me-2"></i>
-                                01 Dec 2020</span>
+                                <?= format_indo($data->tgl_awal) ?>
+                                <?php if ($data->tgl_akhir === NULL || $data->tgl_akhir === '0000-00-00') {
+                                    echo 'Selesai';
+                                }else{
+                                    format_indo($data->tgl_akhir);
+                                }
+                                ?>
+                            </span>
                         </div>
                         <div class="event-content">
                             <ul class="event-address list-inline">
                                 <li class="list-inline-item"><span class="icon"><img
-                                            src="assets/images/location-icon.svg" alt="title"></span> New York, USA 485
+                                            src="<?= base_url('frontend/assets/images/location-icon.svg') ?>"
+                                            alt="title"></span>
+                                    <?= $data->lokasi ?>
                                 </li>
                             </ul>
-                            <h5 class="mb-3">Lazy Boy - It's All in Your Mind!</h5>
-                            <a class='text-primary' href='/event'>More Details</a>
+                            <h5 class="mb-3"><?= $data->judul ?></h5>
+                            <a class='text-primary' href='<?= base_url("agenda/detailAgenda/".$data->slug) ?>'>
+                                Detail</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="event-item mt-4">
-                        <div class="event-image">
-                            <img src="assets/images/event/2.jpg" alt="image">
-                            <span class="event-btn badge bg-primary text-white"><i class="far fa-calendar-alt me-2"></i>
-                                01 Dec 2020</span>
-                        </div>
-                        <div class="event-content">
-                            <ul class="event-address list-inline">
-                                <li class="list-inline-item"><span class="icon"><img
-                                            src="assets/images/location-icon.svg" alt="title"></span> New York, USA 485
-                                </li>
-                            </ul>
-                            <h5 class="mb-3">The Best Remembrance​</h5>
-                            <a class='text-primary' href='/event'>More Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="event-item mt-4">
-                        <div class="event-image">
-                            <img src="assets/images/event/3.jpg" alt="image">
-                            <span class="event-btn badge bg-primary text-white"><i class="far fa-calendar-alt me-2"></i>
-                                01 Dec 2020</span>
-                        </div>
-                        <div class="event-content">
-                            <ul class="event-address list-inline">
-                                <li class="list-inline-item"><span class="icon"><img
-                                            src="assets/images/location-icon.svg" alt="title"></span> New York, USA 485
-                                </li>
-                            </ul>
-                            <h5 class="mb-3">Returning to Allah</h5>
-                            <a class='text-primary' href='/event'>More Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="event-item mt-4">
-                        <div class="event-image">
-                            <img src="assets/images/event/4.jpg" alt="image">
-                            <span class="event-btn badge bg-primary text-white"><i class="far fa-calendar-alt me-2"></i>
-                                01 Dec 2020</span>
-                        </div>
-                        <div class="event-content">
-                            <ul class="event-address list-inline">
-                                <li class="list-inline-item"><span class="icon"><img
-                                            src="assets/images/location-icon.svg" alt="title"></span> New York, USA 485
-                                </li>
-                            </ul>
-                            <h5 class="mb-3">Bathe Yourself with Money!</h5>
-                            <a class='text-primary' href='/event'>More Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="event-item mt-4">
-                        <div class="event-image">
-                            <img src="assets/images/event/5.jpg" alt="image">
-                            <span class="event-btn badge bg-primary text-white"><i class="far fa-calendar-alt me-2"></i>
-                                01 Dec 2020</span>
-                        </div>
-                        <div class="event-content">
-                            <ul class="event-address list-inline">
-                                <li class="list-inline-item"><span class="icon"><img
-                                            src="assets/images/location-icon.svg" alt="title"></span> New York, USA 485
-                                </li>
-                            </ul>
-                            <h5 class="mb-3">My Mother, My Best Friend</h5>
-                            <a class='text-primary' href='/event'>More Details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="event-item mt-4">
-                        <div class="event-image">
-                            <img src="assets/images/event/6.jpg" alt="image">
-                            <span class="event-btn badge bg-primary text-white"><i class="far fa-calendar-alt me-2"></i>
-                                01 Dec 2020</span>
-                        </div>
-                        <div class="event-content">
-                            <ul class="event-address list-inline">
-                                <li class="list-inline-item"><span class="icon"><img
-                                            src="assets/images/location-icon.svg" alt="title"></span> New York, USA 485
-                                </li>
-                            </ul>
-                            <h5 class="mb-3">Faith Has a Language</h5>
-                            <a class='text-primary' href='/event'>More Details</a>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
+                <div class="text-center mt-5" data-aos="slide-up"><a class='btn btn-primary text-white'
+                        href='<?= base_url('agenda') ?>'>Semua Agenda</a></div>
             </div>
 
         </div>
@@ -694,7 +503,7 @@
     <!--  ====================== Call To Action Area =============================  -->
 
     <!--  ====================== Course Area =============================  -->
-    <div class="course-area py-lg-10 py-8">
+    <!-- <div class="course-area py-lg-10 py-8">
         <div class="container">
             <div class="section-title text-center mb-4">
                 <span data-aos="fade-in" class="text-primary">Learn With Us</span>
@@ -821,7 +630,7 @@
 
 
         </div>
-    </div>
+    </div> -->
 
 
     <!--  ====================== Testimonial Area =============================  -->
@@ -832,10 +641,12 @@
             <div class="row">
                 <div class="col-sm-6 col-md-4">
                     <div class="counter-item my-3">
-                        <div class="counter-icon"> <img src="assets/images/service-icon.png" alt="title"></div>
+                        <div class="counter-icon"> <img src="<?= base_url('frontend/assets/images/service-icon.png') ?>"
+                                alt="title"></div>
                         <div class="counter-content">
-                            <h2 data-aos="fade-up" class="h1 text-white"><span class="counter-number">45000</span></h2>
-                            <h5 class="m-0 text-white">Community Members</h5>
+                            <h2 data-aos="fade-up" class="h1 text-white"><span
+                                    class="counter-number"><?= $jumlah_pengurus ?></span></h2>
+                            <h5 class="m-0 text-white">Pengurus Masjid</h5>
                         </div>
                     </div>
                 </div>
@@ -853,7 +664,8 @@
                         <div class="counter-icon"> <img
                                 src="<?= base_url('frontend/assets/images/service-icon3.png') ?>" alt="title"></div>
                         <div class="counter-content">
-                            <h2 data-aos="fade-up" class="h1 text-white"><span class="counter-number">83</span></h2>
+                            <h2 data-aos="fade-up" class="h1 text-white"><span
+                                    class="counter-number"><?= $jumlah_agenda ?></span></h2>
                             <h5 class="m-0 text-white">Agenda Acara</h5>
                         </div>
                     </div>
@@ -963,13 +775,13 @@
                             <span class="blog-meta"><i class="fas fa-tag me-2"></i><a
                                     href='<?= base_url('blog/kategori/'.$data->nama_kategori) ?>'><?= $data->nama_kategori ?></a></span>
                             <h4><a href='<?= base_url('blog/detail/'.$data->slug) ?>'> <?= $data->judul ?></a></h4>
-                            <a href='<?= base_url('blog') ?>'>Read More</a>
+                            <a href='<?= base_url('blog') ?>'>Baca Selengkapnya</a>
                         </div>
                     </div>
                 </div>
                 <?php endforeach; ?>
                 <div class="text-center mt-5" data-aos="slide-up"><a class='btn btn-primary text-white'
-                        href='<?= base_url('blog') ?>'>View All News</a></div>
+                        href='<?= base_url('blog') ?>'>Semua Artikel</a></div>
 
             </div>
         </div>
@@ -979,6 +791,71 @@
     <?php $this->load->view('layout/footer') ?>
     <!-- gulp:js -->
     <script src="<?= base_url('frontend/') ?>assets/js/build.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        // Panggil fungsi untuk menghitung waktu shalat saat halaman home di-load
+        $.ajax({
+            url: '<?php echo site_url('Home/getPrayerTime'); ?>',
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                // Panggil fungsi untuk menghitung mundur waktu shalat
+                // Hitung jam mundur
+                var countdown = setInterval(function() {
+                    var currentTime = new Date();
+                    var time = data.reverse_time.time_mundur.split(':');
+                    // var prayerTimeParts = prayerTime.split(":");
+                    var prayerDate = new Date();
+                    prayerDate.setHours(parseInt(time[0]));
+                    prayerDate.setMinutes(parseInt(time[1]));
+                    prayerDate.setSeconds(parseInt(time[2]));
+
+                    var timeDiff = prayerDate - currentTime;
+                    var hours = Math.floor(timeDiff / (1000 * 60 * 60));
+                    var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+                    // Tampilkan waktu shalat mundur
+                    $('#jam').text(hours);
+                    $('#menit').text(minutes);
+                    $('#detik').text(seconds);
+
+                    // Hentikan hitung mundur jika waktu shalat sudah lewat
+                    if (timeDiff <= 0) {
+                        clearInterval(countdown);
+                    }
+                }, 1000);
+            }
+        });
+        // Fungsi untuk menghitung mundur waktu shalat
+        function countDownPrayerTime(prayerTime) {
+            var countdown = setInterval(function() {
+                var currentTime = new Date();
+                var prayerTimeParts = prayerTime.split(":");
+                var prayerDate = new Date();
+                prayerDate.setHours(parseInt(prayerTimeParts[0]));
+                prayerDate.setMinutes(parseInt(prayerTimeParts[1]));
+                prayerDate.setSeconds(parseInt(prayerTimeParts[2]));
+
+                var timeDiff = prayerDate - currentTime;
+                var hours = Math.floor(timeDiff / (1000 * 60 * 60));
+                var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+                // Tampilkan waktu shalat mundur
+                $('#jam').text(hours);
+                $('#menit').text(minutes);
+                $('#detik').text(seconds);
+
+                // Hentikan hitung mundur jika waktu shalat sudah lewat
+                if (timeDiff <= 0) {
+                    clearInterval(countdown);
+                }
+            }, 1000);
+        }
+
+    })
+    </script>
 
     <!-- endgulp -->
     <script type="text/javascript">

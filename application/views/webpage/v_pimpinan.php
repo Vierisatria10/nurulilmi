@@ -7,7 +7,7 @@
     <title><?= $title; ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="<?= base_url('frontend/') ?>assets/images/favicon.png" type="images/x-icon" />
+    <link rel="shortcut icon" href="<?= base_url('frontend/') ?>assets/images/logo.jpeg" type="images/x-icon" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -42,11 +42,11 @@
     <div class="page-title-area py-lg-6 py-5 bg-image-pattern">
         <div class="container">
             <div class="page-title-wrapper text-center">
-                <h1 class="text-white mb-2">Pejabat</h1>
+                <h1 class="text-white mb-2">Pengurus</h1>
                 <nav class="page-breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href='<?= base_url('home') ?>'>Home</a></li>
-                        <li class="breadcrumb-item active">Pejabat Badan Pengelola Masjid Nurul Ilmi</li>
+                        <li class="breadcrumb-item active">Pengurus Badan Pengelola Masjid Nurul Ilmi</li>
                     </ol>
                 </nav>
             </div>
@@ -57,7 +57,7 @@
         <div class="container">
             <div class="section-title text-center mb-4">
 
-                <h2 class="h1">Pejabat Badan Pengelola Masjid Nurul Ilmi</h2>
+                <h2 class="h1">Pengurus Badan Pengelola Masjid Nurul Ilmi</h2>
             </div>
             <?php if(!empty($data_pimpinan)) : ?>
             <div class="row">
@@ -71,9 +71,9 @@
                                 <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
                             </ul>
                             <?php if(!empty($pimpinan->foto)) : ?>
-                                <img src="<?= base_url('upload/pimpinan/'.$pimpinan->foto) ?>" alt="title">
+                            <img src="<?= base_url('upload/pimpinan/'.$pimpinan->foto) ?>" alt="title">
                             <?php else: ?>
-                                <img src="<?= base_url('upload/default.png') ?>" alt="">
+                            <img src="<?= base_url('upload/default.png') ?>" alt="">
                             <?php endif; ?>
                         </div>
                         <div class="team-content">

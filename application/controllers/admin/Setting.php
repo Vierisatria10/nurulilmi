@@ -10,6 +10,8 @@ class Setting extends CI_Controller {
             redirect('login');
           }
 		$this->load->model('Setting_model', 'setting');
+        $this->load->model('Jadwal_model', 'jadwal');
+
 	}
 
     public function index()
@@ -19,7 +21,7 @@ class Setting extends CI_Controller {
             'judul' => 'Setting Web',
             'title' => 'Setting Web - Masjid Nurul Ilmi',
             'menu'  => 'setting',
-            'data_setting' => $this->setting->getDataSetting()
+            'data_setting' => $this->setting->getDataSetting(),
         ];
 		$this->template->load('v_template_admin', 'admin/setting/v_setting', $data);
 	}
@@ -45,6 +47,7 @@ class Setting extends CI_Controller {
                 'judul' => 'Setting Web',
                 'title' => 'Setting Web - Masjid Nurul Ilmi',
                  'kota'  => $kota,
+                'data_jadwal' => $this->jadwal->getDataJadwal(),
                 'menu'  => 'setting',
             ];
 		    $this->template->load('v_template_admin', 'admin/setting/v_tambah', $data);
@@ -66,32 +69,13 @@ class Setting extends CI_Controller {
                  $this->upload->do_upload('userfile');
                  $dataInfo[] = $this->upload->data();
             }
-            // $this->upload->initialize($config);
-
-            // if (!$this->upload->do_upload('logo') || !$this->upload->do_upload('banner1') || !$this->upload->do_upload('banner2')
-            // || !$this->upload->do_upload('banner3')) {
-            //     $error =$this->upload->display_errors();
-            //     $this->session->set_flashdata('error', $error);
-            //     redirect('admin/setting/tambah');
-            // } else {
-            //     $logo_data = $this->upload->data();
-            //     $logo_path = $logo_data['file_name'];
-
-            //     $banner1_data = $this->upload->data();
-            //     $banner1_path = 'upload/setting/'.$banner1_data['file_name'];
-
-            //     $banner2_data = $this->upload->data();
-            //     $banner2_path = 'upload/setting/'.$banner2_data['file_name'];
-
-            //     $banner3_data = $this->upload->data();
-            //     $banner3_path = 'upload/setting/'.$banner3_data['file_name'];
-
                 $save = [
                     'nama_masjid' => $this->input->post('nama_masjid'),
                     'alamat' => $this->input->post('alamat'),
                     'no_hp' => $this->input->post('no_hp'),
                     'judul1' => $this->input->post('judul1'),
                     'judul2' => $this->input->post('judul2'),
+                    'id_jadwal' => $this->input->post('id_jadwal'),
                     'judul3' => $this->input->post('judul3'),
                     'logo' => $dataInfo[0]['file_name'],
                     'banner1' => $dataInfo[1]['file_name'],
@@ -127,135 +111,36 @@ class Setting extends CI_Controller {
             'judul' => 'Edit Setting Web',
             'title' => 'Setting Web - Masjid Nurul Ilmi',
             'setting' => $this->setting->get_setting_detail($id_setting),
+            'data_jadwal' => $this->jadwal->getDataJadwal(),
             'menu'  => 'setting',
         ];
         $this->template->load('v_template_admin', 'admin/setting/v_edit', $data);
     }
 
-     public function update($id_setting)
+    public function update()
     {
-        // $this->form_validation->set_rules('nama', 'Nama', 'trim|required',
-        //     ['required' => 'Nama Wajib diisi']
-        // );
-        // $this->form_validation->set_rules('jabatan', 'Jabatan', 'trim|required',
-        //     ['required' => 'Jabatan Wajib diisi']
-        // );
-        if ($this->form_validation->run()) {
-            // Logo
-           $old_filename = $this->input->post('old_logo');
-           $new_filename = $_FILES['logo']['name'];
-
-            // Banner 1
-            $old_filename1 = $this->input->post('old_banner1');
-            $new_filename1 = $_FILES['banner1']['name'];
-            
-            // Banner 2
-            $old_filename2 = $this->input->post('old_banner2');
-            $new_filename2 = $_FILES['banner2']['name'];      
-
-            // Banner 3
-            $old_filename3 = $this->input->post('old_banner3');
-            $new_filename3 = $_FILES['banner3']['name'];  
-
-           if ($new_filename == TRUE) 
-           {
-                $update_filename = str_replace(' ', '-', $_FILES['logo']['name']);
-                $config['upload_path']          = './upload/setting/';
-                $config['allowed_types']        = 'gif|jpg|png|jpeg|JPG|JPEG';
-                // $config['max_size']             = 10048; // 10MB
-                $config['file_name']            = $update_filename;
-                $config['encrypt_name']         = False;
-                $this->load->library('upload', $config);
-
-                if ($this->upload->do_upload('logo')) {
-                    if (file_exists("./upload/setting/".$old_filename)) {
-                        unlink("./upload/setting/".$old_filename);
-                    }
-                }
-           }else{
-                $update_filename = $old_filename;
-           }
-           // Banner1
-           if ($new_filename1 == TRUE) 
-           {
-                $update_filename1 = str_replace(' ', '-', $_FILES['banner1']['name']);
-                $config['upload_path']          = './upload/setting/';
-                $config['allowed_types']        = 'gif|jpg|png|jpeg|JPG|JPEG';
-                // $config['max_size']             = 10048; // 10MB
-                $config['file_name']            = $update_filename1;
-                $config['encrypt_name']         = False;
-                $this->load->library('upload', $config);
-
-                if ($this->upload->do_upload('banner1')) {
-                    if (file_exists("./upload/setting/".$old_filename1)) {
-                        unlink("./upload/setting/".$old_filename1);
-                    }
-                }
-           }else{
-                $update_filename1 = $old_filename1;
-           }
-           // Banner 2
-           if ($new_filename2 == TRUE) 
-           {
-                $update_filename2 = str_replace(' ', '-', $_FILES['banner2']['name']);
-                $config['upload_path']          = './upload/setting/';
-                $config['allowed_types']        = 'gif|jpg|png|jpeg|JPG|JPEG';
-                // $config['max_size']             = 10048; // 10MB
-                $config['file_name']            = $update_filename2;
-                $config['encrypt_name']         = False;
-                $this->load->library('upload', $config);
-
-                if ($this->upload->do_upload('banner2')) {
-                    if (file_exists("./upload/setting/".$old_filename2)) {
-                        unlink("./upload/setting/".$old_filename2);
-                    }
-                }
-           }else{
-                $update_filename2 = $old_filename2;
-           }
-           // Banner 3
-           if ($new_filename3 == TRUE) 
-           {
-                $update_filename3 = str_replace(' ', '-', $_FILES['banner3']['name']);
-                $config['upload_path']          = './upload/setting/';
-                $config['allowed_types']        = 'gif|jpg|png|jpeg|JPG|JPEG';
-                // $config['max_size']             = 10048; // 10MB
-                $config['file_name']            = $update_filename3;
-                $config['encrypt_name']         = False;
-                $this->load->library('upload', $config);
-
-                if ($this->upload->do_upload('banner3')) {
-                    if (file_exists("./upload/setting/".$old_filename3)) {
-                        unlink("./upload/setting/".$old_filename3);
-                    }
-                }
-           }else{
-                $update_filename3 = $old_filename3;
-           }
-           
-           $data = array(
-                'nama_masjid' => $this->input->post('nama_masjid'),
-                'alamat' => $this->input->post('alamat'),
-                'no_hp' => $this->input->post('no_hp'),
-                'judul1' => $this->input->post('judul1'),
-                'judul2' => $this->input->post('judul2'),
-                'judul3' => $this->input->post('judul3'),
-                'sosmed1' => $this->input->post('sosmed1'),
-                'sosmed2' => $this->input->post('sosmed2'),
-                'sosmed3' => $this->input->post('sosmed3'),
-                'logo' => $update_filename,
-                'banner1' => $update_filename1,
-                'banner2' => $update_filename2,
-                'banner3' => $update_filename3
-            );
-                $this->setting->update_setting($id_setting, $data);
-                $this->session->set_flashdata('update', 'Data Setting Web Berhasil di Update');
-                redirect('admin/setting');
-        }else{
-            return $this->edit($id_setting);
-        }
+        // Ambil data dari form
+        $data = array(
+            'nama_masjid' => $this->input->post('nama_masjid'),
+            'alamat' => $this->input->post('alamat'),
+            'no_hp' => $this->input->post('no_hp'),
+            'id_jadwal' => $this->input->post('id_jadwal'),
+            'judul1' => $this->input->post('judul1'),
+            'judul2' => $this->input->post('judul2'),
+            'judul3' => $this->input->post('judul3'),
+            'sosmed1' => $this->input->post('sosmed1'),
+            'sosmed2' => $this->input->post('sosmed2'),
+            'sosmed3' => $this->input->post('sosmed3'),
+        );
+          // Update data di tabel tbl_setting
+        $id_setting = $this->input->post('id_setting');
+        $this->setting->update_setting($id_setting, $data);
+    
+        // Upload file dan simpan nama file ke database
+        $this->setting->upload_files($id_setting);
+        $this->session->set_flashdata('success', 'Data Setting Web Berhasil di Update');
+        redirect('admin/setting');
     }
-
 
     public function delete($id_setting)
     {

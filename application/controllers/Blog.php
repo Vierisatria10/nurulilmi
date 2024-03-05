@@ -22,8 +22,7 @@ class Blog extends CI_Controller {
             'title' => 'Postingan - Masjid Nurul Ilmi',
             'menu'  => 'blog',
             'data_artikel' => $this->artikel->getDataArtikelDetail(),
-                        'data_agenda' => $this->agenda->getDataAgendaDetail(),
-
+            'data_agenda' => $this->agenda->getDataAgendaDetail(),
             'data_kategori' => $this->artikel->countArtikelByKategori(),
             'waktu' => $waktu,
             'data_setting' => $this->setting->getDataSetting(),

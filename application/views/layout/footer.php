@@ -1,11 +1,11 @@
 <footer class="footer-area pt-8">
-    <div class="footer-top   bg-image-pattern  py-lg-8 py-4">
+    <div class="footer-top bg-image-pattern  py-lg-8 py-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-5 col-lg-4">
                     <div class="footer-widget my-4 me-md-4">
                         <a href="#" class="footer-brand mb-4"><img
-                                src="<?= base_url('frontend/') ?>assets/images/footer-brand.png" alt="title"></a>
+                                src="<?= base_url('frontend/') ?>assets/images/logo.jpeg" alt="title"></a>
                         <p class="text-white m-0">It beacon relays his as a heard days any it parts a fall wow so on
                             I hand the display.
                         </p>
@@ -89,6 +89,17 @@ $(document).ready(function() {
             type: 'warning',
             title: 'Pemberitahuan!',
             text: 'Fitur ini belum ada sedang dikembangkan...',
+            showConfirmButton: true,
+
+        });
+    });
+
+    $('#bidang').click(function() {
+        Swal.fire({
+            icon: 'warning',
+            type: 'warning',
+            title: 'Pemberitahuan!',
+            text: 'Fitur ini belum ada sedang dikembangkan untuk konsepnya...',
             showConfirmButton: true,
 
         });
