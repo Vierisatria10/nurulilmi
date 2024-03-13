@@ -143,25 +143,25 @@
                         <h2 class="h1 text-primary">Selamat Datang di Masjid <?= $setting->nama_masjid ?></h2>
                     </div>
                     <?php endforeach; ?>
+                    <?php foreach($data_sejarah as $sejarah) : ?>
                     <p>
-                        Mountains, their a that of nation and english the to desk out alphabet would written career
-                        times to and term absolutely feedback of a the of has have distant step if semantics, had
-                        regurgitated even to were the pros working found. The be to chequered pointed the worthy warned
-                        a narrow odd are than roasted.
+                        <?= $sejarah->deskripsi ?>
                     </p>
-                    <p>
+                    <?php endforeach; ?>
+                    <!-- <p>
                         The lay to the he the their to tag antiquity began fur from sitting us, cities film english
                         could are quite business he be, who proper.
-                    </p>
+                    </p> -->
                     <div data-aos="fade-up" class="btn-container">
-                        <a class='btn btn-primary text-white mt-4 mb-4 mb-md-0' href='/about'>Informasi Sejarah <i
+                        <a class='btn btn-primary text-white mt-4 mb-4 mb-md-0'
+                            href='<?= base_url('sejarah') ?>'>Informasi Sejarah <i
                                 class="fas fa-angle-right ms-1"></i></a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-5 offset-lg-1">
                     <div class="upcoming-prayer bg-light bg-image-pattern">
                         <div class="upcoming-prayer-wrapper ">
-                            <h3 class="text-primary">Upcomimg Prayer Time</h3>
+                            <h3 class="text-primary">Waktu Shalat Selanjutnya</h3>
                             <?php foreach($data_setting as $setting) : ?>
                             <ul class="prayer-meta list-inline mt-4 ">
                                 <li class="list-inline-item"><small><i
@@ -175,15 +175,15 @@
                             <ul class="prayer-countdown my-4 list-inline">
                                 <li>
                                     <h3 id="jam" class="display-4 text-primary"></h3><span
-                                        class="text-secondary">Hours</span>
+                                        class="text-secondary">Jam</span>
                                 </li>
                                 <li>
                                     <h3 id="menit" class="display-4  text-primary"></h3><span
-                                        class="text-secondary">Minutes</span>
+                                        class="text-secondary">Menit</span>
                                 </li>
                                 <li>
                                     <h3 id="detik" class="display-4  text-primary"></h3><span
-                                        class="text-secondary">Seconds</span>
+                                        class="text-secondary">Detik</span>
                                 </li>
                             </ul>
 
@@ -207,7 +207,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="video-item mt-4">
                         <div class="video-image">
-                            <img src="assets/images/khuthba/1.jpg" alt="title">
+                            <img src="<?= base_url('frontend/assets/images/khuthba/1.jpg') ?>" alt="title">
                             <a class="video-popup" href="https://www.youtube.com/watch?v=CQzFHdaMvuM"><i
                                     class="fas fa-video"></i></a>
                         </div>
@@ -220,7 +220,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="video-item mt-4">
                         <div class="video-image">
-                            <img src="assets/images/khuthba/2.jpg" alt="title">
+                            <img src="<?= base_url('frontend/assets/images/khuthba/2.jpg') ?>" alt="title">
                             <a class="video-popup" href="https://www.youtube.com/watch?v=CQzFHdaMvuM"><i
                                     class="fas fa-video"></i></a>
                         </div>
@@ -234,7 +234,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="video-item mt-4">
                         <div class="video-image">
-                            <img src="assets/images/khuthba/3.jpg" alt="title">
+                            <img src="<?= base_url('frontend/assets/images/khuthba/3.jpg') ?>" alt="title">
                             <a class="video-popup" href="https://www.youtube.com/watch?v=CQzFHdaMvuM"><i
                                     class="fas fa-video"></i></a>
                         </div>
@@ -248,7 +248,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="video-item mt-4">
                         <div class="video-image">
-                            <img src="assets/images/khuthba/4.jpg" alt="title">
+                            <img src="<?= base_url('frontend/assets/images/khuthba/4.jpg') ?>" alt="title">
                             <a class="video-popup" href="https://www.youtube.com/watch?v=CQzFHdaMvuM"><i
                                     class="fas fa-video"></i></a>
                         </div>
@@ -262,7 +262,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="video-item mt-4">
                         <div class="video-image">
-                            <img src="assets/images/khuthba/5.jpg" alt="title">
+                            <img src="<?= base_url('frontend/assets/images/khuthba/5.jpg') ?>" alt="title">
                             <a class="video-popup" href="https://www.youtube.com/watch?v=CQzFHdaMvuM"><i
                                     class="fas fa-video"></i></a>
                         </div>
@@ -298,17 +298,17 @@
         <div class="container">
             <div class="section-title text-center mb-4">
                 <span data-aos="fade-in" class="text-primary">What we do</span>
-                <h2 class="h1">Social Services</h2>
+                <h2 class="h1">Layanan</h2>
             </div>
             <div class="row">
                 <div class="col-md-6 col-lg-4">
                     <div class="service-item mt-4">
                         <div class="service-wrapper bg-white">
                             <div class="service-icon">
-                                <img src="assets/images/service-icon.png" alt="title">
+                                <img src="<?= base_url('frontend/assets/images/service-icon.png') ?>" alt="title">
                             </div>
                             <div class="service-content mt-4">
-                                <h5 class="mb-3">Health CheckUp</h5>
+                                <h5 class="mb-3">Mimbar Jumat</h5>
                                 <p>Quite into liabilities frequency; Each be own for through parents' understand the of
                                     it is met and as
                                     some</p>
@@ -356,7 +356,7 @@
                     <div class="service-item mt-4">
                         <div class="service-wrapper bg-white">
                             <div class="service-icon">
-                                <img src="assets/images/service-icon2.png" alt="title">
+                                <img src="<?= base_url('frontend/assets/images/service-icon2.png') ?>" alt="title">
                             </div>
                             <div class="service-content mt-4">
                                 <h5 class="mb-3">Community Services</h5>
@@ -406,7 +406,7 @@
                     <div class="service-item mt-4">
                         <div class="service-wrapper bg-white">
                             <div class="service-icon">
-                                <img src="assets/images/service-icon3.png" alt="title">
+                                <img src="<?= base_url('frontend/assets/images/service-icon3.png') ?>" alt="title">
                             </div>
                             <div class="service-content mt-4">
                                 <h5 class="mb-3">Umrah & Hajj</h5>

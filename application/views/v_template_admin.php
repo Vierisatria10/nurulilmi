@@ -162,8 +162,9 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/UI/buttons.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <a href="<?= base_url('admin/sejarah') ?>"
+                                        class="nav-link <?= $menu == 'sejarah' ? 'active' : '' ?>">
+                                        <i class=" far fa-circle nav-icon"></i>
                                         <p>Sejarah</p>
                                     </a>
                                 </li>
@@ -288,10 +289,11 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/calendar.html" class="nav-link">
-                                <i class="nav-icon far fa-calendar-alt"></i>
+                            <a href="<?= base_url('admin/download') ?>"
+                                class="nav-link <?= $menu == 'download' ? 'active' : '' ?>">
+                                <i class="nav-icon fas fa-download"></i>
                                 <p>
-                                    Calendar
+                                    File Download
                                     <span class="badge badge-info right">2</span>
                                 </p>
                             </a>
@@ -356,7 +358,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/UI/buttons.html" class="nav-link">
+                                    <a href="<?= base_url('pengurus/sejarah')?>" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Sejarah</p>
                                     </a>
@@ -471,10 +473,10 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+            <strong>Copyright &copy; <?= date('Y') ?> <a href="http://adminlte.io">Masjid Nurul Ilmi</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.0.1-pre
+                <b>Design by</b> Web_Ver
             </div>
         </footer>
 

@@ -10,6 +10,7 @@ class Home extends CI_Controller {
         $this->load->model('Setting_model', 'setting');
         $this->load->model('Artikel_model', 'artikel');
         $this->load->model('Agenda_model', 'agenda');
+        $this->load->model('Sejarah_model', 'sejarah');
         $this->load->model('Pimpinan_model', 'pimpinan');
 
     }
@@ -25,6 +26,7 @@ class Home extends CI_Controller {
             'data_jadwal' => $this->jadwal->getDataJadwalDetail(),
             'jumlah_agenda' => $this->agenda->count_agenda(),
             'jumlah_pengurus' => $this->pimpinan->count_pengurus(),
+            'data_sejarah' => $this->sejarah->getDataSejarah(),
             'data_setting' => $this->setting->getDataSetting()
 
         ];

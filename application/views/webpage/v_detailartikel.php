@@ -114,32 +114,26 @@
 
                         </ul>
                     </div>
-                    <h4>Related Posts:</h4>
-                    <div class="posts-sm row col-mb-30 related-posts">
-                        <div class="entry col-md-6">
-                            <!-- Post Article -->
-                            <div class="grid-inner row align-items-center no-gutter">
-                                <div class="col-auto">
-                                    <div class="entry-image">
-                                        <a
-                                            href="https://istiqlal.or.id/blog/detail/adab--kunci-bahagia-dan-kesuksesan-hidup.html"><img
-                                                src="https://istiqlal.or.id/assets/img/artikel/Screenshot_2024-01-31_140042.png"
-                                                alt="Adab: Kunci Bahagia dan Kesuksesan Hidup"></a>
+                    <div id="blog" class="blog-area pt-lg-10 pt-8">
+                        <div class="container">
+                            <h4>Related Posts:</h4>
+                            <div class="row">
+                                <?php foreach($data_artikel as $data) : ?>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="blog-style mt-4">
+                                        <div class="blog-image">
+                                            <img src="<?= base_url('upload/artikel/'.$data['gambar']) ?>" alt="title">
+                                        </div>
+                                        <div class="blog-content">
+                                            <span class="blog-meta"><i class="fas fa-tag me-2"></i><a
+                                                    href='<?= base_url('blog/kategori/'.$data['nama_kategori']) ?>'><?= $data['nama_kategori'] ?></a></span>
+                                            <h4><a href='<?= base_url('blog/detail/'.$data['slug']) ?>'>
+                                                    <?= $data['judul'] ?></a></h4>
+                                            <a href='<?= base_url('blog') ?>'>Baca Selengkapnya</a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col ps-3">
-                                    <div class="entry-title">
-                                        <h4 class="fw-medium"><a
-                                                href="https://istiqlal.or.id/blog/detail/adab--kunci-bahagia-dan-kesuksesan-hidup.html">Adab:
-                                                Kunci Bahagia dan Kesuksesan Hidup</a></h4>
-                                    </div>
-                                    <div class="entry-meta">
-                                        <ul>
-                                            <li><span>by</span> <a href="#">admin</a></li>
-                                            <li><i class="icon-time"></i><a href="#">31 Jan 2024</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
