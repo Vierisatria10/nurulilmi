@@ -183,7 +183,7 @@
 
                     <div class="course-feature mb-4 bg-white rounded">
                         <h5 class="text-primary pb-2" id="text_shalat">Jadwal Shalat</h5>
-                        <p><?= $waktu['data']['jadwal']['tanggal'] ?></p>
+                        <!-- <p><?= $waktu['data']['jadwal']['tanggal'] ?></p> -->
                         <hr style="border: 2px solid #DC3545 !important; margin-top: -10px;">
                         <select name="kota" id="city-selector" class="form-select select2 mb-3">
                             <option value="">Pilih Kota</option>

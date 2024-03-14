@@ -9,13 +9,19 @@ class Blog extends CI_Controller {
         $this->load->model('Agenda_model', 'agenda');
         $this->load->model('Artikel_model', 'artikel');	
         $this->load->model('Setting_model', 'setting');
+        $this->load->library('myquran_curl');
     }
 
 	public function index()
 	{
-        $date = date('Y-m-d');
-        $url = 'https://api.myquran.com/v2/sholat/jadwal/1104/'. $date;
-        $waktu = json_decode(file_get_contents($url), true);
+        // $date = date('Y-m-d');
+        // $url = 'https://api.myquran.com/v2/sholat/jadwal/1104/'. $date;
+        // $curl = curl_init();
+        // curl_setopt($curl, CURLOPT_URL, $url);
+        // curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        // $waktu = curl_exec($curl);
+        // curl_close($curl);
+        // return json_decode($waktu, true);
 
         $data = [
             'judul' => 'Blog',
@@ -24,7 +30,7 @@ class Blog extends CI_Controller {
             'data_artikel' => $this->artikel->getDataArtikelDetail(),
             'data_agenda' => $this->agenda->getDataAgendaDetail(),
             'data_kategori' => $this->artikel->countArtikelByKategori(),
-            'waktu' => $waktu,
+            // 'waktu' => $waktu,
             'data_setting' => $this->setting->getDataSetting(),
         ];
         $this->load->view('webpage/v_blog', $data);
@@ -50,14 +56,14 @@ class Blog extends CI_Controller {
     }
 
     public function getCityData() {
-        $cities = $this->artikel->getCityData();
+        $cities = $this->myquran_curl->get_city_data();
         echo json_encode($cities);
     }
 
     public function getShalatSchedule() {
         $cityId = $this->input->post('city_id');
-        $schedule = $this->artikel->getShalatSchedule($cityId);
-        echo json_encode($schedule);
+        $jadwal_shalat = $this->myquran_curl->get_jadwal_shalat($cityId);
+        echo json_encode($jadwal_shalat);
     }
 
     public function cari_blog()
