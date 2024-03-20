@@ -36,9 +36,10 @@ class Home extends CI_Controller {
     public function getPrayerTime()
     {
          // Panggil model untuk mendapatkan waktu shalat
-        $data['reverse_time'] = $this->setting->getPrayerTime(); // Ubah your_model dengan nama model Anda
-
+        $data = $this->setting->getPrayerTime(); // Ubah your_model dengan nama model Anda
+        // $data['prayer_time'] = $prayer_time;
         // Kembalikan waktu shalat dalam format yang sesuai (misalnya, dalam format JSON)
+        // var_dump($data);exit;
         echo json_encode($data);
     }
 }

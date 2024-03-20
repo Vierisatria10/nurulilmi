@@ -25,6 +25,10 @@
         rel="stylesheet">
     <!-- gulp:css -->
     <link rel="stylesheet" href="<?= base_url('frontend/') ?>assets/css/app.min.css">
+    <!-- Owl carousel css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- endgulp -->
 </head>
 
@@ -161,19 +165,11 @@
                             <button type="submit" class="btn btn-primary" style="width: 100%;">CARI</button>
                         </form>
                     </div>
-                    <!-- Sidebar Widget 2
-                        ============================================= -->
-                    <div class="widget">
-                        <div class="owl-carousel carousel-widget" data-margin="0" data-items="1" data-pagi="false"
-                            data-loop="true" data-speed="1000" data-autoplay="5000">
-                            <a href="https://istiqlal.or.id/virtualtour/"><img
-                                    src="https://istiqlal.or.id/assets/img/informasi/zwv7jcnx3a.jpg"
-                                    class="img-responsive aligncenter" target="_blank"></a>
-                            <a
-                                href="https://docs.google.com/forms/d/e/1FAIpQLSftLB133mq71JmbrviugP_--vKArqYupbiYY4Ov2Rog__7uyA/viewform"><img
-                                    src="https://istiqlal.or.id/assets/img/informasi/jjspsr995w.jpeg"
-                                    class="img-responsive aligncenter" target="_blank"></a>
-                        </div>
+
+                    <div class="owl-carousel mt-4">
+                        <div><img src="<?= base_url('frontend/assets/images/slide1.jpg') ?>" alt=""> </div>
+                        <div><img src="<?= base_url('frontend/assets/images/slide2.jpeg') ?>" alt=""> </div>
+                        <div><img src="<?= base_url('frontend/assets/images/slide1.jpg') ?>" alt=""> </div>
                     </div>
                 </div>
 
@@ -194,6 +190,24 @@
     <?php $this->load->view('layout/footer') ?>
     <!-- gulp:js -->
     <script src="<?= base_url('frontend/') ?>assets/js/build.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+    $(document).ready(function() {
+        $(".owl-carousel").owlCarousel({
+            items: 1,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            responsiveClass: true,
+            autoplayHoverPause: true
+        });
+    });
+    </script>
     <script>
     $(document).ready(function() {
         // Memuat data pertama kali ketika halaman dimuat

@@ -2,8 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Myquran_curl {
+    protected $CI;
+
     public function __construct() {
-        $this->ci =& get_instance();
+        $this->CI =& get_instance();
     }
 
     public function get_city_data() {

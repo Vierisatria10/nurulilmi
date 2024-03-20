@@ -16,10 +16,21 @@ class Setting_model extends CI_Model {
     public function getPrayerTime()
     {
         // Query untuk mengambil jam mundur dari tabel setting dengan join tabel jadwal
-        $query = $this->db->query("SELECT b.jam AS time_mundur FROM tbl_setting a JOIN tbl_jadwal b ON a.id_jadwal = b.id_jadwal WHERE b.jam > NOW()");
+        // $query = $this->db->query("SELECT b.jam AS time_mundur FROM tbl_setting a JOIN tbl_jadwal b ON a.id_jadwal = b.id_jadwal WHERE b.jam > NOW()");
 
-        // Ambil hasil query
-        return $query->row();
+        // // Ambil hasil query
+        // return $query->row();
+        $this->db->select('b.jam');
+        $this->db->from('tbl_setting a');
+        $this->db->join('tbl_jadwal b', 'a.id_jadwal = b.id_jadwal');
+        $this->db->where('b.jam > NOW()');
+        $query = $this->db->get();
+
+        // Ambil waktu shalat dari hasil query
+        $result = $query->result_array();
+
+        // Kembalikan waktu shalat
+        return $result;
         // $this->db->select('TIMEDIFF(b.jam, NOW()) AS shalat_mundur');
         // $this->db->from('tbl_setting a');
         // // Tambahkan kondisi WHERE untuk mendapatkan jam mundur yang positif

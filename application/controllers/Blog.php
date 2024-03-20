@@ -42,6 +42,12 @@ class Blog extends CI_Controller {
         echo json_encode($data);
     }
 
+    public function loadMoreKategori($offset) {
+        $limit = 5;
+        $data = $this->artikel->getDataKategoriLoad($limit, $offset);
+        echo json_encode($data);
+    }
+
     public function detail($slug)
     {
         $data = [
@@ -53,6 +59,19 @@ class Blog extends CI_Controller {
             'menu'  => 'artikel',
         ];
 		$this->load->view('webpage/v_detailartikel', $data);
+    }
+
+    public function kategori($slug_kategori)
+    {
+        $data = [
+            'judul' => 'Detail Kategori',
+            'title' => 'Detail Kategori - Masjid Nurul Ilmi',
+            'data_artikel' => $this->artikel->getDataArtikelDetail(),
+            'data_setting' => $this->setting->getDataSetting(),
+            'detail_kategori' => $this->artikel->get_detail_kategori($slug_kategori),
+            'menu'  => 'artikel',
+        ];
+		$this->load->view('webpage/v_detailkategori', $data);
     }
 
     public function getCityData() {

@@ -50,12 +50,21 @@ class Artikel_model extends CI_Model {
 		return $this->db->get_where($this->table, ['slug' => $slug])->row_array();
 	}
 
+    public function get_detail_kategori($slug_kategori)
+	{
+        $this->db->select('a.*, b.*');
+        $this->db->from('tbl_artikel a');
+        $this->db->join('tbl_kategori_artikel b', 'a.id_kategori = b.id_kategori', 'left');
+        $this->db->where('b.slug_kategori', $slug_kategori);
+		return $this->db->get()->row_array();
+	}
+
     public function countArtikelByKategori() {
         $this->db->select('tbl_kategori_artikel.*, COUNT(tbl_artikel.id_kategori) as jumlah');
         $this->db->from('tbl_kategori_artikel');
         $this->db->join('tbl_artikel', 'tbl_kategori_artikel.id_kategori = tbl_artikel.id_kategori', 'left');
         $this->db->group_by('tbl_kategori_artikel.id_kategori');
-        return $this->db->get()->result_array();
+        return $this->db->get()->result();
     }
 
     public function getDataArtikelLoad($limit, $offset)
@@ -66,6 +75,16 @@ class Artikel_model extends CI_Model {
         $this->db->where('status', '1');
         $this->db->order_by('judul', 'ASC');
         return $this->db->get()->result_array();
+    }
+
+    public function getDataKategoriLoad($limit, $offset)
+    {
+        $this->db->select('a.*, b.*');
+        $this->db->from('tbl_artikel a');
+        $this->db->limit($limit, $offset);
+        $this->db->join('tbl_kategori_artikel b', 'a.id_kategori = b.id_kategori', 'left');
+        $this->db->where('status', '1');
+		return $this->db->get()->result_array();
     }
 
     public function getCityData() {

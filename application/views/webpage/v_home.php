@@ -791,6 +791,10 @@
     <?php $this->load->view('layout/footer') ?>
     <!-- gulp:js -->
     <script src="<?= base_url('frontend/') ?>assets/js/build.min.js"></script>
+    <!-- jQuery -->
+    <script src="<?= base_url('assets/') ?>plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="<?= base_url('assets/') ?>plugins/jquery-ui/jquery-ui.min.js"></script>
     <script>
     $(document).ready(function() {
         // Panggil fungsi untuk menghitung waktu shalat saat halaman home di-load
@@ -799,11 +803,28 @@
             type: 'GET',
             dataType: 'json',
             success: function(data) {
+                console.log(data);
                 // Panggil fungsi untuk menghitung mundur waktu shalat
+                // countDownPrayerTime(data.prayer_time);
+                // $.each(data, function(index, item) {
+                //     var id_setting = item.id_setting;
+                //     var time_mundur = item.time_mundur;
+
+                //     // Ubah jam mundur ke format jam, menit, detik
+                //     var time_mundur_parts = time_mundur.split(":");
+                //     var hours = time_mundur_parts[0];
+                //     var minutes = time_mundur_parts[1];
+                //     var seconds = time_mundur_parts[2];
+
+                //     // Tampilkan jam mundur pada view
+                //     $('#jam').text(hours);
+                //     $('#menit').text(minutes);
+                //     $('#detik').text(seconds);
+                // });
                 // Hitung jam mundur
                 var countdown = setInterval(function() {
                     var currentTime = new Date();
-                    var time = data.reverse_time.time_mundur.split(':');
+                    var time = data[0].jam.split(':');
                     // var prayerTimeParts = prayerTime.split(":");
                     var prayerDate = new Date();
                     prayerDate.setHours(parseInt(time[0]));
@@ -828,10 +849,10 @@
             }
         });
         // Fungsi untuk menghitung mundur waktu shalat
-        function countDownPrayerTime(prayerTime) {
+        function countDownPrayerTime(prayer_time) {
             var countdown = setInterval(function() {
                 var currentTime = new Date();
-                var prayerTimeParts = prayerTime.split(":");
+                var prayerTimeParts = prayer_time.split(":");
                 var prayerDate = new Date();
                 prayerDate.setHours(parseInt(prayerTimeParts[0]));
                 prayerDate.setMinutes(parseInt(prayerTimeParts[1]));

@@ -21,6 +21,10 @@
         rel="stylesheet">
     <!-- gulp:css -->
     <link rel="stylesheet" href="<?= base_url('frontend/') ?>assets/css/app.min.css">
+    <!-- Owl carousel css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- endgulp -->
     <style>
     .grid-inner {
@@ -176,6 +180,11 @@
                         </div>
                         <?php endforeach; ?>
                     </div>
+                    <div class="owl-carousel mt-4">
+                        <div><img src="<?= base_url('frontend/assets/images/slide1.jpg') ?>" alt=""> </div>
+                        <div><img src="<?= base_url('frontend/assets/images/slide2.jpeg') ?>" alt=""> </div>
+                        <div><img src="<?= base_url('frontend/assets/images/slide1.jpg') ?>" alt=""> </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -184,7 +193,24 @@
     <?php $this->load->view('layout/footer') ?>
     <!-- gulp:js -->
     <script src="<?= base_url('frontend/') ?>assets/js/build.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- endgulp -->
+    <script>
+    $(document).ready(function() {
+        $(".owl-carousel").owlCarousel({
+            items: 1,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            responsiveClass: true,
+            autoplayHoverPause: true
+        });
+    });
+    </script>
     <script type="text/javascript">
     window.$crisp = [];
     window.CRISP_WEBSITE_ID = "0fb3e5b5-1038-45e7-a153-173d144eee90";

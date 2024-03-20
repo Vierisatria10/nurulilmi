@@ -23,6 +23,10 @@
         rel="stylesheet">
     <!-- gulp:css -->
     <link rel="stylesheet" href="<?= base_url('frontend/') ?>assets/css/app.min.css">
+    <!-- Owl carousel css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- endgulp -->
 </head>
 
@@ -111,41 +115,12 @@
                                     href="<?= base_url('video/kategori_video/'.$vid->slug) ?>" class="flex-fill">-
                                     <?= $vid->nama_video; ?></a></p>
                             <?php endforeach; ?>
-                            <!-- <p class="d-flex align-items-center" style="margin-top: -15px;"><a
-                                    href="https://istiqlal.or.id/webpage/kategori_video/kajian-ihya-ulumuddin"
-                                    class="flex-fill">- Kajian Ihya Ulumuddin</a></p>
-                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
-                                    href="https://istiqlal.or.id/webpage/kategori_video/webinar" class="flex-fill">-
-                                    Webinar</a></p>
-                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
-                                    href="https://istiqlal.or.id/webpage/kategori_video/kegiatan-masjid-istiqlal"
-                                    class="flex-fill">- Kegiatan Masjid Istiqlal</a></p>
-                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
-                                    href="https://istiqlal.or.id/webpage/kategori_video/umum" class="flex-fill">-
-                                    Umum</a>
-                            </p>
-                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
-                                    href="https://istiqlal.or.id/webpage/kategori_video/kultum-ramadan"
-                                    class="flex-fill">- Kultum Ramadan</a></p>
-                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
-                                    href="https://istiqlal.or.id/webpage/kategori_video/kegiatan-tarawih-masjid-istiqlal"
-                                    class="flex-fill">- Kegiatan Tarawih Masjid Istiqlal</a></p>
-                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
-                                    href="https://istiqlal.or.id/webpage/kategori_video/kajian-zuhur"
-                                    class="flex-fill">- Kajian Zuhur</a></p>
-                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
-                                    href="https://istiqlal.or.id/webpage/kategori_video/ceramah-subuh"
-                                    class="flex-fill">- Ceramah Subuh</a></p>
-                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
-                                    href="https://istiqlal.or.id/webpage/kategori_video/info-istiqlal"
-                                    class="flex-fill">- Info Istiqlal</a></p>
-                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
-                                    href="https://istiqlal.or.id/webpage/kategori_video/shalat-jumat"
-                                    class="flex-fill">- Shalat Jumat</a></p>
-                            <p class="d-flex align-items-center" style="margin-top: -15px;"><a
-                                    href="https://istiqlal.or.id/webpage/kategori_video/mihrab-ramadhan"
-                                    class="flex-fill">- Mihrab Ramadhan</a></p> -->
+                        </div>
 
+                        <div class="owl-carousel mt-4">
+                            <div><img src="<?= base_url('frontend/assets/images/slide1.jpg') ?>" alt=""> </div>
+                            <div><img src="<?= base_url('frontend/assets/images/slide2.jpeg') ?>" alt=""> </div>
+                            <div><img src="<?= base_url('frontend/assets/images/slide1.jpg') ?>" alt=""> </div>
                         </div>
                     </div>
                     <!-- Infinity Scroll Loader
@@ -181,7 +156,23 @@
     <?php $this->load->view('layout/footer') ?>
     <!-- gulp:js -->
     <script src="<?= base_url('frontend/') ?>assets/js/build.min.js"></script>
+    <!-- owl carousel js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script>
+    $(document).ready(function() {
+        $(".owl-carousel").owlCarousel({
+            items: 1,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            responsiveClass: true,
+            autoplayHoverPause: true
+        });
+    });
     </script>
     <!-- endgulp -->
     <script type="text/javascript">
