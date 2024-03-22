@@ -299,7 +299,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
+                            <a href="<?= base_url('admin/galeri') ?>"
+                                class="nav-link <?= $menu == 'galeri' ? 'active' : '' ?>">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                     Gallery
@@ -516,6 +517,9 @@
     <!-- Tempusdominus Bootstrap 4 -->
     <script src="<?= base_url('assets/') ?>plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js">
     </script>
+    <!-- dropzonejs -->
+    <script src="<?php echo base_url() ?>assets/plugins/dropzone/min/dropzone.min.js"></script>
+    <script src="https://adminlte.io/themes/v3/plugins/jquery-validation/jquery.validate.min.js"></script>
     <!-- Summernote -->
     <script src="<?= base_url('assets/') ?>plugins/summernote/summernote-bs4.min.js"></script>
     <!-- overlayScrollbars -->
@@ -528,7 +532,10 @@
     <script src="<?= base_url('assets/') ?>dist/js/demo.js"></script>
     <!-- Config datatables -->
     <script src="<?= base_url('assets/') ?>dist/js/config-datatables.js"></script>
+    <script src="<?php echo base_url() ?>assets/plugins/toastr/toastr.min.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/41.1.0/classic/ckeditor.js"></script>
+    <!-- js galeri -->
+    <?php $this->load->view('admin/galeri/js_galeri.php') ?>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php if ($this->session->flashdata('success')) : ?>
     <script>
