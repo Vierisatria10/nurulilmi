@@ -10,6 +10,7 @@ class Imam extends CI_Controller {
             redirect('login');
           }
 		$this->load->model('Imam_model', 'imam');
+        $this->load->model('Download_model', 'download');
 	}
 
 	public function index()
@@ -18,6 +19,7 @@ class Imam extends CI_Controller {
             'judul' => 'Imam & Muadzin',
             'title' => 'Imam & Muadzin - Masjid Nurul Ilmi',
             'menu'  => 'imam',
+            'total_download' => $this->download->count_download(),
             'data_imam' => $this->imam->getDataImam()
         ];
 		$this->template->load('v_template_admin', 'admin/imam/v_imam', $data);
@@ -36,6 +38,7 @@ class Imam extends CI_Controller {
                 'judul' => 'Imam & Muadzin',
                 'title' => 'Imam & Muadzin - Masjid Nurul Ilmi',
                 'menu'  => 'tambahimam',
+                'total_download' => $this->download->count_download(),
             ];
 		    $this->template->load('v_template_admin', 'admin/imam/v_tambah', $data);
         } else {
@@ -73,6 +76,7 @@ class Imam extends CI_Controller {
         $data = [
             'judul' => 'Edit Imam & Muadzin',
             'title' => 'Imam & Muadzin - Masjid Nurul Ilmi',
+            'total_download' => $this->download->count_download(),
             'imam' => $this->imam->get_imam_detail($id_imam),
             'menu'  => 'editimam',
         ];

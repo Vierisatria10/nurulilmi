@@ -67,7 +67,7 @@
                                         <i class="fa fa-file-download fa-2x"></i>
                                     </a>
                                     <?php else: ?>
-                                    <img src="<?= base_url('upload/default.png') ?>" width="100" alt="">
+                                    <span class="text-danger">Tidak ada File</span>
                                     <?php endif; ?>
                                 </td>
                                 <td>
@@ -182,6 +182,38 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-green">Simpan</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<?php endforeach; ?>
+
+<!-- Modal delete -->
+<?php foreach($data_download as $download) : ?>
+<div class="modal fade" id="hapus_download<?= $download->id_download ?>" tabindex="-1" role="dialog"
+    aria-labelledby="hapus_download<?= $download->id_download ?>" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="hapus_download<?= $download->id_download ?>">Apakah kamu ingin menghapus
+                    data ini?
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="<?= base_url('admin/download/delete/'.$download->id_download) ?>" method="POST"
+                    enctype="multipart/form-data">
+                    <input type="hidden" id="id_download" name="id_download" value="<?= $download->id_download ?>">
+                    <p class="text-danger">Menghapus Data File Download yang bernama :
+                        <b><?= $download->nama_file; ?></b>
+                    </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus</button>
             </div>
             </form>
         </div>

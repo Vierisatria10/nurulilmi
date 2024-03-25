@@ -678,7 +678,7 @@
         <div class="container">
             <div class="section-title text-center mb-4">
                 <span data-aos="fade-in" class="text-primary">You love them</span>
-                <h2 class="h1">Islamic Scholar</h2>
+                <h2 class="h1">Mimbar Jumat</h2>
             </div>
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
@@ -688,7 +688,7 @@
                                 <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                 <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
                                 <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            </ul><img src="assets/images/scholar/1.jpg" alt="title">
+                            </ul><img src="<?= base_url('frontend/assets/images/scholar/1.jpg') ?>" alt="title">
                         </div>
                         <div class="team-content">
                             <h5>Nur Ahmad</h5>
@@ -748,12 +748,14 @@
     <div class="call-to-action-area bg-image-pattern py-lg-8 py-5 bg-primary">
         <div class="container">
             <div class="row">
+                <?php foreach($data_setting as $setting) : ?>
                 <div class="col-md-8 m-auto text-center">
-                    <h3 class="text-white"> اب الْمُسْلِمُ مَنْ سَلِمَ الْمُسْلِمُونَ مِنْ لِسَانِهِ وَيَدِهِ </h3>
-                    <h2 class="text-white mb-3">A Muslim is the one who avoids harming Muslims with his tongue and hands
-                    </h2>
-                    <p data-aos="slide-up" class="small text-white m-0">- Sahih al-Bukhari, 10 </p>
+                    <h2 class="text-white"><?= $setting->ayat_quran ?></h2>
+                    <h3 class="text-white mb-3"><?= $setting->artinya ?>
+                    </h3>
+                    <p data-aos="slide-up" class="small text-white m-0">- <?= $setting->surah ?> - </p>
                 </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>

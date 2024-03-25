@@ -9,7 +9,7 @@ class User extends CI_Controller {
             redirect('login');
           }
         $this->load->model('User_model', 'user');
-        
+        $this->load->model('Download_model', 'download');
     }
 	public function index()
 	{
@@ -17,6 +17,7 @@ class User extends CI_Controller {
             'judul' => 'User',
             'title' => 'User - Masjid Nurul Ilmi',
             'menu'  => 'user',
+            'total_download' => $this->download->count_download(),
             'data_user' => $this->user->getDataUser()
         ];
 		$this->template->load('v_template_admin', 'admin/user/v_user', $data);
@@ -43,6 +44,7 @@ class User extends CI_Controller {
                 'judul' => 'User',
                 'title' => 'User - Masjid Nurul Ilmi',
                 'menu'  => 'user',
+                'total_download' => $this->download->count_download(),
                 'data_user' => $this->user->getDataUser()
             ];
 		    $this->template->load('v_template_admin', 'admin/user/v_tambah', $data);

@@ -10,7 +10,7 @@ class Video extends CI_Controller {
           }
         $this->load->model('Video_model', 'video');
         $this->load->model('User_model', 'user');
-
+        $this->load->model('Download_model', 'download');
     }
 
     public function index()
@@ -19,6 +19,7 @@ class Video extends CI_Controller {
             'judul' => 'Video',
             'title' => 'Video - Masjid Nurul Ilmi',
             'menu'  => 'video',
+            'total_download' => $this->download->count_download(),
             'data_kategori' => $this->video->getDataKategori(),
             'data_video' => $this->video->getDataVideo()
         ];
@@ -79,6 +80,7 @@ class Video extends CI_Controller {
             'judul' => 'Kategori Video',
             'title' => 'Kategori Video - Masjid Nurul Ilmi',
             'menu'  => 'kategori',
+            'total_download' => $this->download->count_download(),
             'data_kategori' => $this->video->getDataKategori()
         ];
 		$this->template->load('v_template_admin', 'admin/video/v_kategori', $data);

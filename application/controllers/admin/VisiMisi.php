@@ -10,6 +10,7 @@ class VisiMisi extends CI_Controller {
             redirect('login');
           }
 		$this->load->model('VisiMisi_model', 'visi');
+        $this->load->model('Download_model', 'download');
 	}
 
 	public function index()
@@ -18,6 +19,7 @@ class VisiMisi extends CI_Controller {
             'judul' => 'Visi Misi',
             'title' => 'Visi & Misi - Masjid Nurul Ilmi',
             'menu'  => 'visimisi',
+            'total_download' => $this->download->count_download(),
             'data_visi' => $this->visi->getDataVisi()
         ];
 		$this->template->load('v_template_admin', 'admin/visi/v_visi', $data);
@@ -31,6 +33,7 @@ class VisiMisi extends CI_Controller {
              $data = [
                 'judul' => 'Visi Misi',
                 'title' => 'Visi & Misi - Masjid Nurul Ilmi',
+                'total_download' => $this->download->count_download(),
                 'menu'  => 'visimisi',
             ];
 		    $this->template->load('v_template_admin', 'admin/visi/v_tambah', $data);
@@ -51,6 +54,7 @@ class VisiMisi extends CI_Controller {
         $data = [
             'judul' => 'Edit Visi Misi',
             'title' => 'Visi & Misi - Masjid Nurul Ilmi',
+            'total_download' => $this->download->count_download(),
             'visi'  =>  $this->visi->get_visi_detail($id_visi),
             'menu'  => 'visimisi',
         ];
@@ -65,6 +69,7 @@ class VisiMisi extends CI_Controller {
             $data = [
                 'judul' => 'Edit Visi Misi',
                 'title' => 'Visi & Misi - Masjid Nurul Ilmi',
+                'total_download' => $this->download->count_download(),
                 'visi'  =>  $this->visi->get_visi_detail($id_visi),
                 'menu'  => 'visimisi',
             ];

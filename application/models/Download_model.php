@@ -26,6 +26,11 @@ class Download_model extends CI_Model {
         return $this->db->get()->result();
     }
 
+    public function count_download()
+    {
+        return $this->db->count_all('tbl_download');
+    }
+
     public function update_download($id_download, $data)
     {
         $this->db->where('id_download', $id_download);

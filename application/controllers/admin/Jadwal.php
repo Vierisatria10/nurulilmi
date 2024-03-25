@@ -10,7 +10,7 @@ class Jadwal extends CI_Controller {
           }
         $this->load->model('Jadwal_model', 'jadwal');
         $this->load->model('User_model', 'user');
-
+        $this->load->model('Download_model', 'download');
     }
     
 	public function index()
@@ -19,6 +19,7 @@ class Jadwal extends CI_Controller {
             'judul' => 'Jadwal Shalat',
             'title' => 'Jadwal Shalat - Masjid Nurul Ilmi',
             'menu'  => 'jadwal',
+            'total_download' => $this->download->count_download(),
             'data_jadwal' => $this->jadwal->getDataJadwal()
         ];
 		$this->template->load('v_template_admin', 'admin/jadwal/v_jadwal', $data);

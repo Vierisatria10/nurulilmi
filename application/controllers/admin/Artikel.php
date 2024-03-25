@@ -10,7 +10,7 @@ class Artikel extends CI_Controller {
           }
         $this->load->model('Artikel_model', 'artikel');
         $this->load->model('User_model', 'user');
-
+        $this->load->model('Download_model', 'download');
     }
 
     public function index()
@@ -19,6 +19,7 @@ class Artikel extends CI_Controller {
             'judul' => 'Artikel',
             'title' => 'Artikel - Masjid Nurul Ilmi',
             'menu'  => 'artikel',
+            'total_download' => $this->download->count_download(),
             'data_artikel' => $this->artikel->getDataArtikel()
         ];
 		$this->template->load('v_template_admin', 'admin/artikel/v_artikel', $data);
@@ -30,6 +31,7 @@ class Artikel extends CI_Controller {
             'judul' => 'Artikel',
             'title' => 'Artikel - Masjid Nurul Ilmi',
             'menu'  => 'artikel',
+            'total_download' => $this->download->count_download(),
             'data_kategori' => $this->artikel->getDataKategori()
         ];
 		$this->template->load('v_template_admin', 'admin/artikel/v_tambah', $data);
@@ -97,6 +99,7 @@ class Artikel extends CI_Controller {
             'judul' => 'Artikel',
             'title' => 'Artikel - Masjid Nurul Ilmi',
             'artikel' => $this->artikel->get_artikel_edit($id_artikel),
+            'total_download' => $this->download->count_download(),
             'data_kategori' => $this->artikel->getDataKategori(),
             'menu'  => 'artikel',
         ];
@@ -190,6 +193,7 @@ class Artikel extends CI_Controller {
             'judul' => 'Kategori Artikel',
             'title' => 'Kategori Artikel - Masjid Nurul Ilmi',
             'menu'  => 'kategori',
+            'total_download' => $this->download->count_download(),
             'data_kategori' => $this->artikel->getDataKategori()
         ];
 		$this->template->load('v_template_admin', 'admin/artikel/v_kategori', $data);

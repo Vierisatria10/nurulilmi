@@ -10,6 +10,7 @@ class Galeri extends CI_Controller {
             redirect('login');
           }
 		$this->load->model('Galeri_model', 'galeri');
+        $this->load->model('Download_model', 'download');
 	}
 
 	public function index()
@@ -18,6 +19,7 @@ class Galeri extends CI_Controller {
             'judul' => 'Data Galeri',
             'title' => 'Galeri - Masjid Nurul Ilmi',
             'menu'  => 'galeri',
+            'total_download' => $this->download->count_download(),
             // 'data_imam' => $this->imam->getDataImam()
         ];
 		$this->template->load('v_template_admin', 'admin/galeri/v_galeri', $data);

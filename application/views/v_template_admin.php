@@ -294,7 +294,7 @@
                                 <i class="nav-icon fas fa-download"></i>
                                 <p>
                                     File Download
-                                    <span class="badge badge-info right">2</span>
+                                    <span class="badge badge-info right"><?= $total_download ?></span>
                                 </p>
                             </a>
                         </li>

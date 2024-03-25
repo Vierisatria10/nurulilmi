@@ -10,7 +10,7 @@ class Sejarah extends CI_Controller {
           }
         $this->load->model('Sejarah_model', 'sejarah');
         $this->load->model('User_model', 'user');
-
+        $this->load->model('Download_model', 'download');
     }
 	public function index()
 	{
@@ -18,6 +18,7 @@ class Sejarah extends CI_Controller {
             'judul' => 'Sejarah',
             'title' => 'Sejarah - Masjid Nurul Ilmi',
             'menu'  => 'sejarah',
+            'total_download' => $this->download->count_download(),
             'data_sejarah' => $this->sejarah->getDataSejarah()
         ];
 		$this->template->load('v_template_admin', 'admin/sejarah/v_sejarah', $data);
@@ -34,6 +35,7 @@ class Sejarah extends CI_Controller {
                 'judul' => 'Sejarah',
                 'title' => 'Sejarah - Masjid Nurul Ilmi',
                 'menu'  => 'sejarah',
+                'total_download' => $this->download->count_download(),
                 'data_sejarah' => $this->sejarah->getDataSejarah()
             ];
 		    $this->template->load('v_template_admin', 'admin/sejarah/v_tambah', $data);
@@ -70,6 +72,7 @@ class Sejarah extends CI_Controller {
         $data = [
             'judul' => 'Sejarah',
             'title' => 'Sejarah - Masjid Nurul Ilmi',
+            'total_download' => $this->download->count_download(),
             'sejarah' => $this->sejarah->get_sejarah_edit($id_sejarah),
             'menu'  => 'sejarah',
         ];

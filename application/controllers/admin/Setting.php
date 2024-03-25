@@ -11,7 +11,7 @@ class Setting extends CI_Controller {
           }
 		$this->load->model('Setting_model', 'setting');
         $this->load->model('Jadwal_model', 'jadwal');
-
+        $this->load->model('Download_model', 'download');
 	}
 
     public function index()
@@ -21,6 +21,7 @@ class Setting extends CI_Controller {
             'judul' => 'Setting Web',
             'title' => 'Setting Web - Masjid Nurul Ilmi',
             'menu'  => 'setting',
+            'total_download' => $this->download->count_download(),
             'data_setting' => $this->setting->getDataSetting(),
         ];
 		$this->template->load('v_template_admin', 'admin/setting/v_setting', $data);
@@ -46,7 +47,8 @@ class Setting extends CI_Controller {
              $data = [
                 'judul' => 'Setting Web',
                 'title' => 'Setting Web - Masjid Nurul Ilmi',
-                 'kota'  => $kota,
+                'kota'  => $kota,
+                'total_download' => $this->download->count_download(),
                 'data_jadwal' => $this->jadwal->getDataJadwal(),
                 'menu'  => 'setting',
             ];
@@ -84,7 +86,9 @@ class Setting extends CI_Controller {
                     'sosmed1' => $this->input->post('sosmed1'),
                     'sosmed2' => $this->input->post('sosmed2'),
                     'sosmed3' => $this->input->post('sosmed3'),
-
+                    'ayat_quran' => $this->input->post('ayat_quran'),
+                    'artinya'    => $this->input->post('artinya'),
+                    'surah'      => $this->input->post('surah')
                 ];
                 $this->setting->add_setting($save);
                 $this->session->set_flashdata('success', 'Data Setting Web Berhasil di Simpan');
@@ -110,6 +114,7 @@ class Setting extends CI_Controller {
         $data = [
             'judul' => 'Edit Setting Web',
             'title' => 'Setting Web - Masjid Nurul Ilmi',
+            'total_download' => $this->download->count_download(),
             'setting' => $this->setting->get_setting_detail($id_setting),
             'data_jadwal' => $this->jadwal->getDataJadwal(),
             'menu'  => 'setting',
@@ -131,6 +136,9 @@ class Setting extends CI_Controller {
             'sosmed1' => $this->input->post('sosmed1'),
             'sosmed2' => $this->input->post('sosmed2'),
             'sosmed3' => $this->input->post('sosmed3'),
+            'ayat_quran' => $this->input->post('ayat_quran'),
+            'artinya'    => $this->input->post('artinya'),
+            'surah'      => $this->input->post('surah')
         );
           // Update data di tabel tbl_setting
         $id_setting = $this->input->post('id_setting');

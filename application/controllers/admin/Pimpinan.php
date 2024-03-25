@@ -10,6 +10,7 @@ class Pimpinan extends CI_Controller {
             redirect('login');
           }
 		$this->load->model('Pimpinan_model', 'pimpinan');
+        $this->load->model('Download_model', 'download');
 	}
 
 	public function index()
@@ -18,6 +19,7 @@ class Pimpinan extends CI_Controller {
             'judul' => 'Pengurus',
             'title' => 'Pengurus - Masjid Nurul Ilmi',
             'menu'  => 'pimpinan',
+            'total_download' => $this->download->count_download(),
             'data_pimpinan' => $this->pimpinan->getDataPimpinan()
         ];
 		$this->template->load('v_template_admin', 'admin/pimpinan/v_pimpinan', $data);
@@ -35,6 +37,7 @@ class Pimpinan extends CI_Controller {
              $data = [
                 'judul' => 'Pengurus',
                 'title' => 'Pengurus - Masjid Nurul Ilmi',
+                'total_download' => $this->download->count_download(),
                 'menu'  => 'pimpinan',
             ];
 		    $this->template->load('v_template_admin', 'admin/pimpinan/v_tambah', $data);
@@ -73,6 +76,7 @@ class Pimpinan extends CI_Controller {
         $data = [
             'judul' => 'Edit Pengurus',
             'title' => 'Pengurus - Masjid Nurul Ilmi',
+            'total_download' => $this->download->count_download(),
             'pimpinan' => $this->pimpinan->get_pimpinan_detail($id_pimpinan),
             'menu'  => 'pimpinan',
         ];

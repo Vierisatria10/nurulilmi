@@ -10,7 +10,7 @@ class Agenda extends CI_Controller {
           }
         $this->load->model('Agenda_model', 'agenda');
         $this->load->model('User_model', 'user');
-
+        $this->load->model('Download_model', 'download');
     }
 	public function index()
 	{
@@ -18,6 +18,7 @@ class Agenda extends CI_Controller {
             'judul' => 'Agenda',
             'title' => 'Agenda - Masjid Nurul Ilmi',
             'menu'  => 'agenda',
+            'total_download' => $this->download->count_download(),
             'data_agenda' => $this->agenda->getDataAgenda()
         ];
 		$this->template->load('v_template_admin', 'admin/agenda/v_agenda', $data);
@@ -48,6 +49,7 @@ class Agenda extends CI_Controller {
                 'judul' => 'Agenda',
                 'title' => 'Agenda - Masjid Nurul Ilmi',
                 'menu'  => 'agenda',
+                'total_download' => $this->download->count_download(),
                 'data_agenda' => $this->agenda->getDataAgenda()
             ];
 		    $this->template->load('v_template_admin', 'admin/agenda/v_tambah', $data);
@@ -90,6 +92,7 @@ class Agenda extends CI_Controller {
         $data = [
             'judul' => 'Agenda',
             'title' => 'Agenda - Masjid Nurul Ilmi',
+            'total_download' => $this->download->count_download(),
             'agenda' => $this->agenda->get_agenda_edit($id_agenda),
             'menu'  => 'agenda',
         ];

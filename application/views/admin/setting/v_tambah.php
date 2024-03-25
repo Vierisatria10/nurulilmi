@@ -183,6 +183,27 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Ayat Quran</label>
+                                    <input type="text" name="ayat_quran" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Artinya</label>
+                                    <input type="text" name="artinya" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Surah</label>
+                                    <input type="text" name="surah" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
                         <button type="reset" class="btn btn-danger">Reset</button>
                     </form>

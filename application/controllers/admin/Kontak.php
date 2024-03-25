@@ -7,6 +7,7 @@ class Kontak extends CI_Controller {
 	{
 		parent::__construct();
         $this->load->model('Kontak_model', 'kontak');
+        $this->load->model('Download_model', 'download');
 	}
 
 	public function index()
@@ -15,6 +16,7 @@ class Kontak extends CI_Controller {
             'judul' => 'Kontak',
             'title' => 'Kontak - Masjid Nurul Ilmi',
             'menu'  => 'kontak',
+            'total_download' => $this->download->count_download(),
             'data_kontak' => $this->kontak->getDataKontak()
         ];
         $this->template->load('v_template_admin', 'admin/kontak/v_kontak', $data);

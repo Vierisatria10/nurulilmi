@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Mar 2024 pada 09.34
+-- Waktu pembuatan: 25 Mar 2024 pada 09.39
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -74,7 +74,7 @@ CREATE TABLE `tbl_artikel` (
 
 INSERT INTO `tbl_artikel` (`id_artikel`, `id_kategori`, `judul`, `deskripsi`, `gambar`, `slug`, `tanggal_dibuat`, `status`, `user`) VALUES
 (1, 2, 'Hikmah: Rajab Bulan Yang Istimewa 2', '<p>“<strong>Allahumma barik lana fi rajaba wa sya\'bana, wa ballighna Ramadlana</strong>”. Ya Allah, berkahilah kami pada bulan Rajab dan bulan Sya\'ban, dan pertemukanlah kami dengan bulan Ramadlan.</p><p>Rajab secara makna artinya keagungan atau mulia. Rajab berasal dari lafaz tarjib yang artinya ‘mengagungkan’ atau ‘memuliakan’ (ta\'zhim). Dalam al-Quran bulan Rajab termasuk sebagai Asyhurul Hurum atau empat dari bulan-bulan yang dihormati.</p><p>Empat bulan tersebut dijelaskan dalam QS. At-Taubah [9] ayat 36 “... di antaranya ada empat (bulan) yang haram (yang disucikan), itulah ketetapan agama yang lurus maka janganlah kamu menganiaya diri kamu dalam bulan yang empat itu”. Juga dalam QS. Al-Baqarah [2] ayat 217, dan hadis Rasulullah mengurai nama-nama bulan dengan jelas “... tiga (bulan) berurutan yaitu Dzulqa’dah, Dzulhijjah dan Muharram. Sedangkan Rajab pertengahan antara Jumada (Tsaniyah) dan Sya’ban” (HR. Bukhari-Muslim).</p><p>Bulan-bulah Haram termasuk Rajab adalah bulan-bulan yang telah dimuliakan oleh Allah dan menjadikannya bulan-bulan yang harus dihormati. Di bulan ini kaum muslimin disarankan untuk meningkatkan amal kebaikan. Karena setiap kebaikan akan diganjar dengan pahala yang dilipatgandakan.</p><p>Tafsir QS. At-Taubah ayat 36, Imam Ibnu Katsir rahimahullah mengatakan bahwa sanksi berbuat dosa di bulan-bulan haram jauh lebih berat dibandingkan bulan-bulan lainnya, selain bulan suci Ramadhan. Sebaliknya, amal shalih di bulan-bulan haram pahalanya lebih besar dibandingkan di bulan lainnya, kecuali Ramadhan.</p><p>Bulan ini juga memiliki banyak penamaan lain diantaranya dinamai dengan ‘al-Ashab’, karena rahmat tercurah pada bulan HIKMAH Rajab Bulan Yang Istimewa Oleh : Alfaqir Ahmad Mulyadi itu yakni bulan kucuran rahmat bagi hamba-hamba Allah yang bertaubat di dalamnya. ‘As-Asham’ karena tidak mendengar bunyi senjata tajam pada bulan itu, karena dilarang menganiaya diri sendiri termasuk diantaranya berperang di bulan-bulan haram.</p><p>Rajab sebagai bulan mustajab. Karena do’a munajat seorang yang beriman di malam awal Rajab dikabulkan oleh Allah subhanahu wata\'ala yang termasuk salah satu dari 5 (lima) malam lainnya yang mustajab. Sebagaimana Imam Syafi’i mengatakan (dalam Al-Um) : “Telah sampai berita pada kami bahwa dulu pernah dikatakan: Sesungguhnya doa dikabulkan pada 5 (lima) malam: malam Jumat, malam Idul Adha, malam Idul Fitri, malam pertama bulan Rajab, dan malam Nisfu Syaban”.</p><p>Bulan ini adalah bulan yang penuh dengan keutamaan, maka Syekh Abdul Qadir Jailani mengatakan (dalam Al-Gunyah/W.561 H): “Telah dikhususkan pada bulan Rajab dengan limpahan ampunan dari Allah, pada bulan Syaban dengan syafaat, pada bulan Ramadhan dengan ganjaran pahala yang berlipat, pada malam lailatul qadar dengan limpahan rahmat yang diturunkan, pada hari ‘Arafah dengan kesempurnaan agama, pada hari Jum’at dengan dikabulkannya do’a para pemohon, pada hari raya (Ied) dengan pembebasan dari api neraka serta pembebasan budak-budak muslim.”</p><p>Dan Imam Abdul Hamid Al-Makki mengatakan (dalam Kanzun Najahi Wa As-Surur): “Rajab adalah bulan ampunan, Sya’ban adalah bulan shalawat kepada Nabi pilihan shallallahu ‘alaihi wasallam, Ramadhan adalah bulannya Al-Qur’an.</p><p>Maka bersungguh-sungguhlah di bulan Rajab yang merupakan bulan waktunya berniaga maka gunakan kesempatan di dalamnya dengan sebaik-baiknya, ia sebagai waktu yang penuh kemakmuran maka selayaknya bagi para peniaga inilah waktu terbaik (meraup keuntungan) waktunya telah masuk, dan bagi orang yang sakit karena beban kedustaan maka inilah bulan yang membawa obatobat penyembuhan.” Wa Allahu A’lamu bis shawab.</p>', 'foto_artikel.jpeg', 'Hikmah-Rajab-Bulan-Yang-Istimewa', '2024-02-25', 1, 'Admin'),
-(2, 1, 'Kajian Zuhur Masjid Nurul Ilmi : Mengenal Bughat', '<p>Kajian Zuhur testing</p>', 'IMG_5439.jpeg', 'Kajian-zuhur-Masjid-Nurul-Ilmi:Mengenal-Bughat', '2024-02-28', 1, 'Admin');
+(2, 3, 'Kajian Zuhur Masjid Nurul Ilmi : Mengenal Bughat', '<p>Kajian Zuhur testing</p>', 'IMG_5439.jpeg', 'Kajian-zuhur-Masjid-Nurul-Ilmi:Mengenal-Bughat', '2024-02-28', 1, 'Admin');
 
 -- --------------------------------------------------------
 
@@ -96,6 +96,32 @@ CREATE TABLE `tbl_download` (
 INSERT INTO `tbl_download` (`id_download`, `nama_file`, `file`, `tgl_dibuat`) VALUES
 (1, 'Materi Khutbah Jumat', 'Materi_Khutbah_Jumat_(4_Desember_2020).docx', '2024-03-12 09:04:00'),
 (2, 'PRESENTASI_BPKH', 'PRESENTASI_BPKH.pdf', '2024-03-12 08:37:25');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_galeri`
+--
+
+CREATE TABLE `tbl_galeri` (
+  `galeri_id` int(11) NOT NULL,
+  `galeri_nama` varchar(100) NOT NULL,
+  `galeri_foto` text NOT NULL,
+  `galeri_user` varchar(100) NOT NULL,
+  `token` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_galeri`
+--
+
+INSERT INTO `tbl_galeri` (`galeri_id`, `galeri_nama`, `galeri_foto`, `galeri_user`, `token`) VALUES
+(1, 'test', 'briefcase.jpg', 'Admin', '0.42056171988363955'),
+(2, 'test 3', 'Dashboard_Nurul_Iilmi.JPG', 'Admin', '0.9534919578589407'),
+(3, '', 'Form_karyawan_pt_talenta.JPG', 'Admin', '0.8562565168868814'),
+(4, '', 'Foto_Diri.jpeg', 'Admin', '0.8935020917983123'),
+(5, '', 'aqua.jpg', 'Admin', '0.015800602624124416'),
+(6, 'gambar 6', 'background-undangan-kosongan.png', 'Admin', '0.3708716025394454');
 
 -- --------------------------------------------------------
 
@@ -288,15 +314,18 @@ CREATE TABLE `tbl_setting` (
   `judul3` varchar(100) NOT NULL,
   `sosmed1` text NOT NULL,
   `sosmed2` text NOT NULL,
-  `sosmed3` text NOT NULL
+  `sosmed3` text NOT NULL,
+  `ayat_quran` varchar(100) NOT NULL,
+  `artinya` text NOT NULL,
+  `surah` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_setting`
 --
 
-INSERT INTO `tbl_setting` (`id_setting`, `id_jadwal`, `nama_masjid`, `alamat`, `no_hp`, `link_alamat`, `email`, `logo`, `banner1`, `banner2`, `banner3`, `judul1`, `judul2`, `judul3`, `sosmed1`, `sosmed2`, `sosmed3`) VALUES
-(1, 2, 'Nurul Ilmi', '<p>Jl. Raya Serang, Talaga, Kec. Cikupa, Kabupaten Tangerang, Banten 15710</p>', '087781581583', '', 'nurulilmi@gmail.com', 'logo.jpeg', '1.jpg', '2.jpg', '3.jpg', 'Judul 1', 'judul 2', 'judul 3', 'https://facebook.com/', 'https://instagram.com/', 'https://youtube.com/');
+INSERT INTO `tbl_setting` (`id_setting`, `id_jadwal`, `nama_masjid`, `alamat`, `no_hp`, `link_alamat`, `email`, `logo`, `banner1`, `banner2`, `banner3`, `judul1`, `judul2`, `judul3`, `sosmed1`, `sosmed2`, `sosmed3`, `ayat_quran`, `artinya`, `surah`) VALUES
+(1, 2, 'Nurul Ilmi', '<p>Jl. Raya Serang, Talaga, Kec. Cikupa, Kabupaten Tangerang, Banten 15710</p>', '087781581583', '', 'nurulilmi@gmail.com', 'logo.jpeg', '1.jpg', '2.jpg', '3.jpg', 'Judul 1', 'judul 2', 'judul 3', 'https://facebook.com/', 'https://instagram.com/', 'https://youtube.com/', 'وَلَا تَقْرَبُوا الزِّنٰىٓ اِنَّهٗ كَانَ فَاحِشَةًۗ وَسَاۤءَ سَبِيْلًا', 'Janganlah kamu mendekati zina. Sesungguhnya (zina) itu adalah perbuatan keji dan jalan terburuk.', 'Al-Isra\', Ayat 32');
 
 -- --------------------------------------------------------
 
@@ -389,6 +418,12 @@ ALTER TABLE `tbl_download`
   ADD PRIMARY KEY (`id_download`);
 
 --
+-- Indeks untuk tabel `tbl_galeri`
+--
+ALTER TABLE `tbl_galeri`
+  ADD PRIMARY KEY (`galeri_id`);
+
+--
 -- Indeks untuk tabel `tbl_imam`
 --
 ALTER TABLE `tbl_imam`
@@ -477,6 +512,12 @@ ALTER TABLE `tbl_artikel`
 --
 ALTER TABLE `tbl_download`
   MODIFY `id_download` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_galeri`
+--
+ALTER TABLE `tbl_galeri`
+  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_imam`

@@ -18,6 +18,7 @@ class Download extends CI_Controller {
             'judul' => 'File Download',
             'title' => 'Download - Masjid Nurul Ilmi',
             'menu'  => 'download',
+            'total_download' => $this->download->count_download(),
             'data_download' => $this->download->getDataDownload()
         ];
 		$this->template->load('v_template_admin', 'admin/download/v_download', $data);

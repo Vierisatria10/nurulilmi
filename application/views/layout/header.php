@@ -70,7 +70,8 @@
                                  </li>
                              </ul>
                          </li>
-                         <li class="nav-item"> <a class='nav-link' href='/about'>Berita</a></li>
+                         <li class="nav-item"> <a class='nav-link'
+                                 href='<?= base_url('blog/kategori/berita') ?>'>Berita</a></li>
                          <li class="nav-item"> <a class='nav-link' href='<?= base_url('blog') ?>'>Artikel</a>
                          </li>
                          <li class="nav-item"> <a class='nav-link' href='<?= base_url('agenda') ?>'>Agenda</a>
