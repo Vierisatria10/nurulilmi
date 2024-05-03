@@ -77,15 +77,17 @@
                             <?php endif; ?>
                         </div>
                         <div class="team-content">
-                            <h5><?= $pimpinan->nama ?></h5>
-                            <span class="text-primary"><?= $pimpinan->jabatan ?></span>
+                            <h5>Nama &nbsp;: <?= $pimpinan->nama ?></h5>
+                            <span class="text-primary">Jabatan : <?= $pimpinan->jabatan ?></span>
+                            <br>
+                            <span>Alamat &nbsp;: <?= $pimpinan->alamat ?></span>
                         </div>
                     </div>
                 </div>
                 <?php endforeach; ?>
             </div>
             <?php else: ?>
-            <h3 class="text-center text-danger">"Data Pejabat Belum Ada"</h3>
+            <h3 class="text-center text-danger">"Data Pengurus Belum Ada"</h3>
             <?php endif; ?>
         </div>
     </div>

@@ -41,7 +41,7 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <div class="d-flex justify-content-center">
-                    <img src="<?= base_url('upload/logo.JPEG') ?>" width="125" alt="">
+                    <img src="<?= base_url('upload/logo.jpeg') ?>" width="125" alt="">
                 </div><br>
                 <p class="login-box-msg">Silahkan Login ke Akun Anda</p>
                 <?php echo $this->session->flashdata('pesan');?>

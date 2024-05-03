@@ -59,6 +59,7 @@ class Imam extends CI_Controller {
                 $save = [
                     'nama' => $this->input->post('nama'),
                     'jabatan' => $this->input->post('jabatan'),
+                    'alamat'  => $this->input->post('alamat'),
                     'link1' => $this->input->post('link1'),
                     'link2' => $this->input->post('link2'),
                     'link3' => $this->input->post('link3'),
@@ -117,6 +118,7 @@ class Imam extends CI_Controller {
            $data = array(
                 'nama' => $this->input->post('nama'),
                 'jabatan' => $this->input->post('jabatan'),
+                'alamat' => $this->input->post('alamat'),
                 'link1' => $this->input->post('link1'),
                 'link2' => $this->input->post('link2'),
                 'link3' => $this->input->post('link3'),

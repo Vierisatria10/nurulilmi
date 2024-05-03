@@ -19,6 +19,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Philosopher:wght@700&display=swap"
         rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
     <!-- gulp:css -->
     <link rel="stylesheet" href="<?= base_url('frontend/') ?>assets/css/app.min.css">
     <!-- Owl carousel css -->
@@ -82,26 +84,33 @@
                         <div class="container">
                             <h4>Artikel Sorotan </h4>
                             <div class="row">
+                                <?php if(empty($detail_kategori)) : ?>
+                                    <p class="text-center">
+                                        Data Kategori Belum Ada
+                                    </p>
+                                <?php else: ?>
+                                <?php foreach($detail_kategori as $kat) : ?>
                                 <div class="col-lg-6 col-md-6" id="kategori-container">
                                     <div class="blog-style mt-4">
                                         <div class="blog-image">
-                                            <img src="<?= base_url('upload/artikel/'.$detail_kategori['gambar']) ?>"
+                                            <img src="<?= base_url('upload/artikel/'.$kat->gambar) ?>"
                                                 alt="title">
                                         </div>
                                         <div class="blog-content">
                                             <span class="blog-meta"><i class="fas fa-tag me-2"></i><a
-                                                    href='<?= base_url('blog/kategori/'.$detail_kategori['nama_kategori']) ?>'><?= $detail_kategori['nama_kategori'] ?></a></span>
-                                            <h4><a href='<?= base_url('blog/detail/'.$detail_kategori['slug']) ?>'>
-                                                    <?= $detail_kategori['judul'] ?></a></h4>
+                                                    href='<?= base_url('blog/kategori/'.$kat->nama_kategori) ?>'><?= $kat->nama_kategori ?></a></span>
+                                            <h4><a href='<?= base_url('blog/detail/'.$kat->slug) ?>'>
+                                                    <?= $kat->judul ?></a></h4>
                                             <small class="text-muted"><i class="fa fa-clock"></i>
-                                                <?= format_indo($detail_kategori['tanggal_dibuat']) ?></small>
+                                                <?= format_indo($kat->tanggal_dibuat) ?></small>
                                             <p class="mt-2">
-                                                <?= strip_tags(character_limiter($detail_kategori['deskripsi'], 200)) ?>
+                                                <?= strip_tags(character_limiter($kat->deskripsi, 200)) ?>
                                             </p>
                                         </div>
                                     </div>
                                 </div>
-
+                                <?php endforeach; ?>
+                                <?php endif; ?>
                             </div>
                             <div class="d-flex justify-content-center">
                                 <button class="mt-4 btn text-center btn-dark ls1 text-uppercase load-next-portfolio"
@@ -358,17 +367,6 @@
     function character_limiter(text, limit) {
         return text.length > limit ? text.substring(0, limit) + '...' : text;
     }
-    </script>
-    <script type="text/javascript">
-    window.$crisp = [];
-    window.CRISP_WEBSITE_ID = "0fb3e5b5-1038-45e7-a153-173d144eee90";
-    (function() {
-        d = document;
-        s = d.createElement("script");
-        s.src = "https://client.crisp.chat/l.js";
-        s.async = 1;
-        d.getElementsByTagName("head")[0].appendChild(s);
-    })();
     </script>
 </body>
 

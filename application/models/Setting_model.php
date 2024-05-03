@@ -20,16 +20,22 @@ class Setting_model extends CI_Model {
 
         // // Ambil hasil query
         // return $query->row();
+        $now = date('Y-m-d H:i:s');
         $this->db->select('b.jam');
         $this->db->from('tbl_setting a');
         $this->db->join('tbl_jadwal b', 'a.id_jadwal = b.id_jadwal');
-        $this->db->where('b.jam > NOW()');
+        $this->db->where('b.jam >', $now);
         $query = $this->db->get();
 
         // Ambil waktu shalat dari hasil query
         $result = $query->result_array();
-
+        
         // Kembalikan waktu shalat
+        // if ($result) {
+        //     return $result['jam'];
+        // }else{
+        //     return null;
+        // }
         return $result;
         // $this->db->select('TIMEDIFF(b.jam, NOW()) AS shalat_mundur');
         // $this->db->from('tbl_setting a');

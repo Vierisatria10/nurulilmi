@@ -44,11 +44,22 @@ class Artikel_model extends CI_Model {
     //     $this->db->order_by('a.judul', 'DESC');
     //     return $this->db->get()->result_array();
     // }
-
     public function get_detail_artikel($slug)
-	{
-		return $this->db->get_where($this->table, ['slug' => $slug])->row_array();
-	}
+    {
+        $this->db->select('a.*, b.*');
+        $this->db->from('tbl_artikel a');
+        $this->db->join('tbl_kategori_artikel b', 'b.id_kategori = a.id_kategori', 'left');        
+        $this->db->where('a.slug', $slug);
+        $this->db->order_by('a.judul', 'DESC');
+        return $this->db->get()->row_array();
+    }
+    // public function get_detail_artikel($slug)
+	// {
+    //     $this->db->select('*');
+    //     $this->db->from($this->table);
+
+	// 	return $this->db->get_where($this->table, ['slug' => $slug])->row();
+	// }
 
     public function get_detail_kategori($slug_kategori)
 	{
@@ -56,7 +67,7 @@ class Artikel_model extends CI_Model {
         $this->db->from('tbl_artikel a');
         $this->db->join('tbl_kategori_artikel b', 'a.id_kategori = b.id_kategori', 'left');
         $this->db->where('b.slug_kategori', $slug_kategori);
-		return $this->db->get()->row_array();
+		return $this->db->get()->result();
 	}
 
     public function countArtikelByKategori() {

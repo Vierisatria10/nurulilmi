@@ -94,7 +94,7 @@
     <!-- gulp:js -->
     <script src="<?= base_url('frontend/') ?>assets/js/build.min.js"></script>
     <!-- endgulp -->
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
     window.$crisp = [];
     window.CRISP_WEBSITE_ID = "0fb3e5b5-1038-45e7-a153-173d144eee90";
     (function() {
@@ -104,7 +104,7 @@
         s.async = 1;
         d.getElementsByTagName("head")[0].appendChild(s);
     })();
-    </script>
+    </script> -->
 </body>
 
 </html>

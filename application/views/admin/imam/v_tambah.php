@@ -101,6 +101,15 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Alamat</label>
+                                    <input type="text" name="alamat" id="alamat" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
                         <button type="reset" class="btn btn-danger">Reset</button>
                     </form>

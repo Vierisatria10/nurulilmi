@@ -40,22 +40,22 @@
     </header>
     <!--  ====================== Header Area =============================  -->
     <div class="banner-area position-relative overflow-hidden">
+        
         <div class="banner-slider">
+        <?php foreach($data_setting as $row) : ?>
             <div class="banner-item">
-                <div class="banner-bg-image"><img src="<?= base_url('frontend/assets/images/banner/1.jpg') ?>"
+                <div class="banner-bg-image"><img src="<?= base_url('upload/setting/'.$row->banner1) ?>"
                         alt="image"></div>
                 <div class="container">
                     <div class="banner-wrapper">
                         <div class="banner-content ms-0">
 
-
-                            <h1 class="display-3 text-primary" data-animation="fadeInDown" data-delay="0.7s">New York
-                                City Holy Mosque
+                            <h1 class="display-3 text-primary" data-animation="fadeInDown" data-delay="0.7s"><?= $row->judul1 ?>
                             </h1>
                             <p class="lead mb-6 text-secondary" data-animation="fadeInDown" data-delay="0.7s">Around
                                 16,000 Muslims live in the our twon & we have now 2 Grand Mosques.</p>
                             <a class='btn btn-primary border-radius-25 theme-btn-1 text-white'
-                                data-animation='fadeInDown' data-delay='0.7s' href='/campaign'>
+                                data-animation='fadeInDown' data-delay='0.7s' href="#">
                                 DONATE NOW</a>
                         </div>
                     </div>
@@ -63,46 +63,47 @@
                 </div>
             </div>
             <div class="banner-item">
-                <div class="banner-bg-image"><img src="<?= base_url('frontend/assets/images/banner/2.jpg') ?>"
+                <div class="banner-bg-image"><img src="<?= base_url('upload/setting/'. $row->banner2) ?>"
                         alt="image"></div>
                 <div class="container">
                     <div class="banner-wrapper">
                         <div class="banner-content text-center">
 
-                            <h1 class="display-3 text-primary" data-animation="fadeInDown" data-delay="0.7s">We love to
-                                pray for our God
+                            <h1 class="display-3 text-primary" data-animation="fadeInDown" data-delay="0.7s">
+                                <?= $row->judul2 ?>
                             </h1>
                             <p class="lead mb-6 text-secondary" data-animation="fadeInDown" data-delay="0.7s">Around
                                 16,000 Muslims live in the our twon & we have now 2 Grand Mosques.</p>
                             <a class='btn btn-primary border-radius-25 theme-btn-1 text-white'
-                                data-animation='fadeInDown' data-delay='0.7s' href='/campaign'>
+                                data-animation='fadeInDown' data-delay='0.7s' href="#">
                                 DONATE NOW</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="banner-item">
-                <div class="banner-bg-image"><img src="<?= base_url('frontend/assets/images/banner/3.jpg') ?>"
+                <div class="banner-bg-image"><img src="<?= base_url('upload/setting/'. $row->banner3) ?>"
                         alt="image"></div>
                 <div class="container">
                     <div class="banner-wrapper">
                         <div class="banner-content ms-0">
 
 
-                            <h1 class="display-3 text-primary" data-animation="fadeInDown" data-delay="0.7s">Where peace
-                                coming from...
+                            <h1 class="display-3 text-primary" data-animation="fadeInDown" data-delay="0.7s"><?= $row->judul3 ?>
                             </h1>
                             <p class="lead mb-6 text-secondary" data-animation="fadeInDown" data-delay="0.7s">Around
                                 16,000 Muslims live in the our twon & we have now 2 Grand Mosques.</p>
                             <a class='btn btn-primary border-radius-25 theme-btn-1 text-white'
-                                data-animation='fadeInDown' data-delay='0.7s' href='/campaign'>
+                                data-animation='fadeInDown' data-delay='0.7s' href="#">
                                 DONATE NOW</a>
                         </div>
 
                     </div>
                 </div>
             </div>
+            <?php endforeach; ?>
         </div>
+        
         <ul class="banner-arrows list-inline">
             <li><button class="banner-prev"><i class="fas fa-angle-left"></i></button></li>
             <li><button class="banner-next"><i class="fas fa-angle-right"></i></button></li>
@@ -194,107 +195,8 @@
         </div>
     </div>
     <!--  ====================== Video Area =============================  -->
-    <div id="khuthba" class="video-area py-lg-10 py-8">
-        <div class="container">
-            <div class="text-center">
-                <div class="section-title mb-4">
-                    <span data-aos="fade-in" class="text-secondary">Sermons / Khuthba</span>
-                    <h2 class="h1 text-primary">Khuthba Collection</h2>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-4">
-                    <div class="video-item mt-4">
-                        <div class="video-image">
-                            <img src="<?= base_url('frontend/assets/images/khuthba/1.jpg') ?>" alt="title">
-                            <a class="video-popup" href="https://www.youtube.com/watch?v=CQzFHdaMvuM"><i
-                                    class="fas fa-video"></i></a>
-                        </div>
-                        <div class="video-content">
-                            <h5 class="text-white">EP #19 : The Call of Ibrahim </h5>
-                            <a class="badge bg-primary text-white fw-normal">04 Feb, 2021</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="video-item mt-4">
-                        <div class="video-image">
-                            <img src="<?= base_url('frontend/assets/images/khuthba/2.jpg') ?>" alt="title">
-                            <a class="video-popup" href="https://www.youtube.com/watch?v=CQzFHdaMvuM"><i
-                                    class="fas fa-video"></i></a>
-                        </div>
-                        <div class="video-content">
-                            <h5 class="text-white">EP #18 : Hajj - The Journey of Hearts
-                            </h5>
-                            <a class="badge bg-primary text-white fw-normal">28 Jan, 2021</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="video-item mt-4">
-                        <div class="video-image">
-                            <img src="<?= base_url('frontend/assets/images/khuthba/3.jpg') ?>" alt="title">
-                            <a class="video-popup" href="https://www.youtube.com/watch?v=CQzFHdaMvuM"><i
-                                    class="fas fa-video"></i></a>
-                        </div>
-                        <div class="video-content">
-                            <h5 class="text-white">EP #17 : Guiding to Allah by the Book
-                            </h5>
-                            <a class="badge bg-primary text-white fw-normal">21 Jan, 2021</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="video-item mt-4">
-                        <div class="video-image">
-                            <img src="<?= base_url('frontend/assets/images/khuthba/4.jpg') ?>" alt="title">
-                            <a class="video-popup" href="https://www.youtube.com/watch?v=CQzFHdaMvuM"><i
-                                    class="fas fa-video"></i></a>
-                        </div>
-                        <div class="video-content">
-                            <h5 class="text-white">EP #16 : Ramadan Warriors
-                            </h5>
-                            <a class="badge bg-primary text-white fw-normal">14 Jan, 2021</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="video-item mt-4">
-                        <div class="video-image">
-                            <img src="<?= base_url('frontend/assets/images/khuthba/5.jpg') ?>" alt="title">
-                            <a class="video-popup" href="https://www.youtube.com/watch?v=CQzFHdaMvuM"><i
-                                    class="fas fa-video"></i></a>
-                        </div>
-                        <div class="video-content">
-                            <h5 class="text-white">EP #15 : Have You Ever Tasted Jannah?
-                            </h5>
-                            <a class="badge bg-primary text-white fw-normal">09 Jan, 2021</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="video-item mt-4">
-                        <div class="video-image">
-                            <img src="assets/images/khuthba/6.jpg" alt="title">
-                            <a class="video-popup" href="https://www.youtube.com/watch?v=CQzFHdaMvuM"><i
-                                    class="fas fa-video"></i></a>
-                        </div>
-                        <div class="video-content">
-                            <h5 class="text-white">EP #14 : Sabr or Shukr
-                            </h5>
-                            <a class="badge bg-primary text-white fw-normal">02 Jan, 2021</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center mt-5" data-aos="slide-up"><a class='btn btn-primary text-white'
-                        href='/all-khuthba'>More Khuthba</a></div>
-            </div>
-
-        </div>
-    </div>
     <!--  ====================== Service Area =============================  -->
-    <div class="service-area bg-image-pattern service-shape py-lg-10 py-8 bg-light">
+    <div class="service-area bg-image-pattern service-shape mt-5 py-lg-10 py-8 bg-light">
         <div class="container">
             <div class="section-title text-center mb-4">
                 <span data-aos="fade-in" class="text-primary">What we do</span>
@@ -308,45 +210,27 @@
                                 <img src="<?= base_url('frontend/assets/images/service-icon.png') ?>" alt="title">
                             </div>
                             <div class="service-content mt-4">
-                                <h5 class="mb-3">Mimbar Jumat</h5>
-                                <p>Quite into liabilities frequency; Each be own for through parents' understand the of
-                                    it is met and as
-                                    some</p>
-                                <a data-bs-toggle="modal" data-bs-target="#service1" href="#" class="text-primary">Learn
-                                    More <i class="fas fa-angle-right ms-2"></i></a>
+                                <h5 class="mb-3">Info Hewan Qurban</h5>
+                                <p>Jika ingin mengetahui terkait info hewan qurban Idul Adha 1445H</p>
+                                <a data-bs-toggle="modal" data-bs-target="#service1" href="#" class="text-primary">Lihat
+                                    Selengkapnya <i class="fas fa-angle-right ms-2"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="service-modal modal fade" id="service1">
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Health CheckUp</h5>
+                                    <h5 class="modal-title">Hewan Qurban</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
 
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>The that all once our the relieved its accompany will. Must for have or a back to
-                                        war, the desk in the me boss it note has could are boss of escape, in
-                                        consideration film control phase the quitting negatives, the be high and he his
-                                        researches by politely then.</p>
-                                    <p>Suggests it even how several rather of it to his real of week you him should the
-                                        out gave could mister or annoyed. Devious you simple, been brothers evening. To
-                                        couldn't a to stitching in orthographic the tone to feel the not reached ran
-                                        study of you tend with will the nice, all must off and advantage become not the
-                                        its would of at after me make could on as explain the seen, for simple, first
-                                        for left recommendation hired their time illustrated insurance with universal
-                                        proposal I pleasure there mountains, all attention particularly more son, card a
-                                        and, we.
-                                    </p>
-                                    <p>
-                                        Four to greediness the in a written the a finds the getting staple towards his
-                                        they goals so, minutes. Been having problem of trial. King's and her off of any
-                                        time. Next or said reflections, rhetoric desk clarinet several ideas only you
-                                        right, made known not so powers sleep. Road, than attempt, suspicious may
-                                        respective circumstances. Turned the is don't in the and is remain which see his
-                                        too felt frequently excuse small I one about the his answering feedback th</p>
+                                    <div class="col-md-12">
+                                        <img src="<?= base_url('frontend/assets/images/info qurban.jpeg') ?>" alt="Info Qurban">
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -359,44 +243,32 @@
                                 <img src="<?= base_url('frontend/assets/images/service-icon2.png') ?>" alt="title">
                             </div>
                             <div class="service-content mt-4">
-                                <h5 class="mb-3">Community Services</h5>
-                                <p>Life of as differentiates up this or my the at sleep frugality a mars back, office
-                                    universe a he somehow the rippedup</p>
-                                <a data-bs-toggle="modal" data-bs-target="#service2" href="#" class="text-primary">Learn
-                                    More <i class="fas fa-angle-right ms-2"></i></a>
+                                <h5 class="mb-3">Jum'at Berkah</h5>
+                                <p>Layanan Setiap Hari Jum'at yang insha allah berkah</p>
+                                <a data-bs-toggle="modal" data-bs-target="#service2" href="#" class="text-primary">Lihat
+                                    Selengkapnya <i class="fas fa-angle-right ms-2"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="service-modal modal fade" id="service2">
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Community Services</h5>
+                                    <h5 class="modal-title">Sedekah Jum'at</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
 
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>The that all once our the relieved its accompany will. Must for have or a back to
-                                        war, the desk in the me boss it note has could are boss of escape, in
-                                        consideration film control phase the quitting negatives, the be high and he his
-                                        researches by politely then.</p>
-                                    <p>Suggests it even how several rather of it to his real of week you him should the
-                                        out gave could mister or annoyed. Devious you simple, been brothers evening. To
-                                        couldn't a to stitching in orthographic the tone to feel the not reached ran
-                                        study of you tend with will the nice, all must off and advantage become not the
-                                        its would of at after me make could on as explain the seen, for simple, first
-                                        for left recommendation hired their time illustrated insurance with universal
-                                        proposal I pleasure there mountains, all attention particularly more son, card a
-                                        and, we.
-                                    </p>
-                                    <p>
-                                        Four to greediness the in a written the a finds the getting staple towards his
-                                        they goals so, minutes. Been having problem of trial. King's and her off of any
-                                        time. Next or said reflections, rhetoric desk clarinet several ideas only you
-                                        right, made known not so powers sleep. Road, than attempt, suspicious may
-                                        respective circumstances. Turned the is don't in the and is remain which see his
-                                        too felt frequently excuse small I one about the his answering feedback th</p>
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-6">
+                                            <img src="<?= base_url('frontend/assets/images/sedekah_jumat.png') ?>" alt="Sedekah Hari Jumat">
+                                        </div>
+                                        <div class="col-md-6 col-lg-6">
+                                            <p class="text-center">Sedekah di hari Jum'at dibanding sedekah di hari lainnya seperti sedekah di bulan Ramadhan dibandingkan sedekah bulan-bulan lainnya (Ibnu Qayyim)</p>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -409,44 +281,28 @@
                                 <img src="<?= base_url('frontend/assets/images/service-icon3.png') ?>" alt="title">
                             </div>
                             <div class="service-content mt-4">
-                                <h5 class="mb-3">Umrah & Hajj</h5>
-                                <p>Testimony best of a creative was thought. Can poster he three who and catch rendering
-                                    may pane </p>
-                                <a data-bs-toggle="modal" data-bs-target="#service3" href="#" class="text-primary">Learn
-                                    More <i class="fas fa-angle-right ms-2"></i></a>
+                                <h5 class="mb-3">Jamuan Jum'at Berkah</h5>
+                                <p>Keberkahan setiap hari jumat dengan jamuan berupa makanan, minuman</p>
+                                <a data-bs-toggle="modal" data-bs-target="#service3" href="#" class="text-primary">Lihat
+                                    Selengkapnya <i class="fas fa-angle-right ms-2"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="service-modal modal fade" id="service3">
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Umrah & Hajj</h5>
+                                    <h5 class="modal-title">Jamuan Jum'at Berkah</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
 
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>The that all once our the relieved its accompany will. Must for have or a back to
-                                        war, the desk in the me boss it note has could are boss of escape, in
-                                        consideration film control phase the quitting negatives, the be high and he his
-                                        researches by politely then.</p>
-                                    <p>Suggests it even how several rather of it to his real of week you him should the
-                                        out gave could mister or annoyed. Devious you simple, been brothers evening. To
-                                        couldn't a to stitching in orthographic the tone to feel the not reached ran
-                                        study of you tend with will the nice, all must off and advantage become not the
-                                        its would of at after me make could on as explain the seen, for simple, first
-                                        for left recommendation hired their time illustrated insurance with universal
-                                        proposal I pleasure there mountains, all attention particularly more son, card a
-                                        and, we.
-                                    </p>
-                                    <p>
-                                        Four to greediness the in a written the a finds the getting staple towards his
-                                        they goals so, minutes. Been having problem of trial. King's and her off of any
-                                        time. Next or said reflections, rhetoric desk clarinet several ideas only you
-                                        right, made known not so powers sleep. Road, than attempt, suspicious may
-                                        respective circumstances. Turned the is don't in the and is remain which see his
-                                        too felt frequently excuse small I one about the his answering feedback th</p>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <img src="<?= base_url('frontend/assets/images/jamuan_jumat.png') ?>" alt="Jamuan Jumat">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -503,135 +359,6 @@
     <!--  ====================== Call To Action Area =============================  -->
 
     <!--  ====================== Course Area =============================  -->
-    <!-- <div class="course-area py-lg-10 py-8">
-        <div class="container">
-            <div class="section-title text-center mb-4">
-                <span data-aos="fade-in" class="text-primary">Learn With Us</span>
-                <h2 class="h1">Online Islamic Courses</h2>
-            </div>
-            <div class="row" data-masonry='{"percentPosition": true }'>
-                <div class="col-md-6 col-lg-4">
-                    <div class="course-item mb-4">
-                        <img class="course-image" src="assets/images/course/1.jpg" alt="title">
-                        <div class="course-overlay">
-                            <h4 class="mb-md-3"><a class='text-white' href='/single-course'>Dur al-Manthur </a></h4>
-                            <div class="course-content">
-                                <div class="course-author"><img src="assets/images/author/1.jpg" alt="title">
-
-                                    <div class="info">
-                                        <h6 class="text-white mb-0">Ali Reza</h6>
-                                        <span class="text-white small">Islamic Scholar</span>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="course-item mb-4">
-                        <img class="course-image" src="assets/images/course/2.jpg" alt="title">
-                        <div class="course-overlay">
-                            <h4 class="mb-md-3"><a class='text-white' href='/single-course'>Surah Quraish</a></h4>
-                            <div class="course-content">
-                                <div class="course-author"><img src="assets/images/author/1.jpg" alt="title">
-
-                                    <div class="info">
-                                        <h6 class="text-white mb-0">Ali Reza</h6>
-                                        <span class="text-white small">Islamic Scholar</span>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="course-item mb-4">
-                        <img class="course-image" src="assets/images/course/3.jpg" alt="title">
-                        <div class="course-overlay">
-                            <h4 class="mb-md-3"><a class='text-white' href='/single-course'>Surat Al-'Adiyat</a></h4>
-                            <div class="course-content">
-                                <div class="course-author"><img src="assets/images/author/1.jpg" alt="title">
-
-                                    <div class="info">
-                                        <h6 class="text-white mb-0">Ali Reza</h6>
-                                        <span class="text-white small">Islamic Scholar</span>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="course-item mb-4">
-                        <img class="course-image" src="assets/images/course/4.jpg" alt="title">
-                        <div class="course-overlay">
-                            <h4 class="mb-md-3"><a class='text-white' href='/single-course'>Surat Al-Qari'ahf</a></h4>
-                            <div class="course-content">
-                                <div class="course-author"><img src="assets/images/author/1.jpg" alt="title">
-
-                                    <div class="info">
-                                        <h6 class="text-white mb-0">Ali Reza</h6>
-                                        <span class="text-white small">Islamic Scholar</span>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="course-item mb-4">
-                        <img class="course-image" src="assets/images/course/5.jpg" alt="title">
-                        <div class="course-overlay">
-                            <h4 class="mb-md-3"><a class='text-white' href='/single-course'>Tafsir al-Jalalayn </a></h4>
-                            <div class="course-content">
-                                <div class="course-author"><img src="assets/images/author/1.jpg" alt="title">
-
-                                    <div class="info">
-                                        <h6 class="text-white mb-0">Ali Reza</h6>
-                                        <span class="text-white small">Islamic Scholar</span>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="course-item mb-4">
-                        <img class="course-image" src="assets/images/course/6.jpg" alt="title">
-                        <div class="course-overlay">
-                            <h4 class="mb-md-3"><a class='text-white' href='/single-course'>Surah Yaa'sin</a></h4>
-                            <div class="course-content">
-                                <div class="course-author"><img src="assets/images/author/1.jpg" alt="title">
-
-                                    <div class="info">
-                                        <h6 class="text-white mb-0">Ali Reza</h6>
-                                        <span class="text-white small">Islamic Scholar</span>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-        </div>
-    </div> -->
-
 
     <!--  ====================== Testimonial Area =============================  -->
 
@@ -652,10 +379,10 @@
                 </div>
                 <div class="col-sm-6 col-md-4">
                     <div class="counter-item my-3">
-                        <div class="counter-icon"> <img src="assets/images/service-icon2.png" alt="title"></div>
+                        <div class="counter-icon"> <img src="<?= base_url('frontend/assets/images/service-icon2.png') ?>" alt="title"></div>
                         <div class="counter-content">
-                            <h2 data-aos="fade-up" class="h1 text-white"><span class="counter-number">100</span></h2>
-                            <h5 class="m-0 text-white">Inspirational Khuthba</h5>
+                            <h2 data-aos="fade-up" class="h1 text-white"><span class="counter-number"><?= $jumlah_video ?></span></h2>
+                            <h5 class="m-0 text-white">Nurul Ilmi TV</h5>
                         </div>
                     </div>
                 </div>
@@ -677,70 +404,34 @@
     <div class="team-area py-lg-10 py-8">
         <div class="container">
             <div class="section-title text-center mb-4">
-                <span data-aos="fade-in" class="text-primary">You love them</span>
-                <h2 class="h1">Mimbar Jumat</h2>
+                <span data-aos="fade-in" class="text-primary">Imam Masjid</span>
+                <h2 class="h1">Imam Nurul Ilmi</h2>
             </div>
             <div class="row">
-                <div class="col-sm-6 col-lg-3">
+                <?php foreach($data_imam as $imam) : ?>
+                <div class="col-sm-6 col-lg-4">
                     <div class="team-item mt-4">
                         <div class="team-image">
                             <ul class="team-social list-inline">
                                 <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                                 <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
                                 <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            </ul><img src="<?= base_url('frontend/assets/images/scholar/1.jpg') ?>" alt="title">
+                            </ul>
+                            <?php if(!empty($imam->foto)) : ?>
+                            <img src="<?= base_url('upload/imam/'.$imam->foto) ?>" alt="<?= $imam->nama ?>">
+                            <?php else: ?>
+                            <img src="<?= base_url('upload/default.png') ?>" alt="Default">
+                            <?php endif; ?>
                         </div>
                         <div class="team-content">
-                            <h5>Nur Ahmad</h5>
-                            <span class="text-primary">PHD, AB University</span>
+                            <h5>Nama &nbsp;: <?= $imam->nama ?></h5>
+                            <span class="text-primary">Jabatan : <?= $imam->jabatan ?></span>
+                            <br>
+                            <span>Alamat &nbsp;: <?= $imam->alamat ?></span>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="team-item mt-4">
-                        <div class="team-image">
-                            <ul class="team-social list-inline">
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            </ul><img src="assets/images/scholar/5.jpg" alt="title">
-                        </div>
-                        <div class="team-content">
-                            <h5>Mir Ali</h5>
-                            <span class="text-primary">PHD, CD University</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="team-item mt-4">
-                        <div class="team-image">
-                            <ul class="team-social list-inline">
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            </ul><img src="assets/images/scholar/3.jpg" alt="title">
-                        </div>
-                        <div class="team-content">
-                            <h5>Robert N.</h5>
-                            <span class="text-primary">PHD, EF University</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="team-item mt-4">
-                        <div class="team-image">
-                            <ul class="team-social list-inline">
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            </ul><img src="assets/images/scholar/4.jpg" alt="title">
-                        </div>
-                        <div class="team-content">
-                            <h5>Jhon Doe</h5>
-                            <span class="text-primary">PHD, GH University</span>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
@@ -824,74 +515,90 @@
                 //     $('#detik').text(seconds);
                 // });
                 // Hitung jam mundur
-                var countdown = setInterval(function() {
-                    var currentTime = new Date();
-                    var time = data[0].jam.split(':');
-                    // var prayerTimeParts = prayerTime.split(":");
-                    var prayerDate = new Date();
-                    prayerDate.setHours(parseInt(time[0]));
-                    prayerDate.setMinutes(parseInt(time[1]));
-                    prayerDate.setSeconds(parseInt(time[2]));
+                countDownPrayerTime(data);
+                // var countdown = setInterval(function() {
 
-                    var timeDiff = prayerDate - currentTime;
+                //     var prayerTime = data[0].jam;
+                //     var time = prayerTime.split(':');
+                //     // var prayerTimeParts = prayerTime.split(":");
+                //     var prayerDate = new Date();
+                //     var currentTime = new Date();
+                //     prayerDate.setHours(parseInt(time[0]));
+                //     prayerDate.setMinutes(parseInt(time[1]));
+                //     prayerDate.setSeconds(parseInt(time[2]));
+
+                //     var timeDiff = prayerDate - currentTime;
+                //     var hours = Math.floor(timeDiff / (1000 * 60 * 60));
+                //     var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                //     var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+                //     // Tampilkan waktu shalat mundur
+                //     $('#jam').text(hours);
+                //     $('#menit').text(minutes);
+                //     $('#detik').text(seconds);
+
+                //     // Hentikan hitung mundur jika waktu shalat sudah lewat
+                //     if (timeDiff <= 0) {
+                //         clearInterval(countdown);
+                //         // Atur teks menjadi 0 jika waktu telah lewat
+                //         $('#jam').text('0');
+                //         $('#menit').text('0');
+                //         $('#detik').text('0');
+                //     }
+                // }, 1000);
+            }
+        });
+
+        function countDownPrayerTime(data) {
+            // Periksa apakah data waktu shalat tidak kosong
+            if (data.length > 0) {
+                // Ambil waktu shalat dari data yang diterima
+                var prayerTime = data[0].jam;
+
+                // Ubah waktu shalat menjadi objek Date
+                var prayerDate = new Date();
+                var timeParts = prayerTime.split(':');
+                prayerDate.setHours(parseInt(timeParts[0]));
+                prayerDate.setMinutes(parseInt(timeParts[1]));
+                prayerDate.setSeconds(parseInt(timeParts[2]));
+
+                // Hitung perbedaan waktu antara sekarang dan waktu shalat
+                var timeDiff = prayerDate - new Date();
+
+                // Mulai hitung mundur
+                var countdown = setInterval(function() {
+                    // Hitung sisa waktu dalam jam, menit, dan detik
                     var hours = Math.floor(timeDiff / (1000 * 60 * 60));
                     var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
                     var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-                    // Tampilkan waktu shalat mundur
+                    // Tampilkan sisa waktu pada elemen HTML dengan id tertentu
                     $('#jam').text(hours);
                     $('#menit').text(minutes);
                     $('#detik').text(seconds);
 
-                    // Hentikan hitung mundur jika waktu shalat sudah lewat
-                    if (timeDiff <= 0) {
+                    // Kurangi sisa waktu dengan interval 1 detik
+                    timeDiff -= 1000;
+
+                    // Hentikan hitung mundur jika waktu shalat telah lewat
+                    if (timeDiff < 0) {
                         clearInterval(countdown);
+                        // Atur teks menjadi 0 jika waktu telah lewat
+                        $('#jam').text('0');
+                        $('#menit').text('0');
+                        $('#detik').text('0');
                     }
                 }, 1000);
+            } else {
+                // Tampilkan pesan bahwa tidak ada data waktu shalat yang ditemukan
+                console.log('Tidak ada data waktu shalat yang ditemukan.');
             }
-        });
-        // Fungsi untuk menghitung mundur waktu shalat
-        function countDownPrayerTime(prayer_time) {
-            var countdown = setInterval(function() {
-                var currentTime = new Date();
-                var prayerTimeParts = prayer_time.split(":");
-                var prayerDate = new Date();
-                prayerDate.setHours(parseInt(prayerTimeParts[0]));
-                prayerDate.setMinutes(parseInt(prayerTimeParts[1]));
-                prayerDate.setSeconds(parseInt(prayerTimeParts[2]));
-
-                var timeDiff = prayerDate - currentTime;
-                var hours = Math.floor(timeDiff / (1000 * 60 * 60));
-                var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-
-                // Tampilkan waktu shalat mundur
-                $('#jam').text(hours);
-                $('#menit').text(minutes);
-                $('#detik').text(seconds);
-
-                // Hentikan hitung mundur jika waktu shalat sudah lewat
-                if (timeDiff <= 0) {
-                    clearInterval(countdown);
-                }
-            }, 1000);
         }
 
     })
     </script>
 
     <!-- endgulp -->
-    <script type="text/javascript">
-    window.$crisp = [];
-    window.CRISP_WEBSITE_ID = "0fb3e5b5-1038-45e7-a153-173d144eee90";
-    (function() {
-        d = document;
-        s = d.createElement("script");
-        s.src = "https://client.crisp.chat/l.js";
-        s.async = 1;
-        d.getElementsByTagName("head")[0].appendChild(s);
-    })();
-    </script>
 </body>
 
 </html>

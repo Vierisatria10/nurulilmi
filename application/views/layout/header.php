@@ -27,67 +27,71 @@
      <nav class="container">
          <div class="header-navbar navbar navbar-expand-lg">
              <?php foreach($data_setting as $setting) : ?>
-             <a class='navbar-brand' href='<?= base_url() ?>'><img
+             <a class='navbar-brand' target="_blank" href="<?= base_url('upload/setting/'.$setting->logo) ?>"><img
                      src="<?= base_url('upload/setting/'.$setting->logo) ?>" alt="images"></a>
              <?php endforeach; ?>
              <div class="collapse navbar-collapse" id="navbar-menu">
                  <nav class="navbar-meanmenu">
                      <ul class="navbar-nav ms-auto">
-                         <li class="nav-item"> <a class='nav-link' href='<?= base_url('home') ?>'>Home</a></li>
+                         <li class="nav-item"> <a class='nav-link' href="<?= base_url('home') ?>">Home</a></li>
                          <li class="nav-item">
                              <a class='nav-link toogler' href='#'> Profil </a>
                              <ul class="dropdown-menu">
-                                 <li><a class='dropdown-item' href='<?= base_url('visimisi') ?>'>Visi & Misi</a>
+                                 <li><a class='dropdown-item' href="<?= base_url('visimisi') ?>">Visi & Misi</a>
                                  </li>
-                                 <li><a class='dropdown-item' href='<?= base_url('sejarah') ?>'>Sejarah</a></li>
-                                 <li><a class='dropdown-item' href='<?= base_url('pimpinan') ?>'>Pimpinan</a>
+                                 <li><a class='dropdown-item' href="<?= base_url('sejarah') ?>">Sejarah</a></li>
+                                 <li><a class='dropdown-item' href="<?= base_url('pimpinan') ?>">Pengurus Umum</a>
                                  </li>
-                                 <li><a class='dropdown-item' href='<?= base_url('imam') ?>'>Imam dan Muadzin</a>
+                                 <li><a class='dropdown-item' href="<?= base_url('imam') ?>">Imam dan Muadzin</a>
+                                 </li>
+                                 <li><a class='dropdown-item' href="<?= base_url('struktur') ?>">Struktur Organisasi</a>
                                  </li>
                              </ul>
                          </li>
                          <li class="nav-item">
-                             <a class='nav-link toogler' href='#' id="bidang"> Bidang </a>
+                             <a class='nav-link toogler' href="#" id="bidang"> Bidang </a>
                              <ul class="dropdown-menu">
-                                 <li><a class='dropdown-item' href='#'>Ibadah dan
+                                 <li><a class='dropdown-item' href="#">Ibadah dan
                                          Dakwah</a>
                                  </li>
-                                 <li><a class='dropdown-item' href='#'>Baitul Mall dan
+                                 <li><a class='dropdown-item' href="#">Baitul Mall dan
                                          Sosial</a></li>
-                                 <li><a class='dropdown-item' href='#'>Kepemudaan</a>
+                                 <li><a class='dropdown-item' href="#">Kepemudaan</a>
                                  </li>
-                                 <li><a class='dropdown-item' href='#'>SDM dan
+                                 <li><a class='dropdown-item' href="#">SDM dan
                                          Pendidikan</a>
                                  </li>
-                                 <li><a class='dropdown-item' href='#'>Umum dan
+                                 <li><a class='dropdown-item' href="#">Umum dan
                                          Kerumahtanggaan</a>
                                  </li>
-                                 <li><a class='dropdown-item' href='#'>Hubungan
+                                 <li><a class='dropdown-item' href="#">Hubungan
                                          Masyarakat</a>
                                  </li>
-                                 <li><a class='dropdown-item' href='#'>Keamanan
+                                 <li><a class='dropdown-item' href="#">Keamanan
                                          dan Ketertiban</a>
                                  </li>
                              </ul>
                          </li>
                          <li class="nav-item"> <a class='nav-link'
                                  href='<?= base_url('blog/kategori/berita') ?>'>Berita</a></li>
-                         <li class="nav-item"> <a class='nav-link' href='<?= base_url('blog') ?>'>Artikel</a>
+                         <li class="nav-item"> <a class='nav-link' href="<?= base_url('blog') ?>">Artikel</a>
                          </li>
-                         <li class="nav-item"> <a class='nav-link' href='<?= base_url('agenda') ?>'>Agenda</a>
+                         <li class="nav-item"> <a class='nav-link' href="<?= base_url('agenda') ?>">Agenda</a>
                          </li>
 
 
-                         <li class="nav-item"> <a class='nav-link' href='<?= base_url('video') ?>'>Nurul Ilmi
+                         <li class="nav-item"> <a class='nav-link' href="<?= base_url('video') ?>">Nurul Ilmi
                                  TV</a></li>
-                         <li class="nav-item"> <a class='nav-link' href='<?= base_url('download') ?>'>Download</a></li>
-                         <li class="nav-item"> <a class='nav-link' href='<?= base_url('kontak') ?>'>Kontak</a>
+                         <li class="nav-item"> <a class='nav-link' href="<?= base_url('download') ?>">Download</a></li>
+                         <li class="nav-item"> <a class='nav-link' href="<?= base_url('galeri') ?>">Galeri</a></li>
+
+                         <li class="nav-item"> <a class='nav-link' href="<?= base_url('kontak') ?>">Kontak</a>
                          </li>
                      </ul>
                  </nav>
                  <ul class="navbar-nav align-items-center ms-auto">
                      <li class="nav-item">
-                         <a class='nav-link me-4' href='#' id="donate">Donate Now</a>
+                         <a class='nav-link me-4' href="#" id="donate">Donate Now</a>
                      </li>
                  </ul>
              </div>

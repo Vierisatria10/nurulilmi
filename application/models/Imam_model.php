@@ -15,6 +15,15 @@ class Imam_model extends CI_Model {
         // return $this->db->insert_id();
     }
 
+    public function get_data_imam()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_imam');
+        $this->db->limit(3);
+        $query = $this->db->get()->result();
+        return $query;
+    }
+
     public function get_imam_detail($id_imam)
 	{
 		return $this->db->get_where($this->table, ['id_imam' => $id_imam])->row();

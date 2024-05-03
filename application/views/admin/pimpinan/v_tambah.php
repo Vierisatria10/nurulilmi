@@ -34,7 +34,7 @@
             <!-- /.card -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Add Pimpinan</h3>
+                    <h3 class="card-title">Add Pengurus</h3>
                     <div class="d-flex justify-content-end">
                         <a href="<?= base_url('admin/pimpinan') ?>" class="btn btn-info btn-sm"><i
                                 class="fas fa-backward"></i> Kembali</a>
@@ -97,6 +97,14 @@
                                     <input name="link3" id="link3" type="text" placeholder="https://instagram.com"
                                         value="-" class="form-control">
                                     <small class="text-danger">*Tidak Wajib Diisi</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="">Alamat</label>
+                                    <input type="text" name="alamat" id="alamat" class="form-control">
                                 </div>
                             </div>
                         </div>

@@ -79,16 +79,16 @@
                     <div class="col-md-3 col-lg-3 mb-2">
                         <div class="blog-style mt-4">
                             <div class="blog-image">
-                                <iframe src="//www.youtube.com/embed/RtC-HZkhtq0" width="100%" height="auto"
+                                <iframe src="<?= $video->link ?>" width="100%" height="auto"
                                     frameborder="0" allowfullscreen></iframe>
                             </div>
                             <div class="blog-content">
-                                <h5 class="mb-0"><a href='<?= base_url($video->link ) ?>'><?= $video->judul ?></a>
+                                <h5 class="mb-0"><a href="<?= $video->link ?>"><?= $video->judul ?></a>
                                 </h5>
-                                <h5><a href='<?= base_url($video->link ) ?>'></a>
+                                <h5><a href="<?= $video->link ?>" target="_blank"></a>
                                 </h5>
                                 <a
-                                    href='<?= base_url("video/kategori_video/".$video->slug) ?>'><?= $video->nama_video ?></a>
+                                    href="<?= base_url("video/kategori_video/".$video->slug) ?>"><?= $video->nama_video ?></a>
                             </div>
                         </div>
                     </div>
@@ -175,17 +175,6 @@
     });
     </script>
     <!-- endgulp -->
-    <script type="text/javascript">
-    window.$crisp = [];
-    window.CRISP_WEBSITE_ID = "0fb3e5b5-1038-45e7-a153-173d144eee90";
-    (function() {
-        d = document;
-        s = d.createElement("script");
-        s.src = "https://client.crisp.chat/l.js";
-        s.async = 1;
-        d.getElementsByTagName("head")[0].appendChild(s);
-    })();
-    </script>
 </body>
 
 </html>

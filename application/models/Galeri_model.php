@@ -10,6 +10,14 @@ class Galeri_model extends CI_Model {
        return $this->db->get('tbl_galeri');
     }
 
+    public function getDataGaleri()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_galeri');
+        $query = $this->db->get()->result();
+        return $query;
+    }
+
     public function simpan_galeri($insert) {
         return $this->db->insert('tbl_galeri', $insert);
     }

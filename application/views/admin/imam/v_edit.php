@@ -99,6 +99,9 @@
                                     <input name="foto" id="foto" type="file" class="form-control">
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Link Instagram</label>
@@ -107,9 +110,13 @@
                                     <small class="text-danger">*Tidak Wajib Diisi</small>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <label for="">Alamat</label>
+                                <input type="text" name="alamat" id="alamat" value="<?= $imam->alamat ?>>" class="form-control">
+                            </div>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Update</button>
+                        <button type="submit" class="btn btn-green"><i class="fas fa-save"></i> Update</button>
                         <button type="reset" class="btn btn-danger">Reset</button>
                     </form>
 

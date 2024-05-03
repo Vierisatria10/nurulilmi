@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/') ?>plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="shortcut icon" href="<?= base_url('frontend/') ?>assets/images/logo.jpeg" type="images/x-icon" />
     <!-- Tempusdominus Bbootstrap 4 -->
     <link rel="stylesheet"
         href="<?= base_url('assets/') ?>plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
@@ -182,6 +183,13 @@
                                         <p>Imam & Muazin</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('admin/struktur') ?>"
+                                        class="nav-link <?= $menu == 'struktur' ? 'active' : '' ?>"">
+                                        <i class=" far fa-circle nav-icon"></i>
+                                        <p>Struktur Organisasi</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
@@ -288,6 +296,60 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="nav-item <?= $menu == 'bidang' ? 'has-treeview' : '' ?>">
+                            <a href="#" class="nav-link <?= $menu == 'bidang' ? 'active' : '' ?>">
+                                <i class="nav-icon fas fa-school"></i>
+                                <p>
+                                    Bidang
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?= base_url('admin/ibadahdakwah') ?>"
+                                        class="nav-link <?= $menu == 'ibadahdakwah' ? 'active' : '' ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Ibadah dan Dakwah</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('admin/baitulmal') ?>" class="nav-link <?= $menu == 'baitulmal' ? 'active' : '' ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Baitul Mall dan Sosial</p>   
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('admin/kepemudaan') ?>" class="nav-link <?= $menu == 'kepemudaan' ? 'active' : '' ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Kepemudaan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('admin/sdm') ?>" class="nav-link <?= $menu == 'sdm' ? 'active' : '' ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>SDM dan Pendidikan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/inline.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Umum & Kerumahtanggan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('admin/humas') ?>" class="nav-link <?= $menu == 'humas' ? 'active' : '' ?>">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Hubungan Masyarakat</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="pages/charts/inline.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Keamanan dan Ketertiban</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a href="<?= base_url('admin/download') ?>"
                                 class="nav-link <?= $menu == 'download' ? 'active' : '' ?>">
@@ -376,6 +438,13 @@
                                         class="nav-link <?= $menu == 'imam' ? 'active' : '' ?>"">
                                         <i class=" far fa-circle nav-icon"></i>
                                         <p>Imam & Muazin</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('pengurus/struktur') ?>"
+                                        class="nav-link <?= $menu == 'struktur' ? 'active' : '' ?>"">
+                                        <i class=" far fa-circle nav-icon"></i>
+                                        <p>Struktur Organisasi</p>
                                     </a>
                                 </li>
                             </ul>

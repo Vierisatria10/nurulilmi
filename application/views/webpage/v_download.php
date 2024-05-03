@@ -107,14 +107,6 @@ ul.icon-list {
         </div>
     </div>
 
-
-    <!-- Tombol Load More -->
-    <!-- <button id="load-more-btn">Load More</button> -->
-
-    <!-- Form Pencarian -->
-    <!-- <input type="text" id="search-keyword" placeholder="Search...">
-    <button id="search-btn">Search</button> -->
-
     <!--  ====================== Footer Area =============================  -->
     <?php $this->load->view('layout/footer') ?>
     <!-- gulp:js -->

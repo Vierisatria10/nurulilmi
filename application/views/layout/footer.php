@@ -5,9 +5,9 @@
                 <?php foreach($data_setting as $setting) : ?>
                 <div class="col-md-5 col-lg-4">
                     <div class="footer-widget my-4 me-md-4">
-                        <a href="#" class="footer-brand mb-4"><img
+                        <a href="<?= base_url('frontend/assets/images/logo.jpeg') ?>" class="footer-brand mb-4"><img
                                 src="<?= base_url('frontend/') ?>assets/images/logo.jpeg" alt="title"></a>
-                        <p class="text-white m-0" style="color: #fff !important;"><?= $setting->alamat ?> </p>
+                        <a href="#" class="text-white m-0" style="color: #fff !important;"><?= $setting->alamat ?> </a>
                     </div>
                 </div>
                 <?php endforeach; ?>
@@ -17,10 +17,10 @@
                             <div class="footer-widget my-3">
                                 <h4 class="mb-3 text-white">Pages</h4>
                                 <ul class="footer-list list-inline">
-                                    <li><a href='<?= base_url('profil') ?>'>Profil</a></li>
                                     <li><a href='<?= base_url('visimisi') ?>'>Visi Misi</a></li>
                                     <li><a href='<?= base_url('sejarah') ?>'>Sejarah</a></li>
                                     <li><a href='<?= base_url('imam') ?>'>Imam dan Muadzin</a></li>
+                                    <li><a href='<?= base_url('struktur') ?>'>Struktur Organisasi</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -28,9 +28,9 @@
                             <div class="footer-widget my-3">
                                 <h4 class="mb-3 text-white">Useful Link</h4>
                                 <ul class="footer-list list-inline">
-                                    <li><a href='/service-2'>Service</a></li>
-                                    <li><a href='/event'>Event</a></li>
-                                    <li><a href='/team'>Our Staff</a></li>
+                                    <li><a href="<?= base_url('video') ?>">Video</a></li>
+                                    <li><a href="<?= base_url('download') ?>">Download</a></li>
+                                    <li><a href="<?= base_url('galeri') ?>">Galeri</a></li>
                                 </ul>
                             </div>
                         </div>

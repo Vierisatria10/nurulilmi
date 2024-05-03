@@ -99,12 +99,21 @@
                                     <input name="foto" id="foto" type="file" class="form-control">
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="">Link Instagram</label>
                                     <input name="link3" id="link3" type="text" placeholder="https://instagram.com"
                                     value="<?= $pimpinan->link3 ?>" class="form-control">
                                     <small class="text-danger">*Tidak Wajib Diisi</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="">Alamat</label>
+                                    <input type="text" id="alamat" name="alamat" class="form-control" value="<?= $pimpinan->alamat ?>">
                                 </div>
                             </div>
                         </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Mar 2024 pada 09.39
+-- Waktu pembuatan: 03 Bulan Mei 2024 pada 10.48
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -20,6 +20,73 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_masjid`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `bidang_baitulmal`
+--
+
+CREATE TABLE `bidang_baitulmal` (
+  `id_baitul` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `jabatan` varchar(100) NOT NULL,
+  `foto` text NOT NULL,
+  `alamat` text NOT NULL,
+  `tanggal` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `bidang_baitulmal`
+--
+
+INSERT INTO `bidang_baitulmal` (`id_baitul`, `nama`, `jabatan`, `foto`, `alamat`, `tanggal`) VALUES
+(1, 'SUHAEMI, S.E', 'KABID BAITUL MAL', '4.jpg', 'BLOK F2 NO. 46 RT. 01/RW. 01', '2024-05-03 13:45:04');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `bidang_dakwah`
+--
+
+CREATE TABLE `bidang_dakwah` (
+  `id_dakwah` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `foto` text NOT NULL,
+  `jabatan` varchar(100) NOT NULL,
+  `alamat` text NOT NULL,
+  `tanggal` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `bidang_dakwah`
+--
+
+INSERT INTO `bidang_dakwah` (`id_dakwah`, `nama`, `foto`, `jabatan`, `alamat`, `tanggal`) VALUES
+(1, 'H. MAKMUN', '1.jpg', 'KABID IBDAK', 'BLOK A3 NO.21 RT. 07/RW. 01', '2024-05-03 12:34:39'),
+(2, 'BAIDURI E.', '3.jpg', 'ANGGOTA', 'BLOK F6 NO. 11 RT. 011/RW. 01', '2024-05-03 12:36:50');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `bidang_kepemudaan`
+--
+
+CREATE TABLE `bidang_kepemudaan` (
+  `id_pemuda` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `jabatan` varchar(100) NOT NULL,
+  `alamat` text NOT NULL,
+  `foto` text NOT NULL,
+  `tanggal` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `bidang_kepemudaan`
+--
+
+INSERT INTO `bidang_kepemudaan` (`id_pemuda`, `nama`, `jabatan`, `alamat`, `foto`, `tanggal`) VALUES
+(1, 'PARYOKO', 'KABID PEMUDA', 'BLOK G9 NO. 22 RT. 01/RW. 03', '5.jpg', '2024-05-03 14:26:52');
 
 -- --------------------------------------------------------
 
@@ -74,7 +141,7 @@ CREATE TABLE `tbl_artikel` (
 
 INSERT INTO `tbl_artikel` (`id_artikel`, `id_kategori`, `judul`, `deskripsi`, `gambar`, `slug`, `tanggal_dibuat`, `status`, `user`) VALUES
 (1, 2, 'Hikmah: Rajab Bulan Yang Istimewa 2', '<p>“<strong>Allahumma barik lana fi rajaba wa sya\'bana, wa ballighna Ramadlana</strong>”. Ya Allah, berkahilah kami pada bulan Rajab dan bulan Sya\'ban, dan pertemukanlah kami dengan bulan Ramadlan.</p><p>Rajab secara makna artinya keagungan atau mulia. Rajab berasal dari lafaz tarjib yang artinya ‘mengagungkan’ atau ‘memuliakan’ (ta\'zhim). Dalam al-Quran bulan Rajab termasuk sebagai Asyhurul Hurum atau empat dari bulan-bulan yang dihormati.</p><p>Empat bulan tersebut dijelaskan dalam QS. At-Taubah [9] ayat 36 “... di antaranya ada empat (bulan) yang haram (yang disucikan), itulah ketetapan agama yang lurus maka janganlah kamu menganiaya diri kamu dalam bulan yang empat itu”. Juga dalam QS. Al-Baqarah [2] ayat 217, dan hadis Rasulullah mengurai nama-nama bulan dengan jelas “... tiga (bulan) berurutan yaitu Dzulqa’dah, Dzulhijjah dan Muharram. Sedangkan Rajab pertengahan antara Jumada (Tsaniyah) dan Sya’ban” (HR. Bukhari-Muslim).</p><p>Bulan-bulah Haram termasuk Rajab adalah bulan-bulan yang telah dimuliakan oleh Allah dan menjadikannya bulan-bulan yang harus dihormati. Di bulan ini kaum muslimin disarankan untuk meningkatkan amal kebaikan. Karena setiap kebaikan akan diganjar dengan pahala yang dilipatgandakan.</p><p>Tafsir QS. At-Taubah ayat 36, Imam Ibnu Katsir rahimahullah mengatakan bahwa sanksi berbuat dosa di bulan-bulan haram jauh lebih berat dibandingkan bulan-bulan lainnya, selain bulan suci Ramadhan. Sebaliknya, amal shalih di bulan-bulan haram pahalanya lebih besar dibandingkan di bulan lainnya, kecuali Ramadhan.</p><p>Bulan ini juga memiliki banyak penamaan lain diantaranya dinamai dengan ‘al-Ashab’, karena rahmat tercurah pada bulan HIKMAH Rajab Bulan Yang Istimewa Oleh : Alfaqir Ahmad Mulyadi itu yakni bulan kucuran rahmat bagi hamba-hamba Allah yang bertaubat di dalamnya. ‘As-Asham’ karena tidak mendengar bunyi senjata tajam pada bulan itu, karena dilarang menganiaya diri sendiri termasuk diantaranya berperang di bulan-bulan haram.</p><p>Rajab sebagai bulan mustajab. Karena do’a munajat seorang yang beriman di malam awal Rajab dikabulkan oleh Allah subhanahu wata\'ala yang termasuk salah satu dari 5 (lima) malam lainnya yang mustajab. Sebagaimana Imam Syafi’i mengatakan (dalam Al-Um) : “Telah sampai berita pada kami bahwa dulu pernah dikatakan: Sesungguhnya doa dikabulkan pada 5 (lima) malam: malam Jumat, malam Idul Adha, malam Idul Fitri, malam pertama bulan Rajab, dan malam Nisfu Syaban”.</p><p>Bulan ini adalah bulan yang penuh dengan keutamaan, maka Syekh Abdul Qadir Jailani mengatakan (dalam Al-Gunyah/W.561 H): “Telah dikhususkan pada bulan Rajab dengan limpahan ampunan dari Allah, pada bulan Syaban dengan syafaat, pada bulan Ramadhan dengan ganjaran pahala yang berlipat, pada malam lailatul qadar dengan limpahan rahmat yang diturunkan, pada hari ‘Arafah dengan kesempurnaan agama, pada hari Jum’at dengan dikabulkannya do’a para pemohon, pada hari raya (Ied) dengan pembebasan dari api neraka serta pembebasan budak-budak muslim.”</p><p>Dan Imam Abdul Hamid Al-Makki mengatakan (dalam Kanzun Najahi Wa As-Surur): “Rajab adalah bulan ampunan, Sya’ban adalah bulan shalawat kepada Nabi pilihan shallallahu ‘alaihi wasallam, Ramadhan adalah bulannya Al-Qur’an.</p><p>Maka bersungguh-sungguhlah di bulan Rajab yang merupakan bulan waktunya berniaga maka gunakan kesempatan di dalamnya dengan sebaik-baiknya, ia sebagai waktu yang penuh kemakmuran maka selayaknya bagi para peniaga inilah waktu terbaik (meraup keuntungan) waktunya telah masuk, dan bagi orang yang sakit karena beban kedustaan maka inilah bulan yang membawa obatobat penyembuhan.” Wa Allahu A’lamu bis shawab.</p>', 'foto_artikel.jpeg', 'Hikmah-Rajab-Bulan-Yang-Istimewa', '2024-02-25', 1, 'Admin'),
-(2, 3, 'Kajian Zuhur Masjid Nurul Ilmi : Mengenal Bughat', '<p>Kajian Zuhur testing</p>', 'IMG_5439.jpeg', 'Kajian-zuhur-Masjid-Nurul-Ilmi:Mengenal-Bughat', '2024-02-28', 1, 'Admin');
+(2, 2, 'Kajian Zuhur Masjid Nurul Ilmi : Mengenal Bughat', '<p>Kajian Zuhur testing</p>', 'IMG_5439.jpeg', 'Kajian-zuhur-Masjid-Nurul-Ilmi:Mengenal-Bughat', '2024-02-28', 1, 'Admin');
 
 -- --------------------------------------------------------
 
@@ -111,18 +178,6 @@ CREATE TABLE `tbl_galeri` (
   `token` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `tbl_galeri`
---
-
-INSERT INTO `tbl_galeri` (`galeri_id`, `galeri_nama`, `galeri_foto`, `galeri_user`, `token`) VALUES
-(1, 'test', 'briefcase.jpg', 'Admin', '0.42056171988363955'),
-(2, 'test 3', 'Dashboard_Nurul_Iilmi.JPG', 'Admin', '0.9534919578589407'),
-(3, '', 'Form_karyawan_pt_talenta.JPG', 'Admin', '0.8562565168868814'),
-(4, '', 'Foto_Diri.jpeg', 'Admin', '0.8935020917983123'),
-(5, '', 'aqua.jpg', 'Admin', '0.015800602624124416'),
-(6, 'gambar 6', 'background-undangan-kosongan.png', 'Admin', '0.3708716025394454');
-
 -- --------------------------------------------------------
 
 --
@@ -137,17 +192,18 @@ CREATE TABLE `tbl_imam` (
   `link1` text NOT NULL,
   `link2` text NOT NULL,
   `link3` text NOT NULL,
-  `tanggal` timestamp NOT NULL DEFAULT current_timestamp()
+  `tanggal` timestamp NOT NULL DEFAULT current_timestamp(),
+  `alamat` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `tbl_imam`
 --
 
-INSERT INTO `tbl_imam` (`id_imam`, `nama`, `jabatan`, `foto`, `link1`, `link2`, `link3`, `tanggal`) VALUES
-(1, 'Vieri Satria Ardiansyah S.Kom 2', 'Ketua Bidang IT', '1.jpg', '', '', '', '2024-02-13 03:44:27'),
-(3, 'Aldo Alfayyad S.Pd', 'Imam Masjid', '5.jpg', '-', '-', '-', '2024-02-13 04:01:59'),
-(4, 'test', 'IT', '', '-', '-', '-', '2024-02-13 04:05:59');
+INSERT INTO `tbl_imam` (`id_imam`, `nama`, `jabatan`, `foto`, `link1`, `link2`, `link3`, `tanggal`, `alamat`) VALUES
+(1, 'USTADZ CARMIN', 'IMAM TETAP', '1.jpg', '', '', '', '2024-02-13 03:44:27', 'BLOK G9 NO. 44 RT. 01/RW. 03'),
+(2, 'A.SYAUGI, S.Pd,i', 'IMAM 1', '5.jpg', '-', '-', '-', '2024-02-13 04:01:59', 'BLOK F6 NO. 29 RT. 011/RW. 01'),
+(3, 'UST. OMAN A.', 'IMAM 2', '5.jpg', '-', '-', '-', '2024-02-13 04:05:59', 'BLOK A6 NO. 11 RT. 07/RW. 01');
 
 -- --------------------------------------------------------
 
@@ -167,11 +223,11 @@ CREATE TABLE `tbl_jadwal` (
 --
 
 INSERT INTO `tbl_jadwal` (`id_jadwal`, `waktu_shalat`, `jam`, `status`) VALUES
-(1, 'Ashar', '15:13:00', 1),
-(2, 'Maghrib', '18:15:00', 1),
+(1, 'Ashar', '15:15:00', 1),
+(2, 'Maghrib', '17:51:00', 1),
 (3, 'Isya', '19:24:00', 1),
-(4, 'Dzuhur', '12:09:00', 1),
-(5, 'Subuh', '04:44:00', 1),
+(4, 'Dzuhur', '23:55:00', 1),
+(5, 'Subuh', '04:40:00', 1),
 (6, 'Imsak', '04:34:00', 1),
 (7, 'Dhuha', '06:24:00', 1);
 
@@ -221,7 +277,8 @@ INSERT INTO `tbl_kategori_video` (`id_kat_video`, `nama_video`, `slug`, `tanggal
 (2, 'Webinar', 'webinar', '2024-02-22 23:07:53'),
 (4, 'Kajian Ihyan Ulumuddin', 'kajian-ihyan-ulumuddin', '2024-02-23 00:31:39'),
 (5, 'Kegiatan Masjid Nurul Ilmi', 'kegiatan-masjid-nurul-ilmi', '2024-02-23 17:14:08'),
-(6, 'Kultum Ramadhan', 'kultum-ramadhan', '2024-02-23 17:14:35');
+(6, 'Kultum Ramadhan', 'kultum-ramadhan', '2024-02-23 17:14:35'),
+(7, 'Umum', 'Umum', '2024-05-02 19:07:03');
 
 -- --------------------------------------------------------
 
@@ -258,6 +315,7 @@ CREATE TABLE `tbl_pimpinan` (
   `link1` text NOT NULL,
   `link2` text NOT NULL,
   `link3` text NOT NULL,
+  `alamat` text NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -265,9 +323,9 @@ CREATE TABLE `tbl_pimpinan` (
 -- Dumping data untuk tabel `tbl_pimpinan`
 --
 
-INSERT INTO `tbl_pimpinan` (`id_pimpinan`, `nama`, `jabatan`, `foto`, `link1`, `link2`, `link3`, `tanggal`) VALUES
-(1, 'Gahry Rafi 1', 'Mahasiswa', '4.jpg', 'https://facebook.com/', '-', '-', '2024-02-13 03:50:42'),
-(3, 'test', 'Ketua Bidang IT 2', '', '-', '-', '-', '2024-02-13 04:12:45');
+INSERT INTO `tbl_pimpinan` (`id_pimpinan`, `nama`, `jabatan`, `foto`, `link1`, `link2`, `link3`, `alamat`, `tanggal`) VALUES
+(1, 'Waryudi', 'Pengurus DKM', '4.jpg', 'https://facebook.com/', '-', '-', 'BLOK G4 No.29 RT.02/RW.03', '2024-02-13 03:50:42'),
+(3, 'test', 'Ketua Bidang IT 2', '', '-', '-', '-', '', '2024-02-13 04:12:45');
 
 -- --------------------------------------------------------
 
@@ -325,7 +383,26 @@ CREATE TABLE `tbl_setting` (
 --
 
 INSERT INTO `tbl_setting` (`id_setting`, `id_jadwal`, `nama_masjid`, `alamat`, `no_hp`, `link_alamat`, `email`, `logo`, `banner1`, `banner2`, `banner3`, `judul1`, `judul2`, `judul3`, `sosmed1`, `sosmed2`, `sosmed3`, `ayat_quran`, `artinya`, `surah`) VALUES
-(1, 2, 'Nurul Ilmi', '<p>Jl. Raya Serang, Talaga, Kec. Cikupa, Kabupaten Tangerang, Banten 15710</p>', '087781581583', '', 'nurulilmi@gmail.com', 'logo.jpeg', '1.jpg', '2.jpg', '3.jpg', 'Judul 1', 'judul 2', 'judul 3', 'https://facebook.com/', 'https://instagram.com/', 'https://youtube.com/', 'وَلَا تَقْرَبُوا الزِّنٰىٓ اِنَّهٗ كَانَ فَاحِشَةًۗ وَسَاۤءَ سَبِيْلًا', 'Janganlah kamu mendekati zina. Sesungguhnya (zina) itu adalah perbuatan keji dan jalan terburuk.', 'Al-Isra\', Ayat 32');
+(1, 3, 'Nurul Ilmi', '<p>Jl. Raya Serang, Talaga, Kec. Cikupa, Kabupaten Tangerang, Banten 15710</p>', '087781581583', '', 'nurulilmi@gmail.com', 'logo.jpeg', 'bg1.jpeg', 'bg2.jpeg', 'bg3.jpeg', 'Judul 1', 'judul 2', 'judul 3', 'https://facebook.com/', 'https://instagram.com/', 'https://youtube.com/', 'وَلَا تَقْرَبُوا الزِّنٰىٓ اِنَّهٗ كَانَ فَاحِشَةًۗ وَسَاۤءَ سَبِيْلًا', 'Janganlah kamu mendekati zina. Sesungguhnya (zina) itu adalah perbuatan keji dan jalan terburuk.', 'Al-Isra\', Ayat 32');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_struktur_organisasi`
+--
+
+CREATE TABLE `tbl_struktur_organisasi` (
+  `id_struktur` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `foto` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_struktur_organisasi`
+--
+
+INSERT INTO `tbl_struktur_organisasi` (`id_struktur`, `nama`, `foto`) VALUES
+(1, 'STRUKTUR ORGANISASI DEWAN KEMAKMURAN MASJID NURUL ILMI', 'struktur.jpg');
 
 -- --------------------------------------------------------
 
@@ -370,8 +447,8 @@ CREATE TABLE `tbl_video` (
 --
 
 INSERT INTO `tbl_video` (`id_video`, `id_kat_video`, `judul`, `link`) VALUES
-(1, 1, 'Hakekat Muraqabah', 'https://www.youtube.com/live/Qp9D6LgLbSI?si=BXgOj3gTMYsiHDVR'),
-(2, 4, 'MAKNA SABAR', 'https://www.youtube.com/live/RtC-HZkhtq0?si=YlDqX9H9z1sKxVCD'),
+(1, 7, 'Gerakan Masjid Bersih DKM Nurul Ilmi', 'https://www.youtube.com/embed/T13QoQcqtM8?si=6HOC2fRGbz3GzSPa'),
+(2, 7, 'PEMBANGUNAN TPQ DKM NURUL ILMI TB', 'https://www.youtube.com/embed/7HvB1uFDaOg?si=SEeXG8a42EzN3AUm'),
 (3, 4, 'DOSA-DOSA BESAR', 'https://www.youtube.com/live/-lFCnSNhm1I?si=lja10yB3rh4Zgfcc');
 
 -- --------------------------------------------------------
@@ -397,6 +474,24 @@ INSERT INTO `tbl_visimisi` (`id_visi`, `visi`, `misi`, `tanggal`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indeks untuk tabel `bidang_baitulmal`
+--
+ALTER TABLE `bidang_baitulmal`
+  ADD PRIMARY KEY (`id_baitul`);
+
+--
+-- Indeks untuk tabel `bidang_dakwah`
+--
+ALTER TABLE `bidang_dakwah`
+  ADD PRIMARY KEY (`id_dakwah`);
+
+--
+-- Indeks untuk tabel `bidang_kepemudaan`
+--
+ALTER TABLE `bidang_kepemudaan`
+  ADD PRIMARY KEY (`id_pemuda`);
 
 --
 -- Indeks untuk tabel `tbl_agenda`
@@ -473,6 +568,12 @@ ALTER TABLE `tbl_setting`
   ADD KEY `id_jadwal` (`id_jadwal`);
 
 --
+-- Indeks untuk tabel `tbl_struktur_organisasi`
+--
+ALTER TABLE `tbl_struktur_organisasi`
+  ADD PRIMARY KEY (`id_struktur`);
+
+--
 -- Indeks untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
@@ -496,6 +597,24 @@ ALTER TABLE `tbl_visimisi`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `bidang_baitulmal`
+--
+ALTER TABLE `bidang_baitulmal`
+  MODIFY `id_baitul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `bidang_dakwah`
+--
+ALTER TABLE `bidang_dakwah`
+  MODIFY `id_dakwah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `bidang_kepemudaan`
+--
+ALTER TABLE `bidang_kepemudaan`
+  MODIFY `id_pemuda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT untuk tabel `tbl_agenda`
 --
 ALTER TABLE `tbl_agenda`
@@ -517,7 +636,7 @@ ALTER TABLE `tbl_download`
 -- AUTO_INCREMENT untuk tabel `tbl_galeri`
 --
 ALTER TABLE `tbl_galeri`
-  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_imam`
@@ -541,7 +660,7 @@ ALTER TABLE `tbl_kategori_artikel`
 -- AUTO_INCREMENT untuk tabel `tbl_kategori_video`
 --
 ALTER TABLE `tbl_kategori_video`
-  MODIFY `id_kat_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_kat_video` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_kontak`
@@ -566,6 +685,12 @@ ALTER TABLE `tbl_sejarah`
 --
 ALTER TABLE `tbl_setting`
   MODIFY `id_setting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_struktur_organisasi`
+--
+ALTER TABLE `tbl_struktur_organisasi`
+  MODIFY `id_struktur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_user`

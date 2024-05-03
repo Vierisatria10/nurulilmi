@@ -12,6 +12,8 @@ class Home extends CI_Controller {
         $this->load->model('Agenda_model', 'agenda');
         $this->load->model('Sejarah_model', 'sejarah');
         $this->load->model('Pimpinan_model', 'pimpinan');
+        $this->load->model('Video_model', 'video');
+        $this->load->model('Imam_model', 'imam');
 
     }
 
@@ -26,7 +28,9 @@ class Home extends CI_Controller {
             'data_jadwal' => $this->jadwal->getDataJadwalDetail(),
             'jumlah_agenda' => $this->agenda->count_agenda(),
             'jumlah_pengurus' => $this->pimpinan->count_pengurus(),
+            'jumlah_video' => $this->video->count_video(),
             'data_sejarah' => $this->sejarah->getDataSejarah(),
+            'data_imam'    => $this->imam->get_data_imam(),
             'data_setting' => $this->setting->getDataSetting()
 
         ];
@@ -40,6 +44,8 @@ class Home extends CI_Controller {
         // $data['prayer_time'] = $prayer_time;
         // Kembalikan waktu shalat dalam format yang sesuai (misalnya, dalam format JSON)
         // var_dump($data);exit;
+         // Kembalikan waktu shalat dalam format JSON
+        header('Content-Type: application/json'); // Set header sebagai JSON
         echo json_encode($data);
     }
 }
