@@ -22,6 +22,12 @@ class Galeri_model extends CI_Model {
         return $this->db->insert('tbl_galeri', $insert);
     }
 
+    public function update_galeri($id, $data)
+    {
+        $this->db->where('galeri_id', $id);
+		$this->db->update($this->table, $data);
+    }
+
     public function show_edit($koser)
     {
         $this->db->where('galeri_id', $koser);

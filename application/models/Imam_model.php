@@ -19,7 +19,7 @@ class Imam_model extends CI_Model {
     {
         $this->db->select('*');
         $this->db->from('tbl_imam');
-        $this->db->limit(3);
+        $this->db->limit(4);
         $query = $this->db->get()->result();
         return $query;
     }

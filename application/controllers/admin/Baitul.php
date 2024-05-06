@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class SDM extends CI_Controller {
+class Baitul extends CI_Controller {
 
     public function __construct()
 	{
@@ -16,13 +16,13 @@ class SDM extends CI_Controller {
 	public function index()
 	{
         $data = [
-            'judul' => 'SDM & Pendidikan',
-            'title' => 'SDM & Pendidikan - Masjid Nurul Ilmi',
-            'menu'  => 'sdm',
+            'judul' => 'Baitul Mal & Sosial',
+            'title' => 'Baitul Mal & Sosial - Masjid Nurul Ilmi',
+            'menu'  => 'baitul',
             'total_download' => $this->download->count_download(),
-            'data_sdm' => $this->bidang->getDataSDM()
+            'data_baitul' => $this->bidang->getDataBaitul()
         ];
-		$this->template->load('v_template_admin', 'admin/bidang/v_sdm', $data);
+		$this->template->load('v_template_admin', 'admin/bidang/v_baitul', $data);
 	}
 
     public function simpan_data()
@@ -33,13 +33,13 @@ class SDM extends CI_Controller {
        
         if ($this->form_validation->run() == FALSE) {
             $data = [
-                'judul' => 'Hubungan Masyarakat',
-                'title' => 'Hubungan Masyarakat - Masjid Nurul Ilmi',
-                'menu'  => 'humas',
+                'judul' => 'Baitul Mal & Sosial',
+                'title' => 'Baitul Mal & Sosial - Masjid Nurul Ilmi',
+                'menu'  => 'baitul',
                 'total_download' => $this->download->count_download(),
-                'data_sdm' => $this->bidang->getDataSDM()
+                'data_baitul' => $this->bidang->getDataBaitul()
             ];
-            $this->template->load('v_template_admin', 'admin/bidang/v_sdm', $data);
+            $this->template->load('v_template_admin', 'admin/bidang/v_baitul', $data);
         } else {
             $config['upload_path']          = './upload/bidang/';
             $config['allowed_types']        = 'gif|jpg|png|jpeg|JPG|JPEG';
@@ -52,7 +52,7 @@ class SDM extends CI_Controller {
             if (!$this->upload->do_upload('foto')) {
                 $error =$this->upload->display_errors();
                 $this->session->set_flashdata('error', $error);
-                redirect('admin/sdm');
+                redirect('admin/baitul');
             } else {
                 $save = [
                     'nama' => $this->input->post('nama'),
@@ -60,19 +60,19 @@ class SDM extends CI_Controller {
                     'alamat' => $this->input->post('alamat'),
                     'foto' => $this->upload->data('file_name')
                 ];
-                $result = $this->bidang->add_sdm($save);
+                $result = $this->bidang->add_baitul($save);
                 if ($result) {
-                   $this->session->set_flashdata('success', 'Data SDM & Pendidikan Berhasil di Simpan');
-                    redirect('admin/sdm');
+                   $this->session->set_flashdata('success', 'Data Baitul Mal & Sosial Berhasil di Simpan');
+                    redirect('admin/baitul');
                 }else {
-                    $this->session->set_flashdata('error', 'Data SDM & Pendidikan Gagal di Simpan');
-                    redirect('admin/sdm');
+                    $this->session->set_flashdata('error', 'Data Baitul Mal & Sosial Gagal di Simpan');
+                    redirect('admin/baitul');
                 }
             }  
         }
     }
 
-    public function update_data($id_sdm)
+    public function update_data($id_baitul)
     {
         $this->form_validation->set_rules('nama', 'Nama', 'trim|required',
             ['required' => 'Nama Wajib diisi']
@@ -109,29 +109,29 @@ class SDM extends CI_Controller {
                 'alamat' => $this->input->post('alamat'),
                 'foto' => $update_filename
             );
-                $this->bidang->update_sdm($id_sdm, $data);
-                $this->session->set_flashdata('update', 'Data SDM & Pendidikan Berhasil di Update');
-                redirect('admin/sdm');
+                $this->bidang->update_baitul($id_baitul, $data);
+                $this->session->set_flashdata('update', 'Data Baitul Mal & Sosial Berhasil di Update');
+                redirect('admin/baitul');
         }else{
             echo "Gagal Data Tidak ditemukan";
         }
     }
 
-    public function delete($id_sdm)
+    public function delete($id_baitul)
     {
-        $id_sdm = $this->input->post('id_sdm');
+        $id_baitul = $this->input->post('id_baitul');
         // $imam = new Imam_model;
-        if ($this->bidang->checkSDMImage($id_sdm)) {
-            $data = $this->bidang->checkSDMImage($id_sdm);
+        if ($this->bidang->checkBaitulImage($id_baitul)) {
+            $data = $this->bidang->checkBaitulImage($id_baitul);
             if (file_exists("./upload/bidang/".$data->foto)) {
                 unlink("./upload/bidang/".$data->foto);
             }
             $del = [
-                'id_sdm' => $id_sdm
+                'id_baitul' => $id_baitul
             ];
-            $this->bidang->deleteSDM($id_sdm, $del);
-            $this->session->set_flashdata('success', 'Data SDM & Pendidikan Berhasil di Hapus');
-            redirect('admin/sdm');
+            $this->bidang->deleteBaitul($id_baitul, $del);
+            $this->session->set_flashdata('success', 'Data Baitul Mal & Sosial Berhasil di Hapus');
+            redirect('admin/baitul');
         }
     }
 }

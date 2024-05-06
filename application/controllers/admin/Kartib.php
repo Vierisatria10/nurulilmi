@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class IbadahDakwah extends CI_Controller {
+class Kartib extends CI_Controller {
 
     public function __construct()
 	{
@@ -16,13 +16,13 @@ class IbadahDakwah extends CI_Controller {
 	public function index()
 	{
         $data = [
-            'judul' => 'Ibadah & Dakwah',
-            'title' => 'Ibadah & Dakwah - Masjid Nurul Ilmi',
-            'menu'  => 'ibadahdakwah',
+            'judul' => 'Keamanan & Ketertiban',
+            'title' => 'Keamanan & Ketertiban - Masjid Nurul Ilmi',
+            'menu'  => 'kartib',
             'total_download' => $this->download->count_download(),
-            'data_dakwah' => $this->bidang->getDataDakwah()
+            'data_kartib' => $this->bidang->getDataKartib()
         ];
-		$this->template->load('v_template_admin', 'admin/bidang/v_dakwah', $data);
+		$this->template->load('v_template_admin', 'admin/bidang/v_kartib', $data);
 	}
 
     public function simpan_data()
@@ -33,13 +33,13 @@ class IbadahDakwah extends CI_Controller {
        
         if ($this->form_validation->run() == FALSE) {
             $data = [
-                'judul' => 'Ibadah & Dakwah',
-                'title' => 'Ibadah & Dakwah - Masjid Nurul Ilmi',
-                'menu'  => 'ibadahdakwah',
+                'judul' => 'Keamanan & Ketertiban',
+                'title' => 'Keamanan & Ketertiban - Masjid Nurul Ilmi',
+                'menu'  => 'kartib',
                 'total_download' => $this->download->count_download(),
-                'data_dakwah' => $this->bidang->getDataDakwah()
+                'data_kartib' => $this->bidang->getDataKartib()
             ];
-            $this->template->load('v_template_admin', 'admin/bidang/v_dakwah', $data);
+            $this->template->load('v_template_admin', 'admin/bidang/v_kartib', $data);
         } else {
             $config['upload_path']          = './upload/bidang/';
             $config['allowed_types']        = 'gif|jpg|png|jpeg|JPG|JPEG';
@@ -52,7 +52,7 @@ class IbadahDakwah extends CI_Controller {
             if (!$this->upload->do_upload('foto')) {
                 $error =$this->upload->display_errors();
                 $this->session->set_flashdata('error', $error);
-                redirect('admin/ibadahdakwah');
+                redirect('admin/kartib');
             } else {
                 $save = [
                     'nama' => $this->input->post('nama'),
@@ -60,19 +60,19 @@ class IbadahDakwah extends CI_Controller {
                     'alamat' => $this->input->post('alamat'),
                     'foto' => $this->upload->data('file_name')
                 ];
-                $result = $this->bidang->add_dakwah($save);
+                $result = $this->bidang->add_kartib($save);
                 if ($result) {
-                   $this->session->set_flashdata('success', 'Data Ibadah & Dakwah Berhasil di Simpan');
-                    redirect('admin/ibadahdakwah');
+                   $this->session->set_flashdata('success', 'Data Keamanan & Ketertiban Berhasil di Simpan');
+                    redirect('admin/kartib');
                 }else {
-                    $this->session->set_flashdata('error', 'Data Ibadah & Dakwah Gagal di Simpan');
-                    redirect('admin/ibadahdakwah');
+                    $this->session->set_flashdata('error', 'Data Keamanan & Ketertiban Gagal di Simpan');
+                    redirect('admin/kartib');
                 }
             }  
         }
     }
 
-    public function update_data($id_dakwah)
+    public function update_data($id_kartib)
     {
         $this->form_validation->set_rules('nama', 'Nama', 'trim|required',
             ['required' => 'Nama Wajib diisi']
@@ -109,29 +109,29 @@ class IbadahDakwah extends CI_Controller {
                 'alamat' => $this->input->post('alamat'),
                 'foto' => $update_filename
             );
-                $this->bidang->update_dakwah($id_dakwah, $data);
-                $this->session->set_flashdata('update', 'Data Ibadah & Dakwah Berhasil di Update');
-                redirect('admin/ibadahdakwah');
+                $this->bidang->update_kartib($id_kartib, $data);
+                $this->session->set_flashdata('update', 'Data Keamanan & Ketertiban Berhasil di Update');
+                redirect('admin/kartib');
         }else{
             echo "Gagal Data Tidak ditemukan";
         }
     }
 
-    public function delete($id_dakwah)
+    public function delete($id_kartib)
     {
-        $id_dakwah = $this->input->post('id_dakwah');
+        $id_kartib = $this->input->post('id_kartib');
         // $imam = new Imam_model;
-        if ($this->bidang->checkDakwahImage($id_dakwah)) {
-            $data = $this->bidang->checkDakwahImage($id_dakwah);
+        if ($this->bidang->checkKartibImage($id_kartib)) {
+            $data = $this->bidang->checkKartibImage($id_kartib);
             if (file_exists("./upload/bidang/".$data->foto)) {
                 unlink("./upload/bidang/".$data->foto);
             }
             $del = [
-                'id_dakwah' => $id_dakwah
+                'id_kartib' => $id_kartib
             ];
-            $this->bidang->deleteDakwah($id_dakwah, $del);
-            $this->session->set_flashdata('success', 'Data Ibadah & Dakwah Berhasil di Hapus');
-            redirect('admin/ibadahdakwah');
+            $this->bidang->deleteKartib($id_kartib, $del);
+            $this->session->set_flashdata('success', 'Data Keamanan & Ketertiban Berhasil di Hapus');
+            redirect('admin/kartib');
         }
     }
 }

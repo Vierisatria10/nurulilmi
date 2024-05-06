@@ -112,7 +112,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="">Alamat</label>
-                                <input type="text" name="alamat" id="alamat" value="<?= $imam->alamat ?>>" class="form-control">
+                                <input type="text" name="alamat" id="alamat" value="<?= $imam->alamat ?>" class="form-control">
                             </div>
                         </div>
                         

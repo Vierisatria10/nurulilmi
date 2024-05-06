@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class BaitulMal extends CI_Controller {
+class Dakwah extends CI_Controller {
 
     public function __construct()
 	{
@@ -16,13 +16,13 @@ class BaitulMal extends CI_Controller {
 	public function index()
 	{
         $data = [
-            'judul' => 'Baitul Mal & Sosial',
-            'title' => 'Baitul Mal & Sosial - Masjid Nurul Ilmi',
-            'menu'  => 'baitulmal',
+            'judul' => 'Ibadah & Dakwah',
+            'title' => 'Ibadah & Dakwah - Masjid Nurul Ilmi',
+            'menu'  => 'dakwah',
             'total_download' => $this->download->count_download(),
-            'data_baitul' => $this->bidang->getDataBaitul()
+            'data_dakwah' => $this->bidang->getDataDakwah()
         ];
-		$this->template->load('v_template_admin', 'admin/bidang/v_baitul', $data);
+		$this->template->load('v_template_admin', 'admin/bidang/v_dakwah', $data);
 	}
 
     public function simpan_data()
@@ -33,13 +33,13 @@ class BaitulMal extends CI_Controller {
        
         if ($this->form_validation->run() == FALSE) {
             $data = [
-                'judul' => 'Baitul Mal & Sosial',
-                'title' => 'Baitul Mal & Sosial - Masjid Nurul Ilmi',
-                'menu'  => 'baitulmal',
+                'judul' => 'Ibadah & Dakwah',
+                'title' => 'Ibadah & Dakwah - Masjid Nurul Ilmi',
+                'menu'  => 'dakwah',
                 'total_download' => $this->download->count_download(),
-                'data_baitul' => $this->bidang->getDataBaitul()
+                'data_dakwah' => $this->bidang->getDataDakwah()
             ];
-            $this->template->load('v_template_admin', 'admin/bidang/v_baitul', $data);
+            $this->template->load('v_template_admin', 'admin/bidang/v_dakwah', $data);
         } else {
             $config['upload_path']          = './upload/bidang/';
             $config['allowed_types']        = 'gif|jpg|png|jpeg|JPG|JPEG';
@@ -52,7 +52,7 @@ class BaitulMal extends CI_Controller {
             if (!$this->upload->do_upload('foto')) {
                 $error =$this->upload->display_errors();
                 $this->session->set_flashdata('error', $error);
-                redirect('admin/baitulmal');
+                redirect('admin/dakwah');
             } else {
                 $save = [
                     'nama' => $this->input->post('nama'),
@@ -60,19 +60,19 @@ class BaitulMal extends CI_Controller {
                     'alamat' => $this->input->post('alamat'),
                     'foto' => $this->upload->data('file_name')
                 ];
-                $result = $this->bidang->add_baitul($save);
+                $result = $this->bidang->add_dakwah($save);
                 if ($result) {
-                   $this->session->set_flashdata('success', 'Data Baitul Mal & Sosial Berhasil di Simpan');
-                    redirect('admin/baitulmal');
+                   $this->session->set_flashdata('success', 'Data Ibadah & Dakwah Berhasil di Simpan');
+                    redirect('admin/dakwah');
                 }else {
-                    $this->session->set_flashdata('error', 'Data Baitul Mal & Sosial Gagal di Simpan');
-                    redirect('admin/baitulmal');
+                    $this->session->set_flashdata('error', 'Data Ibadah & Dakwah Gagal di Simpan');
+                    redirect('admin/dakwah');
                 }
             }  
         }
     }
 
-    public function update_data($id_baitul)
+    public function update_data($id_dakwah)
     {
         $this->form_validation->set_rules('nama', 'Nama', 'trim|required',
             ['required' => 'Nama Wajib diisi']
@@ -109,29 +109,29 @@ class BaitulMal extends CI_Controller {
                 'alamat' => $this->input->post('alamat'),
                 'foto' => $update_filename
             );
-                $this->bidang->update_baitul($id_baitul, $data);
-                $this->session->set_flashdata('update', 'Data Baitul Mal & Sosial Berhasil di Update');
-                redirect('admin/baitulmal');
+                $this->bidang->update_dakwah($id_dakwah, $data);
+                $this->session->set_flashdata('update', 'Data Ibadah & Dakwah Berhasil di Update');
+                redirect('admin/dakwah');
         }else{
             echo "Gagal Data Tidak ditemukan";
         }
     }
 
-    public function delete($id_baitul)
+    public function delete($id_dakwah)
     {
-        $id_baitul = $this->input->post('id_baitul');
+        $id_dakwah = $this->input->post('id_dakwah');
         // $imam = new Imam_model;
-        if ($this->bidang->checkBaitulImage($id_baitul)) {
-            $data = $this->bidang->checkBaitulImage($id_baitul);
+        if ($this->bidang->checkDakwahImage($id_dakwah)) {
+            $data = $this->bidang->checkDakwahImage($id_dakwah);
             if (file_exists("./upload/bidang/".$data->foto)) {
                 unlink("./upload/bidang/".$data->foto);
             }
             $del = [
-                'id_baitul' => $id_baitul
+                'id_dakwah' => $id_dakwah
             ];
-            $this->bidang->deleteBaitul($id_baitul, $del);
-            $this->session->set_flashdata('success', 'Data Baitul Mal & Sosial Berhasil di Hapus');
-            redirect('admin/baitulmal');
+            $this->bidang->deleteDakwah($id_dakwah, $del);
+            $this->session->set_flashdata('success', 'Data Ibadah & Dakwah Berhasil di Hapus');
+            redirect('admin/dakwah');
         }
     }
 }

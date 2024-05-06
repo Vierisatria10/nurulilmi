@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Bulan Mei 2024 pada 10.48
+-- Waktu pembuatan: 04 Bulan Mei 2024 pada 09.31
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -69,6 +69,36 @@ INSERT INTO `bidang_dakwah` (`id_dakwah`, `nama`, `foto`, `jabatan`, `alamat`, `
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `bidang_humas`
+--
+
+CREATE TABLE `bidang_humas` (
+  `id_humas` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `jabatan` varchar(100) NOT NULL,
+  `alamat` text NOT NULL,
+  `foto` text NOT NULL,
+  `tanggal` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `bidang_kartib`
+--
+
+CREATE TABLE `bidang_kartib` (
+  `id_kartib` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `jabatan` varchar(100) NOT NULL,
+  `alamat` text NOT NULL,
+  `foto` text NOT NULL,
+  `tanggal` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `bidang_kepemudaan`
 --
 
@@ -87,6 +117,36 @@ CREATE TABLE `bidang_kepemudaan` (
 
 INSERT INTO `bidang_kepemudaan` (`id_pemuda`, `nama`, `jabatan`, `alamat`, `foto`, `tanggal`) VALUES
 (1, 'PARYOKO', 'KABID PEMUDA', 'BLOK G9 NO. 22 RT. 01/RW. 03', '5.jpg', '2024-05-03 14:26:52');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `bidang_sdm`
+--
+
+CREATE TABLE `bidang_sdm` (
+  `id_sdm` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `jabatan` varchar(100) NOT NULL,
+  `alamat` text NOT NULL,
+  `foto` text NOT NULL,
+  `tanggal` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `bidang_umum`
+--
+
+CREATE TABLE `bidang_umum` (
+  `id_umum` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `jabatan` varchar(100) NOT NULL,
+  `alamat` text NOT NULL,
+  `foto` text NOT NULL,
+  `tanggal` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -178,6 +238,13 @@ CREATE TABLE `tbl_galeri` (
   `token` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tbl_galeri`
+--
+
+INSERT INTO `tbl_galeri` (`galeri_id`, `galeri_nama`, `galeri_foto`, `galeri_user`, `token`) VALUES
+(1, 'gambar 1', '', 'Admin', '0.8578755820403237');
+
 -- --------------------------------------------------------
 
 --
@@ -201,9 +268,11 @@ CREATE TABLE `tbl_imam` (
 --
 
 INSERT INTO `tbl_imam` (`id_imam`, `nama`, `jabatan`, `foto`, `link1`, `link2`, `link3`, `tanggal`, `alamat`) VALUES
-(1, 'USTADZ CARMIN', 'IMAM TETAP', '1.jpg', '', '', '', '2024-02-13 03:44:27', 'BLOK G9 NO. 44 RT. 01/RW. 03'),
-(2, 'A.SYAUGI, S.Pd,i', 'IMAM 1', '5.jpg', '-', '-', '-', '2024-02-13 04:01:59', 'BLOK F6 NO. 29 RT. 011/RW. 01'),
-(3, 'UST. OMAN A.', 'IMAM 2', '5.jpg', '-', '-', '-', '2024-02-13 04:05:59', 'BLOK A6 NO. 11 RT. 07/RW. 01');
+(1, 'USTADZ CARMIN', 'IMAM TETAP', 'ust_carmin.jpeg', '', '', '', '2024-02-13 03:44:27', 'BLOK G9 NO. 44 RT. 01/RW. 03>>'),
+(2, 'A.SYAUGI, S.Pd,i', 'IMAM 1', 'ust_syaugi.jpeg', '-', '-', '-', '2024-02-13 04:01:59', 'BLOK F6 NO. 29 RT. 011/RW. 01>'),
+(3, 'UST. OMAN A.', 'IMAM 2', 'ust_oman.jpeg', '-', '-', '-', '2024-02-13 04:05:59', 'BLOK A6 NO. 11 RT. 07/RW. 01>'),
+(5, 'UST. SYABLI HS', 'IMAM 3', 'ust_syabli.jpeg', '-', '-', '-', '2024-05-04 03:54:01', 'BLOK F6 NO. 08 RT. 011/RW. 01>>>'),
+(6, 'UST. AHMAD DAELAMI', 'MUADZIN', 'ust_daelani.jpeg', '-', '-', '-', '2024-05-04 03:59:42', '->');
 
 -- --------------------------------------------------------
 
@@ -370,6 +439,9 @@ CREATE TABLE `tbl_setting` (
   `judul1` varchar(100) NOT NULL,
   `judul2` varchar(100) NOT NULL,
   `judul3` varchar(100) NOT NULL,
+  `text1` text NOT NULL,
+  `text2` text NOT NULL,
+  `text3` text NOT NULL,
   `sosmed1` text NOT NULL,
   `sosmed2` text NOT NULL,
   `sosmed3` text NOT NULL,
@@ -382,8 +454,8 @@ CREATE TABLE `tbl_setting` (
 -- Dumping data untuk tabel `tbl_setting`
 --
 
-INSERT INTO `tbl_setting` (`id_setting`, `id_jadwal`, `nama_masjid`, `alamat`, `no_hp`, `link_alamat`, `email`, `logo`, `banner1`, `banner2`, `banner3`, `judul1`, `judul2`, `judul3`, `sosmed1`, `sosmed2`, `sosmed3`, `ayat_quran`, `artinya`, `surah`) VALUES
-(1, 3, 'Nurul Ilmi', '<p>Jl. Raya Serang, Talaga, Kec. Cikupa, Kabupaten Tangerang, Banten 15710</p>', '087781581583', '', 'nurulilmi@gmail.com', 'logo.jpeg', 'bg1.jpeg', 'bg2.jpeg', 'bg3.jpeg', 'Judul 1', 'judul 2', 'judul 3', 'https://facebook.com/', 'https://instagram.com/', 'https://youtube.com/', 'وَلَا تَقْرَبُوا الزِّنٰىٓ اِنَّهٗ كَانَ فَاحِشَةًۗ وَسَاۤءَ سَبِيْلًا', 'Janganlah kamu mendekati zina. Sesungguhnya (zina) itu adalah perbuatan keji dan jalan terburuk.', 'Al-Isra\', Ayat 32');
+INSERT INTO `tbl_setting` (`id_setting`, `id_jadwal`, `nama_masjid`, `alamat`, `no_hp`, `link_alamat`, `email`, `logo`, `banner1`, `banner2`, `banner3`, `judul1`, `judul2`, `judul3`, `text1`, `text2`, `text3`, `sosmed1`, `sosmed2`, `sosmed3`, `ayat_quran`, `artinya`, `surah`) VALUES
+(1, 3, 'Nurul Ilmi', '<p>Jl. Raya Serang, Talaga, Kec. Cikupa, Kabupaten Tangerang, Banten 15710</p>', '087781581583', '', 'nurulilmi@gmail.com', 'logo.jpeg', 'bg1.jpeg', 'bg2.jpeg', 'bg3.jpeg', 'Judul 1', 'judul 2', 'judul 3', '', '', '', 'https://facebook.com/', 'https://instagram.com/', 'https://youtube.com/', 'وَلَا تَقْرَبُوا الزِّنٰىٓ اِنَّهٗ كَانَ فَاحِشَةًۗ وَسَاۤءَ سَبِيْلًا', 'Janganlah kamu mendekati zina. Sesungguhnya (zina) itu adalah perbuatan keji dan jalan terburuk.', 'Al-Isra\', Ayat 32');
 
 -- --------------------------------------------------------
 
@@ -488,10 +560,34 @@ ALTER TABLE `bidang_dakwah`
   ADD PRIMARY KEY (`id_dakwah`);
 
 --
+-- Indeks untuk tabel `bidang_humas`
+--
+ALTER TABLE `bidang_humas`
+  ADD PRIMARY KEY (`id_humas`);
+
+--
+-- Indeks untuk tabel `bidang_kartib`
+--
+ALTER TABLE `bidang_kartib`
+  ADD PRIMARY KEY (`id_kartib`);
+
+--
 -- Indeks untuk tabel `bidang_kepemudaan`
 --
 ALTER TABLE `bidang_kepemudaan`
   ADD PRIMARY KEY (`id_pemuda`);
+
+--
+-- Indeks untuk tabel `bidang_sdm`
+--
+ALTER TABLE `bidang_sdm`
+  ADD PRIMARY KEY (`id_sdm`);
+
+--
+-- Indeks untuk tabel `bidang_umum`
+--
+ALTER TABLE `bidang_umum`
+  ADD PRIMARY KEY (`id_umum`);
 
 --
 -- Indeks untuk tabel `tbl_agenda`
@@ -609,10 +705,34 @@ ALTER TABLE `bidang_dakwah`
   MODIFY `id_dakwah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT untuk tabel `bidang_humas`
+--
+ALTER TABLE `bidang_humas`
+  MODIFY `id_humas` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `bidang_kartib`
+--
+ALTER TABLE `bidang_kartib`
+  MODIFY `id_kartib` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `bidang_kepemudaan`
 --
 ALTER TABLE `bidang_kepemudaan`
   MODIFY `id_pemuda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `bidang_sdm`
+--
+ALTER TABLE `bidang_sdm`
+  MODIFY `id_sdm` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `bidang_umum`
+--
+ALTER TABLE `bidang_umum`
+  MODIFY `id_umum` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_agenda`
@@ -636,13 +756,13 @@ ALTER TABLE `tbl_download`
 -- AUTO_INCREMENT untuk tabel `tbl_galeri`
 --
 ALTER TABLE `tbl_galeri`
-  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `galeri_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_imam`
 --
 ALTER TABLE `tbl_imam`
-  MODIFY `id_imam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_imam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_jadwal`

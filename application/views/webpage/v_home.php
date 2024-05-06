@@ -409,7 +409,7 @@
             </div>
             <div class="row">
                 <?php foreach($data_imam as $imam) : ?>
-                <div class="col-sm-6 col-lg-4">
+                <div class="col-sm-6 col-lg-3">
                     <div class="team-item mt-4">
                         <div class="team-image">
                             <ul class="team-social list-inline">
@@ -432,6 +432,8 @@
                     </div>
                 </div>
                 <?php endforeach; ?>
+                <div class="text-center mt-5" data-aos="slide-up"><a class='btn btn-primary text-white'
+                        href='<?= base_url('imam') ?>'>Semua Imam</a></div>
             </div>
         </div>
     </div>

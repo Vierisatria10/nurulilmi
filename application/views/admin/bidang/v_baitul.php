@@ -109,7 +109,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/baitulmal/simpan_data') ?>" method="POST"
+                <form action="<?= base_url('admin/baitul/simpan_data') ?>" method="POST"
                     enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="">Nama</label>
@@ -150,7 +150,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/baitulmal/update_data/'.$baitul->id_baitul) ?>" method="POST"
+                <form action="<?= base_url('admin/baitul/update_data/'.$baitul->id_baitul) ?>" method="POST"
                     enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="">Nama</label>
@@ -200,7 +200,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/ibaitulmal/delete/'.$baitul->id_baitul) ?>" method="POST"
+                <form action="<?= base_url('admin/baitul/delete/'.$baitul->id_baitul) ?>" method="POST"
                     enctype="multipart/form-data">
                     <input type="hidden" id="id_baitul" name="id_baitul" value="<?= $baitul->id_baitul ?>">
                     <p class="text-danger">Menghapus Data Baitul Mal & Sosial yang bernama :

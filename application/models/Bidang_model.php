@@ -9,6 +9,7 @@ class Bidang_model extends CI_Model {
     var $tablehumas      = 'bidang_humas';
     var $tablesdm        = 'bidang_sdm';
     var $tableumum       = 'bidang_umum';
+    var $tablekartib     = 'bidang_kartib';
 
     // Bidang ibadah & Dakwah
     public function getDataDakwah()
@@ -125,6 +126,93 @@ class Bidang_model extends CI_Model {
 	{
 		$this->db->where('id_humas', $id_humas);
 		return $this->db->delete($this->tablehumas, $del);
+	}
+
+    // Bidang SDM'
+    public function getDataSDM()
+	{
+		return $this->db->get($this->tablesdm)->result();
+	}
+
+    public function add_sdm($save) {
+        return $this->db->insert($this->tablesdm, $save);
+        // return $this->db->insert_id();
+    }
+
+    public function update_sdm($id_Sdm, $data)
+    {
+        $this->db->where('id_Sdm', $id_Sdm);
+		$this->db->update($this->tablesdm, $data);
+    }
+
+    public function checkSDMImage($id_Sdm)
+    {
+        $query = $this->db->get_where($this->tablesdm, ['id_Sdm' => $id_Sdm]);
+        return $query->row();
+    }
+
+    public function deleteSDM($id_sdm, $del)
+	{
+		$this->db->where('id_sdm', $id_sdm);
+		return $this->db->delete($this->tablesdm, $del);
+	}
+
+    // Bidang Umum
+    public function getDataUmum()
+	{
+		return $this->db->get($this->tableumum)->result();
+	}
+
+    public function add_umum($save) {
+        return $this->db->insert($this->tableumum, $save);
+        // return $this->db->insert_id();
+    }
+
+    public function update_umum($id_umum, $data)
+    {
+        $this->db->where('id_umum', $id_umum);
+		$this->db->update($this->tableumum, $data);
+    }
+
+    public function checkUmumImage($id_umum)
+    {
+        $query = $this->db->get_where($this->tableumum, ['id_umum' => $id_umum]);
+        return $query->row();
+    }
+
+    public function deleteUmum($id_umum, $del)
+	{
+		$this->db->where('id_umum', $id_umum);
+		return $this->db->delete($this->tableumum, $del);
+	}
+
+    // Bidang Kartib
+    public function getDataKartib()
+	{
+		return $this->db->get($this->tablekartib)->result();
+	}
+
+    public function add_kartib($save) {
+        return $this->db->insert($this->tablekartib, $save);
+        // return $this->db->insert_id();
+    }
+
+    public function update_kartib($id_kartib, $data)
+    {
+        $this->db->where('id_kartib', $id_kartib);
+		$this->db->update($this->tablekartib, $data);
+    }
+
+    public function checkKartibImage($id_kartib)
+    {
+        $query = $this->db->get_where($this->tablekartib, ['id_kartib' => $id_kartib]);
+        return $query->row();
+    }
+
+    public function deleteKartib($id_kartib, $del)
+	{
+		$this->db->where('id_kartib', $id_kartib);
+		return $this->db->delete($this->tablekartib, $del);
 	}
 
 }

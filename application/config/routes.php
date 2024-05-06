@@ -74,6 +74,18 @@ $route['admin/visimisi'] = 'admin/VisiMisi';
 $route['admin/visimisi/tambah'] = 'admin/VisiMisi/tambah';
 $route['admin/visimisi/edit/(:any)'] = 'admin/VisiMisi/edit/$1';
 
+// Bidang
+$route['admin/dakwah'] = 'admin/Dakwah';
+$route['admin/baitul']    = 'admin/Baitul';
+$route['admin/kepemudaan']   = 'admin/Kepemudaan';
+$route['admin/humas']        = 'admin/Humas';
+$route['admin/sdm']          = 'admin/SDM';
+$route['admin/umum']         = 'admin/Umum';
+$route['admin/kartib']       = 'admin/kartib';
+$rouw['bidang/baitul']       = 'Bidang/baitul';
+$rouw['bidang/dakwah']       = 'Bidang/dakwah';
+
+
 // Pimpinan
 $route['admin/pimpinan'] = 'admin/Pimpinan';
 $route['admin/pimpinan/tambah'] = 'admin/Pimpinan/tambah';

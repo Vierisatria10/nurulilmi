@@ -24,7 +24,7 @@ class Setting_model extends CI_Model {
         $this->db->select('b.jam');
         $this->db->from('tbl_setting a');
         $this->db->join('tbl_jadwal b', 'a.id_jadwal = b.id_jadwal');
-        $this->db->where('b.jam >', $now);
+        $this->db->where('b.jam > NOW()');
         $query = $this->db->get();
 
         // Ambil waktu shalat dari hasil query

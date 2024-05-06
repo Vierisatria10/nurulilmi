@@ -81,7 +81,7 @@ class Galeri extends CI_Controller {
       private function _configUpload()
     {
         $config['upload_path'] = $this->path;
-        $config['allowed_types'] = 'gif|jpg|jpeg|png|jpeg|bmp';
+        $config['allowed_types'] = 'gif|jpg|jpeg|png|jpeg|bmp|JPG';
         $config['encrypt_name'] = TRUE;
         $this->load->library('upload');
         $this->upload->initialize($config);
@@ -104,7 +104,7 @@ class Galeri extends CI_Controller {
 
     public function upload() {
         $config['upload_path']   = FCPATH.'/upload/galeri/';
-        $config['allowed_types'] = 'gif|jpg|png|ico|jpeg';
+        $config['allowed_types'] = 'gif|jpg|png|ico|jpeg|JPEG|JPG';
         $this->load->library('upload',$config);
 
         if($this->upload->do_upload('userfile')){
@@ -142,11 +142,34 @@ class Galeri extends CI_Controller {
 
     public function simpanedit()
     {
+        $old_filename = $this->input->post('old_foto');
+        $new_filename = $_FILES['foto']['name'];
+
+        if ($new_filename == TRUE) {
+            $update_filename = str_replace(' ', '-', $_FILES['foto']['name']);
+            $config['upload_path']   = './upload/galeri/';
+            $config['allowed_types'] = 'gif|jpg|png|ico|jpeg|JPG|JPEG';
+            $config['file_name']            = $update_filename;
+            $config['encrypt_name']         = False;
+            $this->load->library('upload',$config);
+            
+            if ($this->upload->do_upload('foto')) {
+                if (file_exists("./upload/galeri/".$old_filename)) {
+                    unlink("./upload/galeri/".$old_filename);
+                }
+            }
+        }else{
+            $update_filename = $old_filename;
+        }
+
+        $id = $this->input->post('id');
+       
         $data = array(
 			'galeri_nama' => $this->input->post('judul'),
+            'galeri_foto' => $update_filename
 		);
-		$this->db->where('galeri_id', $this->input->post('id'));
-		$simpan = $this->db->update('tbl_galeri', $data);
+
+		$simpan = $this->galeri->update_galeri($id, $data);
 		if ($simpan) {
 			echo 'success';
 		} else {

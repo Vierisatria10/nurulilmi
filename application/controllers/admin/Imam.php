@@ -45,7 +45,7 @@ class Imam extends CI_Controller {
             // File Upload Configuration
             $config['upload_path']          = './upload/imam/';
             $config['allowed_types']        = 'gif|jpg|png|jpeg|JPG|JPEG';
-            $config['max_size']             = 10048; // 10MB
+            // $config['max_size']             = 10048; // 10MB
             $config['encrypt_name']         = False;
             
             $this->load->library('upload', $config);

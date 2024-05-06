@@ -42,11 +42,11 @@
     <div class="page-title-area py-lg-6 py-5 bg-image-pattern">
         <div class="container">
             <div class="page-title-wrapper text-center">
-                <h1 class="text-white mb-2">Imam dan Muadzin</h1>
+                <h1 class="text-white mb-2">Baitul Mal dan Sosial</h1>
                 <nav class="page-breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href='<?= base_url('home') ?>'>Home</a></li>
-                        <li class="breadcrumb-item active">Imam Dan Muadzin</li>
+                        <li class="breadcrumb-item active">Baitul Mal Dan Sosial</li>
                     </ol>
                 </nav>
             </div>
@@ -57,11 +57,11 @@
         <div class="container">
             <div class="section-title text-center mb-4">
 
-                <h2 class="h1">Imam Dan Muadzin</h2>
+                <h2 class="h1">Baitul Mal Dan Sosial</h2>
             </div>
-            <?php if(!empty($data_imam)) : ?>
+            <?php if(!empty($data_baitul)) : ?>
             <div class="row">
-                <?php foreach($data_imam as $imam) : ?>
+                <?php foreach($data_baitul as $baitul) : ?>
                 <div class="col-sm-6 col-lg-3">
                     <div class="team-item mt-4">
                         <div class="team-image">
@@ -70,24 +70,24 @@
                                 <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
                                 <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
                             </ul>
-                            <?php if(!empty($imam->foto)) : ?>
-                            <img src="<?= base_url('upload/imam/'.$imam->foto) ?>" alt="title">
+                            <?php if(!empty($baitul->foto)) : ?>
+                            <img src="<?= base_url('upload/bidang/'.$baitul->foto) ?>" alt="title">
                             <?php else: ?>
                             <img src="<?= base_url('upload/default.png') ?>" alt="">
                             <?php endif; ?>
                         </div>
                         <div class="team-content">
-                            <h5>Nama &nbsp;: <?= $imam->nama ?></h5>
-                            <span class="text-primary">Jabatan : <?= $imam->jabatan ?></span>
+                            <h5>Nama &nbsp;: <?= $baitul->nama ?></h5>
+                            <span class="text-primary">Jabatan : <?= $baitul->jabatan ?></span>
                             <br>
-                            <span>Alamat &nbsp;: <?= $imam->alamat ?></span>
+                            <span>Alamat &nbsp;: <?= $baitul->alamat ?></span>
                         </div>
                     </div>
                 </div>
                 <?php endforeach; ?>
             </div>
             <?php else: ?>
-            <h3 class="text-center text-danger">"Data Imam Dan Muadzin Belum Ada"</h3>
+            <h3 class="text-center text-danger">"Data Baitul Mal Dan Sosial Belum Ada"</h3>
             <?php endif; ?>
         </div>
     </div>

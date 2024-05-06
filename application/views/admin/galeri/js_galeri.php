@@ -136,6 +136,11 @@
                                         <br>
                                         <img src="" id="modalImage" width="100" alt="">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="">Upload Foto</label>
+                                        <input type="hidden" name="old_foto" id="old_foto" class="form-control">
+                                        <input type="file" name="foto" id="foto" class="form-control">
+                                    </div>
                                     <!-- /.form-group -->
 
                                     <!-- /.form-group -->
@@ -271,6 +276,7 @@ $(document).ready(function() {
                         '<?= base_url('upload/galeri/') ?>' + data
                         .galeri_foto);
                     $('[name="enama"]').val(data.galeri_nama);
+                    $('[name="old_foto"]').val(data.galeri_foto);
 
                 });
             }
@@ -283,11 +289,13 @@ $(document).ready(function() {
             var id = $("#kodedit").val();
 
             var judul = $("#enama").val();
+            var foto  = $("#foto").val();
 
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url() ?>admin/galeri/simpanedit",
                 data: {
+                    'foto' : foto,
                     'judul': judul,
                     'id': id
                 },

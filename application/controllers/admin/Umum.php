@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class SDM extends CI_Controller {
+class Umum extends CI_Controller {
 
     public function __construct()
 	{
@@ -16,13 +16,13 @@ class SDM extends CI_Controller {
 	public function index()
 	{
         $data = [
-            'judul' => 'SDM & Pendidikan',
-            'title' => 'SDM & Pendidikan - Masjid Nurul Ilmi',
-            'menu'  => 'sdm',
+            'judul' => 'Umum & Kerumahtanggan',
+            'title' => 'Umum & Kerumahtanggan - Masjid Nurul Ilmi',
+            'menu'  => 'umum',
             'total_download' => $this->download->count_download(),
-            'data_sdm' => $this->bidang->getDataSDM()
+            'data_umum' => $this->bidang->getDataUmum()
         ];
-		$this->template->load('v_template_admin', 'admin/bidang/v_sdm', $data);
+		$this->template->load('v_template_admin', 'admin/bidang/v_umum', $data);
 	}
 
     public function simpan_data()
@@ -33,13 +33,13 @@ class SDM extends CI_Controller {
        
         if ($this->form_validation->run() == FALSE) {
             $data = [
-                'judul' => 'Hubungan Masyarakat',
-                'title' => 'Hubungan Masyarakat - Masjid Nurul Ilmi',
-                'menu'  => 'humas',
+                'judul' => 'Umum & Kerumahtanggan',
+                'title' => 'Umum & Kerumahtanggan - Masjid Nurul Ilmi',
+                'menu'  => 'umum',
                 'total_download' => $this->download->count_download(),
-                'data_sdm' => $this->bidang->getDataSDM()
+                'data_umum' => $this->bidang->getDataUmum()
             ];
-            $this->template->load('v_template_admin', 'admin/bidang/v_sdm', $data);
+            $this->template->load('v_template_admin', 'admin/bidang/v_umum', $data);
         } else {
             $config['upload_path']          = './upload/bidang/';
             $config['allowed_types']        = 'gif|jpg|png|jpeg|JPG|JPEG';
@@ -52,7 +52,7 @@ class SDM extends CI_Controller {
             if (!$this->upload->do_upload('foto')) {
                 $error =$this->upload->display_errors();
                 $this->session->set_flashdata('error', $error);
-                redirect('admin/sdm');
+                redirect('admin/umum');
             } else {
                 $save = [
                     'nama' => $this->input->post('nama'),
@@ -60,19 +60,19 @@ class SDM extends CI_Controller {
                     'alamat' => $this->input->post('alamat'),
                     'foto' => $this->upload->data('file_name')
                 ];
-                $result = $this->bidang->add_sdm($save);
+                $result = $this->bidang->add_umum($save);
                 if ($result) {
-                   $this->session->set_flashdata('success', 'Data SDM & Pendidikan Berhasil di Simpan');
-                    redirect('admin/sdm');
+                   $this->session->set_flashdata('success', 'Data Umum & Kerumahtanggaan Berhasil di Simpan');
+                    redirect('admin/umum');
                 }else {
-                    $this->session->set_flashdata('error', 'Data SDM & Pendidikan Gagal di Simpan');
-                    redirect('admin/sdm');
+                    $this->session->set_flashdata('error', 'Data Umum & Kerumahtanggaan Gagal di Simpan');
+                    redirect('admin/umum');
                 }
             }  
         }
     }
 
-    public function update_data($id_sdm)
+    public function update_data($id_umum)
     {
         $this->form_validation->set_rules('nama', 'Nama', 'trim|required',
             ['required' => 'Nama Wajib diisi']
@@ -109,29 +109,29 @@ class SDM extends CI_Controller {
                 'alamat' => $this->input->post('alamat'),
                 'foto' => $update_filename
             );
-                $this->bidang->update_sdm($id_sdm, $data);
-                $this->session->set_flashdata('update', 'Data SDM & Pendidikan Berhasil di Update');
-                redirect('admin/sdm');
+                $this->bidang->update_umum($id_umum, $data);
+                $this->session->set_flashdata('update', 'Data Umum & Kerumahtanggaan Berhasil di Update');
+                redirect('admin/umum');
         }else{
             echo "Gagal Data Tidak ditemukan";
         }
     }
 
-    public function delete($id_sdm)
+    public function delete($id_umum)
     {
-        $id_sdm = $this->input->post('id_sdm');
+        $id_umum = $this->input->post('id_umum');
         // $imam = new Imam_model;
-        if ($this->bidang->checkSDMImage($id_sdm)) {
-            $data = $this->bidang->checkSDMImage($id_sdm);
+        if ($this->bidang->checkUmumImage($id_umum)) {
+            $data = $this->bidang->checkUmumImage($id_umum);
             if (file_exists("./upload/bidang/".$data->foto)) {
                 unlink("./upload/bidang/".$data->foto);
             }
             $del = [
-                'id_sdm' => $id_sdm
+                'id_umum' => $id_umum
             ];
-            $this->bidang->deleteSDM($id_sdm, $del);
-            $this->session->set_flashdata('success', 'Data SDM & Pendidikan Berhasil di Hapus');
-            redirect('admin/sdm');
+            $this->bidang->deleteUmum($id_umum, $del);
+            $this->session->set_flashdata('success', 'Data Umum & Kerumahtanggaan Berhasil di Hapus');
+            redirect('admin/umum');
         }
     }
 }

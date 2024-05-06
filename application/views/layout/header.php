@@ -51,23 +51,23 @@
                          <li class="nav-item">
                              <a class='nav-link toogler' href="#" id="bidang"> Bidang </a>
                              <ul class="dropdown-menu">
-                                 <li><a class='dropdown-item' href="#">Ibadah dan
+                                 <li><a class='dropdown-item' href="<?= base_url('bidang/dakwah') ?>">Ibadah dan
                                          Dakwah</a>
                                  </li>
-                                 <li><a class='dropdown-item' href="#">Baitul Mall dan
+                                 <li><a class='dropdown-item' href="<?= base_url('bidang/baitul') ?>">Baitul Mall dan
                                          Sosial</a></li>
-                                 <li><a class='dropdown-item' href="#">Kepemudaan</a>
+                                 <li><a class='dropdown-item' href="<?= base_url('bidang/kepemudaan') ?>">Kepemudaan</a>
                                  </li>
-                                 <li><a class='dropdown-item' href="#">SDM dan
+                                 <li><a class='dropdown-item' href="<?= base_url('bidang/sdm') ?>">SDM dan
                                          Pendidikan</a>
                                  </li>
-                                 <li><a class='dropdown-item' href="#">Umum dan
+                                 <li><a class='dropdown-item' href="<?= base_url('bidang/umum') ?>">Umum dan
                                          Kerumahtanggaan</a>
                                  </li>
-                                 <li><a class='dropdown-item' href="#">Hubungan
+                                 <li><a class='dropdown-item' href="<?= base_url('bidang/humas') ?>">Hubungan
                                          Masyarakat</a>
                                  </li>
-                                 <li><a class='dropdown-item' href="#">Keamanan
+                                 <li><a class='dropdown-item' href="<?= base_url('bidang/kartib') ?>">Keamanan
                                          dan Ketertiban</a>
                                  </li>
                              </ul>

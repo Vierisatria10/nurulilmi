@@ -109,7 +109,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/ibadahdakwah/simpan_data') ?>" method="POST"
+                <form action="<?= base_url('admin/dakwah/simpan_data') ?>" method="POST"
                     enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="">Nama</label>
@@ -150,7 +150,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/ibadahdakwah/update_data/'.$dakwah->id_dakwah) ?>" method="POST"
+                <form action="<?= base_url('admin/dakwah/update_data/'.$dakwah->id_dakwah) ?>" method="POST"
                     enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="">Nama</label>
@@ -200,7 +200,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= base_url('admin/ibadahdakwah/delete/'.$dakwah->id_dakwah) ?>" method="POST"
+                <form action="<?= base_url('admin/dakwah/delete/'.$dakwah->id_dakwah) ?>" method="POST"
                     enctype="multipart/form-data">
                     <input type="hidden" id="id_dakwah" name="id_dakwah" value="<?= $dakwah->id_dakwah ?>">
                     <p class="text-danger">Menghapus Data Ibadah & Dakwah yang bernama :

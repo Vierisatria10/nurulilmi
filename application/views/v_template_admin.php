@@ -313,7 +313,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('admin/baitulmal') ?>" class="nav-link <?= $menu == 'baitulmal' ? 'active' : '' ?>">
+                                    <a href="<?= base_url('admin/baitul') ?>" class="nav-link <?= $menu == 'baitul' ? 'active' : '' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Baitul Mall dan Sosial</p>   
                                     </a>
@@ -331,7 +331,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/charts/inline.html" class="nav-link">
+                                    <a href="<?= base_url('admin/umum') ?>" class="nav-link <?= $menu == 'umum' ? 'active' : '' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Umum & Kerumahtanggan</p>
                                     </a>
@@ -343,7 +343,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="pages/charts/inline.html" class="nav-link">
+                                    <a href="<?= base_url('admin/kartib') ?>" class="nav-link <?= $menu == 'kartib' ? 'active' : '' ?>">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Keamanan dan Ketertiban</p>
                                     </a>
